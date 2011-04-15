@@ -1,6 +1,7 @@
 @prefix dc:         <http://purl.org/dc/terms/> .
 @prefix gr:         <http://purl.org/goodrelations/v1#> .
 @prefix payment:    <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 
 # --- Own namespaces -----------------------------------------
@@ -21,17 +22,17 @@ cex:contract1	a c:Contract ;
 	  gr:valueAddedTaxIncluded "false"^^xsd:boolean ;
    	gr:hasCurrency "CZK" ;
 	  gr:hasCurrencyValue "1000000.0"^^xsd:float
-  ]
+  ] ;
   c:supplementPrice [
     a gr:PriceSpecification ;
     gr:hasCurrency "CZK" ;
     gr:hasCurrencyValue "300000.0"^^xsd:float
-  ];
+  ] ;
   c:subsidy [
     a gr:PriceSpecification ;
     c:hasCurrency "EUR" ;
     gr:hasCurrencyValue "10000.0"^^xsd:float
-  ];
+  ] ;
   c:quality "true"^^xsd:boolean ;
   c:onSchedule "false"^^xsd:boolean ;
   c:url <http://www.mesto.cz/...html> ;

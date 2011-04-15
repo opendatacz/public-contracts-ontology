@@ -3,6 +3,7 @@
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 
 # --- Own namespaces ------------------------------------------
@@ -20,8 +21,8 @@ c:Contract a rdfs:Class ;
 
 # Předmět veřejné zakázky 
 # 1..*
-c:subject a rdf:Property;
-  rdfs:domain c:Contract;
+c:subject a rdf:Property ;
+  rdfs:domain c:Contract ;
   rdfs:range rdfs:Literal ;
   rdfs:label "Předmět"@cs,
     "Subject"@en ;
@@ -32,14 +33,15 @@ c:subject a rdf:Property;
       
 # Datum zveřejnění veřejné zakázky
 # 1..1    
-dc:issued rdfs:domain c:Contract ;
+dc:issued rdfs:domain c:Contract
+  .
 
 # Datum pro podávání nabídek na realizaci veřejné zakázky
 # 1..1    
-c:bidDeadline a rdf:Property;
-  rdfs:domain c:Contract;
+c:bidDeadline a rdf:Property ;
+  rdfs:domain c:Contract ;
   rdfs:range rdfs:Literal ;
-  rdfs:subPropertyof dc:date ;
+  rdfs:subPropertyOf dc:date ;
 	rdfs:label "Datum podání nabídek"@cs,
 	  "Bid deadline"@en ;
   rdfs:comment "Datum pro podávání nabídek na realizaci veřejné zakázky"@cs,
@@ -126,7 +128,7 @@ c:bidder a rdf:Property;
 c:orgNumber a rdf:Property ;
   rdfs:subPropertyOf dc:identifier ;
 	rdfs:domain gr:BusinessEntity ;
-	rdfs:range rdfs:Literal 
+	rdfs:range rdfs:Literal ;
   rdfs:label "IČ"@cs,
     "Organization number"@en ;
   rdfs:comment "Identifikační číslo subjektu"@cs,
