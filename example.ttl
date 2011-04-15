@@ -30,7 +30,7 @@ cex:contract1	a c:Contract ;
   ] ;
   c:subsidy [
     a gr:PriceSpecification ;
-    c:hasCurrency "EUR" ;
+    gr:hasCurrency "EUR" ;
     gr:hasCurrencyValue "10000.0"^^xsd:float
   ] ;
   c:quality "true"^^xsd:boolean ;
@@ -44,15 +44,15 @@ cex:bid1 a c:Bid ;
    c:bidder cex:organization1 ;
    c:bidPrice [
      a gr:PriceSpecification ;
-     c:currency "CZK" ;
-     c:amount "1000000"^^xsd:int
+     gr:hasCurrency "CZK" ;
+     gr:hasCurrencyValue "1000000.0"^^xsd:float
    ].
 
 cex:bid2 a c:Bid ;
   c:bidder cex:organization2 ;
   c:bidPrice [
-    a c:Price ;
-    c:hasCurrency "CZK" ;
+    a gr:priceSpecification ;
+    gr:hasCurrency "CZK" ;
     gr:hasCurrencyValue "1500000.0"^^xsd:float
   ]
   .
