@@ -1,0 +1,135 @@
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix dct:      <http://purl.org/dc/dcmitype/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix c:        <http://example.org/c> .
+
+# Veřejná zakázka
+c:Contract a rdfs:Class ;
+	rdfs:label "Zakázka"@cs,
+	  "Contract"@en ;
+  rdfs:comment "Schválená veřejná zakázka"@cs,
+    "An accepted public contract"@en ;
+  rdfs:isDefinedBy c:
+  . 
+
+# Předmět veřejné zakázky 
+# 1..*
+c:subject a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "Předmět"@cs,
+    "Subject"@en ;
+  rdfs:comment "Předmět veřejné zakázky"@cs,
+    "Subject of a public contract"@en ;
+  rdfs:isDefinedBy c:
+  .
+      
+# Datum zveřejnění veřejné zakázky
+# 1..1    
+dc:issued rdfs:domain c:Contract ;
+
+# Datum pro podávání nabídek na realizaci veřejné zakázky
+# 1..1    
+c:bidDeadline a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyof dc:date ;
+	rdfs:label "Datum podání nabídek"@cs,
+	  "Bid deadline"@en ;
+  rdfs:comment "Datum pro podávání nabídek na realizaci veřejné zakázky"@cs,
+    "Bid deadline for a public contract"@en ;
+  rdfs:isDefinedBy c: .
+  # datatype xsd:date
+
+# Počet podaných nabídek
+# 0..1
+c:numberOfBids a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range rdfs:Literal .
+  # xsd:int
+
+# Detail podané nabídky
+# 0..*
+c:bid a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range c:Bid .
+
+# Detail vítězné nabídky
+# 0..1
+c:acceptedBid a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range c:Bid .        
+        
+# Abstraktní property pro ceny.
+c:price a rdf:Property;
+  rdfs:range gr:PriceSpecification .
+
+# Cena nabídky
+c:bidPrice rdfs:subPropertyOf c:price .
+
+# Cena na smlouvě, asi se bude shodovat s cenou vítězné nabídky.
+# 0..1
+c:contractPrice rdfs:subPropertyOf c:price .
+
+# Navýšení k ceně na smlouvě
+# 0..1
+c:supplementPrice rdfs:subPropertyOf c:price .
+
+# Poskytnutá dotace od třetí strany.
+# 0..1
+c:subsidy rdfs:subPropertyOf c:price .
+        
+# Spokojenost s kvalitou odvedené práce dodavatele na zakázce.
+# 0..1
+c:quality a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range xsd:boolean .
+
+# Spokojenost s plněním termínů dodavatelem při realizaci zakázky.
+# 0..1
+c:onSchedule a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range xsd:boolean .
+        
+# URL, kde lze najít informace k veřejné zakázce
+# 0..1
+c:url a rdf:Property ;
+  rdfs:subPropertyOf rdfs:seeAlso;
+  rdfs:domain c:Contract;
+  rdfs:range rdf:Resource .
+
+# URL doplňujícího dokumentu (smlouva, příloha, ...)
+# 0..*
+c:document a rdf:Property;
+  rdfs:subPropertyOf rdfs:seeAlso;
+  rdfs:domain c:Contract;
+  rdfs:range dct:Text .
+
+# Detail platby k veřejné zakázce
+# 0..*
+c:payment a rdf:Property;
+  rdfs:domain c:Contract;
+  rdfs:range c:Payment .
+
+c:Bid a rdfs:Class .
+
+c:bidder a rdf:Property;
+   rdfs:domain c:Bid;
+   rdfs:range gr:BusinessEntity .
+
+c:orgNumber a rdf:Property ;
+  rdfs:subPropertyOf dc:identifier ;
+	rdfs:domain gr:BusinessEntity ;
+	rdfs:range rdfs:Literal 
+  rdfs:label "IČ"@cs,
+    "Organization number"@en ;
+  rdfs:comment "Identifikační číslo subjektu"@cs,
+    "Identification number of a business entity"@en ;
+  rdfs:isDefinedBy c:
+  .

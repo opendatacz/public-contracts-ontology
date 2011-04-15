@@ -1,0 +1,85 @@
+@prefix dc:         <http://purl.org/dc/terms/> .
+@prefix gr:         <http://purl.org/goodrelations/v1#> .
+@prefix payment:    <http://reference.data.gov.uk/def/payment#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces -----------------------------------------
+
+@prefix c:          <http://example.org/c> .
+@prefix cex:        <http://example.org/cex> .
+
+cex:contract1	a c:Contract ;
+  dc:title "Jezdecké potřeby městské policie"@cs ;
+  c:subject "18911000"^^xsd:string, "18913000"^^xsd:string ;
+  dc:issued "2010-01-01"^^xsd:date ;
+  c:bidDeadline "2010-02-01"^^xsd:date ;
+  c:numberOfBids "10"^^xsd:int ;
+  c:bid cex:bid1, cex:bid2 ;
+  c:acceptedBid cex:bid1 ;
+  c:contractPrice [
+   	a gr:PriceSpecification ;
+	  gr:valueAddedTaxIncluded "false"^^xsd:boolean ;
+   	gr:hasCurrency "CZK" ;
+	  gr:hasCurrencyValue "1000000.0"^^xsd:float
+  ]
+  c:supplementPrice [
+    a gr:PriceSpecification ;
+    gr:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "300000.0"^^xsd:float
+  ];
+  c:subsidy [
+    a gr:PriceSpecification ;
+    c:hasCurrency "EUR" ;
+    gr:hasCurrencyValue "10000.0"^^xsd:float
+  ];
+  c:quality "true"^^xsd:boolean ;
+  c:onSchedule "false"^^xsd:boolean ;
+  c:url <http://www.mesto.cz/...html> ;
+  c:document <http://www.mesto.cz/...pdf> ;
+  c:payment cex:payment1, cex:payment2, cex:payment3
+  .
+
+cex:bid1 a c:Bid ;
+   c:bidder cex:organization1 ;
+   c:bidPrice [
+     a gr:PriceSpecification ;
+     c:currency "CZK" ;
+     c:amount "1000000"^^xsd:int
+   ].
+
+cex:bid2 a c:Bid ;
+  c:bidder cex:organization2 ;
+  c:bidPrice [
+    a c:Price ;
+    c:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "1500000.0"^^xsd:float
+  ]
+  .
+
+cex:organization1 a gr:BusinessEntity;
+  c:orgNumber "1234567" ;
+  gr:legalName "První koňařská a.s."
+  .
+
+cex:organization2 a gr:BusinessEntity;
+  c:orgNumber "789654123" ;
+  gr:legalName "První jezdecká a.s."
+  .
+
+cex:payment1 a payment:Payment;
+  # jdou i řádky faktur
+  payment:payer cex:organization1 ;
+  payment:payee cex:organization2
+  .
+
+cex:payment2  a payment:Payment;
+  # jdou i řádky faktur
+  payment:payer cex:organization1 ;
+  payment:payee  cex:organization2
+  .
+
+cex:payment3  a payment:Payment;
+  # jdou i řádky faktur
+  payment:payer cex:organization1 ;
+  payment:payee  cex:organization2
+  .
