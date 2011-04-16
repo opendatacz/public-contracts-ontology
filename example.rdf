@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns:c="http://example.org/c"
+   xmlns:cex="http://example.org/cex"
+   xmlns:dc="http://purl.org/dc/terms/"
+   xmlns:gr="http://purl.org/goodrelations/v1#"
+   xmlns:payment="http://reference.data.gov.uk/def/payment#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <c:Bid rdf:about="http://example.org/cexbid1">
+    <c:bidPrice>
+      <gr:PriceSpecification>
+        <c:amount rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1000000</c:amount>
+        <c:currency>CZK</c:currency>
+      </gr:PriceSpecification>
+    </c:bidPrice>
+    <c:bidder rdf:resource="http://example.org/cexorganization1"/>
+  </c:Bid>
+  <c:Bid rdf:about="http://example.org/cexbid2">
+    <c:bidPrice>
+      <c:Price>
+        <c:hasCurrency>CZK</c:hasCurrency>
+        <gr:hasCurrencyValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1500000.0</gr:hasCurrencyValue>
+      </c:Price>
+    </c:bidPrice>
+    <c:bidder rdf:resource="http://example.org/cexorganization2"/>
+  </c:Bid>
+  <c:Contract rdf:about="http://example.org/cexcontract1">
+    <c:acceptedBid rdf:resource="http://example.org/cexbid1"/>
+    <c:bid rdf:resource="http://example.org/cexbid1"/>
+    <c:bid rdf:resource="http://example.org/cexbid2"/>
+    <c:bidDeadline rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-02-01</c:bidDeadline>
+    <c:contractPrice>
+      <gr:PriceSpecification>
+        <gr:hasCurrency>CZK</gr:hasCurrency>
+        <gr:hasCurrencyValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1000000.0</gr:hasCurrencyValue>
+        <gr:valueAddedTaxIncluded rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</gr:valueAddedTaxIncluded>
+      </gr:PriceSpecification>
+    </c:contractPrice>
+    <c:document rdf:resource="http://www.mesto.cz/...pdf"/>
+    <c:numberOfBids rdf:datatype="http://www.w3.org/2001/XMLSchema#int">10</c:numberOfBids>
+    <c:onSchedule rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</c:onSchedule>
+    <c:payment rdf:resource="http://example.org/cexpayment1"/>
+    <c:payment rdf:resource="http://example.org/cexpayment2"/>
+    <c:payment rdf:resource="http://example.org/cexpayment3"/>
+    <c:quality rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</c:quality>
+    <c:subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18911000</c:subject>
+    <c:subject rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18913000</c:subject>
+    <c:subsidy>
+      <gr:PriceSpecification>
+        <c:hasCurrency>EUR</c:hasCurrency>
+        <gr:hasCurrencyValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10000.0</gr:hasCurrencyValue>
+      </gr:PriceSpecification>
+    </c:subsidy>
+    <c:supplementPrice>
+      <gr:PriceSpecification>
+        <gr:hasCurrency>CZK</gr:hasCurrency>
+        <gr:hasCurrencyValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">300000.0</gr:hasCurrencyValue>
+      </gr:PriceSpecification>
+    </c:supplementPrice>
+    <c:url rdf:resource="http://www.mesto.cz/...html"/>
+    <dc:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-01-01</dc:issued>
+    <dc:title xml:lang="cs">Jezdecké potřeby městské policie</dc:title>
+  </c:Contract>
+  <gr:BusinessEntity rdf:about="http://example.org/cexorganization1">
+    <c:orgNumber>1234567</c:orgNumber>
+    <gr:legalName>První koňařská a.s.</gr:legalName>
+  </gr:BusinessEntity>
+  <gr:BusinessEntity rdf:about="http://example.org/cexorganization2">
+    <c:orgNumber>789654123</c:orgNumber>
+    <gr:legalName>První jezdecká a.s.</gr:legalName>
+  </gr:BusinessEntity>
+  <payment:Payment rdf:about="http://example.org/cexpayment1">
+    <payment:payee rdf:resource="http://example.org/cexorganization2"/>
+    <payment:payer rdf:resource="http://example.org/cexorganization1"/>
+  </payment:Payment>
+  <payment:Payment rdf:about="http://example.org/cexpayment2">
+    <payment:payee rdf:resource="http://example.org/cexorganization2"/>
+    <payment:payer rdf:resource="http://example.org/cexorganization1"/>
+  </payment:Payment>
+  <payment:Payment rdf:about="http://example.org/cexpayment3">
+    <payment:payee rdf:resource="http://example.org/cexorganization2"/>
+    <payment:payer rdf:resource="http://example.org/cexorganization1"/>
+  </payment:Payment>
+</rdf:RDF>
