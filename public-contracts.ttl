@@ -8,7 +8,7 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix c:        <http://example.org/c> .
+@prefix c:        <http://purl.org/opendata-cz/public-contracts#> .
 
 # Veřejná zakázka
 c:Contract a rdfs:Class ;

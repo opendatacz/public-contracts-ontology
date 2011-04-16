@@ -6,7 +6,7 @@
 
 # --- Own namespaces -----------------------------------------
 
-@prefix c:          <http://example.org/c> .
+@prefix c:          <http://purl.org/opendata-cz/public-contracts#> .
 @prefix cex:        <http://example.org/cex> .
 
 cex:contract1	a c:Contract ;
