@@ -7,6 +7,7 @@
 <body>
 	
 	<h1>Příklad veřejné zakázky v RDFa</h1>
+	<p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek. Seznam plateb zhotoviteli není součástí příkladu.</p>
 	
   <div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -19,12 +20,12 @@
        xmlns:xsd="http://www.w3.org/2001/XMLSchema#">     
 
      <div typeof="c:Contract">
-        <div rel="c:acceptedBid">
+        <div rel="c:acceptedBid c:bid">
            <div class="description" typeof="c:Bid">
               <div rel="c:bidPrice">
                  <div typeof="gr:PriceSpecification">
-                    <div property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</div>&nbsp;
-                    <div property="gr:hasCurrency" content="CZK">Kč</div>
+                    <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>&nbsp;
+                    <span property="gr:hasCurrency" content="CZK">Kč</span>
                  </div>
               </div>
 				<div rel="c:bidder">
@@ -37,59 +38,27 @@
         <div rel="c:bid">
            <div typeof="c:Bid">
               <div rel="c:bidPrice">
-                 <div class="description" typeof="gr:PriceSpecification">
-                    <div property="c:hasCurrency" content="CZK"/>
-                    <div property="gr:hasCurrencyValue" content="1500000.0" datatype="xsd:float"/>
+                 <div typeof="gr:PriceSpecification">
+                    <span property="gr:hasCurrencyValue" datatype="xsd:int">1.500.000</span>&nbsp;
+					<span property="c:hasCurrency" content="CZK">Kč</span>
                  </div>
               </div>
               <div rel="c:bidder" resource="cex:organization2"/>
            </div>
         </div>
-        <div rel="c:bid" resource="cex:bid1"/>
-        <div property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"/>
+        <div property="c:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</div>
         <div rel="c:contractPrice">
-           <div class="description" typeof="gr:PriceSpecification">
-              <div property="gr:hasCurrency" content="CZK" />
-              <div property="gr:hasCurrencyValue" content="1000000.0" datatype="xsd:float" />
-              <div property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean" />
+           <div typeof="gr:PriceSpecification">
+              <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>&nbsp;
+			  <span property="gr:hasCurrency" content="CZK">Kč</span>
+              <span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean" />
            </div>
         </div>
-        <div rel="c:document" resource="http://www.mesto.cz/...pdf" />
-        <div property="c:numberOfBids" content="10" datatype="xsd:int" />
+        <div>
+			<a rel="c:document" href="http://www.mesto.cz/...pdf">Popis zakázky (PDF)</a>
+		</div>
+        <p>Počet nabídek: <span property="c:numberOfBids" datatype="xsd:int">10</span></p>		
         <div property="c:onSchedule" content="false" datatype="xsd:boolean" />
-        <div rel="c:payment">
-           <div class="description" about="cex:payment2"
-                typeof="payment:Payment">
-              <div rel="payment:payee">
-                 <div class="description" about="cex:organization2"
-                      typeof="gr:BusinessEntity">
-                    <div property="c:orgNumber" content="789654123" />
-                    <div property="gr:legalName" content="První jezdecká a.s." />
-                 </div>
-              </div>
-              <div rel="payment:payer">
-                 <div class="description" about="cex:organization1"
-                      typeof="gr:BusinessEntity">
-                    <div property="c:orgNumber" content="1234567" />
-                    <div property="gr:legalName" content="První koňařská a.s."/>
-                 </div>
-              </div>
-           </div>
-        </div>
-        <div rel="c:payment">
-           <div class="description" about="cex:payment1"
-                typeof="payment:Payment">
-              <div rel="payment:payee" resource="cex:organization2" />
-              <div rel="payment:payer" resource="cex:organization1" />
-           </div>
-        </div>
-        <div rel="c:payment">
-           <div class="description" about="cex:payment2"
-                typeof="payment:Payment">
-              <div rel="payment:payee" resource="cex:organization2" />
-              <div rel="payment:payer" resource="cex:organization1" />
-           </div>
-        </div>
         <div property="c:quality" content="true" datatype="xsd:boolean" />
         <div property="c:subject" content="18911000" datatype="xsd:string" />
         <div property="c:subject" content="18913000" datatype="xsd:string" />
@@ -100,7 +69,7 @@
            </div>
         </div>
         <div rel="c:supplementPrice">
-           <div class="description" typeof="gr:PriceSpecification">
+           <div typeof="gr:PriceSpecification">
               <div property="gr:hasCurrency" content="CZK" />
               <div property="gr:hasCurrencyValue" content="300000.0" datatype="xsd:float" />
            </div>
