@@ -117,7 +117,7 @@ c:document a rdf:Property;
 # 0..*
 c:payment a rdf:Property;
   rdfs:domain c:Contract;
-  rdfs:range c:Payment .
+  rdfs:range payment:Payment .
 
 c:Bid a rdfs:Class .
 
