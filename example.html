@@ -1,10 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"> 
 <head>
-  <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8"/>
-  <title>Example public contract in RDFa</title>
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+	<title>Příklad veřejné zakázky v RDFa</title>
 </head>
 <body>
+	
+	<h1>Příklad veřejné zakázky v RDFa</h1>
+	
   <div xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
        xmlns="http://www.w3.org/1999/xhtml"
@@ -13,24 +16,26 @@
        xmlns:c="http://example.org/contracts#"
        xmlns:cex="http://example.org/"
        xmlns:payment="http://reference.data.gov.uk/def/payment#"
-       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-       class="rdf2rdfa">
-     <h1>Example public contract in RDFa</h1>
-     <div class="description" about="cex:contract1"
-          typeof="c:Contract">
+       xmlns:xsd="http://www.w3.org/2001/XMLSchema#">     
+
+     <div typeof="c:Contract">
         <div rel="c:acceptedBid">
-           <div class="description" about="cex:bid1" typeof="c:Bid">
+           <div class="description" typeof="c:Bid">
               <div rel="c:bidPrice">
-                 <div class="description" typeof="gr:PriceSpecification">
-                    <div property="gr:hasCurrencyValue" content="1000000.0" datatype="xsd:float"/>
-                    <div property="gr:hasCurrency" content="CZK"/>
+                 <div typeof="gr:PriceSpecification">
+                    <div property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</div>&nbsp;
+                    <div property="gr:hasCurrency" content="CZK">Kč</div>
                  </div>
               </div>
-              <div rel="c:bidder" resource="cex:organization1"/>
+				<div rel="c:bidder">
+					<div typeof="gr:BusinessEntity">
+	                    <span property="gr:legalName">První koňařská a.s.</span>, IČ <span property="c:orgNumber">1234567</span>
+	                 </div>
+				</div>
            </div>
         </div>
         <div rel="c:bid">
-           <div class="description" about="cex:bid2" typeof="c:Bid">
+           <div typeof="c:Bid">
               <div rel="c:bidPrice">
                  <div class="description" typeof="gr:PriceSpecification">
                     <div property="c:hasCurrency" content="CZK"/>
