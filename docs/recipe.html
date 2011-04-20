@@ -1,0 +1,77 @@
+<div>Pro popis veøejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto úèely vytvoøili. Slovník kombinuje nìkteré všeobecnì uznávané slovníky, jako napø. Good Relations nebo Dublin Core.</div>
+
+<h2>HTML vs. XHTML</h2>
+
+<div>Prozatím je standardizováno pouze rozšíøení jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</div>
+
+<pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+   ...
+&lt;html&gt;
+</pre>
+
+<div>Pokud potøebujeme použít HTML, je to možné. RDFa rozšíøení jazyka HTML ještì sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</div>
+
+<pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
+   "http://www.w3.org/MarkUp/DTD/html401-rdfa11-1.dtd"&gt;
+&lt;html&gt;
+   ...
+&lt;/html&gt;
+</pre>
+
+<h2>Jmenné prostory</h2>
+
+<div>Nejprve je vždy nutné zavést potøebné jmenné prostory. To mùžeme udìlat v jakémkoliv elementu HTML stránky, který obsahuje RDFa kód. Jmenné prostory jsou pak platné v celém obsahu tohoto elementu.</div>
+
+<pre>
+&lt;html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:gr="http://purl.org/goodrelations/v1#"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:c="http://example.org/contracts#"
+      xmlns:payment="http://reference.data.gov.uk/def/payment#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;
+   ...
+&lt;/html&gt;
+</pre>
+
+<h2>Urèení místa na webové stránce, kde je veøejná zakázka popsána</h2>
+
+<div>Informace o veøejné zakázce uzavøete do jednoho elementu, napø. <pre style="display:inline">div</pre>. Potom urèete, že obsah tohoto elementu se týká veøejné zakázky pomocí RDFa atributu <pre style="display:inline">typeof</pre> s hodnotou <pre style="display:inline">c:Contract</pre>. Jinými slovy tím øíkáte, že obsah reprezentuje instanci tøídy <pre style="display:inline">c:Contract</pre>.</div>
+
+<pre>
+&lt;div typeof="c:Contract"&gt;
+
+&lt;/div&gt;
+</pre>
+
+<div>Výše uvedeným dále øíkáte, že samotná veøejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v poøádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor pøiøadit (napø. proto, abyste se na ní mohli odkazovat), je potøeba jí pøiøadit jednoznaèné URI (v RDF se jako identifikátory používají právì URI). Toto URI mùže být napø. fyzickým URL, na kterém je umístìna webová stránka s veøejnou zakázkou. Je dùležité ale zajistit, že zvolené identifikaèní URI se pro danou veøejnou zakázku již nikdy nezmìní. Pokud toto nemùžete u fyzického URL zajistit, je vhodnìjší zvolit nìjaké virtuální URI (napø. URL vašeho webu doplnìné o <pre style="display:inline">/VZ/&lt;cislo-jednaci&gt;</pre>), na kterém fyzicky žádný dokument existovat nemusí.</div>
+
+<pre>
+&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
+
+&lt;/div&gt;
+</pre>
+
+<h2>Údaje pøi zveøejnìní veøejné zakázky</h2>
+
+<div>Pro každou veøejnou zakázku uvádìjte její název. Pro názvy je v našem slovníku urèena RDF vlastnost <pre style="display:inline">dc:title</pre>.</div>
+
+<pre>
+&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
+   <b>&lt;span property="dc:title"&gt;Jezdecké potøeby mìstské policie&lt;/span&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Dále uvádìjte datum zveøejnìní a datum pro posílání nabídek. Pro nì jsou v našem slovníku urèeny RDF vlastnosti <pre style="display:inline">dc:issuded</pre> a <pre style="display:inline">c:bidDeadline</pre>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštìvníkùm zobrazit datum ve formátu bìžném v ÈR, napø. <pre style="display:inline">1. 2. 2010</pre> nebo <pre style="display:inline">1. února 2010</pre>. To ale není strojovì èitelný datum. Pro strojovì èitelnou podobu datumù používáme datový typ <pre style="display:inline">xsd:date</pre> jazyka XMl Schema, napø. <pre style="display:inline">2010-02-01</pre>. Strojovì èitelnou hodnotu ale neukazujete svým návštìvníkùm. Proto ji dávejte jako hodnotu atributu <pre style="display:inline">content</pre>. Také pøidejte informaci o datovém typu pomocí atributu <pre style="display:inline">datatype</pre>.</div>
+
+<pre>
+&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
+   &lt;span property="dc:title"&gt;Jezdecké potøeby mìstské policie&lt;/span&gt;
+   <b>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</b>
+   <b>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</b>
+&lt;/div&gt;
+</pre>
