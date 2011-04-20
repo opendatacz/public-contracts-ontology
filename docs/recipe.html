@@ -1,8 +1,8 @@
-<div>Pro popis veøejnıch zakázek pomocí formátu RDFa pouíváme slovník, kterı jsme pro tyto úèely vytvoøili. Slovník kombinuje nìkteré všeobecnì uznávané slovníky, jako napø. Good Relations nebo Dublin Core.</div>
+<div>Pro popis veÅ™ejnÃ½ch zakÃ¡zek pomocÃ­ formÃ¡tu RDFa pouÅ¾Ã­vÃ¡me slovnÃ­k, kterÃ½ jsme pro tyto ÃºÄely vytvoÅ™ili. SlovnÃ­k kombinuje nÄ›kterÃ© vÅ¡eobecnÄ› uznÃ¡vanÃ© slovnÃ­ky, jako napÅ™. Good Relations nebo Dublin Core.</div>
 
 <h2>HTML vs. XHTML</h2>
 
-<div>Prozatím je standardizováno pouze rozšíøení jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</div>
+<div>ProzatÃ­m je standardizovÃ¡no pouze rozÅ¡Ã­Å™enÃ­ jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadÃ¡ takto:</div>
 
 <pre>
 &lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
@@ -11,7 +11,7 @@
 &lt;html&gt;
 </pre>
 
-<div>Pokud potøebujeme pouít HTML, je to moné. RDFa rozšíøení jazyka HTML ještì sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</div>
+<div>Pokud potÅ™ebujeme pouÅ¾Ã­t HTML, je to moÅ¾nÃ©. RDFa rozÅ¡Ã­Å™enÃ­ jazyka HTML jeÅ¡tÄ› sice nenÃ­ standardizovÃ¡no, ale fungovat bude. HTML dokument vypadÃ¡ takto:</div>
 
 <pre>
 &lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
@@ -21,9 +21,9 @@
 &lt;/html&gt;
 </pre>
 
-<h2>Jmenné prostory</h2>
+<h2>JmennÃ© prostory</h2>
 
-<div>Nejprve je vdy nutné zavést potøebné jmenné prostory. To mùeme udìlat v jakémkoliv elementu HTML stránky, kterı obsahuje RDFa kód. Jmenné prostory jsou pak platné v celém obsahu tohoto elementu.</div>
+<div>Nejprve je vÅ¾dy nutnÃ© zavÃ©st potÅ™ebnÃ© jmennÃ© prostory. To mÅ¯Å¾eme udÄ›lat v jakÃ©mkoliv elementu HTML strÃ¡nky, kterÃ½ obsahuje RDFa kÃ³d. JmennÃ© prostory jsou pak platnÃ© v celÃ©m obsahu tohoto elementu.</div>
 
 <pre>
 &lt;html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -38,9 +38,9 @@
 &lt;/html&gt;
 </pre>
 
-<h2>Urèení místa na webové stránce, kde je veøejná zakázka popsána</h2>
+<h2>UrÄenÃ­ mÃ­sta na webovÃ© strÃ¡nce, kde je veÅ™ejnÃ¡ zakÃ¡zka popsÃ¡na</h2>
 
-<div>Informace o veøejné zakázce uzavøete do jednoho elementu, napø. <pre style="display:inline">div</pre>. Potom urèete, e obsah tohoto elementu se tıká veøejné zakázky pomocí RDFa atributu <pre style="display:inline">typeof</pre> s hodnotou <pre style="display:inline">c:Contract</pre>. Jinımi slovy tím øíkáte, e obsah reprezentuje instanci tøídy <pre style="display:inline">c:Contract</pre>.</div>
+<div>Informace o veÅ™ejnÃ© zakÃ¡zce uzavÅ™ete do jednoho elementu, napÅ™. <pre style="display:inline">div</pre>. Potom urÄete, Å¾e obsah tohoto elementu se tÃ½kÃ¡ veÅ™ejnÃ© zakÃ¡zky pomocÃ­ RDFa atributu <pre style="display:inline">typeof</pre> s hodnotou <pre style="display:inline">c:Contract</pre>. JinÃ½mi slovy tÃ­m Å™Ã­kÃ¡te, Å¾e obsah reprezentuje instanci tÅ™Ã­dy <pre style="display:inline">c:Contract</pre>.</div>
 
 <pre>
 &lt;div typeof="c:Contract"&gt;
@@ -48,7 +48,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Vıše uvedenım dále øíkáte, e samotná veøejná zakázka je anonymní, tj. nemá ádnı identifikátor. To je v poøádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor pøiøadit (napø. proto, abyste se na ní mohli odkazovat), je potøeba jí pøiøadit jednoznaèné URI (v RDF se jako identifikátory pouívají právì URI). Toto URI mùe bıt napø. fyzickım URL, na kterém je umístìna webová stránka s veøejnou zakázkou. Je dùleité ale zajistit, e zvolené identifikaèní URI se pro danou veøejnou zakázku ji nikdy nezmìní. Pokud toto nemùete u fyzického URL zajistit, je vhodnìjší zvolit nìjaké virtuální URI (napø. URL vašeho webu doplnìné o <pre style="display:inline">/VZ/&lt;cislo-jednaci&gt;</pre>), na kterém fyzicky ádnı dokument existovat nemusí.</div>
+<div>VÃ½Å¡e uvedenÃ½m dÃ¡le Å™Ã­kÃ¡te, Å¾e samotnÃ¡ veÅ™ejnÃ¡ zakÃ¡zka je anonymnÃ­, tj. nemÃ¡ Å¾Ã¡dnÃ½ identifikÃ¡tor. To je v poÅ™Ã¡dku do tÃ© doby, kdy se chcete na zakÃ¡zku odkazovat. Pokud chcete zakÃ¡zce identifikÃ¡tor pÅ™iÅ™adit (napÅ™. proto, abyste se na nÃ­ mohli odkazovat), je potÅ™eba jÃ­ pÅ™iÅ™adit jednoznaÄnÃ© URI (v RDF se jako identifikÃ¡tory pouÅ¾Ã­vajÃ­ prÃ¡vÄ› URI). Toto URI mÅ¯Å¾e bÃ½t napÅ™. fyzickÃ½m URL, na kterÃ©m je umÃ­stÄ›na webovÃ¡ strÃ¡nka s veÅ™ejnou zakÃ¡zkou. Je dÅ¯leÅ¾itÃ© ale zajistit, Å¾e zvolenÃ© identifikaÄnÃ­ URI se pro danou veÅ™ejnou zakÃ¡zku jiÅ¾ nikdy nezmÄ›nÃ­. Pokud toto nemÅ¯Å¾ete u fyzickÃ©ho URL zajistit, je vhodnÄ›jÅ¡Ã­ zvolit nÄ›jakÃ© virtuÃ¡lnÃ­ URI (napÅ™. URL vaÅ¡eho webu doplnÄ›nÃ© o <pre style="display:inline">/VZ/&lt;cislo-jednaci&gt;</pre>), na kterÃ©m fyzicky Å¾Ã¡dnÃ½ dokument existovat nemusÃ­.</div>
 
 <pre>
 &lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -56,21 +56,21 @@
 &lt;/div&gt;
 </pre>
 
-<h2>Údaje pøi zveøejnìní veøejné zakázky</h2>
+<h2>Ãšdaje pÅ™i zveÅ™ejnÄ›nÃ­ veÅ™ejnÃ© zakÃ¡zky</h2>
 
-<div>Pro kadou veøejnou zakázku uvádìjte její název. Pro názvy je v našem slovníku urèena RDF vlastnost <pre style="display:inline">dc:title</pre>.</div>
+<div>Pro kaÅ¾dou veÅ™ejnou zakÃ¡zku uvÃ¡dÄ›jte jejÃ­ nÃ¡zev. Pro nÃ¡zvy je v naÅ¡em slovnÃ­ku urÄena RDF vlastnost <pre style="display:inline">dc:title</pre>.</div>
 
 <pre>
 &lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
-   <b>&lt;span property="dc:title"&gt;Jezdecké potøeby mìstské policie&lt;/span&gt;</b>
+   <b>&lt;span property="dc:title"&gt;JezdeckÃ© potÅ™eby mÄ›stskÃ© policie&lt;/span&gt;</b>
 &lt;/div&gt;
 </pre>
 
-<div>Dále uvádìjte datum zveøejnìní a datum pro posílání nabídek. Pro nì jsou v našem slovníku urèeny RDF vlastnosti <pre style="display:inline">dc:issuded</pre> a <pre style="display:inline">c:bidDeadline</pre>. Je zde ale jeden podstatnı rozdíl oproti názvu. Na webové stránce chcete návštìvníkùm zobrazit datum ve formátu bìném v ÈR, napø. <pre style="display:inline">1. 2. 2010</pre> nebo <pre style="display:inline">1. února 2010</pre>. To ale není strojovì èitelnı datum. Pro strojovì èitelnou podobu datumù pouíváme datovı typ <pre style="display:inline">xsd:date</pre> jazyka XMl Schema, napø. <pre style="display:inline">2010-02-01</pre>. Strojovì èitelnou hodnotu ale neukazujete svım návštìvníkùm. Proto ji dávejte jako hodnotu atributu <pre style="display:inline">content</pre>. Také pøidejte informaci o datovém typu pomocí atributu <pre style="display:inline">datatype</pre>.</div>
+<div>DÃ¡le uvÃ¡dÄ›jte datum zveÅ™ejnÄ›nÃ­ a datum pro posÃ­lÃ¡nÃ­ nabÃ­dek. Pro nÄ› jsou v naÅ¡em slovnÃ­ku urÄeny RDF vlastnosti <pre style="display:inline">dc:issuded</pre> a <pre style="display:inline">c:bidDeadline</pre>. Je zde ale jeden podstatnÃ½ rozdÃ­l oproti nÃ¡zvu. Na webovÃ© strÃ¡nce chcete nÃ¡vÅ¡tÄ›vnÃ­kÅ¯m zobrazit datum ve formÃ¡tu bÄ›Å¾nÃ©m v ÄŒR, napÅ™. <pre style="display:inline">1. 2. 2010</pre> nebo <pre style="display:inline">1. Ãºnora 2010</pre>. To ale nenÃ­ strojovÄ› ÄitelnÃ½ datum. Pro strojovÄ› Äitelnou podobu datumÅ¯ pouÅ¾Ã­vÃ¡me datovÃ½ typ <pre style="display:inline">xsd:date</pre> jazyka XMl Schema, napÅ™. <pre style="display:inline">2010-02-01</pre>. StrojovÄ› Äitelnou hodnotu ale neukazujete svÃ½m nÃ¡vÅ¡tÄ›vnÃ­kÅ¯m. Proto ji dÃ¡vejte jako hodnotu atributu <pre style="display:inline">content</pre>. TakÃ© pÅ™idejte informaci o datovÃ©m typu pomocÃ­ atributu <pre style="display:inline">datatype</pre>.</div>
 
 <pre>
 &lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
-   &lt;span property="dc:title"&gt;Jezdecké potøeby mìstské policie&lt;/span&gt;
+   &lt;span property="dc:title"&gt;JezdeckÃ© potÅ™eby mÄ›stskÃ© policie&lt;/span&gt;
    <b>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</b>
    <b>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</b>
 &lt;/div&gt;
