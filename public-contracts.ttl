@@ -64,9 +64,7 @@ c:bid a rdf:Property;
 
 # Detail vítězné nabídky
 # 0..1
-c:acceptedBid a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range c:Bid .        
+c:acceptedBid rdfs:subPropertyOf c:bid .
         
 # Abstraktní property pro ceny.
 c:price a rdf:Property;
