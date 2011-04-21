@@ -1,3 +1,13 @@
+<style type="text/css">
+  .preinline {
+    display: inline;
+  }
+  
+  pre b {
+    color: red;
+  }
+</style>
+
 <div>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. Good Relations nebo Dublin Core.</div>
 
 <h2>HTML vs. XHTML</h2>
@@ -5,20 +15,20 @@
 <div>Prozatím je standardizováno pouze rozšíření jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</div>
 
 <pre>
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+<b>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</b>
    ...
-&lt;html&gt;
+<b>&lt;html&gt;</b>
 </pre>
 
 <div>Pokud potřebujeme použít HTML, je to možné. RDFa rozšíření jazyka HTML ještě sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</div>
 
 <pre>
-&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
+<b>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
    "http://www.w3.org/MarkUp/DTD/html401-rdfa11-1.dtd"&gt;
-&lt;html&gt;
+&lt;html&gt;</b>
    ...
-&lt;/html&gt;
+<b>&lt;/html&gt;</b>
 </pre>
 
 <h2>Jmenné prostory</h2>
@@ -26,52 +36,212 @@
 <div>Nejprve je vždy nutné zavést potřebné jmenné prostory. To můžeme udělat v jakémkoliv elementu HTML stránky, který obsahuje RDFa kód. Jmenné prostory jsou pak platné v celém obsahu tohoto elementu.</div>
 
 <pre>
-&lt;html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+<b>&lt;html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:gr="http://purl.org/goodrelations/v1#"
       xmlns:dc="http://purl.org/dc/terms/"
       xmlns:c="http://example.org/contracts#"
       xmlns:payment="http://reference.data.gov.uk/def/payment#"
-      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</b>
    ...
-&lt;/html&gt;
+<b>&lt;/html&gt;</b>
 </pre>
 
 <h2>Určení místa na webové stránce, kde je veřejná zakázka popsána</h2>
 
-<div>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <pre style="display:inline">div</pre>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <pre style="display:inline">typeof</pre> s hodnotou <pre style="display:inline">c:Contract</pre>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <pre style="display:inline">c:Contract</pre>.</div>
+<div>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <pre class="preinline">div</pre>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <pre class="preinline">typeof</pre> s hodnotou <pre class="preinline">c:Contract</pre>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <pre class="preinline">c:Contract</pre>.</div>
 
 <pre>
-&lt;div typeof="c:Contract"&gt;
-
-&lt;/div&gt;
+<b>&lt;div typeof="c:Contract"&gt;</b>
+  ...
+<b>&lt;/div&gt;</b>
 </pre>
 
-<div>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v pořádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor přiřadit (např. proto, abyste se na ní mohli odkazovat), je potřeba jí přiřadit jednoznačné URI (v RDF se jako identifikátory používají právě URI). Toto URI může být např. fyzickým URL, na kterém je umístěna webová stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění. Pokud toto nemůžete u fyzického URL zajistit, je vhodnější zvolit nějaké virtuální URI (např. URL vašeho webu doplněné o <pre style="display:inline">/VZ/&lt;cislo-jednaci&gt;</pre>), na kterém fyzicky žádný dokument existovat nemusí.</div>
+<div>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v pořádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor přiřadit (např. proto, abyste se na ní mohli odkazovat), je potřeba jí přiřadit jednoznačné URI (v RDF se jako identifikátory používají právě URI). Toto URI může být např. fyzickým URL, na kterém je umístěna webová stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění. Pokud toto nemůžete u fyzického URL zajistit, je vhodnější zvolit nějaké virtuální URI (např. URL vašeho webu doplněné o <pre class="preinline">/VZ/&lt;cislo-jednaci&gt;</pre>), na kterém fyzicky žádný dokument existovat nemusí.</div>
 
 <pre>
-&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
-
-&lt;/div&gt;
+<b>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;</b>
+  ...
+<b>&lt;/div&gt;</b>
 </pre>
 
 <h2>Údaje při zveřejnění veřejné zakázky</h2>
 
-<div>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <pre style="display:inline">dc:title</pre>.</div>
+<div>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <pre class="preinline">dc:title</pre>.</div>
 
 <pre>
-&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
-   <b>&lt;span property="dc:title"&gt;Jezdecké potřeby městské policie&lt;/span&gt;</b>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+   Název: <b>&lt;span property="dc:title"&gt;Jezdecké potřeby městské policie&lt;/span&gt;</b>
 &lt;/div&gt;
 </pre>
 
-<div>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <pre style="display:inline">dc:issuded</pre> a <pre style="display:inline">c:bidDeadline</pre>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <pre style="display:inline">1. 2. 2010</pre> nebo <pre style="display:inline">1. února 2010</pre>. To ale není strojově čitelný datum. Pro strojově čitelnou podobu datumů používáme datový typ <pre style="display:inline">xsd:date</pre> jazyka XMl Schema, např. <pre style="display:inline">2010-02-01</pre>. Strojově čitelnou hodnotu ale neukazujete svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <pre style="display:inline">content</pre>. Také přidejte informaci o datovém typu pomocí atributu <pre style="display:inline">datatype</pre>.</div>
+<div>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <pre class="preinline">dc:issuded</pre> a <pre class="preinline">c:bidDeadline</pre>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <pre class="preinline">1. 2. 2010</pre> nebo <pre class="preinline">1. února 2010</pre>. To ale není strojově čitelný datum. Pro strojově čitelnou podobu datumů používáme datový typ <pre class="preinline">xsd:date</pre> jazyka XMl Schema, např. <pre class="preinline">2010-02-01</pre>. Strojově čitelnou hodnotu ale nebudete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <pre class="preinline">content</pre>. Také přidejte informaci o datovém typu pomocí atributu <pre class="preinline">datatype</pre>.</div>
 
 <pre>
-&lt;div about="http://www.muzabovresky.cz/VZ/12345678" typeof="c:Contract"&gt;
-   &lt;span property="dc:title"&gt;Jezdecké potřeby městské policie&lt;/span&gt;
-   <b>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</b>
-   <b>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</b>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+   ...
+   Datum zveřejnění: <b>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</b>
+   Datum pro podávání nabídek: <b>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů můžete použít jednoduchý nástroj <pre class="preinline">http://opendata.cz/cpv/</pre> (který můžete volně využít v rámci svého softwarového řešení). Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <pre class="preinline">c:subject</pre>.</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+   ...
+   Předmět: <b>&lt;span property="c:subject" content="18911000" datatype="xsd:string"&gt;sedla&lt;/span&gt;</b>
+   <b>&lt;span property="c:subject" content="18913000" datatype="xsd:string"&gt;biče&lt;/span&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<h2>Údaje při zadání veřejné zakázky</h2>
+
+<div>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <pre class="preinline">c:numberOfBids</pre>.</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+   ...
+   Počet obdržených nabídek: <b>&lt;span property="c:numberOfBids" datatype="xsd:int"&gt;2&lt;/span&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <pre class="preinline">c:Bid</pre>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <pre class="preinline">c:bid</pre>. Jednotlivou nabídku tedy umístěte do samostatného elementu, např. <pre class="preinline">div</pre>, s RDFa atributem <pre class="preinline">c:Bid</pre>. Tento element uzavřete do dalšího elementu, kterému přidejte RDFa atribut <pre class="preinline">rel</pre> s hodnotou <pre class="preinline">c:bid</pre>. Tím nabídku přiřadíte nadřazené zakázce. Nabídky uvažujeme jen anonymní (tj. neuvažujeme pro element s nabídkou RDFa atribut <pre class="preinline">about</pre>). Nabídek může být několik.</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  Nabídky:
+  <b>&lt;div rel="c:bid"&gt;
+    &lt;div typeof="c:Bid"&gt;</b>
+      ...
+    <b>&lt;/div&gt;
+  &lt;/div&gt;</b>
+  <b>&lt;div rel="c:bid"&gt;
+    &lt;div typeof="c:Bid"&gt;</b>
+      ...
+    <b>&lt;/div&gt;
+  &lt;/div&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>K nabídce přidejte nabízejícího pomocí vlastnosti <pre class="preinline">c:bid</pre> (společnosti reprezentujte jako instance třídy <pre class="preinline">gr:BusinessEntity</pre>) a nabídnutou cenu pomocí vlastnosti <pre class="preinline">c:bidPrice</pre> (cenu reprezentujte jako instanci třídy <pre class="preinline">gr:PriceSpecification</pre>). Obě instance jsou anonymní.</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  Nabídky:
+  &lt;div rel="c:bid"&gt;
+    &lt;div typeof="c:Bid"&gt;
+      <b>&lt;p rel="c:bidder"&gt;
+        &lt;span typeof="gr:BusinessEntity"&gt;Nabízející:</b>
+          ...                 	
+        <b>&lt;/span&gt;
+      &lt;/p&gt;</b>
+      <b>&lt;p rel="c:bidPrice"&gt;
+        &lt;span typeof="gr:PriceSpecification"&gt;Nabídnutá cena:</b>
+          ...
+        <b>&lt;/span&gt;
+      &lt;/p&gt;</b>
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div>Nakonec doplňte data o nabízejícím a o nabídnuté ceně. K nabízejícímu uvažujeme jeho název (RDF vlastnost <pre class="preinline">gr:legalName</pre> a IČO (<pre class="preinline">c:orgNumber</pre>). K ceně uvažujeme hodnotu (<pre class="preinline">gr:hasCurrencyValue</pre>), měnu (<pre class="preinline">gr:hasCurrency</pre>) a zda je cena s DPH (<pre class="preinline">gr:valueAddedTaxIncluded</pre>).</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  Nabídky:
+  &lt;div rel="c:bid"&gt;
+    &lt;div typeof="c:Bid"&gt;
+      &lt;p rel="c:bidder"&gt;
+        &lt;span typeof="gr:BusinessEntity"&gt;Nabízející:
+          <b>&lt;span property="gr:legalName"&gt;První jezdecká a.s.&lt;/span&gt;
+          , IČ
+          &lt;span property="c:orgNumber"&gt;789654123&lt;/span&gt;</b>                 	
+        &lt;/span&gt;
+      &lt;/p&gt;
+      &lt;p rel="c:bidPrice"&gt;
+        &lt;span typeof="gr:PriceSpecification"&gt;Nabídnutá cena:
+          <b>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.500.000&lt;/span&gt;
+          &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</b>
+          &lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;
+        &lt;/span&gt;
+      &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+<div>Vítěze k veřejné zakázce přiřazujte pomocí RDF vlastnosti <pre class="preinline">c:acceptedBid</pre> (místo <pre class="preinline">c:bid</pre>).</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  Vítězná nabídka:
+  <b>&lt;div rel="c:acceptedBid"&gt;
+    &lt;div typeof="c:Bid"&gt;</b>
+      ...
+    <b>&lt;/div&gt;
+  &lt;/div&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Dále můžete uvést dokumenty, které se týkají veřejné zakázky (zadávací dokumentace, protokol z rozbalování obálek s nabídkami, smlouva).</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+   ...
+   <b>&lt;p&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_popis.doc"&gt;Popis zakázky (DOC)&lt;/a>&lt;/p&gt;</b>
+   <b>&lt;p&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf"&gt;Smlouva (PDF)&lt;/a>&lt;/p&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést cenu pomocí vlastnosti <pre class="preinline">c:contractPrice</pre> (opět jako instanci třídy <pre class="preinline">gr:PriceSpecification</pre>).</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  <b>&lt;div rel="c:contractPrice"&gt;
+    &lt;span typeof="gr:PriceSpecification"&gt;Smluvní cena:
+      <b>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
+      &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</b>
+    &lt;/span&gt;
+  &lt;/div&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<h2>Údaje při dokončení realizace veřejné zakázky</h2>
+
+<div>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotace (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <pre class="preinline">c:supplementPrice</pre> a <pre class="preinline">c:subsidy</pre> (opět jako instanci třídy <pre class="preinline">gr:PriceSpecification</pre>).</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  <b>&lt;div rel="c:supplementPrice"&gt;
+    &lt;span typeof="gr:PriceSpecification"&gt;Doplňková cena:
+      <b>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;150.000&lt;/span&gt;
+      &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</b>
+    &lt;/span&gt;
+  &lt;/div&gt;</b>
+  <b>&lt;div rel="c:subsidy"&gt;
+    &lt;span typeof="gr:PriceSpecification"&gt;Dotace:
+      <b>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;20.000&lt;/span&gt;
+      &lt;span property="gr:hasCurrency" content="EUR"&gt;EUR&lt;/span&gt;</b>
+    &lt;/span&gt;
+  &lt;/div&gt;</b>
+&lt;/div&gt;
+</pre>
+
+<div>Také můžete pomocí vlastností <pre class="preinline">c:quality</pre> a <pre class="preinline">c:onSchedule</pre> uvést, zda byla splněna očekávaná kvalita při realizaci veřejné zakázky a zda byly dodrženy termíny.</div>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+  ...
+  Kvalita: <b>&lt;span property="c:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</b>
+  Termíny: <b>&lt;span property="c:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</b>
 &lt;/div&gt;
 </pre>
