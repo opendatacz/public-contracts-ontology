@@ -1,12 +1,60 @@
-<style type="text/css">
-  .preinline {
-    display: inline;
-  }
-  
-  pre b {
-    color: red;
-  }
-</style>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <title>Recept pro vyznačení veřejné zakázky v RDFa</title>
+  <style type="text/css">
+    .preinline {
+      display: inline;
+    }
+    pre b {
+      color: red;
+    }
+    body { padding-right: 1em; padding-left: 70px; background: white fixed no-repeat left top; padding-bottom: 2em; margin: 0px; color: black; line-height: 1.5em; padding-top: 2em; font-family: sans-serif; }
+    :link { background: transparent; color: #00c; }
+    :visited { background: transparent; color: #609; }
+    a:active { background: transparent; color: #c00; }
+    a:link img, a:visited img { border: none; }
+    th { font-family: sans-serif; }
+    td { font-family: sans-serif; }
+    h1, h2, h3, dt { background: white; color: #064; text-align: left; }
+    h1 { font: 170% sans-serif; }
+    h2 { font: 140% sans-serif; margin-top: 1.4em; }
+    h3 { font: 120% sans-serif; }
+    .hide { display: none; }
+    div.head { margin-bottom: 1em; }
+    div.head h1 { clear: both; margin-top: 2em; }
+    dl.frontmatter dt { font-weight: bold; color: black; }
+    dt { font-weight: normal; font-size: 100%; }
+    dd { margin-top: 0; margin-bottom: 0.5em; }
+    tt { font-size: 115%; }
+    pre { background-color: #ffefbf; line-height: 1.2em; font-family: monospace; margin: 1em -0.2em; padding: 1.2em 1.8em 1.5em; }
+    code { font-family: monospace }
+    blockquote { background: #ddd; border-left: 0.9em solid #aaa; color: black; padding: 0.8em 1em 1em 2em; margin: 0.8em 0; }
+    ul.toc { list-style-type: none; }
+    .todo, .todo h2 { padding: 0.5em 1em; background: #ddf; }
+     
+    .spare-table { border-collapse: collapse }
+    .spare-table thead { border-bottom: black 1px solid }
+    .spare-table td { padding-left: 1em; padding-right: 1em }
+    .spare-table td + td { border-left: black 1px solid; padding-left: 1em; padding-right: 1em }
+    .spare-table th + th { border-left: black 1px solid }
+     
+    @media Aural {
+      h1 { stress: 20; richness: 90; }
+      h2 { stress: 20; richness: 90; }
+      h3 { stress: 20; richness: 90; }
+      .hide { speak: none; }
+      p.copyright { volume: x-soft; speech-rate: x-fast; }
+      dt { pause-before: 20%; }
+      pre { speak-punctuation: code; }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>Recept pro vyznačení veřejné zakázky v RDFa</h1>
 
 <div>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. Good Relations nebo Dublin Core.</div>
 
@@ -15,10 +63,10 @@
 <div>Prozatím je standardizováno pouze rozšíření jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</div>
 
 <pre>
-<b>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</b>
+<strong>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</strong>
    ...
-<b>&lt;html&gt;</b>
+<strong>&lt;html&gt;</strong>
 </pre>
 
 <div>Pokud potřebujeme použít HTML, je to možné. RDFa rozšíření jazyka HTML ještě sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</div>
