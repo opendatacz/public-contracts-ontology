@@ -44,12 +44,22 @@
 <body>
 
 <h1>Recept pro vyznačení veřejné zakázky v RDFa</h1>
+<dl>
+  <dt><strong>Autoři:</strong></dt>
+  <dd>
+    <ul>
+      <li>Martin Nečaský (MFF UK)</li>
+    </ul>
+  </dd>
+</dl>
 
-<div>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. Good Relations nebo Dublin Core.</div>
+<hr />
+
+<p>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. Good Relations nebo Dublin Core.</p>
 
 <h2>HTML vs. XHTML</h2>
 
-<div>Prozatím je standardizováno pouze rozšíření jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</div>
+<p>Prozatím je standardizováno pouze rozšíření jazyka XHTML o prvky jazyka RDFa. XHTML dokument potom vypadá takto:</p>
 
 <pre>
 <strong>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
@@ -58,7 +68,7 @@
 <strong>&lt;html&gt;</strong>
 </pre>
 
-<div>Pokud potřebujeme použít HTML, je to možné. RDFa rozšíření jazyka HTML ještě sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</div>
+<p>Pokud potřebujeme použít HTML, je to možné. RDFa rozšíření jazyka HTML ještě sice není standardizováno, ale fungovat bude. HTML dokument vypadá takto:</p>
 
 <pre>
 <strong>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
@@ -70,7 +80,7 @@
 
 <h2>Jmenné prostory</h2>
 
-<div>Nejprve je vždy nutné zavést potřebné jmenné prostory. To můžeme udělat v jakémkoliv elementu HTML stránky, který obsahuje RDFa kód. Jmenné prostory jsou pak platné v celém obsahu tohoto elementu.</div>
+<p>Nejprve je vždy nutné zavést potřebné jmenné prostory. To můžeme udělat v jakémkoliv elementu HTML stránky, který obsahuje RDFa kód. Jmenné prostory jsou pak platné v celém obsahu tohoto elementu.</p>
 
 <pre>
 <strong>&lt;html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -87,7 +97,7 @@
 
 <h2>Určení místa na webové stránce, kde je veřejná zakázka popsána</h2>
 
-<div>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <tt>div</tt>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>c:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>c:Contract</tt>.</div>
+<p>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <tt>div</tt>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>c:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>c:Contract</tt>.</p>
 
 <pre>
 <strong>&lt;div typeof="c:Contract"&gt;</strong>
@@ -95,7 +105,7 @@
 <strong>&lt;/div&gt;</strong>
 </pre>
 
-<div>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v pořádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor přiřadit (např. proto, abyste se na ní mohli odkazovat), je potřeba jí přiřadit jednoznačné URI (v RDF se jako identifikátory používají právě URI). Toto URI může být např. fyzickým URL, na kterém je umístěna webová stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění. Pokud toto nemůžete u fyzického URL zajistit, je vhodnější zvolit nějaké virtuální URI (např. URL vašeho webu doplněné o <tt>/VZ/&lt;cislo-jednaci&gt;</tt>), na kterém fyzicky žádný dokument existovat nemusí.</div>
+<p>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v pořádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor přiřadit (např. proto, abyste se na ní mohli odkazovat), je potřeba jí přiřadit jednoznačné URI (v RDF se jako identifikátory používají právě URI). Toto URI může být např. fyzickým URL, na kterém je umístěna webová stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění. Pokud toto nemůžete u fyzického URL zajistit, je vhodnější zvolit nějaké virtuální URI (např. URL vašeho webu doplněné o <tt>/VZ/&lt;cislo-jednaci&gt;</tt>), na kterém fyzicky žádný dokument existovat nemusí.</p>
 
 <pre>
 <strong>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;</strong>
@@ -105,7 +115,7 @@
 
 <h2>Údaje při zveřejnění veřejné zakázky</h2>
 
-<div>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <tt>dc:title</tt>.</div>
+<p>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <tt>dc:title</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -113,7 +123,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issuded</tt> a <tt>c:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelný datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt>. Strojově čitelnou hodnotu ale nebudete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</div>
+<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issuded</tt> a <tt>c:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelný datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt>. Strojově čitelnou hodnotu ale nebudete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -123,7 +133,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt> (který můžete volně využít v rámci svého softwarového řešení). Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>c:subject</tt>.</div>
+<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt> (který můžete volně využít v rámci svého softwarového řešení). Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>c:subject</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -135,7 +145,7 @@
 
 <h2>Údaje při zadání veřejné zakázky</h2>
 
-<div>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>c:numberOfBids</tt>.</div>
+<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>c:numberOfBids</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -144,7 +154,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>c:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>c:bid</tt>. Jednotlivou nabídku tedy umístěte do samostatného elementu, např. <tt>div</tt>, s RDFa atributem <tt>c:Bid</tt>. Tento element uzavřete do dalšího elementu, kterému přidejte RDFa atribut <tt>rel</tt> s hodnotou <tt>c:bid</tt>. Tím nabídku přiřadíte nadřazené zakázce. Nabídky uvažujeme jen anonymní (tj. neuvažujeme pro element s nabídkou RDFa atribut <tt>about</tt>). Nabídek může být několik.</div>
+<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>c:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>c:bid</tt>. Jednotlivou nabídku tedy umístěte do samostatného elementu, např. <tt>div</tt>, s RDFa atributem <tt>c:Bid</tt>. Tento element uzavřete do dalšího elementu, kterému přidejte RDFa atribut <tt>rel</tt> s hodnotou <tt>c:bid</tt>. Tím nabídku přiřadíte nadřazené zakázce. Nabídky uvažujeme jen anonymní (tj. neuvažujeme pro element s nabídkou RDFa atribut <tt>about</tt>). Nabídek může být několik.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -163,7 +173,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>K nabídce přidejte nabízejícího pomocí vlastnosti <tt>c:bid</tt> (společnosti reprezentujte jako instance třídy <tt>gr:BusinessEntity</tt>) a nabídnutou cenu pomocí vlastnosti <tt>c:bidPrice</tt> (cenu reprezentujte jako instanci třídy <tt>gr:PriceSpecification</tt>). Obě instance jsou anonymní.</div>
+<p>K nabídce přidejte nabízejícího pomocí vlastnosti <tt>c:bid</tt> (společnosti reprezentujte jako instance třídy <tt>gr:BusinessEntity</tt>) a nabídnutou cenu pomocí vlastnosti <tt>c:bidPrice</tt> (cenu reprezentujte jako instanci třídy <tt>gr:PriceSpecification</tt>). Obě instance jsou anonymní.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -186,7 +196,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Nakonec doplňte data o nabízejícím a o nabídnuté ceně. K nabízejícímu uvažujeme jeho název (RDF vlastnost <tt>gr:legalName</tt> a IČO (<tt>c:orgNumber</tt>). K ceně uvažujeme hodnotu (<tt>gr:hasCurrencyValue</tt>), měnu (<tt>gr:hasCurrency</tt>) a zda je cena s DPH (<tt>gr:valueAddedTaxIncluded</tt>).</div>
+<p>Nakonec doplňte data o nabízejícím a o nabídnuté ceně. K nabízejícímu uvažujeme jeho název (RDF vlastnost <tt>gr:legalName</tt> a IČO (<tt>c:orgNumber</tt>). K ceně uvažujeme hodnotu (<tt>gr:hasCurrencyValue</tt>), měnu (<tt>gr:hasCurrency</tt>) a zda je cena s DPH (<tt>gr:valueAddedTaxIncluded</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -213,7 +223,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Vítěze k veřejné zakázce přiřazujte pomocí RDF vlastnosti <tt>c:acceptedBid</tt> (místo <tt>c:bid</tt>).</div>
+<p>Vítěze k veřejné zakázce přiřazujte pomocí RDF vlastnosti <tt>c:acceptedBid</tt> (místo <tt>c:bid</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -227,7 +237,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Dále můžete uvést dokumenty, které se týkají veřejné zakázky (zadávací dokumentace, protokol z rozbalování obálek s nabídkami, smlouva).</div>
+<p>Dále můžete uvést dokumenty, které se týkají veřejné zakázky (zadávací dokumentace, protokol z rozbalování obálek s nabídkami, smlouva).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -237,7 +247,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést cenu pomocí vlastnosti <tt>c:contractPrice</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</div>
+<p>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést cenu pomocí vlastnosti <tt>c:contractPrice</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -253,7 +263,7 @@
 
 <h2>Údaje při dokončení realizace veřejné zakázky</h2>
 
-<div>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotace (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt> a <tt>c:subsidy</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</div>
+<p>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotace (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt> a <tt>c:subsidy</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
@@ -273,7 +283,7 @@
 &lt;/div&gt;
 </pre>
 
-<div>Také můžete pomocí vlastností <tt>c:quality</tt> a <tt>c:onSchedule</tt> uvést, zda byla splněna očekávaná kvalita při realizaci veřejné zakázky a zda byly dodrženy termíny.</div>
+<p>Také můžete pomocí vlastností <tt>c:quality</tt> a <tt>c:onSchedule</tt> uvést, zda byla splněna očekávaná kvalita při realizaci veřejné zakázky a zda byly dodrženy termíny.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
