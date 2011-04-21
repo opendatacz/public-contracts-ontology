@@ -55,7 +55,7 @@
 
 <hr />
 
-<p>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. Good Relations nebo Dublin Core.</p>
+<p>Pro popis veřejných zakázek pomocí formátu RDFa používáme slovník, který jsme pro tyto účely vytvořili. Slovník kombinuje některé všeobecně uznávané slovníky, jako např. <a href="http://www.heppnetz.de/projects/goodrelations/">GoodRelations</a> nebo <a href="http://dublincore.org/documents/dces/">Dublin Core</a>.</p>
 
 <h2>HTML vs. XHTML</h2>
 
@@ -64,7 +64,7 @@
 <pre>
 <strong>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd"&gt;
 &lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;</strong>
-   ...
+   &hellip;
 <strong>&lt;html&gt;</strong>
 </pre>
 
@@ -74,7 +74,7 @@
 <strong>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
    "http://www.w3.org/MarkUp/DTD/html401-rdfa11-1.dtd"&gt;
 &lt;html&gt;</strong>
-   ...
+   &hellip;
 <strong>&lt;/html&gt;</strong>
 </pre>
 
@@ -91,7 +91,7 @@
       xmlns:c="http://example.org/contracts#"
       xmlns:payment="http://reference.data.gov.uk/def/payment#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</strong>
-   ...
+   &hellip;
 <strong>&lt;/html&gt;</strong>
 </pre>
 
@@ -101,7 +101,7 @@
 
 <pre>
 <strong>&lt;div typeof="c:Contract"&gt;</strong>
-  ...
+  &hellip;
 <strong>&lt;/div&gt;</strong>
 </pre>
 
@@ -109,7 +109,7 @@
 
 <pre>
 <strong>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;</strong>
-  ...
+  &hellip;
 <strong>&lt;/div&gt;</strong>
 </pre>
 
@@ -123,21 +123,21 @@
 &lt;/div&gt;
 </pre>
 
-<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issuded</tt> a <tt>c:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelný datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt>. Strojově čitelnou hodnotu ale nebudete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
+<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issued</tt> a <tt>c:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu dat používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt>. Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-   ...
+   &hellip;
    Datum zveřejnění: <strong>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</strong>
    Datum pro podávání nabídek: <strong>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt> (který můžete volně využít v rámci svého softwarového řešení). Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>c:subject</tt>.</p>
+<p>Dalším údajem je předmět veřejné zakázky ve formě <abbr title="Common Procurement Vocabulary">CPV</abbr> kódu. Pro vyhledávání CPV kódů můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt> (který můžete volně využít v rámci svého softwarového řešení). Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>c:subject</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-   ...
+   &hellip;
    Předmět: <strong>&lt;span property="c:subject" content="18911000" datatype="xsd:string"&gt;sedla&lt;/span&gt;</strong>
    <strong>&lt;span property="c:subject" content="18913000" datatype="xsd:string"&gt;biče&lt;/span&gt;</strong>
 &lt;/div&gt;
@@ -149,25 +149,25 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-   ...
+   &hellip;
    Počet obdržených nabídek: <strong>&lt;span property="c:numberOfBids" datatype="xsd:int"&gt;2&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>c:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>c:bid</tt>. Jednotlivou nabídku tedy umístěte do samostatného elementu, např. <tt>div</tt>, s RDFa atributem <tt>c:Bid</tt>. Tento element uzavřete do dalšího elementu, kterému přidejte RDFa atribut <tt>rel</tt> s hodnotou <tt>c:bid</tt>. Tím nabídku přiřadíte nadřazené zakázce. Nabídky uvažujeme jen anonymní (tj. neuvažujeme pro element s nabídkou RDFa atribut <tt>about</tt>). Nabídek může být několik.</p>
+<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>c:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>c:bid</tt>. Jednotlivou nabídku tedy umístěte do samostatného elementu, např. <tt>div</tt>, s RDFa atributem <tt>typeof</tt> s hodnotou <tt>c:Bid</tt>. Tento element uzavřete do dalšího elementu, kterému přidejte RDFa atribut <tt>rel</tt> s hodnotou <tt>c:bid</tt>. Tím nabídku přiřadíte nadřazené zakázce. Nabídky uvažujeme jen anonymní (tj. neuvažujeme pro element s nabídkou RDFa atribut <tt>about</tt>). Nabídek může být několik.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   Nabídky:
   <strong>&lt;div rel="c:bid"&gt;
     &lt;div typeof="c:Bid"&gt;</strong>
-      ...
+      &hellip;
     <strong>&lt;/div&gt;
   &lt;/div&gt;</strong>
   <strong>&lt;div rel="c:bid"&gt;
     &lt;div typeof="c:Bid"&gt;</strong>
-      ...
+      &hellip;
     <strong>&lt;/div&gt;
   &lt;/div&gt;</strong>
 &lt;/div&gt;
@@ -177,18 +177,18 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   Nabídky:
   &lt;div rel="c:bid"&gt;
     &lt;div typeof="c:Bid"&gt;
       <strong>&lt;p rel="c:bidder"&gt;
         &lt;span typeof="gr:BusinessEntity"&gt;Nabízející:</strong>
-          ...                 	
+          &hellip;                 	
         <strong>&lt;/span&gt;
       &lt;/p&gt;</strong>
       <strong>&lt;p rel="c:bidPrice"&gt;
         &lt;span typeof="gr:PriceSpecification"&gt;Nabídnutá cena:</strong>
-          ...
+          &hellip;
         <strong>&lt;/span&gt;
       &lt;/p&gt;</strong>
     &lt;/div&gt;
@@ -200,7 +200,7 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   Nabídky:
   &lt;div rel="c:bid"&gt;
     &lt;div typeof="c:Bid"&gt;
@@ -227,11 +227,11 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   Vítězná nabídka:
   <strong>&lt;div rel="c:acceptedBid"&gt;
     &lt;div typeof="c:Bid"&gt;</strong>
-      ...
+      &hellip;
     <strong>&lt;/div&gt;
   &lt;/div&gt;</strong>
 &lt;/div&gt;
@@ -241,7 +241,7 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-   ...
+   &hellip;
    <strong>&lt;p&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_popis.doc"&gt;Popis zakázky (DOC)&lt;/a>&lt;/p&gt;</strong>
    <strong>&lt;p&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf"&gt;Smlouva (PDF)&lt;/a>&lt;/p&gt;</strong>
 &lt;/div&gt;
@@ -251,7 +251,7 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   <strong>&lt;div rel="c:contractPrice"&gt;</strong>
     &lt;span typeof="gr:PriceSpecification"&gt;Smluvní cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
@@ -263,11 +263,11 @@
 
 <h2>Údaje při dokončení realizace veřejné zakázky</h2>
 
-<p>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotace (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt> a <tt>c:subsidy</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
+<p>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotace (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt>, resp. <tt>c:subsidy</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   <strong>&lt;div rel="c:supplementPrice"&gt;
     &lt;span typeof="gr:PriceSpecification"&gt;Doplňková cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;150.000&lt;/span&gt;
@@ -287,7 +287,7 @@
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
-  ...
+  &hellip;
   Kvalita: <strong>&lt;span property="c:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</strong>
   Termíny: <strong>&lt;span property="c:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</strong>
 &lt;/div&gt;
