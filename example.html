@@ -1,5 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">  
+<!-- Zavedení jmenných prostorů slovníků, které pro specifikaci strojově čitelných dat o veřejných zakázkách používáme. -->
+<html xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:gr="http://purl.org/goodrelations/v1#"
+      xmlns:dc="http://purl.org/dc/terms/"
+      xmlns:c="http://purl.org/opendata-cz/public-contracts#"
+      xmlns:payment="http://reference.data.gov.uk/def/payment#"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#">  
   <head>	
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />	
     <title>Příklad veřejné zakázky v RDFa
@@ -7,132 +15,138 @@
   </head>
   <body>
     <h1>Příklad veřejné zakázky v RDFa</h1>	
-    <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek. Seznam plateb zhotoviteli není součástí příkladu.</p>  
-    
-    <!-- Zavedení jmenných prostorů slovníků, které pro specifikaci strojově čitelných dat o veřejných zakázkách používáme. -->	   
-    <div  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-          xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-          xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:gr="http://purl.org/goodrelations/v1#"
-          xmlns:dc="http://purl.org/dc/terms/"
-          xmlns:c="http://example.org/contracts#"
-          xmlns:cex="http://example.org/"
-          xmlns:payment="http://reference.data.gov.uk/def/payment#"
-          xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
-                		
-      <!-- Popis jedné veřejné zakázky -->
-      <!-- RDFa atribut about říká, že následující element div obsahuje data zdroje s URI cex:contract1. -->
-      <!-- RDFa atribut typeof říká, že typ (třída) zdroje s URI cex:contract1 je c:Contract. -->      
-      <div about="cex:contract1" typeof="c:Contract">
-        <p>Datum odevzdání nabídek:
-          <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti c:bidDeadline zdroje cex:contract1. -->
-          <!-- Touto hodnotou je '2010-02-01', tj. hodnota RDFa atributu content, která tak přebíjí obsah elementu span. -->
-          <!-- RDFa atribut datatype říká, že datovým typem hodnoty je datový typ xsd:date (vestavěný primitivní datový typ jazyka XMl Schema). -->
-          <span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span>			
-        </p>
-        <!-- RDFa atribut rel říká, že následující element div obsahuje hodnotu vlastnosti c:contractPrice zdroje cex:contract1. -->
-        <!-- Navíc RDFa atribut rel říká, že touto hodnotou je zdroj, jehož data jsou obsažena uvnitř elementu div. -->
-        <div rel="c:contractPrice">
-          Cena kontraktu:
-          <!-- RDFa atribut typeof říká, že typ (třída) anonymního zdroje je gr:PriceSpecification. -->
-          <span typeof="gr:PriceSpecification">
-            <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:hasCurrencyValue anonymního zdroje. -->
-            <!-- Protože není uveden RDFa atribut content, hodnotou je obsah elementu, tj. '1.000.000'. -->
-            <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
-            &nbsp;
-            <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:hasCurrency anonymního zdroje. -->
-            <!-- Touto hodnotou je hodnota RDFa atributu content, tj. 'CZK'. -->
-            <span property="gr:hasCurrency" content="CZK">Kč</span>
-            (
-            <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:valueAddedTaxIncluded anonymního zdroje. -->
-            <!-- Touto hodnotou je hodnota RDFa atributu content, tj. 'false'. -->
-            <!-- RDFa atribut datatype říká, že datovým typem hodnoty je datový typ xsd:boolean (vestavěný primitivní datový typ jazyka XMl Schema). -->
-            <span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>
-            )            		
-          </span>
-        </div>
-        <p>
-          <!-- RDFa atribut rel říká, že následující element a obsahuj hodnotu vlastnosti c:document. -->
-          <!-- (X)HTML atribut href říká, že hodnotou je zdroj s URL 'http://www.mesto.cz/...pdf' -->
-          <a rel="c:document" href="http://www.mesto.cz/...pdf">Popis zakázky (PDF)</a>
-        </p>
-        <p>Počet nabídek:
-          <span property="c:numberOfBids" datatype="xsd:int">10</span>
-        </p>
-        <p>Splněna v termínu: 
-          <span property="c:onSchedule" content="false" datatype="xsd:boolean">ne</span>
-        </p>
-        <p>Splněna požadovaná kvalita:
-          <span property="c:quality" content="true" datatype="xsd:boolean">ano</span>
-        </p>
-        <div property="c:subject" content="18911000" datatype="xsd:string" />
-        <div property="c:subject" content="18913000" datatype="xsd:string" />
-        <div rel="c:subsidy">
-          <p class="description" typeof="gr:PriceSpecification">Dotace: 					
-            <span property="gr:hasCurrencyValue" datatype="xsd:int">15.000</span>
-            &nbsp;
-            <span property="gr:hasCurrency" content="EUR">€</span>
+    <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek. Seznam plateb zhotoviteli není součástí příkladu.</p>  	   
+    <!-- Popis jedné veřejné zakázky -->
+    <!-- RDFa atribut about říká, že následující element div obsahuje data zdroje, který má URI http://www.mesto.cz/VZ/12345678-->
+    <!-- RDFa atribut typeof říká, že typ (třída) zdroje s URI http://www.mesto.cz/VZ/12345678 je c:Contract. -->      
+    <div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract">
+      
+      <p>Název zakázky: <span property="dc:title">Jezdecké potřeby městské policie</span></p>
+      
+      <p>Datum zveřejnění: <span property="dc:issued" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span></p>
+      
+      <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti c:bidDeadline zdroje http://www.mesto.cz/VZ/12345678. -->
+      <!-- Touto hodnotou je '2010-02-01', tj. hodnota RDFa atributu content, která tak přebíjí obsah elementu span. -->
+      <!-- RDFa atribut datatype říká, že datovým typem hodnoty je datový typ xsd:date (vestavěný primitivní datový typ jazyka XMl Schema). -->
+      <p>Datum odevzdání nabídek: <span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span></p>
+      
+      <p>Předmět zakázky: <span property="c:subject" content="18911000" datatype="xsd:string">sedla</span>, <span property="c:subject" content="18913000" datatype="xsd:string">biče</span></p>
+      
+      <p>Počet nabídek: <span property="c:numberOfBids" datatype="xsd:int">10</span></p>
+      
+      <h2>Vítězná nabídka</h2>
+      <div rel="c:acceptedBid">
+        <div typeof="c:Bid">
+          <p rel="c:bidder">
+            <span typeof="gr:BusinessEntity">Vítěz:
+              <span property="gr:legalName">První koňařská a.s.</span>
+              , IČ
+              <span property="c:orgNumber">1234567</span>
+            </span>
           </p>
-        </div>
-        <div rel="c:supplementPrice">
-          <p typeof="gr:PriceSpecification">Dodatková cena:
-            <span property="gr:hasCurrencyValue" datatype="xsd:int">300.000</span>
-            &nbsp; 					
-            <span property="gr:hasCurrency" content="CZK">Kč</span>           		
+          <p rel="c:bidPrice">
+            <span typeof="gr:PriceSpecification">Nabídnutá cena:
+              <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
+              &nbsp; 						
+              <span property="gr:hasCurrency" content="CZK">Kč</span>
+            </span>
           </p>
-        </div>
-        <p>Uveřejnění zakázky:
-          <a rel="c:url" href="http://www.mesto.cz/...html">vývěska města</a>
-        </p>
-        <p>Datum zveřejnění:
-          <span property="dc:issued" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span>
-        </p>
-        <p>Název zakázky:
-          <span property="dc:title">Jezdecké potřeby městské policie</span>
-        </p>
-        
-        <h2>Vybraná nabídka</h2>
-        
-        <div rel="c:acceptedBid c:bid">
-          <div typeof="c:Bid">
-            <p rel="c:bidder">
-              <span typeof="gr:BusinessEntity">Vítěz:
-                <span property="gr:legalName">První koňařská a.s.</span>
-                , IČ
-                <span property="c:orgNumber">1234567</span>
-              </span>
-            </p>
-            <p rel="c:bidPrice">
-              <span typeof="gr:PriceSpecification">Nabídnutá cena:
-                <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
-                &nbsp; 						
-                <span property="gr:hasCurrency" content="CZK">Kč</span>
-              </span>
-            </p>
-          </div>
-        </div>
-        
-        <h2>Ostatní nabídky</h2>
-        
-        <div rel="c:bid">
-          <div typeof="c:Bid">
-            <p rel="c:bidder">
-              <span typeof="gr:BusinessEntity">Nabízející:
-                <span property="gr:legalName">První jezdecká a.s.</span>
-                , IČ
-                <span property="c:orgNumber">789654123</span>                 	
-              </span>
-            </p>
-            <p rel="c:bidPrice">
-              <span typeof="gr:PriceSpecification">Nabídnutá cena:
-                <span property="gr:hasCurrencyValue" datatype="xsd:int">1.500.000</span>
-                &nbsp;
-                <span property="gr:hasCurrency" content="CZK">Kč</span>
-              </span>
-            </p>
-          </div>
         </div>
       </div>
+      
+      <h2>Ostatní nabídky</h2>
+      <div rel="c:bid">
+        <div typeof="c:Bid">
+          <p rel="c:bidder">
+            <span typeof="gr:BusinessEntity">Nabízející:
+              <span property="gr:legalName">První jezdecká a.s.</span>
+              , IČ
+              <span property="c:orgNumber">789654123</span>                 	
+            </span>
+          </p>
+          <p rel="c:bidPrice">
+            <span typeof="gr:PriceSpecification">Nabídnutá cena:
+              <span property="gr:hasCurrencyValue" datatype="xsd:int">1.500.000</span>
+              &nbsp;
+              <span property="gr:hasCurrency" content="CZK">Kč</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      <div rel="c:bid">
+        <div typeof="c:Bid">
+          <p rel="c:bidder">
+            <span typeof="gr:BusinessEntity">Nabízející:
+              <span property="gr:legalName">Druhá pojízdná a.s.</span>
+              , IČ
+              <span property="c:orgNumber">24681012</span>                 	
+            </span>
+          </p>
+          <p rel="c:bidPrice">
+            <span typeof="gr:PriceSpecification">Nabídnutá cena:
+              <span property="gr:hasCurrencyValue" datatype="xsd:int">55.000</span>
+              &nbsp;
+              <span property="gr:hasCurrency" content="EUR">EUR</span>
+            </span>
+          </p>
+        </div>
+      </div>
+      
+      <!-- RDFa atribut rel říká, že následující element a obsahuj hodnotu vlastnosti c:document. -->
+      <!-- (X)HTML atribut href říká, že hodnotou je zdroj s URL 'http://www.mesto.cz/...pdf' -->
+      <p><a rel="c:document" href="http://www.mesto.cz/docs/12345678_popis.doc">Popis zakázky (DOC)</a></p>
+      <p><a rel="c:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf">Smlouva (PDF)</a></p>
+      
+      <!-- RDFa atribut rel říká, že následující element div obsahuje hodnotu vlastnosti c:contractPrice zdroje http://www.mesto.cz/VZ/12345678. -->
+      <!-- Navíc RDFa atribut rel říká, že touto hodnotou je zdroj, jehož data jsou obsažena uvnitř elementu div. -->
+      <div rel="c:contractPrice">
+        Cena kontraktu:
+        <!-- RDFa atribut typeof říká, že typ (třída) anonymního zdroje je gr:PriceSpecification. -->
+        <span typeof="gr:PriceSpecification">
+          <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:hasCurrencyValue anonymního zdroje. -->
+          <!-- Protože není uveden RDFa atribut content, hodnotou je obsah elementu, tj. '1.000.000'. -->
+          <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
+          &nbsp;
+          <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:hasCurrency anonymního zdroje. -->
+          <!-- Touto hodnotou je hodnota RDFa atributu content, tj. 'CZK'. -->
+          <span property="gr:hasCurrency" content="CZK">Kč</span>
+          (
+          <!-- RDFa atribut property říká, že následující element span obsahuje hodnotu vlastnosti gr:valueAddedTaxIncluded anonymního zdroje. -->
+          <!-- Touto hodnotou je hodnota RDFa atributu content, tj. 'false'. -->
+          <!-- RDFa atribut datatype říká, že datovým typem hodnoty je datový typ xsd:boolean (vestavěný primitivní datový typ jazyka XMl Schema). -->
+          <span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>
+          )            		
+        </span>
+      </div>
+      
+      <div rel="c:subsidy">
+        <p class="description" typeof="gr:PriceSpecification">Dotace: 					
+          <span property="gr:hasCurrencyValue" datatype="xsd:int">15.000</span>
+          &nbsp;
+          <span property="gr:hasCurrency" content="EUR">€</span>
+        </p>
+      </div>
+      <div rel="c:supplementPrice">
+        <p typeof="gr:PriceSpecification">Dodatková cena:
+          <span property="gr:hasCurrencyValue" datatype="xsd:int">300.000</span>
+          &nbsp; 					
+          <span property="gr:hasCurrency" content="CZK">Kč</span>           		
+        </p>
+      </div>
+      
+      <p>Splněna v termínu: 
+        <span property="c:onSchedule" content="false" datatype="xsd:boolean">ne</span>
+      </p>
+      <p>Splněna požadovaná kvalita:
+        <span property="c:quality" content="true" datatype="xsd:boolean">ano</span>
+      </p>
+      
+      <!--
+      <p>Uveřejnění zakázky:
+        <a rel="c:url" href="http://www.mesto.cz/...html">vývěska města</a>
+      </p>
+      -->
+      
     </div>
   </body>
 </html>
