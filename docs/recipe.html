@@ -95,7 +95,7 @@
               rdfs: http://www.w3.org/2000/01/rdf-schema#
               gr: http://purl.org/goodrelations/v1#
               dc: http://purl.org/dc/terms/
-              c: http://example.org/contracts#
+              c: http://purl.org/opendata-cz/public-contracts#
               payment: http://reference.data.gov.uk/def/payment#
               xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
@@ -110,7 +110,7 @@
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:gr="http://purl.org/goodrelations/v1#"
       xmlns:dc="http://purl.org/dc/terms/"
-      xmlns:c="http://example.org/contracts#"
+      xmlns:c="http://purl.org/opendata-cz/public-contracts#"
       xmlns:payment="http://reference.data.gov.uk/def/payment#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
@@ -337,8 +337,10 @@
   <strong>&lt;div rel="c:contractPrice"&gt;</strong>
     &lt;div typeof="gr:PriceSpecification"&gt;Smluvní cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
-      &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</strong>
-
+      &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+      (
+      &lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;
+      )</strong>
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
@@ -352,7 +354,7 @@
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
   &hellip;
   <strong>&lt;div rel="c:supplementPrice"&gt;
-    &lt;div typeof="gr:PriceSpecification"&gt;Doplňková cena:
+    &lt;div typeof="gr:PriceSpecification"&gt;Dodatková cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;150.000&lt;/span&gt;
       &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</strong>
     &lt;/div&gt;
@@ -371,8 +373,8 @@
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
   &hellip;
-  Kvalita: <strong>&lt;span property="c:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</strong>
-  Termíny: <strong>&lt;span property="c:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</strong>
+  Splněna v termínu: <strong>&lt;span property="c:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</strong>
+  Splněna požadovaná kvalita: <strong>&lt;span property="c:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
