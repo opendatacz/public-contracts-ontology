@@ -1,14 +1,36 @@
 @prefix dc:       <http://purl.org/dc/terms/> .
 @prefix dct:      <http://purl.org/dc/dcmitype/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
 # --- Own namespaces ------------------------------------------
 
 @prefix c:        <http://purl.org/opendata-cz/public-contracts#> .
+
+c: a owl:Ontology ;
+  dc:title "Public Contracts Ontology"@en,
+    "Ontologie pro veřejné zakázky"@cs ;
+  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
+  dc:modified "2011-04-27"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts#" ;
+  vann:preferredNamespacePrefix "c" ;
+  dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
+    <http://keg.vse.cz/person/josef-petrak>,
+    [
+      a foaf:Person ;
+      foaf:name "Martin Nečaský" ;
+    ],
+    [
+      a foaf:Person ;
+      foaf:name "Jakub Klímek" ;
+    ]
+  .
+      
 
 # Veřejná zakázka
 c:Contract a rdfs:Class ;
@@ -46,29 +68,36 @@ c:bidDeadline a rdf:Property ;
 	  "Bid deadline"@en ;
   rdfs:comment "Datum pro podávání nabídek na realizaci veřejné zakázky"@cs,
     "Bid deadline for a public contract"@en ;
-  rdfs:isDefinedBy c: .
+  rdfs:isDefinedBy c:
+  .
   # datatype xsd:date
 
 # Počet podaných nabídek
 # 0..1
-c:numberOfBids a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range rdfs:Literal .
+c:numberOfBids a rdf:Property ;
+  rdfs:domain c:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy c:
+  .
   # xsd:int
 
 # Detail podané nabídky
 # 0..*
-c:bid a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range c:Bid .
+c:bid a rdf:Property ;
+  rdfs:domain c:Contract ;
+  rdfs:range c:Bid;
+  rdfs:isDefinedBy c:
+  .
 
 # Detail vítězné nabídky
 # 0..1
 c:acceptedBid rdfs:subPropertyOf c:bid .
         
 # Abstraktní property pro ceny.
-c:price a rdf:Property;
-  rdfs:range gr:PriceSpecification .
+c:price a rdf:Property ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy c:
+  .
 
 # Cena nabídky
 c:bidPrice rdfs:subPropertyOf c:price .
@@ -87,41 +116,55 @@ c:subsidy rdfs:subPropertyOf c:price .
         
 # Spokojenost s kvalitou odvedené práce dodavatele na zakázce.
 # 0..1
-c:quality a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range xsd:boolean .
+c:quality a rdf:Property ;
+  rdfs:domain c:Contract ;
+  rdfs:range xsd:boolean ;
+  rdfs:isDefinedBy c:
+  .
 
 # Spokojenost s plněním termínů dodavatelem při realizaci zakázky.
 # 0..1
-c:onSchedule a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range xsd:boolean .
+c:onSchedule a rdf:Property ;
+  rdfs:domain c:Contract ;
+  rdfs:range xsd:boolean ;
+  rdfs:isDefinedBy c:
+  .
         
 # URL, kde lze najít informace k veřejné zakázce
 # 0..1
 c:url a rdf:Property ;
-  rdfs:subPropertyOf rdfs:seeAlso;
-  rdfs:domain c:Contract;
-  rdfs:range rdf:Resource .
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain c:Contract ;
+  rdfs:range rdf:Resource ;
+  rdfs:isDefinedBy c:
+  .
 
 # URL doplňujícího dokumentu (smlouva, příloha, ...)
 # 0..*
-c:document a rdf:Property;
-  rdfs:subPropertyOf rdfs:seeAlso;
-  rdfs:domain c:Contract;
-  rdfs:range dct:Text .
+c:document a rdf:Property ;
+  rdfs:subPropertyOf rdfs:seeAlso ;
+  rdfs:domain c:Contract ;
+  rdfs:range dct:Text ;
+  rdfs:isDefinedBy c:
+  .
 
 # Detail platby k veřejné zakázce
 # 0..*
-c:payment a rdf:Property;
-  rdfs:domain c:Contract;
-  rdfs:range payment:Payment .
+c:payment a rdf:Property ;
+  rdfs:domain c:Contract ;
+  rdfs:range payment:Payment ;
+  rdfs:isDefinedBy c:
+  .
 
-c:Bid a rdfs:Class .
+c:Bid a rdfs:Class ;
+  rdfs:isDefinedBy c:
+  .
 
-c:bidder a rdf:Property;
-   rdfs:domain c:Bid;
-   rdfs:range gr:BusinessEntity .
+c:bidder a rdf:Property ;
+   rdfs:domain c:Bid ;
+   rdfs:range gr:BusinessEntity ;
+   rdfs:isDefinedBy c:
+   .
 
 c:orgNumber a rdf:Property ;
   rdfs:subPropertyOf dc:identifier ;
