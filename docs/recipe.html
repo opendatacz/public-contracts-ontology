@@ -95,7 +95,7 @@
               rdfs: http://www.w3.org/2000/01/rdf-schema#
               gr: http://purl.org/goodrelations/v1#
               dc: http://purl.org/dc/terms/
-              c: http://purl.org/opendata-cz/public-contracts#
+              pc: http://purl.org/opendata-cz/public-contracts#
               payment: http://reference.data.gov.uk/def/payment#
               xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
@@ -110,7 +110,7 @@
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:gr="http://purl.org/goodrelations/v1#"
       xmlns:dc="http://purl.org/dc/terms/"
-      xmlns:c="http://purl.org/opendata-cz/public-contracts#"
+      xmlns:pc="http://purl.org/opendata-cz/public-contracts#"
       xmlns:payment="http://reference.data.gov.uk/def/payment#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
@@ -121,10 +121,10 @@
 
 <h2>Určení místa na webové stránce, kde je veřejná zakázka popsána</h2>
 
-<p>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <tt>div</tt>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>c:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>c:Contract</tt>.</p>
+<p>Informace o veřejné zakázce uzavřete do jednoho elementu, např. <tt>div</tt>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>pc:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>pc:Contract</tt>.</p>
 
 <pre>
-<strong>&lt;div typeof="c:Contract"&gt;</strong>
+<strong>&lt;div typeof="pc:Contract"&gt;</strong>
   &hellip;
 <strong>&lt;/div&gt;</strong>
 </pre>
@@ -132,7 +132,7 @@
 <p>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. To je v pořádku do té doby, kdy se chcete na zakázku odkazovat. Pokud chcete zakázce identifikátor přiřadit (např. proto, abyste se na ní mohli odkazovat), je potřeba jí přiřadit jednoznačné URI (v RDF se jako identifikátory používají právě URI). Toto URI může být např. fyzickým URL, na kterém je umístěna webová stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění. Pokud toto nemůžete u fyzického URL zajistit, je vhodnější zvolit nějaké virtuální URI (např. URL vašeho webu doplněné o <tt>/VZ/&lt;cislo-jednaci&gt;</tt>), na kterém fyzicky žádný dokument existovat nemusí.</p>
 
 <pre>
-<strong>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;</strong>
+<strong>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;</strong>
   &hellip;
 <strong>&lt;/div&gt;</strong>
 </pre>
@@ -142,110 +142,110 @@
 <p>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <tt>dc:title</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    Název: <strong>&lt;span property="dc:title"&gt;Jezdecké potřeby městské policie&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issued</tt> a <tt>c:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu dat používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt>. Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
+<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issued</tt> a <tt>pc:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu dat používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt> (RRRR-MM-DD). Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
    Datum zveřejnění: <strong>&lt;span property="dc:issued" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</strong>
-   Datum pro podávání nabídek: <strong>&lt;span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</strong>
+   Datum pro podávání nabídek: <strong>&lt;span property="pc:bidDeadline" content="2010-02-01" datatype="xsd:date"&gt;1. 2. 2010&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Seznam CPV kódů platných od roku 2008 je na adrese <code>http://opendata.cz/cpv/2008/</code>. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt>. Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>c:subject</tt>.</p>
+<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Seznam CPV kódů platných od roku 2008 je na adrese <code>http://opendata.cz/cpv/2008/</code>. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt>. Předmětů může mít veřejná zakázka více. Zadávejte je pomocí RDF vlastnosti <tt>pc:subject</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
-   Předmět: <strong>&lt;span rel="c:subject" resource="http://opendata.cz/cpv/2008/#cpv-18911000-8" datatype="xsd:string"&gt;sedla&lt;/span&gt;</strong>
-   <strong>&lt;span rel="c:subject" resource="http://opendata.cz/cpv/2008/#cpv-18913000-2" datatype="xsd:string"&gt;biče&lt;/span&gt;</strong>
+   Předmět: <strong>&lt;span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18911000-8" datatype="xsd:string"&gt;sedla&lt;/span&gt;</strong>
+   <strong>&lt;span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18913000-2" datatype="xsd:string"&gt;biče&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
 <h2>Údaje při zadání veřejné zakázky</h2>
 
-<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>c:numberOfBids</tt>.</p>
+<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>pc:numberOfBids</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
-   Počet obdržených nabídek: <strong>&lt;span property="c:numberOfBids" datatype="xsd:int"&gt;2&lt;/span&gt;</strong>
+   Počet obdržených nabídek: <strong>&lt;span property="pc:numberOfBids" datatype="xsd:int"&gt;2&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>c:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>c:bid</tt>. Nabídek můžete přiřadit několik.</p>
+<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>pc:Bid</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>pc:bid</tt>. Nabídek můžete přiřadit několik.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Nabídky:
-  <strong>&lt;div rel="c:bid"&gt;</strong>
+  <strong>&lt;div rel="pc:bid"&gt;</strong>
       &hellip;
   <strong>&lt;/div&gt;</strong>
-  <strong>&lt;div rel="c:bid"&gt;</strong>
+  <strong>&lt;div rel="pc:bid"&gt;</strong>
       &hellip;
   <strong>&lt;/div&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Samotnou nabídku umístěte do samostatného elementu (např. <tt>div</tt>) s RDFa atributem <tt>typeof</tt> s hodnotou <tt>c:Bid</tt>.</p>
+<p>Samotnou nabídku umístěte do samostatného elementu (např. <tt>div</tt>) s RDFa atributem <tt>typeof</tt> s hodnotou <tt>pc:Bid</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Nabídky:
-  &lt;div rel="c:bid"&gt;
-    <strong>&lt;div typeof="c:Bid"&gt;</strong>
+  &lt;div rel="pc:bid"&gt;
+    <strong>&lt;div typeof="pc:Bid"&gt;</strong>
       &hellip;
     <strong>&lt;/div&gt;</strong>
   &lt;/div&gt;
-  &lt;div rel="c:bid"&gt;
-    <strong>&lt;div typeof="c:Bid"&gt;</strong>
+  &lt;div rel="pc:bid"&gt;
+    <strong>&lt;div typeof="pc:Bid"&gt;</strong>
       &hellip;
     <strong>&lt;/div&gt;</strong>
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 
-<p>Ke každé nabídce přidejte společnost, která zaslala nabídku, pomocí vlastnosti <tt>c:bidder</tt>. Společnost uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>.</p>
+<p>Ke každé nabídce přidejte společnost, která zaslala nabídku, pomocí vlastnosti <tt>pc:bidder</tt>. Společnost uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
   &hellip;
   Nabídky:
-  &lt;div rel="c:bid"&gt;
-    &lt;div typeof="c:Bid"&gt;
-      <strong>&lt;div rel="c:bidder"&gt;
+  &lt;div rel="pc:bid"&gt;
+    &lt;div typeof="pc:Bid"&gt;
+      <strong>&lt;div rel="pc:bidder"&gt;
         &lt;div typeof="gr:BusinessEntity"&gt;Nabízející:</strong>
           &hellip;                 	
         <strong>&lt;/div&gt;
       &lt;/div&gt;</strong>
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div rel="c:bid"&gt;
+  &lt;div rel="pc:bid"&gt;
     &hellip;
   &lt;/div&gt;
 &lt;/div&gt;
 </pre>
 
-<p>Doplňte data o nabízejícím - jeho název (RDF vlastnost <tt>gr:legalName</tt>) a IČO (RDF vlastnost <tt>c:orgNumber</tt>).</p>
+<p>Doplňte data o nabízejícím - jeho název (RDF vlastnost <tt>gr:legalName</tt>) a IČO (RDF vlastnost <tt>pc:orgNumber</tt>).</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Nabídky:
-  &lt;div rel="c:bid"&gt;
-    &lt;div typeof="c:Bid"&gt;
-      &lt;div rel="c:bidder"&gt;
+  &lt;div rel="pc:bid"&gt;
+    &lt;div typeof="pc:Bid"&gt;
+      &lt;div rel="pc:bidder"&gt;
         &lt;div typeof="gr:BusinessEntity"&gt;Nabízející:
           <strong>&lt;span property="gr:legalName"&gt;První jezdecká a.s.&lt;/span&gt;
           , IČ
-          &lt;span property="c:orgNumber"&gt;789654123&lt;/span&gt;</strong>                 	
+          &lt;span property="pc:orgNumber"&gt;789654123&lt;/span&gt;</strong>                 	
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
@@ -253,22 +253,22 @@
 &lt;/div&gt;
 </pre>
 
-<p>Kromě nabízejícího uvádějte k nabídce také nabídnutou cenu pomocí vlastnosti <tt>c:bidPrice</tt>. Cenu uvádějte jako anonymní instanci třídy <tt>gr:PriceSpecification</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:PriceSpecification</tt>.</p>
+<p>Kromě nabízejícího uvádějte k nabídce také nabídnutou cenu pomocí vlastnosti <tt>pc:bidPrice</tt>. Cenu uvádějte jako anonymní instanci třídy <tt>gr:PriceSpecification</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:PriceSpecification</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Nabídky:
-  &lt;div rel="c:bid"&gt;
-    &lt;div typeof="c:Bid"&gt;
-      &lt;div rel="c:bidder"&gt;
+  &lt;div rel="pc:bid"&gt;
+    &lt;div typeof="pc:Bid"&gt;
+      &lt;div rel="pc:bidder"&gt;
         &lt;div typeof="gr:BusinessEntity"&gt;Nabízející:
           &lt;span property="gr:legalName"&gt;První jezdecká a.s.&lt;/span&gt;
           , IČ
-          &lt;span property="c:orgNumber"&gt;789654123&lt;/span&gt;                 	
+          &lt;span property="pc:orgNumber"&gt;789654123&lt;/span&gt;                 	
         &lt;/div&gt;
       &lt;/div&gt;
-      <strong>&lt;div rel="c:bidPrice"&gt;
+      <strong>&lt;div rel="pc:bidPrice"&gt;
         &lt;div typeof="gr:PriceSpecification"&gt;Nabídnutá cena:</strong>
           &hellip;
         <strong>&lt;/div&gt;
@@ -281,19 +281,19 @@
 <p>K ceně doplňte hodnotu (RDF vlastnost <tt>gr:hasCurrencyValue</tt>), měnu (RDF vlastnost <tt>gr:hasCurrency</tt>) a zda je cena s DPH (RDF vlastnost <tt>gr:valueAddedTaxIncluded</tt>).</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Nabídky:
-  &lt;div rel="c:bid"&gt;
-    &lt;div typeof="c:Bid"&gt;
-      &lt;div rel="c:bidder"&gt;
+  &lt;div rel="pc:bid"&gt;
+    &lt;div typeof="pc:Bid"&gt;
+      &lt;div rel="pc:bidder"&gt;
         &lt;div typeof="gr:BusinessEntity"&gt;Nabízející:
           &lt;span property="gr:legalName"&gt;První jezdecká a.s.&lt;/span&gt;
           , IČ
-          &lt;span property="c:orgNumber"&gt;789654123&lt;/span&gt;                 	
+          &lt;span property="pc:orgNumber"&gt;789654123&lt;/span&gt;                 	
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div rel="c:bidPrice"&gt;
+      &lt;div rel="pc:bidPrice"&gt;
         &lt;div typeof="gr:PriceSpecification"&gt;Nabídnutá cena:
           <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.500.000&lt;/span&gt;
           &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
@@ -305,14 +305,14 @@
 &lt;/div&gt;
 </pre>
 
-<p>Vítěznou nabídku nepřiřazujte k veřejné zakázce pomocí RDF vlastnosti <tt>c:bid</tt> ale pomocí vlastnosti <tt>c:acceptedBid</tt>. Samotnou vítěznou nabídku popište stejně jako ostatní nabídky, tj. jako instance třídy <tt>c:Bid</tt>.</p>
+<p>Vítěznou nabídku nepřiřazujte k veřejné zakázce pomocí RDF vlastnosti <tt>pc:bid</tt> ale pomocí vlastnosti <tt>pc:acceptedBid</tt>. Samotnou vítěznou nabídku popište stejně jako ostatní nabídky, tj. jako instance třídy <tt>pc:Bid</tt>.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   Vítězná nabídka:
-  <strong>&lt;div rel="c:acceptedBid"&gt;
-    &lt;div typeof="c:Bid"&gt;</strong>
+  <strong>&lt;div rel="pc:acceptedBid"&gt;
+    &lt;div typeof="pc:Bid"&gt;</strong>
       &hellip;
     <strong>&lt;/div&gt;
   &lt;/div&gt;</strong>
@@ -322,19 +322,19 @@
 <p>K veřejné zakázce můžete uvést dokumenty, které se ji týkají (zadávací dokumentace, protokol z rozbalování obálek s nabídkami, smlouva).</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
-   <strong>&lt;div&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_popis.doc"&gt;Popis zakázky (DOC)&lt;/a>&lt;/div&gt;</strong>
-   <strong>&lt;div&gt;&lt;a rel="c:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf"&gt;Smlouva (PDF)&lt;/a>&lt;/div&gt;</strong>
+   <strong>&lt;div&gt;&lt;a rel="pc:document" href="http://www.mesto.cz/docs/12345678_popis.doc"&gt;Popis zakázky (DOC)&lt;/a>&lt;/div&gt;</strong>
+   <strong>&lt;div&gt;&lt;a rel="pc:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf"&gt;Smlouva (PDF)&lt;/a>&lt;/div&gt;</strong>
 &lt;/div&gt;
 </pre>
 
-<p>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést pomocí vlastnosti <tt>c:contractPrice</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
+<p>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést pomocí vlastnosti <tt>pc:contractPrice</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>).</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
-  <strong>&lt;div rel="c:contractPrice"&gt;</strong>
+  <strong>&lt;div rel="pc:contractPrice"&gt;</strong>
     &lt;div typeof="gr:PriceSpecification"&gt;Smluvní cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
       &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
@@ -348,18 +348,18 @@
 
 <h2>Údaje při dokončení realizace veřejné zakázky</h2>
 
-<p>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotaci (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt>, resp. <tt>c:subsidy</tt> (opět jako instance třídy <tt>gr:PriceSpecification</tt>).</p>
+<p>Dodatkovou cenu (cena navíc vzniklá v průběhu realizace zakázky) a dotaci (částka z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) můžete uvést pomocí vlastnosti <tt>c:supplementPrice</tt>, resp. <tt>pc:subsidy</tt> (opět jako instance třídy <tt>gr:PriceSpecification</tt>).</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
-  <strong>&lt;div rel="c:supplementPrice"&gt;
+  <strong>&lt;div rel="pc:supplementPrice"&gt;
     &lt;div typeof="gr:PriceSpecification"&gt;Dodatková cena:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;150.000&lt;/span&gt;
       &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;</strong>
     &lt;/div&gt;
   &lt;/div&gt;</strong>
-  <strong>&lt;div rel="c:subsidy"&gt;
+  <strong>&lt;div rel="pc:subsidy"&gt;
     &lt;div typeof="gr:PriceSpecification"&gt;Dotace:
       <strong>&lt;span property="gr:hasCurrencyValue" datatype="xsd:int"&gt;20.000&lt;/span&gt;
       &lt;span property="gr:hasCurrency" content="EUR"&gt;EUR&lt;/span&gt;</strong>
@@ -368,13 +368,13 @@
 &lt;/div&gt;
 </pre>
 
-<p>Také můžete pomocí vlastností <tt>c:quality</tt> a <tt>c:onSchedule</tt> uvést, zda byla splněna očekávaná kvalita při realizaci veřejné zakázky a zda byly dodrženy termíny.</p>
+<p>Také můžete pomocí vlastností <tt>pc:quality</tt> a <tt>pc:onSchedule</tt> uvést, zda byla splněna očekávaná kvalita při realizaci veřejné zakázky a zda byly dodrženy termíny.</p>
 
 <pre>
-&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract"&gt;
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
-  Splněna v termínu: <strong>&lt;span property="c:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</strong>
-  Splněna požadovaná kvalita: <strong>&lt;span property="c:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</strong>
+  Splněna v termínu: <strong>&lt;span property="pc:onSchedule" content="false" datatype="xsd:boolean"&gt;ano&lt;/span&gt;</strong>
+  Splněna požadovaná kvalita: <strong>&lt;span property="pc:quality" content="true" datatype="xsd:boolean"&gt;ne&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 

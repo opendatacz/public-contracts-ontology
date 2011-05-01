@@ -10,7 +10,7 @@
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 	xmlns:vann="http://purl.org/vocab/vann/"
-	xmlns:c="http://purl.org/opendata-cz/public-contracts#">
+	xmlns:pc="http://purl.org/opendata-cz/public-contracts#">
 
 <rdf:Description rdf:about="http://purl.org/opendata-cz/public-contracts#">
 	<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -19,27 +19,29 @@
 	<dc:description xml:lang="cs">Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy.</dc:description>
 	<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-05-01</dc:modified>
 	<vann:preferredNamespaceUri>http://purl.org/opendata-cz/public-contracts#</vann:preferredNamespaceUri>
-	<vann:preferredNamespacePrefix>c</vann:preferredNamespacePrefix>
+	<vann:preferredNamespacePrefix>pc</vann:preferredNamespacePrefix>
 	<dc:creator rdf:resource="http://keg.vse.cz/person/jindrich-mynarz"/>
 	<dc:creator rdf:resource="http://keg.vse.cz/person/josef-petrak"/>
 </rdf:Description>
 
-<rdf:Description rdf:nodeID="node15t9lraidx1239875">
+<rdf:Description rdf:nodeID="node15t9lraidx1240931">
 	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
 	<foaf:name>Martin Nečaský</foaf:name>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://purl.org/opendata-cz/public-contracts#">
-	<dc:creator rdf:nodeID="node15t9lraidx1239875"/>
+	<dc:creator rdf:nodeID="node15t9lraidx1240931"/>
 </rdf:Description>
 
-<rdf:Description rdf:nodeID="node15t9lraidx1239876">
+<rdf:Description rdf:nodeID="node15t9lraidx1240932">
 	<rdf:type rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
 	<foaf:name>Jakub Klímek</foaf:name>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://purl.org/opendata-cz/public-contracts#">
-	<dc:creator rdf:nodeID="node15t9lraidx1239876"/>
+	<dc:creator rdf:nodeID="node15t9lraidx1240932"/>
+	<rdfs:seeAlso rdf:resource="http://opendata.cz/vocabulary/public-contracts#"/>
+	<rdfs:seeAlso rdf:resource="http://prefix.cc/pc"/>
 </rdf:Description>
 
 <rdf:Description rdf:about="http://keg.vse.cz/person/jindrich-mynarz">
@@ -135,7 +137,7 @@
 
 <rdf:Description rdf:about="http://purl.org/opendata-cz/public-contracts#contractPrice">
 	<rdfs:subPropertyOf rdf:resource="http://purl.org/opendata-cz/public-contracts#price"/>
-	<rdfs:label xml:lang="cs">Zasmluvněná cena</rdfs:label>
+	<rdfs:label xml:lang="cs">Smluvní cena</rdfs:label>
 	<rdfs:label xml:lang="en">Contract price</rdfs:label>
 </rdf:Description>
 
@@ -143,7 +145,7 @@
 	<rdfs:subPropertyOf rdf:resource="http://purl.org/opendata-cz/public-contracts#price"/>
 	<rdfs:label xml:lang="cs">Dodatková cena</rdfs:label>
 	<rdfs:label xml:lang="en">Supplement price</rdfs:label>
-	<rdfs:comment xml:lang="cs">Dodatková cena navyšující zasmluvněnou cenu</rdfs:comment>
+	<rdfs:comment xml:lang="cs">Dodatková cena navyšující smluvní cenu</rdfs:comment>
 	<rdfs:comment xml:lang="en">Supplement price increasing the contract price</rdfs:comment>
 </rdf:Description>
 
@@ -223,7 +225,6 @@
 	<rdfs:label xml:lang="en">Bidder</rdfs:label>
 	<rdfs:comment xml:lang="cs">Autor nabídky pro veřejnou zakázku</rdfs:comment>
 	<rdfs:comment xml:lang="en">A bidder to the public contract</rdfs:comment>
-	<rdfs:domain rdf:resource="http://purl.org/opendata-cz/public-contracts#Bid"/>
 	<rdfs:range rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
 	<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts#"/>
 </rdf:Description>

@@ -4,19 +4,18 @@
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:gr="http://purl.org/goodrelations/v1#"
       xmlns:dc="http://purl.org/dc/terms/"
-      xmlns:c="http://purl.org/opendata-cz/public-contracts#"
+      xmlns:pc="http://purl.org/opendata-cz/public-contracts#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
               rdfs: http://www.w3.org/2000/01/rdf-schema#
               gr: http://purl.org/goodrelations/v1#
               dc: http://purl.org/dc/terms/
-              c: http://purl.org/opendata-cz/public-contracts#
+              pc: http://purl.org/opendata-cz/public-contracts#
               payment: http://reference.data.gov.uk/def/payment#
               xsd: http://www.w3.org/2001/XMLSchema#">  
   <head>	
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />	
-    <title>Příklad veřejné zakázky v RDFa
-    </title>
+    <title>Příklad veřejné zakázky v RDFa</title>
   </head>
   <body>
     
@@ -24,29 +23,29 @@
     
     <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek. Seznam plateb zhotoviteli není součástí příkladu.</p>
       	   
-    <div about="http://www.mesto.cz/VZ/12345678" typeof="c:Contract">
+    <div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract">
       
       <p>Název: <span property="dc:title">Jezdecké potřeby městské policie</span></p>
       
       <p>Datum zveřejnění: <span property="dc:issued" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span></p>
       
-      <p>Datum pro podávání nabídek: <span property="c:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span></p>
+      <p>Datum pro podávání nabídek: <span property="pc:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span></p>
       
-      <p>Předmět: <span rel="c:subject" resource="http://opendata.cz/cpv/2008/#cpv-18911000-8" datatype="xsd:string">sedla</span>, <span rel="c:subject" resource="http://opendata.cz/cpv/2008/#cpv-18913000-2" datatype="xsd:string">biče</span></p>
+      <p>Předmět: <span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18911000-8" datatype="xsd:string">sedla</span>, <span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18913000-2" datatype="xsd:string">biče</span></p>
       
-      <p>Počet obdržených nabídek: <span property="c:numberOfBids" datatype="xsd:int">10</span></p>
+      <p>Počet obdržených nabídek: <span property="pc:numberOfBids" datatype="xsd:int">10</span></p>
       
       <h2>Vítězná nabídka</h2>
-      <div rel="c:acceptedBid">
-        <div typeof="c:Bid">
-          <p rel="c:bidder">
+      <div rel="pc:acceptedBid">
+        <div typeof="pc:Bid">
+          <p rel="pc:bidder">
             <span typeof="gr:BusinessEntity">Vítěz:
               <span property="gr:legalName">První koňařská a.s.</span>
               , IČ
-              <span property="c:orgNumber">1234567</span>
+              <span property="pc:orgNumber">1234567</span>
             </span>
           </p>
-          <p rel="c:bidPrice">
+          <p rel="pc:bidPrice">
             <span typeof="gr:PriceSpecification">Nabídnutá cena:
               <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
               &nbsp; 						
@@ -57,16 +56,16 @@
       </div>
       
       <h2>Ostatní nabídky</h2>
-      <div rel="c:bid">
-        <div typeof="c:Bid">
-          <p rel="c:bidder">
+      <div rel="pc:bid">
+        <div typeof="pc:Bid">
+          <p rel="pc:bidder">
             <span typeof="gr:BusinessEntity">Nabízející:
               <span property="gr:legalName">První jezdecká a.s.</span>
               , IČ
-              <span property="c:orgNumber">789654123</span>                 	
+              <span property="pc:orgNumber">789654123</span>                 	
             </span>
           </p>
-          <p rel="c:bidPrice">
+          <p rel="pc:bidPrice">
             <span typeof="gr:PriceSpecification">Nabídnutá cena:
               <span property="gr:hasCurrencyValue" datatype="xsd:int">1.500.000</span>
               &nbsp;
@@ -75,16 +74,16 @@
           </p>
         </div>
       </div>
-      <div rel="c:bid">
-        <div typeof="c:Bid">
-          <p rel="c:bidder">
+      <div rel="pc:bid">
+        <div typeof="pc:Bid">
+          <p rel="pc:bidder">
             <span typeof="gr:BusinessEntity">Nabízející:
               <span property="gr:legalName">Druhá pojízdná a.s.</span>
               , IČ
-              <span property="c:orgNumber">24681012</span>                 	
+              <span property="pc:orgNumber">24681012</span>                 	
             </span>
           </p>
-          <p rel="c:bidPrice">
+          <p rel="pc:bidPrice">
             <span typeof="gr:PriceSpecification">Nabídnutá cena:
               <span property="gr:hasCurrencyValue" datatype="xsd:int">55.000</span>
               &nbsp;
@@ -94,10 +93,10 @@
         </div>
       </div>
       
-      <p><a rel="c:document" href="http://www.mesto.cz/docs/12345678_popis.doc">Popis zakázky (DOC)</a></p>
-      <p><a rel="c:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf">Smlouva (PDF)</a></p>
+      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_popis.doc">Popis zakázky (DOC)</a></p>
+      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf">Smlouva (PDF)</a></p>
       
-      <div rel="c:contractPrice">
+      <div rel="pc:contractPrice">
         <span typeof="gr:PriceSpecification">Smluvní cena:
           <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
           &nbsp;
@@ -108,7 +107,7 @@
         </span>
       </div>
       
-      <div rel="c:supplementPrice">
+      <div rel="pc:supplementPrice">
         <p typeof="gr:PriceSpecification">Dodatková cena:
           <span property="gr:hasCurrencyValue" datatype="xsd:int">150.000</span>
           &nbsp; 					
@@ -116,7 +115,7 @@
         </p>
       </div>
       
-      <div rel="c:subsidy">
+      <div rel="pc:subsidy">
         <p class="description" typeof="gr:PriceSpecification">Dotace: 					
           <span property="gr:hasCurrencyValue" datatype="xsd:int">20.000</span>
           &nbsp;
@@ -126,14 +125,14 @@
       
       
       <p>Splněna v termínu: 
-        <span property="c:onSchedule" content="false" datatype="xsd:boolean">ne</span>
+        <span property="pc:onSchedule" content="false" datatype="xsd:boolean">ne</span>
       </p>
       <p>Splněna požadovaná kvalita:
-        <span property="c:quality" content="true" datatype="xsd:boolean">ano</span>
+        <span property="pc:quality" content="true" datatype="xsd:boolean">ano</span>
       </p>
       
       <p>Uveřejnění zakázky:
-        <a rel="c:url" href="http://www.mesto.cz/...html">vývěska města</a>
+        <a rel="pc:url" href="http://www.mesto.cz/...html">vývěska města</a>
       </p>
       
     </div>
