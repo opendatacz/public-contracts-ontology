@@ -7,6 +7,7 @@
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
 
 # --- Own namespaces ------------------------------------------
 
@@ -16,7 +17,7 @@ c: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
   dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-04-27"^^xsd:date ;
+  dc:modified "2011-05-01"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts#" ;
   vann:preferredNamespacePrefix "c" ;
   dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
@@ -30,33 +31,32 @@ c: a owl:Ontology ;
       foaf:name "Jakub Klímek" ;
     ]
   .
-      
+
+<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" .
+
+<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+  foaf:name "Josef Petrák" ;
+  foaf:mbox <mailto:me@jspetrak.name> .
 
 # Veřejná zakázka
 c:Contract a rdfs:Class ;
-	rdfs:label "Zakázka"@cs,
-	  "Contract"@en ;
-  rdfs:comment "Schválená veřejná zakázka"@cs,
-    "An accepted public contract"@en ;
-  rdfs:isDefinedBy c:
-  . 
+  rdfs:label "Zakázka"@cs, "Contract"@en ;
+  rdfs:comment "Schválená veřejná zakázka"@cs, "An accepted public contract"@en ;
+  rdfs:isDefinedBy c: . 
 
 # Předmět veřejné zakázky 
 # 1..*
 c:subject a rdf:Property ;
   rdfs:domain c:Contract ;
   rdfs:range rdfs:Literal ;
-  rdfs:label "Předmět"@cs,
-    "Subject"@en ;
-  rdfs:comment "Předmět veřejné zakázky"@cs,
-    "Subject of a public contract"@en ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:label "Předmět"@cs, "Subject"@en ;
+  rdfs:comment "Předmět veřejné zakázky"@cs, "Subject of a public contract"@en ;
+  rdfs:isDefinedBy c: .
       
 # Datum zveřejnění veřejné zakázky
 # 1..1    
-dc:issued rdfs:domain c:Contract
-  .
+dc:issued rdfs:domain c:Contract .
 
 # Datum pro podávání nabídek na realizaci veřejné zakázky
 # 1..1    
@@ -64,51 +64,60 @@ c:bidDeadline a rdf:Property ;
   rdfs:domain c:Contract ;
   rdfs:range rdfs:Literal ;
   rdfs:subPropertyOf dc:date ;
-	rdfs:label "Datum podání nabídek"@cs,
-	  "Bid deadline"@en ;
+  rdfs:label "Datum podání nabídek"@cs, "Bid deadline"@en ;
   rdfs:comment "Datum pro podávání nabídek na realizaci veřejné zakázky"@cs,
     "Bid deadline for a public contract"@en ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
   # datatype xsd:date
 
 # Počet podaných nabídek
 # 0..1
 c:numberOfBids a rdf:Property ;
+  rdfs:label "Počet nabídek"@cs, "Number of bids"@en ;
+  rdfs:comment "Počet nabídek podaných na veřejnou zakázku"@cs,
+    "Number of bids received for the public contract"@en ;
   rdfs:domain c:Contract ;
   rdfs:range rdfs:Literal ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
   # xsd:int
 
 # Detail podané nabídky
 # 0..*
 c:bid a rdf:Property ;
+  rdfs:label "Nabídka"@cs, "Bid"@en ;
+  rdfs:comment "Nabídka podaná na veřejnou zakázku"@cs, "A bid received for the public contract"@en ;
   rdfs:domain c:Contract ;
   rdfs:range c:Bid;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
 
 # Detail vítězné nabídky
 # 0..1
-c:acceptedBid rdfs:subPropertyOf c:bid .
+c:acceptedBid rdfs:subPropertyOf c:bid ;
+  rdfs:label "Vybraná nabídka"@cs, "The accepted bid"@en ;
+  rdfs:comment "Vybraná nabídka na veřejnou zakázku"@cs, "The accepted bid for the public contract"@en .
         
 # Abstraktní property pro ceny.
 c:price a rdf:Property ;
+  rdfs:label "Cena"@cs, "Price"@en ;
   rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy c:
   .
 
 # Cena nabídky
-c:bidPrice rdfs:subPropertyOf c:price .
+c:bidPrice rdfs:subPropertyOf c:price 
+  rdfs:label "Cena nabídky"@cs, "Bid price"@en .
 
 # Cena na smlouvě, asi se bude shodovat s cenou vítězné nabídky.
 # 0..1
-c:contractPrice rdfs:subPropertyOf c:price .
+c:contractPrice rdfs:subPropertyOf c:price
+  rdfs:label "Zasmluvněná cena"@cs, "Contract price"@en .
 
 # Navýšení k ceně na smlouvě
 # 0..1
-c:supplementPrice rdfs:subPropertyOf c:price .
+c:supplementPrice rdfs:subPropertyOf c:price 
+  rdfs:label "Dodatková cena"@cs, "Supplement price"@en ;
+  rdfs:comment "Dodatková cena navyšující zasmluvněnou cenu"@cs,
+    "Supplement price increasing the contract price"@en .
 
 # Poskytnutá dotace od třetí strany.
 # 0..1
@@ -117,62 +126,70 @@ c:subsidy rdfs:subPropertyOf c:price .
 # Spokojenost s kvalitou odvedené práce dodavatele na zakázce.
 # 0..1
 c:quality a rdf:Property ;
+  rdfs:label "Kvalita"@cs, "Quality"@en ;
+  rdfs:comment "Byla veřejná zakázka dodána v očekávané kvalitě"@cs,
+    "Public contract delivered in expected quality"@en ;
   rdfs:domain c:Contract ;
-  rdfs:range xsd:boolean ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy c: .
+  # xsd:boolean
 
 # Spokojenost s plněním termínů dodavatelem při realizaci zakázky.
 # 0..1
 c:onSchedule a rdf:Property ;
+  rdfs:label "Včas"@cs, "On schedule"@en ;
+  rdfs:comment "Byla veřejná zakázka splněna včas"@cs, "Public contract delivered on schedule"@en ;
   rdfs:domain c:Contract ;
-  rdfs:range xsd:boolean ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy c: .
+  # xsd:boolean
         
 # URL, kde lze najít informace k veřejné zakázce
 # 0..1
 c:url a rdf:Property ;
+  rdfs:label "Odkaz"@cs, "Hyperlink"@en ;
+  rdfs:comment "Odkaz na další informace o veřejné zakázce"@cs,
+    "A hyperlink to additional information about the public contract"@en ;
   rdfs:subPropertyOf rdfs:seeAlso ;
   rdfs:domain c:Contract ;
   rdfs:range rdf:Resource ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
 
 # URL doplňujícího dokumentu (smlouva, příloha, ...)
 # 0..*
 c:document a rdf:Property ;
+  rdfs:label "Dokument"@cs, "Document"@en ;
+  rdfs:comment "Doplňující dokument k veřejné zakázce"@cs, "An attached document to the public contract"@en ;
   rdfs:subPropertyOf rdfs:seeAlso ;
   rdfs:domain c:Contract ;
   rdfs:range dct:Text ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
 
 # Detail platby k veřejné zakázce
 # 0..*
 c:payment a rdf:Property ;
+  rdfs:label "Platba"@cs, "Payment"@en ;
+  rdfs:comment "Jedna platba za veřejnou zakázku"@cs, "One payment for the public contract"@en ;
   rdfs:domain c:Contract ;
   rdfs:range payment:Payment ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:isDefinedBy c: .
 
 c:Bid a rdfs:Class ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:label "Nabídka"@cs, "Bid"@en ;
+  rdfs:comment "Nabídka pro veřejnou zakázku"@cs, "A Bid for to the public contract"@en ;
+  rdfs:isDefinedBy c: .
 
 c:bidder a rdf:Property ;
-   rdfs:domain c:Bid ;
-   rdfs:range gr:BusinessEntity ;
-   rdfs:isDefinedBy c:
-   .
+  rdfs:label "Nabízející"@cs, "Bidder"@en ;
+  rdfs:comment "Autor nabídky pro veřejnou zakázku"@cs, "A bidder to the public contract"@en ;
+  rdfs:domain c:Bid ;
+  rdfs:range gr:BusinessEntity ;
+  rdfs:isDefinedBy c: .
 
 c:orgNumber a rdf:Property ;
   rdfs:subPropertyOf dc:identifier ;
-	rdfs:domain gr:BusinessEntity ;
-	rdfs:range rdfs:Literal ;
-  rdfs:label "IČ"@cs,
-    "Organization number"@en ;
-  rdfs:comment "Identifikační číslo subjektu"@cs,
-    "Identification number of a business entity"@en ;
-  rdfs:isDefinedBy c:
-  .
+  rdfs:domain gr:BusinessEntity ;
+  rdfs:range rdfs:Literal ;
+  rdfs:label "IČ"@cs, "Organization number"@en ;
+  rdfs:comment "Identifikační číslo subjektu"@cs, "Identification number of a business entity"@en ;
+  rdfs:isDefinedBy c: .
