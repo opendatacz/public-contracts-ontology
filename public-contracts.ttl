@@ -104,8 +104,9 @@ c:price a rdf:Property ;
   .
 
 # Cena nabídky
-c:bidPrice rdfs:subPropertyOf c:price 
-  rdfs:label "Cena nabídky"@cs, "Bid price"@en .
+c:bidPrice rdfs:subPropertyOf c:price ;
+  rdfs:label "Cena nabídky"@cs, "Bid price"@en
+  .
 
 # Cena na smlouvě, asi se bude shodovat s cenou vítězné nabídky.
 # 0..1
