@@ -110,12 +110,12 @@ c:bidPrice rdfs:subPropertyOf c:price ;
 
 # Cena na smlouvě, asi se bude shodovat s cenou vítězné nabídky.
 # 0..1
-c:contractPrice rdfs:subPropertyOf c:price
+c:contractPrice rdfs:subPropertyOf c:price ;
   rdfs:label "Zasmluvněná cena"@cs, "Contract price"@en .
 
 # Navýšení k ceně na smlouvě
 # 0..1
-c:supplementPrice rdfs:subPropertyOf c:price 
+c:supplementPrice rdfs:subPropertyOf c:price ;
   rdfs:label "Dodatková cena"@cs, "Supplement price"@en ;
   rdfs:comment "Dodatková cena navyšující zasmluvněnou cenu"@cs,
     "Supplement price increasing the contract price"@en .
