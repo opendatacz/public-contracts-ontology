@@ -32,7 +32,9 @@ pc: a owl:Ontology ;
       a foaf:Person ;
       foaf:name "Jakub Klímek" ;
     ] ;
-  rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts#>, <http://prefix.cc/pc> .
+  rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts#>, <http://prefix.cc/pc>
+  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
+  .
 
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
