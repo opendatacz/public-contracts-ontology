@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:dc="http://purl.org/dc/terms/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:pccz="http://purl.org/opendata-cz/public-contracts/czech#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:vann="http://purl.org/vocab/vann/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:pc="http://purl.org/opendata-cz/public-contracts#">
+	<owl:Ontology rdf:about="http://purl.org/opendata-cz/public-contracts/czech#">
+		<dc:title xml:lang="en">Public Contracts Ontology -- Czech Module</dc:title>
+		<dc:title xml:lang="cs">Ontologie pro veřejné zakázky -- modul pro Českou republiku</dc:title>
+		<dc:description xml:lang="cs">Ontologie pro veřejné zakázky -- modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky.</dc:description>
+		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-05-06</dc:modified>
+		<vann:preferredNamespaceUri>http://purl.org/opendata-cz/public-contracts/czech#</vann:preferredNamespaceUri>
+		<vann:preferredNamespacePrefix>pccz</vann:preferredNamespacePrefix>
+		<dc:creator>
+			<foaf:Person rdf:about="http://keg.vse.cz/person/jindrich-mynarz">
+				<foaf:name>Jindřich Mynarz</foaf:name>
+			</foaf:Person>
+		</dc:creator>
+		<dc:creator>
+			<foaf:Person rdf:about="http://keg.vse.cz/person/josef-petrak">
+				<foaf:name>Josef Petrák</foaf:name>
+				<foaf:mbox rdf:resource="mailto:me@jspetrak.name" />
+			</foaf:Person>
+		</dc:creator>
+		<dc:creator>
+			<foaf:Person rdf:about="http://www.ksi.mff.cuni.cz/~necasky">
+				<foaf:name>Martin Nečaský</foaf:name>
+				<foaf:mbox rdf:resource="mailto:martinnec@gmail.com" />
+			</foaf:Person>
+		</dc:creator>
+		<dc:creator>
+			<foaf:Person>
+				<foaf:name>Jakub Klímek</foaf:name>
+			</foaf:Person>
+		</dc:creator>
+		<rdfs:seeAlso rdf:resource="http://opendata.cz/vocabulary/public-contracts/czech#" />
+		<rdfs:seeAlso rdf:resource="http://prefix.cc/pccz" />
+		<dc:rights rdf:resource="http://creativecommons.org/licenses/by/3.0/cz/" />
+	</owl:Ontology>
+	<rdf:Property rdf:about="http://purl.org/opendata-cz/public-contracts/czech#hasManagement">
+		<rdfs:domain rdf:resource="http://purl.org/opendata-cz/public-contracts#Contract" />
+		<rdfs:range>
+			<rdfs:Class rdf:about="http://purl.org/opendata-cz/public-contracts/czech#Management">
+				<rdfs:range rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#Management" />
+				<rdfs:label xml:lang="cs">Druh řízení</rdfs:label>
+				<rdfs:label xml:lang="en">Kind of management</rdfs:label>
+				<rdfs:comment xml:lang="cs">Definuje povolené druhy řízení veřejných zakázek</rdfs:comment>
+				<rdfs:comment xml:lang="en">Defines allowed kinds of managament of public contracts</rdfs:comment>
+				<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+			</rdfs:Class>
+		</rdfs:range>
+		<rdfs:label xml:lang="cs">Druh řízení veřejné zakázky</rdfs:label>
+		<rdfs:label xml:lang="en">Kind of management of a public contract</rdfs:label>
+		<rdfs:comment xml:lang="cs">Druh řízení veřejné zakázky</rdfs:comment>
+		<rdfs:comment xml:lang="en">Kind of management of a public contract</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+	</rdf:Property>
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#otevrene" />
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#uzsi" />
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#jednaciSUverejnenim" />
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#jednaciBezUverejneni" />
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#soutezniDialog" />
+	<pccz:Management rdf:about="http://purl.org/opendata-cz/public-contracts/czech#zjednodusenePodlimitni" />
+	<rdf:Property rdf:about="http://purl.org/opendata-cz/public-contracts/czech#hasLimit">
+		<rdfs:domain rdf:resource="http://purl.org/opendata-cz/public-contracts#Contract" />
+		<rdfs:range>
+			<rdfs:Class rdf:about="http://purl.org/opendata-cz/public-contracts/czech#Limit">
+				<rdfs:label xml:lang="cs">Limit</rdfs:label>
+				<rdfs:label xml:lang="en">Limit</rdfs:label>
+				<rdfs:comment xml:lang="cs">Definuje povolené limity veřejných zakázek</rdfs:comment>
+				<rdfs:comment xml:lang="en">Defines allowed limits of public contracts</rdfs:comment>
+				<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+			</rdfs:Class>
+		</rdfs:range>
+		<rdfs:label xml:lang="cs">Limit veřejné zakázky</rdfs:label>
+		<rdfs:label xml:lang="en">Limit of a public contract</rdfs:label>
+		<rdfs:comment xml:lang="cs">Limit veřejné zakázky</rdfs:comment>
+		<rdfs:comment xml:lang="en">Limit of a public contract</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+	</rdf:Property>
+	<pccz:Limit rdf:about="http://purl.org/opendata-cz/public-contracts/czech#malehoRozsahu" />
+	<pccz:Limit rdf:about="http://purl.org/opendata-cz/public-contracts/czech#podlimitni" />
+	<pccz:Limit rdf:about="http://purl.org/opendata-cz/public-contracts/czech#nadlimitni" />
+	<rdf:Property rdf:about="http://purl.org/opendata-cz/public-contracts/czech#hasKind">
+		<rdfs:domain rdf:resource="http://purl.org/opendata-cz/public-contracts#Contract" />
+		<rdfs:range>
+			<rdfs:Class rdf:about="http://purl.org/opendata-cz/public-contracts/czech#Kind">
+				<rdfs:label xml:lang="cs">Druh</rdfs:label>
+				<rdfs:label xml:lang="en">Druh</rdfs:label>
+				<rdfs:comment xml:lang="cs">Definuje povolené druhy veřejných zakázek</rdfs:comment>
+				<rdfs:comment xml:lang="en">Defines allowed kinds of public contracts</rdfs:comment>
+				<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+			</rdfs:Class>
+		</rdfs:range>
+		<rdfs:label xml:lang="cs">Druh veřejné zakázky</rdfs:label>
+		<rdfs:label xml:lang="en">Kind of a public contract</rdfs:label>
+		<rdfs:comment xml:lang="cs">Druh veřejné zakázky</rdfs:comment>
+		<rdfs:comment xml:lang="en">Kind of a public contract</rdfs:comment>
+		<rdfs:isDefinedBy rdf:resource="http://purl.org/opendata-cz/public-contracts/czech#" />
+	</rdf:Property>
+	<pccz:Kind rdf:about="http://purl.org/opendata-cz/public-contracts/czech#dodavky" />
+	<pccz:Kind rdf:about="http://purl.org/opendata-cz/public-contracts/czech#stavebniPrace" />
+	<pccz:Kind rdf:about="http://purl.org/opendata-cz/public-contracts/czech#sluzby" />
+</rdf:RDF>

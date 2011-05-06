@@ -1,0 +1,103 @@
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix pc:        <http://purl.org/opendata-cz/public-contracts#> .
+@prefix pccz:        <http://purl.org/opendata-cz/public-contracts/czech#> .
+
+# --- Ontology metadata ---------------------------------------
+
+pccz: a owl:Ontology ;
+  dc:title "Public Contracts Ontology -- Czech Module"@en,
+    "Ontologie pro veřejné zakázky -- modul pro Českou republiku"@cs ;
+  dc:description "Ontologie pro veřejné zakázky -- modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
+  dc:modified "2011-05-06"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts/czech#" ;
+  vann:preferredNamespacePrefix "pccz" ;
+  dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
+    <http://keg.vse.cz/person/josef-petrak>,
+    <http://www.ksi.mff.cuni.cz/~necasky>,
+    [
+      a foaf:Person ;
+      foaf:name "Jakub Klímek" ;
+    ] ;
+  rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts/czech#>, <http://prefix.cc/pccz> ;
+  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
+  .
+
+<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" .
+
+<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+  foaf:name "Josef Petrák" ;
+  foaf:mbox <mailto:me@jspetrak.name> .
+  
+<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
+  foaf:name "Martin Nečaský" ;
+  foaf:mbox <mailto:martinnec@gmail.com> .
+
+# --- Vocabulary terms -----------------------------------------
+
+# Druh řízení veřejné zakázky 
+# 0..1
+pccz:hasManagement a rdf:Property ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pccz:Management ;
+  rdfs:label "Druh řízení veřejné zakázky"@cs, "Kind of management of a public contract"@en ;
+  rdfs:comment "Druh řízení veřejné zakázky"@cs, "Kind of management of a public contract"@en ;
+  rdfs:isDefinedBy pccz: .
+
+# Druh řízení
+pccz:Management a rdfs:Class ;
+  rdfs:range pccz:Management ;
+  rdfs:label "Druh řízení"@cs, "Kind of management"@en ;
+  rdfs:comment "Definuje povolené druhy řízení veřejných zakázek"@cs, "Defines allowed kinds of managament of public contracts"@en ;
+  rdfs:isDefinedBy pccz: .
+pccz:otevrene a pccz:Management .
+pccz:uzsi a pccz:Management .
+pccz:jednaciSUverejnenim a pccz:Management .
+pccz:jednaciBezUverejneni a pccz:Management .
+pccz:soutezniDialog a pccz:Management .
+pccz:zjednodusenePodlimitni a pccz:Management .
+  
+# Limit veřejné zakázky 
+# 0..1
+pccz:hasLimit a rdf:Property ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pccz:Limit ;
+  rdfs:label "Limit veřejné zakázky"@cs, "Limit of a public contract"@en ;
+  rdfs:comment "Limit veřejné zakázky"@cs, "Limit of a public contract"@en ;
+  rdfs:isDefinedBy pccz: .
+
+# Limit
+pccz:Limit a rdfs:Class ;
+  rdfs:label "Limit"@cs, "Limit"@en ;
+  rdfs:comment "Definuje povolené limity veřejných zakázek"@cs, "Defines allowed limits of public contracts"@en ;
+  rdfs:isDefinedBy pccz: .
+pccz:malehoRozsahu a pccz:Limit .
+pccz:podlimitni a pccz:Limit .
+pccz:nadlimitni a pccz:Limit .
+  
+# Druh veřejné zakázky 
+# 0..1
+pccz:hasKind a rdf:Property ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pccz:Kind ;
+  rdfs:label "Druh veřejné zakázky"@cs, "Kind of a public contract"@en ;
+  rdfs:comment "Druh veřejné zakázky"@cs, "Kind of a public contract"@en ;
+  rdfs:isDefinedBy pccz: .
+  
+# Druh
+pccz:Kind a rdfs:Class ;
+  rdfs:label "Druh"@cs, "Druh"@en ;
+  rdfs:comment "Definuje povolené druhy veřejných zakázek"@cs, "Defines allowed kinds of public contracts"@en ;
+  rdfs:isDefinedBy pccz: .
+pccz:dodavky a pccz:Kind .
+pccz:stavebniPrace a pccz:Kind .
+pccz:sluzby a pccz:Kind .
