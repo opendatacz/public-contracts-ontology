@@ -19,7 +19,7 @@ pc: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
   dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-05-01"^^xsd:date ;
+  dc:modified "2011-05-06"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
@@ -50,7 +50,7 @@ pc: a owl:Ontology ;
 pc:Contract a rdfs:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Veřejná zakázka"@cs, "Public contract"@en ;
-  rdfs:isDefinedBy pc: . 
+  rdfs:isDefinedBy pc: .
 
 # Název veřejné zakázky
 # 1..1    
@@ -87,7 +87,7 @@ pc:bidDeadline a rdf:Property ;
     "Bid deadline for a public contract"@en ;
   rdfs:isDefinedBy pc: .
   # datatype xsd:date
-
+  
 # Počet podaných nabídek
 # 0..1
 pc:numberOfBids a rdf:Property ;
