@@ -23,19 +23,19 @@
     
     <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek. Seznam plateb zhotoviteli není součástí příkladu.</p>
       	   
-    <div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract">
+    <div about="http://www.mesto.cz/VZ/12345678.html" typeof="pc:Contract">
       
       <p>Název: <span property="dc:title">Jezdecké potřeby městské policie</span></p>
       
-      <p>Datum zveřejnění: <span property="dc:issued" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span></p>
-      
-      <p>Datum pro podávání nabídek: <span property="pc:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span></p>
-      
       <p>Předmět: <span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18911000-8" datatype="xsd:string">sedla</span>, <span rel="pc:subject" resource="http://opendata.cz/cpv/2008/#cpv-18913000-2" datatype="xsd:string">biče</span></p>
       
-      <p>Počet obdržených nabídek: <span property="pc:numberOfBids" datatype="xsd:int">10</span></p>
+      <p>Datum zveřejnění oznámení: <span property="dc:issued" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span></p>
       
-      <h2>Vítězná nabídka</h2>
+      <p>Datum pro odevzdání nabídek: <span property="pc:bidDeadline" content="2010-02-01" datatype="xsd:date">1. 2. 2010</span></p>
+      
+      <p>Počet podaných nabídek: <span property="pc:numberOfBids" datatype="xsd:int">10</span></p>
+      
+      <h2>Detail vítězné nabídky</h2>
       <div rel="pc:acceptedBid">
         <div typeof="pc:Bid">
           <p rel="pc:bidder">
@@ -55,7 +55,7 @@
         </div>
       </div>
       
-      <h2>Ostatní nabídky</h2>
+      <h2>Detail ostatních nabídek</h2>
       <div rel="pc:bid">
         <div typeof="pc:Bid">
           <p rel="pc:bidder">
@@ -93,9 +93,6 @@
         </div>
       </div>
       
-      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_popis.doc">Popis zakázky (DOC)</a></p>
-      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf">Smlouva (PDF)</a></p>
-      
       <div rel="pc:contractPrice">
         <span typeof="gr:PriceSpecification">Smluvní cena:
           <span property="gr:hasCurrencyValue" datatype="xsd:int">1.000.000</span>
@@ -123,17 +120,21 @@
         </p>
       </div>
       
-      
       <p>Splněna v termínu: 
         <span property="pc:onSchedule" content="false" datatype="xsd:boolean">ne</span>
       </p>
+
       <p>Splněna požadovaná kvalita:
         <span property="pc:quality" content="true" datatype="xsd:boolean">ano</span>
       </p>
       
-      <p>Uveřejnění zakázky:
-        <a rel="pc:url" href="http://www.mesto.cz/...html">vývěska města</a>
+      <p>Místo uveřejnění zakázky:
+        <a rel="pc:url" href="http://www.mesto.cz/VZ-detail/12345678.hml">vývěska města</a>
       </p>
+      
+      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_popis.doc">Popis zakázky (DOC)</a></p>
+
+      <p><a rel="pc:document" href="http://www.mesto.cz/docs/12345678_smlouva.pdf">Smlouva (PDF)</a></p
       
     </div>
   </body>

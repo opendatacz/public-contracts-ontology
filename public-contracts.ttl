@@ -56,11 +56,18 @@ pc:Contract a rdfs:Class ;
 # 1..1    
 dc:title rdfs:domain pc:Contract .
 
+pc:submitter a rdf:Property ;
+ rdfs:label "Zadavatel"@cs, "Submitter"@en ;
+ rdfs:comment "Zadavatel veřejné zakázky"@cs, "A submitter of a public contract"@en ;
+ rdfs:domain pc:Contract ;
+ rdfs:range gr:BusinessEntity ;
+ rdfs:isDefinedBy pc: .
+
 # Předmět veřejné zakázky 
 # 1..*
 pc:subject a rdf:Property ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range rdfs:Resource ;
   rdfs:label "Předmět"@cs, "Subject"@en ;
   rdfs:comment "Předmět veřejné zakázky"@cs, "Subject of a public contract"@en ;
   rdfs:isDefinedBy pc: .
