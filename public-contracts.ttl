@@ -23,7 +23,7 @@ pc: a owl:Ontology ;
   vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://keg.vse.cz/resource/person/josef-petrak>,
+    <http://jspetrak.name/me/>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
     [
       a foaf:Person ;
@@ -33,10 +33,10 @@ pc: a owl:Ontology ;
   dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
   .
 
-<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
 
-<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+<http://jspetrak.name/me/> a foaf:Person ;
   foaf:name "Josef Petrák" ;
   foaf:mbox <mailto:me@jspetrak.name> .
   
