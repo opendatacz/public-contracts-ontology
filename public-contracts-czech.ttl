@@ -14,10 +14,10 @@
 # --- Ontology metadata ---------------------------------------
 
 pccz: a owl:Ontology ;
-  dc:title "Public Contracts Ontology -- Czech Module"@en,
-    "Ontologie pro veřejné zakázky -- modul pro Českou republiku"@cs ;
-  dc:description "Ontologie pro veřejné zakázky -- modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
-  dc:modified "2011-05-06"^^xsd:date ;
+  dc:title "Public Contracts Ontology – Czech Module"@en,
+    "Ontologie pro veřejné zakázky – modul pro Českou republiku"@cs ;
+  dc:description "Ontologie pro veřejné zakázky – modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
+  dc:modified "2011-05-07"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts/czech#" ;
   vann:preferredNamespacePrefix "pccz" ;
   dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
@@ -28,8 +28,7 @@ pccz: a owl:Ontology ;
       foaf:name "Jakub Klímek" ;
     ] ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts/czech#>, <http://prefix.cc/pccz> ;
-  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
-  .
+  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
@@ -46,29 +45,48 @@ pccz: a owl:Ontology ;
 
 # Druh řízení veřejné zakázky 
 # 0..1
-pccz:hasManagement a rdf:Property ;
+pccz:managedAs a rdf:Property ;
   rdfs:domain pc:Contract ;
-  rdfs:range pccz:Management ;
-  rdfs:label "Druh řízení veřejné zakázky"@cs, "Kind of management of a public contract"@en ;
-  rdfs:comment "Druh řízení veřejné zakázky"@cs, "Kind of management of a public contract"@en ;
+  rdfs:range pccz:PCManagement ;
+  rdfs:label "Druh řízení veřejné zakázky"@cs, "Kind of public contract management"@en ;
+  rdfs:comment "Druh řízení veřejné zakázky"@cs, "Kind of public contract management"@en ;
   rdfs:isDefinedBy pccz: .
 
 # Druh řízení
-pccz:Management a rdfs:Class ;
-  rdfs:range pccz:Management ;
+pccz:PCManagement a rdfs:Class ;
   rdfs:label "Druh řízení"@cs, "Kind of management"@en ;
-  rdfs:comment "Definuje povolené druhy řízení veřejných zakázek"@cs, "Defines allowed kinds of managament of public contracts"@en ;
+  rdfs:comment "Definuje povolené druhy řízení veřejných zakázek"@cs, 
+    "Defines allowed kinds of managament of public contracts"@en ;
   rdfs:isDefinedBy pccz: .
-pccz:otevrene a pccz:Management .
-pccz:uzsi a pccz:Management .
-pccz:jednaciSUverejnenim a pccz:Management .
-pccz:jednaciBezUverejneni a pccz:Management .
-pccz:soutezniDialog a pccz:Management .
-pccz:zjednodusenePodlimitni a pccz:Management .
+
+pccz:OpenManagement a pccz:PCManagement ;
+  rdfs:label "Otevřené řízení"@cs, "Open managmement"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:NarrowManagement a pccz:PCManagement ;
+  rdfs:label "Užší řízení"@cs, "Narrow management"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:NegotiationWithPublicationManagement a pccz:PCManagement ;
+  rdfs:label "Řízení jednací s uveřejněním"@cs, "Negotiation with publication management"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:NegotiationWithoutPublicationManagement a pccz:PCManagement ;
+  rdfs:label "Řízení jednací bez uveřejnění"@cs, "Negotiation without publication management"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:CompetitionDialogueManagement a pccz:PCManagement ;
+  rdfs:label "Soutěžní dialog"@cs, "Competition dialogue management"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:SimpleUnderLimitManagement a pccz:PCManagement ;
+  rdfs:label "Zjednodušené podlimitní řízení"@cs ,
+    "Simple under limit management"@en ;
+  rdfs:isDefinedBy pccz: .
   
 # Limit veřejné zakázky 
 # 0..1
-pccz:hasLimit a rdf:Property ;
+pccz:limit a rdf:Property ;
   rdfs:domain pc:Contract ;
   rdfs:range pccz:Limit ;
   rdfs:label "Limit veřejné zakázky"@cs, "Limit of a public contract"@en ;
@@ -78,15 +96,25 @@ pccz:hasLimit a rdf:Property ;
 # Limit
 pccz:Limit a rdfs:Class ;
   rdfs:label "Limit"@cs, "Limit"@en ;
-  rdfs:comment "Definuje povolené limity veřejných zakázek"@cs, "Defines allowed limits of public contracts"@en ;
+  rdfs:comment "Definuje povolené limity veřejných zakázek"@cs, 
+    "Defines allowed limits of public contracts"@en ;
   rdfs:isDefinedBy pccz: .
-pccz:malehoRozsahu a pccz:Limit .
-pccz:podlimitni a pccz:Limit .
-pccz:nadlimitni a pccz:Limit .
+
+pccz:SmallAmount a pccz:Limit ;
+  rdfs:label "Zakázka malého rozsahu"@cs, "Public Contract for small amount"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:UnderLimit a pccz:Limit ;
+  rdfs:label "Podlimitní zakázka"@cs, "Public Contract under the limit"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:AboveLimit a pccz:Limit ;
+  rdfs:label "Nadlimitní zakázka"@cs, "Public Contract above the limit"@en ;
+  rdfs:isDefinedBy pccz: .
   
 # Druh veřejné zakázky 
 # 0..1
-pccz:hasKind a rdf:Property ;
+pccz:kind a rdf:Property ;
   rdfs:domain pc:Contract ;
   rdfs:range pccz:Kind ;
   rdfs:label "Druh veřejné zakázky"@cs, "Kind of a public contract"@en ;
@@ -96,8 +124,18 @@ pccz:hasKind a rdf:Property ;
 # Druh
 pccz:Kind a rdfs:Class ;
   rdfs:label "Druh"@cs, "Druh"@en ;
-  rdfs:comment "Definuje povolené druhy veřejných zakázek"@cs, "Defines allowed kinds of public contracts"@en ;
+  rdfs:comment "Definuje povolené druhy veřejných zakázek"@cs,
+    "Defines allowed kinds of public contracts"@en ;
   rdfs:isDefinedBy pccz: .
-pccz:dodavky a pccz:Kind .
-pccz:stavebniPrace a pccz:Kind .
-pccz:sluzby a pccz:Kind .
+
+pccz:Supplies a pccz:Kind ;
+  rdfs:label "Dodávky"@cs, "Supplies"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:Constructions a pccz:Kind ;
+  rdfs:label "Stavební práce"@cs, "Constructions"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:Services a pccz:Kind ;
+  rdfs:label "Služby"@cs, "Services"@en ;
+  rdfs:isDefinedBy pccz: .
