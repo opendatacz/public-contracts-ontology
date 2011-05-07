@@ -20,8 +20,8 @@ pccz: a owl:Ontology ;
   dc:modified "2011-05-07"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts/czech#" ;
   vann:preferredNamespacePrefix "pccz" ;
-  dc:creator <http://keg.vse.cz/person/jindrich-mynarz>,
-    <http://keg.vse.cz/person/josef-petrak>,
+  dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://keg.vse.cz/resource/person/josef-petrak>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
     [
       a foaf:Person ;
