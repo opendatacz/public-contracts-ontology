@@ -102,7 +102,7 @@
               dc: http://purl.org/dc/terms/
               pc: http://purl.org/opendata-cz/public-contracts#
               pccz: http://purl.org/opendata-cz/public-contracts/czech#
-              payment: http://reference.data.gov.uk/def/payment#
+              cpv: http://purl.org/opendata-cz/cpv/2008#
               xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
@@ -118,6 +118,7 @@
       xmlns:dc="http://purl.org/dc/terms/"
       xmlns:pc="http://purl.org/opendata-cz/public-contracts#"
       xmlns:pccz="http://purl.org/opendata-cz/public-contracts/czech#"
+      xmlns:cpv="http://purl.org/opendata-cz/cpv/2008#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
@@ -170,13 +171,13 @@
 &lt;/div&gt;
 </pre>
 
-<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt>. Předmětů může mít veřejná zakázka více. V našem slovníku je pro ně určena RDF vlastnost <tt>pc:subject</tt>. Oproti předchozím údajům ale nejsou CPV kódy jednoduché (atomické) datové hodnoty, ale samostatné entity identifikované vlastním URL. V RDF datovém modelu jsou entity nazývány zdroje. Opět je uvádíme v samostatných HTML elementech. Tentokrát však nemají tyto elementy RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:subject</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL uvádíme jako hodnotu atributu <tt>resource</tt>. CPV kód má URL <tt>http://opendata.cz/vocabulary/cpv/2008#cpv-[kod]</tt>, kde <tt>[kod]</tt> nahraďte samotným CPV kódem (např. <tt>18911000-8</tt>).</p>
+<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý nástroj <tt>http://opendata.cz/cpv/</tt>. Předmětů může mít veřejná zakázka více. V našem slovníku je pro ně určena RDF vlastnost <tt>pc:subject</tt>. Oproti předchozím údajům ale nejsou CPV kódy jednoduché (atomické) datové hodnoty, ale samostatné entity identifikované vlastním URL. V RDF datovém modelu jsou entity nazývány zdroje. Opět je uvádíme v samostatných HTML elementech. Tentokrát však nemají tyto elementy RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:subject</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL uvádíme ve zkrácené podobě <tt>cpv:cpv-&lt;kod&gt;</tt> (&lt;kod&gt; je nahrazen konkretním CPV kódem) jako hodnotu atributu <tt>resource</tt> uzavřenou v hranatých závorkách [] (tzv. SafeCURIE).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
-   Předmět: <strong>&lt;span rel="pc:subject" resource="http://opendata.cz/vocabulary/cpv/2008#cpv-18911000-8"&gt;sedla&lt;/span&gt;</strong>
-   <strong>&lt;span rel="pc:subject" resource="http://opendata.cz/vocabulary/cpv/2008#cpv-18913000-2"&gt;biče&lt;/span&gt;</strong>
+   Předmět: <strong>&lt;span rel="pc:subject" resource="[cpv:cpv-18911000-8]"&gt;sedla&lt;/span&gt;</strong>
+   <strong>&lt;span rel="pc:subject" resource="[cpv:cpv-18913000-2]"&gt;biče&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
@@ -185,9 +186,9 @@
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
-  Druh řízení: <strong>&lt;span rel="pccz:managedAs" resource="http://purl.org/opendata-cz/public-contracts/czech#NegotiationWithPublicationManagement"&gt;Jednací s uveřejněním&lt;/span&gt;</strong>
-  Limit: <strong>&lt;span rel="pccz:limit" resource="http://purl.org/opendata-cz/public-contracts/czech#UnderLimit"&gt;Podlimitní&lt;/span&gt;</strong>
-  Druh: <strong>&lt;span rel="pccz:kind" resource="http://purl.org/opendata-cz/public-contracts/czech#Supplies"&gt;Dodávky&lt;/span&gt;</strong>
+  Druh řízení: <strong>&lt;span rel="pccz:managedAs" resource="[pccz:NegotiationWithPublicationManagement]"&gt;Jednací s uveřejněním&lt;/span&gt;</strong>
+  Limit: <strong>&lt;span rel="pccz:limit" resource="[pccz:UnderLimit]"&gt;Podlimitní&lt;/span&gt;</strong>
+  Druh: <strong>&lt;span rel="pccz:kind" resource="[pccz:Supplies]"&gt;Dodávky&lt;/span&gt;</strong>
 &lt;/div&gt;
 </pre>
 
@@ -196,26 +197,26 @@
 <ul>
   <li><tt>pccz:managedAs</tt> může mít jako hodnotu jeden z následujících zdrojů:
     <ul>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#OpenManagement</tt> - Otevřené řízení</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#NarrowManagement</tt> - Užší řízení</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#NegotiationWithPublicationManagement</tt> - Řízení jednací s uveřejněním</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#NegotiationWithoutPublicationManagement</tt> - Řízení jednací bez uveřejnění</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#CompetitionDialogueManagement</tt> - Soutěžní dialog</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#SimpleUnderLimitManagement</tt> - Zjednodušené podlimitní řízení</li>
+      <li><tt>pccz:OpenManagement</tt> - Otevřené řízení</li>
+      <li><tt>pccz:NarrowManagement</tt> - Užší řízení</li>
+      <li><tt>pccz:NegotiationWithPublicationManagement</tt> - Řízení jednací s uveřejněním</li>
+      <li><tt>pccz:NegotiationWithoutPublicationManagement</tt> - Řízení jednací bez uveřejnění</li>
+      <li><tt>pccz:CompetitionDialogueManagement</tt> - Soutěžní dialog</li>
+      <li><tt>pccz:SimpleUnderLimitManagement</tt> - Zjednodušené podlimitní řízení</li>
     </ul>
   </li>
   <li><tt>pccz:limit</tt> může mít jako hodnotu jeden z následujících zdrojů:
     <ul>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#SmallAmount</tt> - Zakázka malého rozsahu</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#UnderLimit</tt> - Podlimitní zakázka</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#AboveLimit</tt> - Nadlimitní zakázka</li>
+      <li><tt>pccz:SmallAmount</tt> - Zakázka malého rozsahu</li>
+      <li><tt>pccz:UnderLimit</tt> - Podlimitní zakázka</li>
+      <li><tt>pccz:AboveLimit</tt> - Nadlimitní zakázka</li>
     </ul>
   </li>
   <li><tt>pccz:kind</tt> může mít jako hodnotu jeden z následujících zdrojů:
     <ul>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#Supplies</tt> - Dodávky</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#Constructions</tt> - Stavební práce</li>
-      <li><tt>http://purl.org/opendata-cz/public-contracts/czech#Services</tt> - Služby</li>
+      <li><tt>pccz:Supplies</tt> - Dodávky</li>
+      <li><tt>pccz:Constructions</tt> - Stavební práce</li>
+      <li><tt>pccz:Services</tt> - Služby</li>
     </ul>
   </li>
 </ul>
