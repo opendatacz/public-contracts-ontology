@@ -7,17 +7,8 @@
 		<dc:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2011-05-06</dc:modified>
 		<vann:preferredNamespaceUri>http://purl.org/opendata-cz/public-contracts#</vann:preferredNamespaceUri>
 		<vann:preferredNamespacePrefix>pc</vann:preferredNamespacePrefix>
-		<dc:creator>
-			<foaf:Person rdf:about="http://keg.vse.cz/person/jindrich-mynarz">
-				<foaf:name>Jindřich Mynarz</foaf:name>
-			</foaf:Person>
-		</dc:creator>
-		<dc:creator>
-			<foaf:Person rdf:about="http://keg.vse.cz/person/josef-petrak">
-				<foaf:name>Josef Petrák</foaf:name>
-				<foaf:mbox rdf:resource="mailto:me@jspetrak.name" />
-			</foaf:Person>
-		</dc:creator>
+		<dc:creator rdf:resource="http://keg.vse.cz/resource/person/jindrich-mynarz" />
+		<dc:creator rdf:resource="http://keg.vse.cz/resource/person/josef-petrak" />
 		<dc:creator>
 			<foaf:Person rdf:about="http://www.ksi.mff.cuni.cz/~necasky">
 				<foaf:name>Martin Nečaský</foaf:name>
@@ -33,6 +24,13 @@
 		<rdfs:seeAlso rdf:resource="http://prefix.cc/pc" />
 		<dc:rights rdf:resource="http://creativecommons.org/licenses/by/3.0/cz/" />
 	</owl:Ontology>
+	<foaf:Person rdf:about="http://keg.vse.cz/person/jindrich-mynarz">
+		<foaf:name>Jindřich Mynarz</foaf:name>
+	</foaf:Person>
+	<foaf:Person rdf:about="http://keg.vse.cz/person/josef-petrak">
+		<foaf:name>Josef Petrák</foaf:name>
+		<foaf:mbox rdf:resource="mailto:me@jspetrak.name" />
+	</foaf:Person>
 	<rdfs:Class rdf:about="http://purl.org/opendata-cz/public-contracts#Contract">
 		<rdfs:label xml:lang="cs">Veřejná zakázka</rdfs:label>
 		<rdfs:label xml:lang="en">Public contract</rdfs:label>
