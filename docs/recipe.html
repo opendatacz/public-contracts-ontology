@@ -66,20 +66,20 @@
 
 <hr />
 
-<p>Tento dokument názorně ukazuje, jakým způsobem lze zveřejňovat údaje o veřejné zakázce ve strojově čitelné podobě. Základem zveřejnění je klasická HTML stránka. Ta je doplněna o strojově čitelné anotace údajů vyjádřených pomocí prostředků rozšíření jazyka HTML označovaného zkratkou RDFa. Pro sjednocení podoby strojově čitelných údajů jsme navrhli slovník (ontologii), který popisuje jednotlivé datové položky veřejné zakázky. Ty je potřeba dodržet. Nicméně, nemají vliv na samotnou vizuální podobu HTML stránky.</p>
+<p>Tento dokument názorně ukazuje, jakým způsobem lze zveřejňovat údaje o veřejné zakázce ve strojově čitelné podobě. Základem zveřejnění je klasická HTML stránka. Ta je doplněna o strojově čitelné anotace údajů vyjádřených pomocí prostředků rozšíření jazyka HTML označovaného zkratkou <a href="http://www.w3.org/TR/xhtml-rdfa-primer/">RDFa</a>. Pro sjednocení podoby strojově čitelných údajů jsme navrhli slovník (ontologii), který popisuje jednotlivé datové položky veřejné zakázky. Ty je potřeba dodržet. Nicméně, nemají vliv na samotnou vizuální podobu HTML stránky.</p>
 
-<p>Kompletní příklad veřejné zakázky zveřejněné v podobě HTML stránky doplněné o strojově čitelné anotace vyjádřené v jazyce RDFa najdete <a href="http://www.opendata.cz/vocabulary/public-contracts-example">ZDE</a>.</p>
+<p>Pro první seznámení s použitím slovníku pro vyznačení strojově čitelných údajů o veřejné zakázce pomocí RDFa se můžete podívat na zdrojový kód příkladu <a href="http://opendata.cz/vocabulary/public-contracts-example">ZDE</a>. Můžete sloužit i jako šablona pro vaše řešení. Následující text slouží jako "recept", který vysvětluje technické detaily.</p>
 
 <p>Protože má každá země odlišnou legislativu, skládá se ontologie veřejných zakázek z několika částí. První část je společná pro všechny země. Druhá část je modul pro konkrétní zemi. Zatím je připraven modul pro Českou republiku. Základní část i moduly jsou přístupné jak v RDF/XML tak v Turtle formátu:</p>
 
 <ul>
-  <li>společná část (<a href="http://www.opendata.cz/vocabulary/public-contracts.rdf">RDF/XML</a>, <a href="http://www.opendata.cz/vocabulary/public-contracts.ttl">Turtle</a>)</li>
-  <li>modul pro ČR (<a href="http://www.opendata.cz/vocabulary/public-contracts/czech.rdf">RDF/XML</a>, <a href="http://www.opendata.cz/vocabulary/public-contracts/czech.ttl">Turtle</a>)</li>
+  <li>společná část (<a href="http://opendata.cz/vocabulary/public-contracts.rdf">RDF/XML</a>, <a href="http://opendata.cz/vocabulary/public-contracts.ttl">Turtle</a>)</li>
+  <li>modul pro ČR (<a href="http://opendata.cz/vocabulary/public-contracts/czech.rdf">RDF/XML</a>, <a href="http://opendata.cz/vocabulary/public-contracts/czech.ttl">Turtle</a>)</li>
 </ul>
 
 <h2>Kontrola syntaxe</h2>
 
-<p>Pokud vytvoříte dokument s veřejnou zakázkou dle tohoto dokumentu, můžete si její syntaktickou správnost ověřit pomocí řady volně dostupných nástrojů. Např. můžete využít <a href="http://inspector.sindice.com/">Sindice Web Data Inspector</a>. Vyzkoušejte jej na <a href="http://inspector.sindice.com/inspect?url=http://www.opendata.cz/vocabulary/public-contracts-example">našem příkladě</a>.</p>
+<p>Pokud vytvoříte dokument s veřejnou zakázkou dle tohoto dokumentu, můžete si její syntaktickou správnost ověřit pomocí řady volně dostupných nástrojů. Např. můžete využít <a href="http://inspector.sindice.com/">Sindice Web Data Inspector</a>. Vyzkoušejte jej na <a href="http://inspector.sindice.com/inspect?url=http://opendata.cz/vocabulary/public-contracts-example">našem příkladě</a>.</p>
 
 <h2>Základní struktura dokumentu s veřejnou zakázkou</h2>
 
@@ -92,7 +92,7 @@
 <strong>&lt;html&gt;</strong>
 </pre>
 
-<p>Pokud používáte formát HTML, situace je obdobná. V záhlaví uvedete, že se jedná o HTML dokument se strojově čitelnými anotacemi. Pozor! Rošíření HTML o RDFa není ještě standardizováno a nástroje zpracovávající RDFa anotace mohou mít s touto variantou problémy. Např. výše zmiňovaný <a href="http://inspector.sindice.com/">Sindice Web Data Inspector</a> HTML dokument nezpracuje (pouze XHTML).</p>
+<p>Pokud používáte formát HTML, situace je obdobná. V záhlaví uvedete, že se jedná o HTML dokument se strojově čitelnými anotacemi.</p>
 
 <pre>
 <strong>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
@@ -112,9 +112,9 @@
               rdfs: http://www.w3.org/2000/01/rdf-schema#
               gr: http://purl.org/goodrelations/v1#
               dc: http://purl.org/dc/terms/
-              pc: http://purl.org/opendata-cz/public-contracts#
-              pccz: http://purl.org/opendata-cz/public-contracts/czech#
-              cpv: http://purl.org/opendata-cz/cpv/2008#
+              pc: http://purl.org/public-contracts#
+              pccz: http://purl.org/public-contracts/czech#
+              cpv: http://purl.org/public-contracts/cpv/2008#
               xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
@@ -128,9 +128,9 @@
       xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
       xmlns:gr="http://purl.org/goodrelations/v1#"
       xmlns:dc="http://purl.org/dc/terms/"
-      xmlns:pc="http://purl.org/opendata-cz/public-contracts#"
-      xmlns:pccz="http://purl.org/opendata-cz/public-contracts/czech#"
-      xmlns:cpv="http://purl.org/opendata-cz/cpv/2008#"
+      xmlns:pc="http://purl.org/public-contracts#"
+      xmlns:pccz="http://purl.org/public-contracts/czech#"
+      xmlns:cpv="http://purl.org/public-contracts/cpv/2008#"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
@@ -145,7 +145,7 @@
 
 <h2>Určení místa na webové stránce, kde je veřejná zakázka popsána</h2>
 
-<p>Informace o veřejné zakázce uzavřete ve vašem HTML kódu do jednoho elementu, např. <tt>div</tt>. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>pc:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>pc:Contract</tt>.</p>
+<p>Informace o veřejné zakázce uzavřete ve vašem HTML kódu do jednoho elementu, např. <tt>div</tt>, <tt>span</tt>, apod. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>pc:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>Contract</tt> ze jmenného prostoru s prefixem <tt>pc</tt> (tj. ze jmenného prostoru slovníku veřejných zakázek).</p>
 
 <pre>
 <strong>&lt;div typeof="pc:Contract"&gt;</strong>
@@ -173,7 +173,7 @@
 &lt;/div&gt;
 </pre>
 
-<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issued</tt> a <tt>pc:bidDeadline</tt>. Podobně jako v případě názvu zakázky, uveďte každý datum v samostatném HTML elementu, např. <tt>span</tt>, který opatřete RDFa atributem <tt>property</tt> s hodnotou <tt>dc:issued</tt>, resp. <tt>pc:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt> (RRRR-MM-DD). Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu RDFa atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
+<p>Dále uvádějte datum zveřejnění a datum pro posílání nabídek. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>dc:issued</tt> a <tt>pc:bidDeadline</tt>. Podobně jako v případě názvu zakázky, uveďte každé datum v samostatném HTML elementu, např. <tt>span</tt>, který opatřete RDFa atributem <tt>property</tt> s hodnotou <tt>dc:issued</tt>, resp. <tt>pc:bidDeadline</tt>. Je zde ale jeden podstatný rozdíl oproti názvu. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt> (RRRR-MM-DD). Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu RDFa atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -183,7 +183,7 @@
 &lt;/div&gt;
 </pre>
 
-<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý <a href="http://opendata.cz/cpv/">nástroj</a>. Předmětů může mít veřejná zakázka více. V našem slovníku je pro ně určena RDF vlastnost <tt>pc:subject</tt>. Oproti předchozím údajům ale nejsou CPV kódy jednoduché (atomické) datové hodnoty, ale samostatné entity identifikované vlastním URL. V RDF datovém modelu jsou entity nazývány zdroje. Opět je uvádíme v samostatných HTML elementech. Tentokrát však nemají tyto elementy RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:subject</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL uvádíme ve zkrácené podobě <tt>cpv:cpv-&lt;kod&gt;</tt> (&lt;kod&gt; je nahrazen konkretním CPV kódem) jako hodnotu atributu <tt>resource</tt> uzavřenou v hranatých závorkách [] (tzv. SafeCURIE).</p>
+<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý <a href="http://opendata.cz/vocabulary/cpv/2008">nástroj</a>. Předmětů může mít veřejná zakázka více. V našem slovníku je pro ně určena RDF vlastnost <tt>pc:subject</tt>. Oproti předchozím údajům ale nejsou CPV kódy jednoduché (atomické) datové hodnoty, ale samostatné entity identifikované vlastním URL. V RDF datovém modelu jsou entity nazývány zdroje. Opět je uvádíme v samostatných HTML elementech. Tentokrát však nemají tyto elementy RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:subject</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL uvádíme ve zkrácené podobě <tt>cpv:cpv-&lt;kod&gt;</tt> (&lt;kod&gt; je nahrazen konkretním CPV kódem) jako hodnotu atributu <tt>resource</tt> uzavřenou v hranatých závorkách [] (tzv. <a href="http://www.w3.org/TR/curie/">SafeCURIE</a>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -261,7 +261,7 @@
 
 <h2>Údaje při zadání veřejné zakázky</h2>
 
-<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>pc:numberOfBids</tt>.</p>
+<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>pc:numberOfBids</tt>. Hodnota je datového typu <tt>xsd:int</tt>, který značí celá čísla (integers). Proto ještě přidáváme RDFa atribut <tt>datatype</tt> s hodnotou <tt>xsd:int</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -397,7 +397,7 @@
 &lt;/div&gt;
 </pre>
 
-<p>Vítěznou nabídku nepřiřazujte k veřejné zakázce pomocí RDF vlastnosti <tt>pc:bid</tt> ale pomocí vlastnosti <tt>pc:acceptedBid</tt>. Samotnou vítěznou nabídku popište stejně jako ostatní nabídky, tj. jako instance třídy <tt>pc:Bid</tt>.</p>
+<p><strong>Vítěznou nabídku nepřiřazujte k veřejné zakázce pomocí RDF vlastnosti <tt>pc:bid</tt> ale pomocí vlastnosti <tt>pc:acceptedBid</tt></strong>. Samotnou vítěznou nabídku popište stejně jako ostatní nabídky, tj. jako instance třídy <tt>pc:Bid</tt>.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;

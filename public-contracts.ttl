@@ -11,7 +11,7 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/opendata-cz/public-contracts#> .
+@prefix pc:        <http://purl.org/public-contracts#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -20,21 +20,18 @@ pc: a owl:Ontology ;
     "Ontologie pro veřejné zakázky"@cs ;
   dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
   dc:modified "2011-05-06"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts#" ;
+  vann:preferredNamespaceUri "http://purl.org/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
-  dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://keg.vse.cz/resource/person/josef-petrak>,
+  dc:creator <http://www.ksi.mff.cuni.cz/~klimek/#me>,
+    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
-    [
-      a foaf:Person ;
-      foaf:name "Jakub Klímek" ;
-    ] ;
+    <http://keg.vse.cz/resource/person/josef-petrak> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts#>, <http://prefix.cc/pc> ;
   dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
   .
 
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
-  foaf:name "Jindřich Mynarz" .
+  foaf:name "Jindřich Mynarz"@cs .
 
 <http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
   foaf:name "Josef Petrák" ;
@@ -43,6 +40,10 @@ pc: a owl:Ontology ;
 <http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
   foaf:name "Martin Nečaský" ;
   foaf:mbox <mailto:martinnec@gmail.com> .
+
+<http://www.ksi.mff.cuni.cz/~klimek/#me> a foaf:Person ;
+  foaf:name "Jakub Klímek" ;
+  foaf:mbox <mailto:klimek.mff@gmail.com> .
 
 # --- Vocabulary terms -----------------------------------------
 
