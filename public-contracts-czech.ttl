@@ -8,8 +8,8 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/opendata-cz/public-contracts#> .
-@prefix pccz:        <http://purl.org/opendata-cz/public-contracts/czech#> .
+@prefix pc:        <http://purl.org/public-contracts#> .
+@prefix pccz:        <http://purl.org/public-contracts/czech#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -18,15 +18,12 @@ pccz: a owl:Ontology ;
     "Ontologie pro veřejné zakázky – modul pro Českou republiku"@cs ;
   dc:description "Ontologie pro veřejné zakázky – modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
   dc:modified "2011-05-07"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/opendata-cz/public-contracts/czech#" ;
+  vann:preferredNamespaceUri "http://purl.org/public-contracts/czech#" ;
   vann:preferredNamespacePrefix "pccz" ;
-  dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://keg.vse.cz/resource/person/josef-petrak>,
+  dc:creator <http://www.ksi.mff.cuni.cz/~klimek/#me>,
+    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
-    [
-      a foaf:Person ;
-      foaf:name "Jakub Klímek" ;
-    ] ;
+    <http://keg.vse.cz/resource/person/josef-petrak> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts/czech#>, <http://prefix.cc/pccz> ;
   dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
@@ -40,6 +37,10 @@ pccz: a owl:Ontology ;
 <http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
   foaf:name "Martin Nečaský" ;
   foaf:mbox <mailto:martinnec@gmail.com> .
+  
+<http://www.ksi.mff.cuni.cz/~klimek/#me> a foaf:Person ;
+  foaf:name "Jakub Klímek" ;
+  foaf:mbox <mailto:klimek.mff@gmail.com> .
 
 # --- Vocabulary terms -----------------------------------------
 
