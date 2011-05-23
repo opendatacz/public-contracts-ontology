@@ -22,18 +22,17 @@ pc: a owl:Ontology ;
   dc:modified "2011-05-06"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
-  dc:creator <http://www.ksi.mff.cuni.cz/~klimek/#me>,
+  dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://jspetrak.name/me/>, <http://www.ksi.mff.cuni.cz/~klimek/#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://www.ksi.mff.cuni.cz/~necasky>,
-    <http://keg.vse.cz/resource/person/josef-petrak> ;
+    <http://www.ksi.mff.cuni.cz/~necasky> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts#>, <http://prefix.cc/pc> ;
-  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/>
-  .
+  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
-<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
-  foaf:name "Jindřich Mynarz"@cs .
+<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" .
 
-<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+<http://jspetrak.name/me/> a foaf:Person ;
   foaf:name "Josef Petrák" ;
   foaf:mbox <mailto:me@jspetrak.name> .
   
