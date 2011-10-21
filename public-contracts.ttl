@@ -18,8 +18,8 @@
 pc: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
-  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-05-06"^^xsd:date ;
+  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs, "Public Contracts Ontology provides means for describing contracts by public sector bodies"@en ;
+  dc:modified "2011-10-21"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
@@ -58,7 +58,7 @@ dc:title rdfs:domain pc:Contract .
 
 pc:submitter a rdf:Property ;
  rdfs:label "Zadavatel"@cs, "Submitter"@en ;
- rdfs:comment "Zadavatel veřejné zakázky"@cs, "A submitter of a public contract"@en ;
+ rdfs:comment "Zadavatel veřejné zakázky"@cs, "Submitter of a public contract"@en ;
  rdfs:domain pc:Contract ;
  rdfs:range gr:BusinessEntity ;
  rdfs:isDefinedBy pc: .
