@@ -1,38 +1,44 @@
-@prefix dc:       <http://purl.org/dc/terms/> .
-@prefix dct:      <http://purl.org/dc/dcmitype/> .
-@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
-@prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix dct:      <http://purl.org/dc/dcmitype/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
+
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/public-contracts#> .
+@prefix pc:        <http://purl.org/procurement#> .
+@prefix pccz:        <http://purl.org/procurement/czech#> .
 
 # --- Ontology metadata ---------------------------------------
 
 pc: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
-  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs, "Public Contracts Ontology provides means for describing contracts by public sector bodies"@en ;
-  dc:modified "2011-10-21"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/public-contracts#" ;
+  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
+  dc:modified "2011-08-09"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement#" ;
   vann:preferredNamespacePrefix "pc" ;
-  dc:creator <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://jspetrak.name/me/>, <http://www.ksi.mff.cuni.cz/~klimek/#me>,
+  dc:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
-    <http://www.ksi.mff.cuni.cz/~necasky> ;
-  rdfs:seeAlso <http://opendata.cz/vocabulary/public-contracts#>, <http://prefix.cc/pc> ;
+    <http://www.ksi.mff.cuni.cz/~necasky>,
+    <http://keg.vse.cz/resource/person/josef-petrak>,
+    <http://www.facebook.com/nohis> ;
+  rdfs:seeAlso <http://opendata.cz/vocabulary/procurement#>, <http://prefix.cc/pc> ;
   dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
-<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
+<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
 
-<http://jspetrak.name/me/> a foaf:Person ;
+<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
   foaf:name "Josef Petrák" ;
   foaf:mbox <mailto:me@jspetrak.name> .
   
@@ -40,176 +46,419 @@ pc: a owl:Ontology ;
   foaf:name "Martin Nečaský" ;
   foaf:mbox <mailto:martinnec@gmail.com> .
 
-<http://www.ksi.mff.cuni.cz/~klimek/#me> a foaf:Person ;
+<http://purl.org/klimek#me> a foaf:Person ;
   foaf:name "Jakub Klímek" ;
   foaf:mbox <mailto:klimek.mff@gmail.com> .
 
-# --- Vocabulary terms -----------------------------------------
+<http://www.facebook.com/nohis> a foaf:Person ;
+   foaf:name "Pavel Nohejl" ;
+   foaf:mbox <mailto:nohejl.pavel@gmail.com> .
+                                               
+####### 
+####### Classes
+#######
 
-# Veřejná zakázka
+# Public contract
 pc:Contract a rdfs:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
-  rdfs:comment "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:isDefinedBy pc: .
-
-# Název veřejné zakázky
-# 1..1    
-dc:title rdfs:domain pc:Contract .
-
-pc:submitter a rdf:Property ;
- rdfs:label "Zadavatel"@cs, "Submitter"@en ;
- rdfs:comment "Zadavatel veřejné zakázky"@cs, "Submitter of a public contract"@en ;
- rdfs:domain pc:Contract ;
- rdfs:range gr:BusinessEntity ;
- rdfs:isDefinedBy pc: .
-
-# Předmět veřejné zakázky 
-# 1..*
-pc:subject a rdf:Property ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Resource ;
-  rdfs:label "Předmět"@cs, "Subject"@en ;
-  rdfs:comment "Předmět veřejné zakázky"@cs, "Subject of a public contract"@en ;
-  rdfs:isDefinedBy pc: .
-      
-# Datum zveřejnění oznámení o veřejné zakázce
-# 1..1    
-dc:issued rdfs:domain pc:Contract .
-
-# Datum pro odevzdání nabídek k veřejné zakázce
-# 1..1    
-pc:bidDeadline a rdf:Property ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
-  rdfs:subPropertyOf dc:date ;
-  rdfs:label "Datum pro odevzdání nabídek"@cs, "Bid deadline"@en ;
-  rdfs:comment "Datum pro odevzdání nabídek k veřejné zakázce"@cs,
-    "Bid deadline for a public contract"@en ;
-  rdfs:isDefinedBy pc: .
-  # datatype xsd:date
   
-# Počet podaných nabídek
-# 0..1
-pc:numberOfBids a rdf:Property ;
-  rdfs:label "Počet nabídek"@cs, "Number of bids"@en ;
-  rdfs:comment "Počet nabídek podaných k veřejné zakázce"@cs,
-    "Number of bids received for a public contract"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
-  rdfs:isDefinedBy pc: .
-  # xsd:int
-
-# Detail nabídky uchazeče o veřejnou zakázku
-# 0..*
-pc:bid a rdf:Property ;
-  rdfs:label "Nabídka"@cs, "Bid"@en ;
-  rdfs:comment "Detail nabídky uchazeče o veřejnou zakázku"@cs, "A bid received for a public contract"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range pc:Bid;
+# Tender
+pc:Tender a rdfs:Class ;
+  rdfs:label "Nabídka"@cs, "Tender"@en ;
   rdfs:isDefinedBy pc: .
 
-# Detail vítězné nabídky
-# 0..1
-pc:acceptedBid rdfs:subPropertyOf pc:bid ;
-  rdfs:label "Vítězná nabídka"@cs, "The accepted bid"@en ;
-  rdfs:comment "Detail vítězné nabídky k veřejné zakázce"@cs, "The accepted bid for a public contract"@en .
-        
-# Abstraktní property pro ceny.
+# Contract award criteria
+pc:AwardCriteria a rdfs:Class ;
+  rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criteria"@en ;
+  rdfs:isDefinedBy pc: .
+  
+#######
+####### Terminologies
+#######
+
+####### Concept scheme of contract award criteria
+
+pc:AwardCriteriaTypeScheme rdf:type skos:ConceptScheme .
+
+pc:MostEconomicallyAdvantageousTender a skos:Concept ;
+  skos:inScheme pc:AwardCriteriaTypeScheme;
+  rdfs:label "Ekonomicky nejvýhodnější nabídka"@cs, "The most economically advantageous tender"@en ;
+  rdfs:isDefinedBy pc: .
+  
+pc:LowestPrice a skos:Concept ;
+  skos:inScheme pc:AwardCriteriaTypeScheme;
+  rdfs:label "Nejnižší nabídková cena"@cs, "Lowest price"@en ;
+  rdfs:isDefinedBy pc: .
+  
+####### Concept scheme of contract procedure types
+
+pc:ProcedureTypeScheme rdf:type skos:ConceptScheme .
+
+pc:Open a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Otevřené"@cs, "Open"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:Restricted a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Užší"@cs, "Restricted"@en ;
+  rdfs:isDefinedBy pc: .
+  
+pc:AcceleratedRestricted a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Urychlené užší"@cs, "Accelerated restricted"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:Negotiated a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Jednací"@cs, "Negotiated"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:AcceleratedNegotiated a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Urychlené jednací"@cs, "Accelerated negotiated"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:SimpleUnderLimit a skos:Concept ;
+  rdfs:label "Zjednodušené podlimitní"@cs , "Simple under limit"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pc:CompetitiveDialogue a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Soutěžní dialog"@cs, "Competition dialogue"@en ;
+  rdfs:isDefinedBy pc: .
+  
+####### Concept scheme of kinds of public contracts
+
+pc:KindScheme rdf:type skos:ConceptScheme .
+
+pc:Supplies a skos:Concept ;
+  skos:inScheme pc:KindScheme ;
+  rdfs:label "Dodávky"@cs, "Supplies"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:Works a skos:Concept ;
+  skos:inScheme pc:KindScheme ;
+  rdfs:label "Stavební práce"@cs, "Works"@en ;
+  rdfs:isDefinedBy pc: .
+
+pc:Services a skos:Concept ;
+  skos:inScheme pc:KindScheme ;
+  rdfs:label "Služby"@cs, "Services"@en ;
+  rdfs:isDefinedBy pc: .
+
+########
+######## Properties
+########
+
+# ABSTRACT
+# Price
 pc:price a rdf:Property ;
   rdfs:label "Cena"@cs, "Price"@en ;
   rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy pc: .
 
-# Cena nabídky
-pc:bidPrice rdfs:subPropertyOf pc:price ;
-  rdfs:label "Cena nabídky"@cs, "Bid price"@en .
+####### pc:Contract properties
 
-# Smluvní cena
+# Title of contract
+# 0..1    
+# dc:title
+
+# Description of contract
 # 0..1
-pc:contractPrice rdfs:subPropertyOf pc:price ;
-  rdfs:label "Smluvní cena"@cs, "Contract price"@en .
+# dc:description
 
-# Navýšení k ceně na smlouvě
+# Contract main contact
 # 0..1
-pc:supplementPrice rdfs:subPropertyOf pc:price ;
-  rdfs:label "Dodatková cena"@cs, "Supplement price"@en ;
-  rdfs:comment "Dodatková cena navyšující smluvní cenu"@cs,
-    "A supplement price increasing the contract price"@en .
+pc:mainContact a rdf:Property ;
+  rdfs:label "Hlavní kontakt pro zakázku"@cs, "Contract main contact"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range vcard:VCard ;
+  rdfs:isDefinedBy pc: .
+  
+# Contract contact person
+# 0..1
+pc:contactPerson a rdf:Property ;
+  rdfs:label "Kontaktní osoba pro zakázku"@cs, "Contract contact person"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range foaf:Person ;
+  rdfs:isDefinedBy pc: .
 
-# Poskytnutá dotace od třetí strany.
+# Kind
+# 0..1
+pc:kind a rdf:Property ;
+  rdfs:label "Druh zakázky"@cs, "Type of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc: .
+  
+# Type of procedure
+# 0..1
+pc:procedureType a rdf:Property ;
+  rdfs:label "Druh řízení zakázky"@cs, "Type of procedure of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc: .
+
+# Contracting authority
+# 0..1
+pc:contractingAuthority a rdf:Property ;
+ rdfs:label "Zadavatel"@cs, "Contracting authority"@en ;
+ rdfs:domain pc:Contract ;
+ rdfs:range gr:BusinessEntity ;
+ rdfs:isDefinedBy pc: .
+
+####### ABSTRACT
+# Object
+# 0..*
+pc:object a rdf:Property ;
+  rdfs:label "Předmět zakázky"@cs, "Object of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc: .
+
+# Main object 
+# 0..1
+pc:mainObject rdfs:subPropertyOf pc:object ;
+  rdfs:label "Hlavní předmět zakázky"@cs, "Main object of contract"@en ;
+  rdfs:isDefinedBy pc: .
+  
+# Additional object 
+# 0..*
+pc:additionalObject rdfs:subPropertyOf pc:object ;
+  rdfs:label "Další předmět zakázky"@cs, "Additional object of contract"@en ;
+  rdfs:isDefinedBy pc: .
+
+# Exact estimated contract price
+# 0..1
+pc:estimatedPrice rdfs:subPropertyOf pc:price ;
+  rdfs:label "Přesná odhadovaná cena cena"@cs, "Exact estimated price"@en ;
+  rdfs:domain pc:Contract ;  
+  rdfs:isDefinedBy pc: .
+  
+# Lower range of estimated contract price
+# 0..1
+pc:estimatedPriceLower rdfs:subPropertyOf pc:price ;
+  rdfs:label "Počáteční rozsah odhadované ceny"@cs, "Lower range of estimated price"@en ;
+  rdfs:domain pc:Contract ;  
+  rdfs:isDefinedBy pc: .
+  
+# Upper range of estimated contract price
+# 0..1
+pc:estimatedPriceUpper rdfs:subPropertyOf pc:price ;
+  rdfs:label "Koncový rozsah odhadované ceny"@cs, "Upper range of estimated price"@en ;
+  rdfs:domain pc:Contract ;  
+  rdfs:isDefinedBy pc: .
+
+# Exact duration of contract in days
+# 0..1
+# xsd:int
+pc:durationDays a rdf:Property ;
+  rdfs:label "Doba trvání zakázky ve dnech"@cs, "Exact duration of contract in days"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+  
+# Exact duration of contract in months
+# 0..1
+# xsd:int
+pc:durationMonths a rdf:Property ;
+  rdfs:label "Doba trvání zakázky v měsících"@cs, "Exact duration of contract in months"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Start date of contract
+# 0..1
+# xsd:date
+pc:startDate a rdf:Property ;
+  rdfs:label "Datum začátku realizace zakázky"@cs, "Start date of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:isDefinedBy pc: .
+  
+# End date of contract
+# 0..1
+# xsd:date
+pc:endDate a rdf:Property ;
+  rdfs:label "Datum konce realizace zakázky"@cs, "End date of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:isDefinedBy pc: .
+
+# Type of contract award criteria
+# 0..1
+pc:awardCriteriaType a rdf:Property ;
+  rdfs:label "Typ kritéria pro zadání zakázky."@cs, "Type of critera for contract award."@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc: .
+  
+# Contract award criteria
+# 0..1
+pc:awardCriteria a rdf:Property ;
+  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:AwardCriteria ;
+  rdfs:isDefinedBy pc: .
+
+# Contract file reference number
+# 0..1
+# xsd:string
+pc:referenceNumber a rdf:Property ;
+  rdfs:label "Spisové číslo zakázky"@cs, "File reference number"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Time-limit for receipt of tenders or requests to participate
+# 0..1
+# xsd:date
+pc:tenderDeadline a rdf:Property ;
+  rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs, "Time-limit for receipt of tenders or requests to participate"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Contract lot
+# 0..*
+pc:lot a rdf:Property ;  
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Contract ;
+  rdfs:label "Část zakázky"@cs, "Contract lot"@en ;
+  rdfs:comment "Část zakázky"@cs, "Contract lot"@en ;  
+  rdfs:isDefinedBy pc: .
+
+# Contract publication date
+# 0..1
+# xsd:date
+pc:publicationDate a rdf:Property ;
+  rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:issued ;
+  rdfs:isDefinedBy pc: .
+  
+# Date of contract award
+# 0..1
+# xsd:date
+pc:awardDate a rdf:Property ;
+  rdfs:label "Datum zadání zakázky"@cs, "Date of contract award"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:issued ;
+  rdfs:isDefinedBy pc: .
+  
+# Number of tenders received
+# 0..1
+# xsd:int
+pc:numberOfTenders a rdf:Property ;
+  rdfs:label "Počet obdržených nabídek"@cs, "Number of tenders received"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:subPropertyOf dc:issued ;
+  rdfs:isDefinedBy pc: .
+  
+# Tender
+# 0..*
+pc:tender a rdf:Property ;
+  rdfs:label "Nabídka"@cs, "Tender"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Tender ;
+  rdfs:isDefinedBy pc: .
+  
+# Awarded tender
+# 0..*
+pc:awardedTender rdfs:subPropertyOf pc:tender ;
+  rdfs:label "Vybraná nabídka"@cs, "Awarded tender"@en ;
+  rdfs:isDefinedBy pc: .
+  
+# Quality of public contract realization
+# 0..1
+# xsd:boolean
+pc:quality a rdf:Property ;
+  rdfs:label "Kvalita realizace zakázky"@cs, "Quality of public contract realization"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Contract schedule fulfilled
+# 0..1
+# xsd:boolean
+pc:onSchedule a rdf:Property ;
+  rdfs:label "Časový plán zakázky dodržen"@cs, "Contract schedule fulfilled"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Subsidy supplemented for contract
 # 0..1
 pc:subsidy rdfs:subPropertyOf pc:price ;
-  rdfs:label "Dotace"@cs, "Subsidy"@en ;
-  rdfs:comment "Dotace k veřejné zakázce"@cs,
-    "Subsidy supplemented for a public contract"@en .
-        
-# Spokojenost s kvalitou odvedené práce dodavatele na zakázce.
-# 0..1
-pc:quality a rdf:Property ;
-  rdfs:label "Kvalita"@cs, "Quality"@en ;
-  rdfs:comment "Byla veřejná zakázka dodána v očekávané kvalitě"@cs,
-    "Public contract delivered in expected quality"@en ;
+  rdfs:label "Dotace použitá pro zakázku"@cs, "Subsidy supplemented for contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
   rdfs:isDefinedBy pc: .
-  # xsd:boolean
-
-# Spokojenost s plněním termínů dodavatelem při realizaci zakázky.
+  
+# Actual price after contract realization
 # 0..1
-pc:onSchedule a rdf:Property ;
-  rdfs:label "Včas"@cs, "On schedule"@en ;
-  rdfs:comment "Byla veřejná zakázka splněna včas"@cs, "Public contract delivered on schedule"@en ;
+pc:actualPrice rdfs:subPropertyOf pc:price ;
+  rdfs:label "Skutečná cena po realizaci zakázky"@cs, "Actual price after contract realization"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
   rdfs:isDefinedBy pc: .
-  # xsd:boolean
-        
-# URL, kde lze najít informace k veřejné zakázce
-# 0..1
-pc:url a rdf:Property ;
-  rdfs:label "Odkaz"@cs, "Hyperlink"@en ;
-  rdfs:comment "Odkaz na další informace o veřejné zakázce"@cs,
-    "A hyperlink to additional information about a public contract"@en ;
-  rdfs:subPropertyOf rdfs:seeAlso ;
+  
+# Contract attachment
+# 0..*
+pc:attachment a rdf:Property ;
+  rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range rdf:Resource ;
   rdfs:isDefinedBy pc: .
+  
+####### gr:BusinessEntity properties
 
-# URL doplňujícího dokumentu (smlouva, příloha, ...)
-# 0..*
-pc:document a rdf:Property ;
-  rdfs:label "Dokument"@cs, "Document"@en ;
-  rdfs:comment "Doplňující dokument k veřejné zakázce"@cs, "An attached document to a public contract"@en ;
-  rdfs:subPropertyOf rdfs:seeAlso ;
-  rdfs:domain pc:Contract ;
-  rdfs:range dct:Text ;
-  rdfs:isDefinedBy pc: .
-
-# Detail platby k veřejné zakázce
-# 0..*
-pc:payment a rdf:Property ;
-  rdfs:label "Platba"@cs, "Payment"@en ;
-  rdfs:comment "Jedna platba za veřejnou zakázku"@cs, "One payment for a public contract"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range payment:Payment ;
-  rdfs:isDefinedBy pc: .
-
-pc:Bid a rdfs:Class ;
-  rdfs:label "Nabídka"@cs, "Bid"@en ;
-  rdfs:comment "Nabídka pro veřejnou zakázku"@cs, "A bid for to a public contract"@en ;
-  rdfs:isDefinedBy pc: .
-
-pc:bidder a rdf:Property ;
-  rdfs:label "Nabízející"@cs, "Bidder"@en ;
-  rdfs:comment "Autor nabídky pro veřejnou zakázku"@cs, "A bidder to a public contract"@en ;
-  rdfs:domain pc:Bid ;
-  rdfs:range gr:BusinessEntity ;
-  rdfs:isDefinedBy pc: .
-
-pc:orgNumber a rdf:Property ;
-  rdfs:subPropertyOf dc:identifier ;
+# Buyer's profile
+# 0..1
+pc:buyerProfile a rdf:Property ;
+  rdfs:label "Profilová stránka kupujícího"@cs, "Buyers's profile website"@en ;
   rdfs:domain gr:BusinessEntity ;
-  rdfs:range rdfs:Literal ;
-  rdfs:label "IČ"@cs, "Organization number"@en ;
-  rdfs:comment "Identifikační číslo subjektu"@cs, "Identification number of a business entity"@en ;
+  rdfs:range rdf:Resource ;
   rdfs:isDefinedBy pc: .
+  
+####### pc:Tender properties
+
+# Offered price in tender
+# 0..1
+pc:offeredPrice rdfs:subPropertyOf pc:price ;
+  rdfs:label "Nabídnutá cena v nabídce"@cs, "Offered price in tender"@en ;
+  rdfs:domain pc:Tender ;  
+  rdfs:isDefinedBy pc: .
+  
+# Tender supplier
+# 0..1
+pc:supplier a rdf:Property ;
+ rdfs:label "Dodavatel, který podal nabídku"@cs, "Tender supplier"@en ;
+ rdfs:domain pc:Tender ;
+ rdfs:range gr:BusinessEntity ;
+ rdfs:isDefinedBy pc: .
+
+####### pc:AwardCriteria properties
+
+# Contract award criteria specification
+# 0..1
+# xsd:string
+pc:criteria a rdf:Property ;
+  rdfs:label "Specifikace kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria specification"@en ;
+  rdfs:domain pc:AwardCriteria ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .
+
+# Contract award criteria weight
+# 0..1
+# xsd:int
+pc:criteriaWeight a rdf:Property ;
+  rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria weight"@en ;
+  rdfs:domain pc:AwardCriteria ;
+  rdfs:range rdfs:Literal ;
+  rdfs:isDefinedBy pc: .                			    						
