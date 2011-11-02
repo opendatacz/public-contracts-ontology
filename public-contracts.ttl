@@ -120,10 +120,6 @@ pc:AcceleratedNegotiated a skos:Concept ;
   rdfs:label "Urychlené jednací"@cs, "Accelerated negotiated"@en ;
   rdfs:isDefinedBy pc: .
 
-pc:SimpleUnderLimit a skos:Concept ;
-  rdfs:label "Zjednodušené podlimitní"@cs , "Simple under limit"@en ;
-  rdfs:isDefinedBy pccz: .
-
 pc:CompetitiveDialogue a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Soutěžní dialog"@cs, "Competition dialogue"@en ;
