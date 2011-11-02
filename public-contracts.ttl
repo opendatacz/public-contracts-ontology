@@ -15,8 +15,8 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/procurement#> .
-@prefix pccz:        <http://purl.org/procurement/czech#> .
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:      <http://purl.org/procurement/public-contracts-czech#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -24,8 +24,8 @@ pc: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
   dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-08-09"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/procurement#" ;
+  dc:modified "2011-11-02"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dc:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
