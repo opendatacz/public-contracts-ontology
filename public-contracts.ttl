@@ -16,7 +16,6 @@
 # --- Own namespaces ------------------------------------------
 
 @prefix pc:        <http://purl.org/procurement/public-contracts#> .
-@prefix pccz:      <http://purl.org/procurement/public-contracts-czech#> .
 
 # --- Ontology metadata ---------------------------------------
 
