@@ -13,8 +13,8 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/procurement#> .
-@prefix pccz:        <http://purl.org/procurement/czech#> .
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:      <http://purl.org/procurement/public-contracts-czech#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -22,8 +22,8 @@ pccz: a owl:Ontology ;
   dc:title "Public Contracts Ontology – Czech Module"@en,
     "Ontologie pro veřejné zakázky – modul pro Českou republiku"@cs ;
   dc:description "Ontologie pro veřejné zakázky – modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
-  dc:modified "2011-05-07"^^xsd:date ;
-  vann:preferredNamespaceUri "http://purl.org/procurement/czech#" ;
+  dc:modified "2011-11-02"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts-czech#" ;
   vann:preferredNamespacePrefix "pccz" ;
   dc:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
