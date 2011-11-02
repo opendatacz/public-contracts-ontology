@@ -78,7 +78,7 @@ pc:AwardCriteria a rdfs:Class ;
 
 ####### Concept scheme of contract award criteria
 
-pc:AwardCriteriaTypeScheme rdf:type skos:ConceptScheme .
+pc:AwardCriteriaTypeScheme a skos:ConceptScheme .
 
 pc:MostEconomicallyAdvantageousTender a skos:Concept ;
   skos:inScheme pc:AwardCriteriaTypeScheme;
@@ -92,7 +92,7 @@ pc:LowestPrice a skos:Concept ;
   
 ####### Concept scheme of contract procedure types
 
-pc:ProcedureTypeScheme rdf:type skos:ConceptScheme .
+pc:ProcedureTypeScheme a skos:ConceptScheme .
 
 pc:Open a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
@@ -126,7 +126,7 @@ pc:CompetitiveDialogue a skos:Concept ;
   
 ####### Concept scheme of kinds of public contracts
 
-pc:KindScheme rdf:type skos:ConceptScheme .
+pc:KindScheme a skos:ConceptScheme .
 
 pc:Supplies a skos:Concept ;
   skos:inScheme pc:KindScheme ;
