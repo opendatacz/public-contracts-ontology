@@ -158,11 +158,11 @@ pc:price a rdf:Property ;
 
 # Title of contract
 # 0..1    
-# dc:title
+dc:title rdfs:domain pc:Contract .
 
 # Description of contract
 # 0..1
-# dc:description
+dc:description rdfs:domain pc:Contract .
 
 # Contract main contact
 # 0..1
