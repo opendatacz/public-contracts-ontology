@@ -78,70 +78,102 @@ pc:AwardCriteria a rdfs:Class ;
 
 ####### Concept scheme of contract award criteria
 
-pc:AwardCriteriaTypeScheme a skos:ConceptScheme .
+pc:AwardCriteriaTypeScheme a skos:ConceptScheme ;
+  skos:hasTopConcept pc:MostEconomicallyAdvantageousTender,
+    pc:LowestPrice 
+  .
 
 pc:MostEconomicallyAdvantageousTender a skos:Concept ;
   skos:inScheme pc:AwardCriteriaTypeScheme;
   rdfs:label "Ekonomicky nejvýhodnější nabídka"@cs, "The most economically advantageous tender"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:AwardCriteriaTypeScheme 
+  .
   
 pc:LowestPrice a skos:Concept ;
   skos:inScheme pc:AwardCriteriaTypeScheme;
   rdfs:label "Nejnižší nabídková cena"@cs, "Lowest price"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:AwardCriteriaTypeScheme
+  .
   
 ####### Concept scheme of contract procedure types
 
-pc:ProcedureTypeScheme a skos:ConceptScheme .
+pc:ProcedureTypeScheme a skos:ConceptScheme ; 
+  skos:hasTopConcept pc:Open, pc:Restricted,
+    pc:Negotiated, pc:CompetitiveDialogue
+  .
 
 pc:Open a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Otevřené"@cs, "Open"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:ProcedureTypeScheme
+  .
 
 pc:Restricted a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Užší"@cs, "Restricted"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:narrower pc:AcceleratedRestricted ;
+  skos:topConceptOf pc:ProcedureTypeScheme
+  .
   
 pc:AcceleratedRestricted a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Urychlené užší"@cs, "Accelerated restricted"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:broader pc:Restricted
+  .
 
 pc:Negotiated a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Jednací"@cs, "Negotiated"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:narrower pc:AcceleratedNegotiated ;
+  skos:topConceptOf pc:ProcedureTypeScheme
+  .
 
 pc:AcceleratedNegotiated a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Urychlené jednací"@cs, "Accelerated negotiated"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:broader pc:Negotiated
+  .
 
 pc:CompetitiveDialogue a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
   rdfs:label "Soutěžní dialog"@cs, "Competition dialogue"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:ProcedureTypeScheme
+  .
   
 ####### Concept scheme of kinds of public contracts
 
-pc:KindScheme a skos:ConceptScheme .
+pc:KindScheme a skos:ConceptScheme ;
+  skos:hasTopConcept pc:Supplies, pc:Works, pc:Services
+  .
 
 pc:Supplies a skos:Concept ;
   skos:inScheme pc:KindScheme ;
   rdfs:label "Dodávky"@cs, "Supplies"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:KindScheme
+  .
 
 pc:Works a skos:Concept ;
   skos:inScheme pc:KindScheme ;
   rdfs:label "Stavební práce"@cs, "Works"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:KindScheme
+  .
 
 pc:Services a skos:Concept ;
   skos:inScheme pc:KindScheme ;
   rdfs:label "Služby"@cs, "Services"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  skos:topConceptOf pc:KindScheme
+  .
 
 ########
 ######## Properties
