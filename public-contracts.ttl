@@ -64,6 +64,7 @@ pc:Contract a rdfs:Class ;
   
 # Tender
 pc:Tender a rdfs:Class ;
+  rdfs:subClassOf gr:Offering ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
   rdfs:isDefinedBy pc: .
 
@@ -181,8 +182,9 @@ pc:Services a skos:Concept ;
 
 # ABSTRACT
 # Price
-pc:price a rdf:Property ;
+pc:contractPrice a rdf:Property ;
   rdfs:label "Cena"@cs, "Price"@en ;
+  rdfs:domain pc:Contract ;
   rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy pc: .
 
@@ -247,72 +249,69 @@ pc:object a rdf:Property ;
 
 # Main object 
 # 0..1
-pc:mainObject rdfs:subPropertyOf pc:object ;
+pc:mainObject a rdf:Property ;
+  rdfs:subPropertyOf pc:object ;
   rdfs:label "Hlavní předmět zakázky"@cs, "Main object of contract"@en ;
   rdfs:isDefinedBy pc: .
   
 # Additional object 
 # 0..*
-pc:additionalObject rdfs:subPropertyOf pc:object ;
+pc:additionalObject a rdf:Property ;
+  rdfs:subPropertyOf pc:object ;
   rdfs:label "Další předmět zakázky"@cs, "Additional object of contract"@en ;
   rdfs:isDefinedBy pc: .
 
 # Exact estimated contract price
 # 0..1
-pc:estimatedPrice rdfs:subPropertyOf pc:price ;
+pc:estimatedPrice a rdf:Property ;
+  rdfs:subPropertyOf pc:contractPrice ;
   rdfs:label "Přesná odhadovaná cena cena"@cs, "Exact estimated price"@en ;
-  rdfs:domain pc:Contract ;  
   rdfs:isDefinedBy pc: .
   
 # Lower range of estimated contract price
 # 0..1
-pc:estimatedPriceLower rdfs:subPropertyOf pc:price ;
+pc:estimatedPriceLower a rdf:Property ;
+  rdfs:subPropertyOf pc:contractPrice ;
   rdfs:label "Počáteční rozsah odhadované ceny"@cs, "Lower range of estimated price"@en ;
-  rdfs:domain pc:Contract ;  
   rdfs:isDefinedBy pc: .
   
 # Upper range of estimated contract price
 # 0..1
-pc:estimatedPriceUpper rdfs:subPropertyOf pc:price ;
+pc:estimatedPriceUpper a rdf:Property ;
+  rdfs:subPropertyOf pc:contractPrice ;
   rdfs:label "Koncový rozsah odhadované ceny"@cs, "Upper range of estimated price"@en ;
-  rdfs:domain pc:Contract ;  
   rdfs:isDefinedBy pc: .
 
 # Exact duration of contract in days
 # 0..1
-# xsd:int
 pc:durationDays a rdf:Property ;
   rdfs:label "Doba trvání zakázky ve dnech"@cs, "Exact duration of contract in days"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:positiveInteger ;
   rdfs:isDefinedBy pc: .
   
-# Exact duration of contract in months
-# 0..1
-# xsd:int
-pc:durationMonths a rdf:Property ;
-  rdfs:label "Doba trvání zakázky v měsících"@cs, "Exact duration of contract in months"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
-  rdfs:isDefinedBy pc: .
-
 # Start date of contract
 # 0..1
-# xsd:date
 pc:startDate a rdf:Property ;
   rdfs:label "Datum začátku realizace zakázky"@cs, "Start date of contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:date ;
   rdfs:subPropertyOf dc:date ;
   rdfs:isDefinedBy pc: .
   
 # End date of contract
 # 0..1
-# xsd:date
-pc:endDate a rdf:Property ;
-  rdfs:label "Datum konce realizace zakázky"@cs, "End date of contract"@en ;
+pc:estimatedEndDate a rdf:Property ;
+  rdfs:label "Očekávané datum konce realizace zakázky"@cs, "Estimated end date of contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dc:date ;
+  rdfs:isDefinedBy pc: .
+
+pc:actualEndDate a rdf:Property ;
+  rdfs:label "Skutečné datum konce realizace zakázky"@cs, "Actual end data of contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
   rdfs:subPropertyOf dc:date ;
   rdfs:isDefinedBy pc: .
 
@@ -334,11 +333,10 @@ pc:awardCriteria a rdf:Property ;
 
 # Contract file reference number
 # 0..1
-# xsd:string
 pc:referenceNumber a rdf:Property ;
   rdfs:label "Spisové číslo zakázky"@cs, "File reference number"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:string ;
   rdfs:isDefinedBy pc: .
 
 # Time-limit for receipt of tenders or requests to participate
@@ -347,7 +345,7 @@ pc:referenceNumber a rdf:Property ;
 pc:tenderDeadline a rdf:Property ;
   rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs, "Time-limit for receipt of tenders or requests to participate"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:date ;
   rdfs:isDefinedBy pc: .
 
 # Contract lot
@@ -361,31 +359,28 @@ pc:lot a rdf:Property ;
 
 # Contract publication date
 # 0..1
-# xsd:date
 pc:publicationDate a rdf:Property ;
   rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:date ;
   rdfs:subPropertyOf dc:issued ;
   rdfs:isDefinedBy pc: .
   
 # Date of contract award
 # 0..1
-# xsd:date
 pc:awardDate a rdf:Property ;
-  rdfs:label "Datum zadání zakázky"@cs, "Date of contract award"@en ;
+  rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:date ;
   rdfs:subPropertyOf dc:issued ;
   rdfs:isDefinedBy pc: .
   
 # Number of tenders received
 # 0..1
-# xsd:int
 pc:numberOfTenders a rdf:Property ;
   rdfs:label "Počet obdržených nabídek"@cs, "Number of tenders received"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:nonNegativeInteger ;
   rdfs:subPropertyOf dc:issued ;
   rdfs:isDefinedBy pc: .
   
@@ -399,40 +394,30 @@ pc:tender a rdf:Property ;
   
 # Awarded tender
 # 0..*
-pc:awardedTender rdfs:subPropertyOf pc:tender ;
+pc:awardedTender a rdf:Property ;
+  rdfs:subPropertyOf pc:tender ;
   rdfs:label "Vybraná nabídka"@cs, "Awarded tender"@en ;
   rdfs:isDefinedBy pc: .
   
-# Quality of public contract realization
-# 0..1
-# xsd:boolean
-pc:quality a rdf:Property ;
-  rdfs:label "Kvalita realizace zakázky"@cs, "Quality of public contract realization"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
-  rdfs:isDefinedBy pc: .
-
-# Contract schedule fulfilled
-# 0..1
-# xsd:boolean
-pc:onSchedule a rdf:Property ;
-  rdfs:label "Časový plán zakázky dodržen"@cs, "Contract schedule fulfilled"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range rdfs:Literal ;
-  rdfs:isDefinedBy pc: .
-
 # Subsidy supplemented for contract
 # 0..1
-pc:subsidy rdfs:subPropertyOf pc:price ;
+pc:subsidy a rdf:Property ;
   rdfs:label "Dotace použitá pro zakázku"@cs, "Subsidy supplemented for contract"@en ;
   rdfs:domain pc:Contract ;
+  rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy pc: .
+
+# Agreed price appearing in the contract
+pc:agreedPrice a rdf:Property ;
+  rdfs:subPropertyOf pc:contractPrice ;
+  rdfs:label "Agreed price"@en
+  .
   
 # Actual price after contract realization
 # 0..1
-pc:actualPrice rdfs:subPropertyOf pc:price ;
+pc:actualPrice a rdf:Property ;
+  rdfs:subPropertyOf pc:contractPrice ;
   rdfs:label "Skutečná cena po realizaci zakázky"@cs, "Actual price after contract realization"@en ;
-  rdfs:domain pc:Contract ;
   rdfs:isDefinedBy pc: .
   
 # Contract attachment
@@ -448,6 +433,7 @@ pc:attachment a rdf:Property ;
 # Buyer's profile
 # 0..1
 pc:buyerProfile a rdf:Property ;
+  rdfs:subPropertyOf foaf:homepage ;
   rdfs:label "Profilová stránka kupujícího"@cs, "Buyers's profile website"@en ;
   rdfs:domain gr:BusinessEntity ;
   rdfs:range rdf:Resource ;
@@ -457,9 +443,11 @@ pc:buyerProfile a rdf:Property ;
 
 # Offered price in tender
 # 0..1
-pc:offeredPrice rdfs:subPropertyOf pc:price ;
+pc:offeredPrice a rdf:Property ;
+  rdfs:subPropertyOf gr:hasPriceSpecification ;
   rdfs:label "Nabídnutá cena v nabídce"@cs, "Offered price in tender"@en ;
-  rdfs:domain pc:Tender ;  
+  rdfs:domain pc:Tender ;
+  rdfs:range gr:PriceSpecification ;  
   rdfs:isDefinedBy pc: .
   
 # Tender supplier
@@ -474,18 +462,16 @@ pc:supplier a rdf:Property ;
 
 # Contract award criteria specification
 # 0..1
-# xsd:string
 pc:criteria a rdf:Property ;
   rdfs:label "Specifikace kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria specification"@en ;
   rdfs:domain pc:AwardCriteria ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc: .
 
 # Contract award criteria weight
 # 0..1
-# xsd:int
 pc:criteriaWeight a rdf:Property ;
   rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria weight"@en ;
   rdfs:domain pc:AwardCriteria ;
-  rdfs:range rdfs:Literal ;
+  rdfs:range xsd:float ;
   rdfs:isDefinedBy pc: .                			    						
