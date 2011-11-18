@@ -1,17 +1,14 @@
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
-
 @prefix dc:       <http://purl.org/dc/terms/> .
 @prefix dct:      <http://purl.org/dc/dcmitype/> .
-@prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
-
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
-
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
 # --- Own namespaces ------------------------------------------
 
@@ -23,7 +20,7 @@ pc: a owl:Ontology ;
   dc:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
   dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-11-02"^^xsd:date ;
+  dc:modified "2011-11-18"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dc:creator <http://purl.org/klimek#me>,
@@ -35,7 +32,8 @@ pc: a owl:Ontology ;
   dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
-  foaf:name "Jindřich Mynarz" .
+  foaf:name "Jindřich Mynarz" ;
+  foaf:mbox <mailto:mynarzjindrich@gmail.com> .
 
 <http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
   foaf:name "Josef Petrák" ;
