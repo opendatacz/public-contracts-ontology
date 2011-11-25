@@ -422,7 +422,9 @@ pc:subsidy a rdf:Property ;
 # 0..1
 pc:agreedPrice a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Smluvní cena"@cs, "Agreed price"@en
+  rdfs:label "Smluvní cena"@cs, "Agreed price"@en ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
   .
   
 # Actual price after contract realization
@@ -430,7 +432,9 @@ pc:agreedPrice a owl:FunctionalProperty ;
 pc:actualPrice a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:contractPrice ;
   rdfs:label "Skutečná cena po realizaci zakázky"@cs, "Actual price after contract realization"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
+  .
   
 # Contract attachment
 # 0..*
@@ -438,7 +442,8 @@ pc:attachment a rdf:Property ;
   rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range rdf:Resource ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc:
+  .
   
 ####### gr:BusinessEntity properties
 
