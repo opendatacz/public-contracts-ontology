@@ -217,7 +217,11 @@ pc:contactPerson a rdf:Property ;
 pc:kind a rdf:Property ;
   rdfs:label "Druh zakázky"@cs, "Type of contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue pc:KindScheme
+  ] ;
   rdfs:isDefinedBy pc: .
   
 # Type of procedure
@@ -225,7 +229,11 @@ pc:kind a rdf:Property ;
 pc:procedureType a rdf:Property ;
   rdfs:label "Druh řízení zakázky"@cs, "Type of procedure of contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue pc:ProcedureTypeScheme
+  ] ;
   rdfs:isDefinedBy pc: .
 
 # Contracting authority
@@ -318,7 +326,11 @@ pc:actualEndDate a rdf:Property ;
 pc:awardCriteriaType a rdf:Property ;
   rdfs:label "Typ kritéria pro zadání zakázky."@cs, "Type of critera for contract award."@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue pc:AwardCriteriaTypeScheme
+  ] ;
   rdfs:isDefinedBy pc: .
   
 # Contract award criteria
