@@ -205,7 +205,7 @@ pc:mainContact a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc: .
   
 # Contract contact person
-# 0..1
+# 0..*
 pc:contactPerson a rdf:Property ;
   rdfs:label "Kontaktní osoba pro zakázku"@cs, "Contract contact person"@en ;
   rdfs:domain pc:Contract ;
@@ -404,14 +404,14 @@ pc:tender a rdf:Property ;
   rdfs:isDefinedBy pc: .
   
 # Awarded tender
-# 0..*
-pc:awardedTender a rdf:Property ;
+# 0..1
+pc:awardedTender a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:tender ;
   rdfs:label "Vybraná nabídka"@cs, "Awarded tender"@en ;
   rdfs:isDefinedBy pc: .
   
 # Subsidy supplemented for contract
-# 0..1
+# 0..*
 pc:subsidy a rdf:Property ;
   rdfs:label "Dotace použitá pro zakázku"@cs, "Subsidy supplemented for contract"@en ;
   rdfs:domain pc:Contract ;
@@ -449,7 +449,7 @@ pc:attachment a rdf:Property ;
 
 # Buyer's profile
 # 0..1
-pc:buyerProfile a rdf:Property ;
+pc:buyerProfile a owl:InverseFunctionalProperty ;
   rdfs:subPropertyOf foaf:homepage ;
   rdfs:label "Profilová stránka kupujícího"@cs, "Buyers's profile website"@en ;
   rdfs:domain gr:BusinessEntity ;
