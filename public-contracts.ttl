@@ -58,6 +58,7 @@ pc: a owl:Ontology ;
 # Public contract
 pc:Contract a rdfs:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
+  rdfs:comment "Basic class for decribing a public contract" ;
   rdfs:isDefinedBy pc: .
   
 # Tender
