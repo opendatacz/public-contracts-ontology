@@ -2,6 +2,7 @@
 @prefix dct:      <http://purl.org/dc/dcmitype/> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
@@ -59,18 +60,24 @@ pc: a owl:Ontology ;
 pc:Contract a rdfs:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Basic class for decribing a public contract" ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:sameAs loted:Contract 
+  .
   
 # Tender
 pc:Tender a rdfs:Class ;
   rdfs:subClassOf gr:Offering ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:sameAs loted:Tender
+  .
 
 # Contract award criteria
 pc:AwardCriteria a rdfs:Class ;
   rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criteria"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:sameAs loted:AwardCriteria
+  .
   
 #######
 ####### Terminologies
@@ -235,7 +242,9 @@ pc:procedureType a owl:FunctionalProperty ;
     owl:onProperty skos:inScheme ;
     owl:hasValue pc:ProcedureTypeScheme
   ] ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:PR
+  .
 
 # Contracting authority
 # 0..1
@@ -338,10 +347,13 @@ pc:awardCriteriaType a owl:FunctionalProperty ;
 # Contract award criteria
 # 0..1
 pc:awardCriteria a rdf:Property ;
-  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en ;
+  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
+    "Critères d'attribution"@fr, "Vergabekriterien"@de ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:AwardCriteria ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:AC
+  .
 
 # Contract file reference number
 # 0..1
@@ -355,10 +367,13 @@ pc:referenceNumber a owl:FunctionalProperty ;
 # 0..1
 # xsd:date
 pc:tenderDeadline a owl:FunctionalProperty ;
-  rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs, "Time-limit for receipt of tenders or requests to participate"@en ;
+  rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs,
+    "Time-limit for receipt of tenders or requests to participate"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:DT
+  .
 
 # Contract lot
 # 0..*
@@ -376,7 +391,9 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dc:issued ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:PD
+  .
   
 # Date of contract award
 # 0..1
