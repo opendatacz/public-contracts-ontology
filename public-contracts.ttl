@@ -14,6 +14,7 @@
 # --- Own namespaces ------------------------------------------
 
 @prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:      <http://purl.org/procurement/public-contracts-datatypes#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -508,5 +509,5 @@ pc:criteria a owl:FunctionalProperty ;
 pc:criteriaWeight a owl:FunctionalProperty ;
   rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria weight"@en ;
   rdfs:domain pc:AwardCriteria ;
-  rdfs:range xsd:float ;
+  rdfs:range pcdt:percentage ;
   rdfs:isDefinedBy pc: .                			    						
