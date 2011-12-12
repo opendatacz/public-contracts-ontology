@@ -1,4 +1,3 @@
-@prefix dc:       <http://purl.org/dc/terms/> .
 @prefix dct:      <http://purl.org/dc/dcmitype/> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
@@ -19,19 +18,19 @@
 # --- Ontology metadata ---------------------------------------
 
 pc: a owl:Ontology ;
-  dc:title "Public Contracts Ontology"@en,
+  dct:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
-  dc:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
-  dc:modified "2011-11-18"^^xsd:date ;
+  dct:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
+  dct:modified "2011-11-18"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
-  dc:creator <http://purl.org/klimek#me>,
+  dct:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
     <http://keg.vse.cz/resource/person/josef-petrak>,
     <http://www.facebook.com/nohis> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/procurement#>, <http://prefix.cc/pc> ;
-  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
+  dct:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" ;
@@ -199,11 +198,11 @@ pc:contractPrice a rdf:Property ;
 
 # Title of contract
 # 0..1    
-dc:title rdfs:domain pc:Contract .
+dct:title rdfs:domain pc:Contract .
 
 # Description of contract
 # 0..1
-dc:description rdfs:domain pc:Contract .
+dct:description rdfs:domain pc:Contract .
 
 # Contract main contact
 # 0..1
@@ -313,7 +312,7 @@ pc:startDate a owl:FunctionalProperty ;
   rdfs:label "Datum začátku realizace zakázky"@cs, "Start date of contract"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
   rdfs:isDefinedBy pc: .
   
 # End date of contract
@@ -322,7 +321,7 @@ pc:estimatedEndDate a owl:FunctionalProperty ;
   rdfs:label "Očekávané datum konce realizace zakázky"@cs, "Estimated end date of contract"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
   rdfs:isDefinedBy pc: .
 
 # 0..1
@@ -330,7 +329,7 @@ pc:actualEndDate a owl:FunctionalProperty ;
   rdfs:label "Skutečné datum konce realizace zakázky"@cs, "Actual end data of contract"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dc:date ;
+  rdfs:subPropertyOf dct:date ;
   rdfs:isDefinedBy pc: .
 
 # Type of contract award criteria
@@ -391,7 +390,7 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dc:issued ;
+  rdfs:subPropertyOf dct:issued ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:PD
   .
@@ -402,7 +401,7 @@ pc:awardDate a owl:FunctionalProperty ;
   rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dc:issued ;
+  rdfs:subPropertyOf dct:issued ;
   rdfs:isDefinedBy pc: .
   
 # Number of tenders received
@@ -411,7 +410,7 @@ pc:numberOfTenders a owl:FunctionalProperty ;
   rdfs:label "Počet obdržených nabídek"@cs, "Number of tenders received"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:nonNegativeInteger ;
-  rdfs:subPropertyOf dc:issued ;
+  rdfs:subPropertyOf dct:issued ;
   rdfs:isDefinedBy pc: .
   
 # Tender
