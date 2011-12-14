@@ -199,11 +199,11 @@ pc:contractPrice a rdf:Property ;
 
 # Title of contract
 # 0..1    
-dct:title rdfs:domain pc:Contract .
+# dct:title rdfs:domain pc:Contract .
 
 # Description of contract
 # 0..1
-dct:description rdfs:domain pc:Contract .
+# dct:description rdfs:domain pc:Contract .
 
 # Contract main contact
 # 0..1
@@ -518,7 +518,7 @@ pc:Item a rdfs:Class ;
   rdfs:isDefinedBy pc:
   .
 
-pc:hasItem rdfs:subPropertyOf dcterms:hasPart ;
+pc:hasItem rdfs:subPropertyOf dct:hasPart ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Item ;
   rdfs:isDefinedBy pc:
