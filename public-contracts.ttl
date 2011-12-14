@@ -3,6 +3,7 @@
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
 @prefix loted:    <http://www.loted.eu/ontology#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
@@ -433,7 +434,7 @@ pc:awardedTender a owl:FunctionalProperty ;
 pc:subsidy a rdf:Property ;
   rdfs:label "Dotace použitá pro zakázku"@cs, "Subsidy supplemented for contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range gr:PriceSpecification ;
+  rdfs:range payment:Payment ;
   rdfs:isDefinedBy pc: .
 
 # Agreed price appearing in the contract
