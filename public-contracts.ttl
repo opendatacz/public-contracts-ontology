@@ -509,4 +509,16 @@ pc:criteriaWeight a owl:FunctionalProperty ;
   rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria weight"@en ;
   rdfs:domain pc:AwardCriteria ;
   rdfs:range pcdt:percentage ;
-  rdfs:isDefinedBy pc: .                			    						
+  rdfs:isDefinedBy pc: .
+
+# Contracted item
+pc:Item a rdfs:Class ;
+  rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:hasItem rdfs:subPropertyOf dcterms:hasPart ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Item ;
+  rdfs:isDefinedBy pc:
+  .
