@@ -514,6 +514,7 @@ pc:criteriaWeight a owl:FunctionalProperty ;
 
 # Contracted item
 pc:Item a rdfs:Class ;
+  rdfs:subClassOf gr:ProductOrService ;
   rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
   rdfs:isDefinedBy pc:
   .
