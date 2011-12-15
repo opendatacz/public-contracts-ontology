@@ -207,8 +207,8 @@ pc:contractPrice a rdf:Property ;
 
 # Contract main contact
 # 0..1
-pc:mainContact a owl:FunctionalProperty ;
-  rdfs:label "Hlavní kontakt pro zakázku"@cs, "Contract main contact"@en ;
+pc:contact a owl:FunctionalProperty ;
+  rdfs:label "Hlavní kontakt pro zakázku"@cs, "Main contact for a contract"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range vcard:VCard ;
   rdfs:isDefinedBy pc: .
