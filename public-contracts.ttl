@@ -48,6 +48,10 @@ pc: a owl:Ontology ;
 <http://purl.org/klimek#me> a foaf:Person ;
   foaf:name "Jakub Klímek" ;
   foaf:mbox <mailto:klimek.mff@gmail.com> .
+  
+<http://purl.org/knap#me> a foaf:Person ;
+  foaf:name "Tomáš Knap" ;
+  foaf:mbox <mailto:toknap@gmail.com> .
 
 <http://www.facebook.com/nohis> a foaf:Person ;
    foaf:name "Pavel Nohejl" ;
@@ -72,6 +76,22 @@ pc:Tender a rdfs:Class ;
   rdfs:isDefinedBy pc: ;
   owl:sameAs loted:Tender
   .
+  
+# Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
+pc:AwardCriteriaTypeCombination a rdfs:Class ;
+  rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
+  rdfs:isDefinedBy pc: .
+ 
+# Contract award criteria type: lowest price
+pc:AwardCriteriaTypeLowestPrice a owl:Class ;
+  rdfs:subClassOf pc:AwardCriteriaTypeCombination ;
+  rdfs:subClassOf [
+	a owl:Restriction ;
+    owl:onProperty pc:awardCriteria ;
+    owl:maxCardinality "0"^^xsd:nonNegativeInteger
+  ] ;
+  rdfs:label "Nejnižší cena je jediným rozhodujícím kritériem při hodnocení dodaných nabídek"@cs, "Lowest price is the only contract award criterium"@en ;
+  rdfs:isDefinedBy pc: .
 
 # Contract award criteria
 pc:AwardCriteria a rdfs:Class ;
@@ -83,27 +103,6 @@ pc:AwardCriteria a rdfs:Class ;
 #######
 ####### Terminologies
 #######
-
-####### Concept scheme of contract award criteria
-
-pc:AwardCriteriaTypeScheme a skos:ConceptScheme ;
-  skos:hasTopConcept pc:MostEconomicallyAdvantageousTender,
-    pc:LowestPrice 
-  .
-
-pc:MostEconomicallyAdvantageousTender a skos:Concept ;
-  skos:inScheme pc:AwardCriteriaTypeScheme;
-  rdfs:label "Ekonomicky nejvýhodnější nabídka"@cs, "The most economically advantageous tender"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AwardCriteriaTypeScheme 
-  .
-  
-pc:LowestPrice a skos:Concept ;
-  skos:inScheme pc:AwardCriteriaTypeScheme;
-  rdfs:label "Nejnižší nabídková cena"@cs, "Lowest price"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AwardCriteriaTypeScheme
-  .
   
 ####### Concept scheme of contract procedure types
 
@@ -338,11 +337,7 @@ pc:actualEndDate a owl:FunctionalProperty ;
 pc:awardCriteriaType a owl:FunctionalProperty ;
   rdfs:label "Typ kritéria pro zadání zakázky."@cs, "Type of critera for contract award."@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept, [
-    a owl:Restriction ;
-    owl:onProperty skos:inScheme ;
-    owl:hasValue pc:AwardCriteriaTypeScheme
-  ] ;
+  rdfs:range pc:AwardCriteriaTypeCombination ;
   rdfs:isDefinedBy pc: .
   
 # Contract award criteria
@@ -350,7 +345,7 @@ pc:awardCriteriaType a owl:FunctionalProperty ;
 pc:awardCriteria a rdf:Property ;
   rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
     "Critères d'attribution"@fr, "Vergabekriterien"@de ;
-  rdfs:domain pc:Contract ;
+  rdfs:domain pc:AwardCriteriaTypeCombination ;
   rdfs:range pc:AwardCriteria ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:AC
