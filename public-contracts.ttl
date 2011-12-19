@@ -625,7 +625,7 @@ pc:Item a rdfs:Class ;
 pc:hasItem rdfs:subPropertyOf dcterms:hasPart ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Item ;
-  rdfs:comment "Vlastnost pro přiřazení položky veřejné zakázce"@cs ;
-  rdfs:comment "Property for attachment of an Item to a public contract"@en ;
+  rdfs:comment "Vlastnost pro přiřazení položky veřejné zakázce. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of an Item to a public contract. Cardinality 0..*"@en ;
   rdfs:isDefinedBy pc:
   .
