@@ -1,0 +1,495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd"> 
+<html xml:lang="cs" lang="cs"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      prefix="foaf: http://xmlns.com/foaf/0.1/
+              dcterms: http://purl.org/dc/terms/"
+      version="XHTML+RDFa 1.1"
+      about="" typeof="foaf:Document"> 
+<head>
+  <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+  <title>Recept pro vyznačení veřejné zakázky v RDFa</title>
+  <style type="text/css">
+    pre strong {
+      color: red;
+    }
+    body { padding-right: 1em; padding-left: 70px; background: white fixed no-repeat left top; padding-bottom: 2em; margin: 0px; color: black; line-height: 1.5em; padding-top: 2em; font-family: sans-serif; }
+    :link { background: transparent; color: #00c; }
+    :visited { background: transparent; color: #609; }
+    a:active { background: transparent; color: #c00; }
+    a:link img, a:visited img { border: none; }
+    th { font-family: sans-serif; }
+    td { font-family: sans-serif; }
+    h1, h2, h3, dt { background: white; color: #064; text-align: left; }
+    h1 { font: 170% sans-serif; }
+    h2 { font: 140% sans-serif; margin-top: 1.4em; }
+    h3 { font: 120% sans-serif; }
+    .hide { display: none; }
+    div.head { margin-bottom: 1em; }
+    div.head h1 { clear: both; margin-top: 2em; }
+    dl.frontmatter dt { font-weight: bold; color: black; }
+    dt { font-weight: normal; font-size: 100%; }
+    dd { margin-top: 0; margin-bottom: 0.5em; }
+    tt { font-size: 115%; }
+    pre { background-color: #ffefbf; line-height: 1.2em; font-family: monospace; margin: 1em -0.2em; padding: 1.2em 1.8em 1.5em; }
+    code { font-family: monospace }
+    blockquote { background: #ddd; border-left: 0.9em solid #aaa; color: black; padding: 0.8em 1em 1em 2em; margin: 0.8em 0; }
+    div.question-answer {background-color: #dedede; font-family: sans-serif; font-style: italic; margin: 0.2em -0.2em; padding: 0.9em}
+    div.question-answer span:first-child {font-weight: bold; display: block;} 
+    div.question-answer span:first-child:before {content: "Q: "}
+    div.question-answer span:nth-child(2):before {content: "A: "}
+    @media Aural {
+      h1 { stress: 20; richness: 90; }
+      h2 { stress: 20; richness: 90; }
+      h3 { stress: 20; richness: 90; }
+      .hide { speak: none; }
+      p.copyright { volume: x-soft; speech-rate: x-fast; }
+      dt { pause-before: 20%; }
+      pre { speak-punctuation: code; }
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 rel="foaf:topic" resource="http://purl.org/procurement/public-contracts">Recept pro vyznačení veřejné zakázky v HTML stránce pomocí jazyka RDFa</h1>
+<dl>
+  <dt><strong>Autoři:</strong></dt>
+  <dd>
+    <ul about="http://purl.org/procurement/public-contracts-recipe-czech">
+      <li rel="dcterms:creator" resource="http://purl.org/klimek#me">Jakub Klímek</li>
+      <li rel="dcterms:creator" resource="http://keg.vse.cz/resource/person/jindrich-mynarz">Jindřich Mynarz</li>
+      <li rel="dcterms:creator" resource="http://www.ksi.mff.cuni.cz/~necasky">Martin Nečaský</li>
+      <li rel="dcterms:creator" resource="http://keg.vse.cz/resource/person/josef-petrak">Josef Petrák</li>
+    </ul>
+  </dd>
+</dl>
+
+<hr/>
+
+<p>Tento dokument názorně ukazuje, jakým způsobem lze zveřejňovat údaje o veřejné zakázce ve strojově čitelné podobě. Základem zveřejnění je klasická HTML stránka. Ta je doplněna o strojově čitelné anotace údajů vyjádřených pomocí prostředků rozšíření jazyka HTML označovaného zkratkou <a href="http://www.w3.org/TR/xhtml-rdfa-primer/">RDFa</a>. Pro sjednocení podoby strojově čitelných údajů jsme navrhli slovník (ontologii), který popisuje jednotlivé datové položky veřejné zakázky. Ty je potřeba dodržet. Nicméně, nemají vliv na samotnou vizuální podobu HTML stránky.</p>
+
+<p>Pro první seznámení s použitím slovníku pro vyznačení strojově čitelných údajů o veřejné zakázce pomocí RDFa se můžete podívat na zdrojový kód ukázkového příkladu (<a href="http://purl.org/procurement/public-contracts-example-czech">XHTML verze</a>). Můžete příklady použít i jako šablony pro vaše řešení. Následující text slouží jako "recept", který vysvětluje technické detaily.</p>
+
+<p>Protože má každá země odlišnou legislativu, skládá se ontologie veřejných zakázek z několika částí. První část je společná pro všechny země. Druhá část je modul pro konkrétní zemi. Zatím je připraven modul pro Českou republiku. Základní část i moduly jsou přístupné jak v RDF/XML tak v Turtle formátu:</p>
+
+<ul>
+  <li>společná část (<a href="http://purl.org/procurement/public-contracts">Turtle</a>)</li>
+  <li>modul pro ČR (<a href="http://purl.org/procurement/public-contracts-czech">Turtle</a>)</li>
+</ul>
+
+<h2>Kontrola syntaxe</h2>
+
+<p>Pokud vytvoříte dokument s veřejnou zakázkou dle tohoto dokumentu, můžete si její syntaktickou správnost ověřit pomocí řady volně dostupných nástrojů. Např. můžete využít <a href="http://www.w3.org/2007/08/pyRdfa/Shadow.html">RDFa Distiller and Parser</a>.</p>
+
+<h2>Základní struktura dokumentu s veřejnou zakázkou</h2>
+
+<p>Pokud používáte formát XHTML, upravte jeho záhlaví a kořenový element <tt>html</tt> tak, aby bylo řečeno, že dokument je XHTML dokument se strojově čitelnými anotacemi:</p>
+
+<pre>
+<strong>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs" version="XHTML+RDFa 1.1"&gt;</strong>
+   &hellip;
+<strong>&lt;html&gt;</strong>
+</pre>
+
+<p>Pokud používáte formát HTML, situace je obdobná. V záhlaví uvedete, že se jedná o HTML dokument se strojově čitelnými anotacemi.</p>
+
+<pre>
+<strong>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01+RDFa 1.1//EN"
+   "http://www.w3.org/MarkUp/DTD/html401-rdfa11-1.dtd"&gt;
+&lt;html&gt;</strong>
+   &hellip;
+<strong>&lt;/html&gt;</strong>
+</pre>
+
+<h2>Jmenné prostory</h2>
+
+<p>Kořenový element <tt>html</tt> doplňte o deklarace jmenných prostorů. Snažíme se o kompatibilitu se všemi verzemi jazyka RDFa (1.0 a 1.1). Pro kompatibilitu s verzí RDFa 1.1 je potřeba zavádět jmenné prostory pomocí atributu <tt>prefix</tt></p>
+
+<pre>
+<strong>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs" version="XHTML+RDFa 1.1"
+      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              rdfs: http://www.w3.org/2000/01/rdf-schema#
+              gr: http://purl.org/goodrelations/v1#
+              dcterms: http://purl.org/dc/terms/
+              pc: http://purl.org/procurement/public-contracts#
+              pccz: http://purl.org/procurement/public-contracts-czech#
+              cpv: http://purl.org/weso/pscs/cpv/2008/resource/
+              v: http://www.w3.org/2006/vcard/ns#
+              payment: http://reference.data.gov.uk/def/payment#
+              xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
+   &hellip;
+<strong>&lt;/html&gt;</strong>
+</pre>
+
+<p>Pro kompatibilitu s verzí RDFa 1.0 je potřeba zavádět jmenné prostory pomocí XML jmenných prostorů</p>
+
+<pre>
+<strong>&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs" version="XHTML+RDFa 1.1"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:gr="http://purl.org/goodrelations/v1#"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:pc="http://purl.org/procurement/public-contracts#"
+      xmlns:pccz="http://purl.org/procurement/public-contracts-czech#"
+      xmlns:cpv="http://purl.org/weso/pscs/cpv/2008/resource/"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:v="http://www.w3.org/2006/vcard/ns#"
+      xmlns:payment="http://reference.data.gov.uk/def/payment#"&gt;</strong>
+   &hellip;
+<strong>&lt;/html&gt;</strong>
+</pre>
+
+<p>Pro kompatibilitu s oběma verzemi použijte oba způsoby najednou.</p>
+
+<div class="question-answer">
+  <span>Proč je použito tolik jmenných prostorů?</span>
+  <span>Slovník maximálně využívá části jiných, již hotových a široce používaných slovníků. To zajistí interoperabilitu dat o veřejných zakázkách s jinými daty vytvořenými dle těchto slovníků.</span>
+</div>
+
+<h2>Určení místa na webové stránce, kde je veřejná zakázka popsána</h2>
+
+<p>Informace o veřejné zakázce uzavřete ve vašem HTML kódu do jednoho elementu, např. <tt>div</tt>, <tt>span</tt>, apod. Potom určete, že obsah tohoto elementu se týká veřejné zakázky pomocí RDFa atributu <tt>typeof</tt> s hodnotou <tt>pc:Contract</tt>. Jinými slovy tím říkáte, že obsah reprezentuje instanci třídy <tt>Contract</tt> ze jmenného prostoru s prefixem <tt>pc</tt> (tj. ze jmenného prostoru slovníku veřejných zakázek).</p>
+
+<pre>
+<strong>&lt;div typeof="pc:Contract"&gt;</strong>
+  &hellip;
+<strong>&lt;/div&gt;</strong>
+</pre>
+
+<p>Výše uvedeným dále říkáte, že samotná veřejná zakázka je anonymní, tj. nemá žádný identifikátor. V RDFa je možné instance nepovinně identifikovat pomocí URI. Identifikační URI vám např. umožní se na veřejnou zakázku odkazovat z jiného místa na webu, kde máte umístěny nějaké další údaje o zakázce. Toto URI může být např. fyzickým URL, na kterém je umístěna HTML stránka s veřejnou zakázkou. Je důležité ale zajistit, že zvolené identifikační URI se pro danou veřejnou zakázku již nikdy nezmění.</p>
+
+<pre>
+<strong>&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;</strong>
+  &hellip;
+<strong>&lt;/div&gt;</strong>
+</pre>
+
+<p>Výše uvedeným říkáte, že veřejná zakázka není anonymní. Je identifikována pomocí URL <tt>http://www.mesto.cz/VZ/12345678</tt>.</p>
+
+<h2>Údaje při zveřejnění veřejné zakázky</h2>
+
+<p>Pro každou veřejnou zakázku uvádějte její název. Pro názvy je v našem slovníku určena RDF vlastnost <tt>dcterms:title</tt>. Název umístěte do samostatného HTML elementu, např. <tt>span</tt>. Pomocí jeho RDFa atributu <tt>property</tt> s hodnotou <tt>dcterms:title</tt> řeknete, že obsah elementu je názvem veřejné zakázky.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   Název: <strong>&lt;span property="dcterms:title"&gt;Jezdecké potřeby městské policie&lt;/span&gt;</strong>
+&lt;/div&gt;
+</pre>
+
+<h3>Údaje o zadavateli</h3>
+<p>Připojte informace o zadavateli veřejné zakázky pomocí vlastnosti <tt>pc:contractingAuthority</tt>. Zadavatele uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>&lt;span rel="pc:contractingAuthority" typeof="gr:BusinessEntity"&gt;
+  Zadavatel:</strong>
+      &hellip;                 	
+  <strong>&lt;/span&gt;</strong>
+</pre>
+
+<p>Doplňte jméno (RDF vlastnost <tt>gr:legalName</tt>), IČ (RDF vlastnost <tt>pc:orgNumber</tt>) a odkaz na web (RDF vlastnost <tt>pc:buyerProfile</tt>) zadavatele. Tentokrát však nemá element s odkazem na web zadavatele RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>ppc:buyerProfile</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL je u elementu <tt>a</tt> v atributu <tt>href</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  &lt;span rel="pc:contractingAuthority" typeof="gr:BusinessEntity"&gt;
+  Zadavatel:
+      &hellip;                 	
+      <strong>&lt;span property="gr:legalName"&gt;Město Ukázkové&lt;/span&gt;,
+      IČ &lt;span property="pc:orgNumber"&gt;987654321&lt;/span&gt;,
+      WWW: &lt;a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího&lt;/a&gt;</strong>
+  &lt;/span&gt;
+</pre>
+
+<h4>Hlavní kontakt</h4>
+Pro udání hlavního kontaktu pro tuto zakázku používáme slovník <a href="http://www.w3.org/Submission/vcard-rdf/">VCard</a>. Vytvoříme tedy anonymní instanci třídy <tt>v:VCard</tt> která bude reprezentovat "vizitku" a přiřadíme ji zakázce pomocí atributu <tt>rel</tt> s hodnotou<tt>pc:contact</tt>. Vizitka má například vlastnosti <tt>v:fn</tt> pro jméno kontaktu, <tt>v:adr</tt> pro adresu, <tt>v:tel</tt> pro telefon a <tt>v:email</tt> pro email kontaktu. Pro adresu a telefon ale musíme vytvořit další anonymní instance tříd <tt>v:Address</tt> a <tt>v:Tel</tt> kterým dále nastavíme jednotlivé položky dle příkladu. Všimněte si strojově čitelné reprezentace telefonního čísla pomocí URL schematu <tt>tel:+420123456789</tt>. Tuto reprezentaci telefonního čísla vyžaduje slovník FOAF který také používáme. 
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>&lt;div rel="pc:contact" typeof="v:VCard"&gt;
+     &lt;span property="v:fn"&gt;Jan Novák&lt;/span&gt;
+     &lt;div rel="v:adr" typeof="v:Address"&gt;
+        &lt;span property="v:street-address"&gt;Václavské Náměstí 1&lt;/span&gt; 
+        &lt;br/&gt;&lt;span property="v:postal-code"&gt;110 00&lt;/span&gt; 
+        &lt;span property="v:locality"&gt;Praha 1&lt;/span&gt;
+        &lt;br/&gt;&lt;span property="v:country-name"&gt;Česká republika&lt;/span&gt;
+     &lt;/div&gt;
+     &lt;br/&gt;Telefon: 
+     &lt;span rel="v:tel" typeof="v:Tel"&gt;
+      &lt;a rel="rdf:value" href="tel:+420212345678"&gt;+420212345678&lt;/a&gt;
+     &lt;/span&gt;
+     &lt;br/&gt;Email: &lt;a rel="v:email" href="mailto:novak@priklad.cz"&gt;novak@priklad.cz&lt;/a&gt;
+  &lt;/div&gt;</strong>
+</pre>
+
+<h4>Kontaktní osoba</h4>
+Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme anonymní instanci třídy reprezentující osobu, tentokrát <tt>foaf:Person</tt> a nastavíme vlastnosti <tt>foaf:name</tt>, <tt>foaf:phone</tt> a <tt>foaf:mbox</tt> pro jméno, telefon a email osoby.
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>&lt;span rel="pc:contactPerson" typeof="foaf:Person"&gt;
+    &lt;span property="foaf:name"&gt;Jana Nováková&lt;/span&gt;
+    &lt;br/&gt;Telefon: &lt;a rel="foaf:phone" href="tel:+420123456789"&gt;+420123456789&lt;/a&gt;
+    &lt;br/&gt;Email: &lt;a rel="foaf:mbox" href="malito:novakova@priklad.cz"&gt;novakova@priklad.cz&lt;/a&gt;
+  &lt;/span&gt;</strong>
+</pre>
+
+<h3>Procesní údaje</h3>
+<p>Mezi procesní údaje o zakázce patří například spisové číslo zakázky <tt>pc:referenceNumber</tt>.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>Spisové číslo zakázky: &lt;span property="pc:referenceNumber"&gt;1234567890&lt;/span&gt;</strong>
+</pre>
+
+<p>Pro nastavení dalších vlastností budeme pro přehlednost odkazovat na zkrácené URL zdroje pomocí tzv. <a href="http://www.w3.org/TR/curie/">SafeCURIE</a>. Je to hodnota atributu <tt>resource</tt> uzavřená v hranatých závorkách []. Jedná se o vlastnosti <tt>pc:kind</tt> a <tt>pc:procedureType</tt> pro určení druhu zakázky a druhu řízení zakázky. V našem příkladě je druhem zakázky <tt>pc:Supplies</tt> reprezendující "dodávky" a druhem řízení je <tt>pc:Open</tt> reprezentující otevřené řízení.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>&lt;br/&gt;Druh zakázky: &lt;span rel="pc:kind" resource="[pc:Supplies]"&gt;Dodávky&lt;/span&gt;
+  &lt;br/&gt;Druh řízení zakázky: &lt;span rel="pc:procedureType" resource="[pc:Open]"&gt;Otevřené&lt;/span&gt;</strong>
+</pre>
+  <ul>
+  <li><tt>pc:kind</tt> může mít jako hodnotu jeden z následujících zdrojů:
+    <ul>
+      <li><tt>pc:Supplies</tt> - Dodávky</li>
+      <li><tt>pc:Works</tt> - Stavební práce</li>
+      <li><tt>pc:Services</tt> - Služby</li>
+    </ul>
+  </li>
+  <li><tt>pc:procedureType</tt> může mít jako hodnotu jeden z následujících zdrojů:
+    <ul>
+      <li><tt>pc:Open</tt> - Otevřené řízení</li>
+      <li><tt>pc:Restricted</tt> - Užší řízení</li>
+      <li><tt>pc:AcceleratedRestricted</tt> - Urychlené užší řízení</li>
+      <li><tt>pc:Negotiated</tt> - Řízení jednací</li>
+      <li><tt>pc:AcceleratedNegotiated</tt> - Urychlené jednací řízení</li>
+      <li><tt>pc:CompetitiveDialogue</tt> - Soutěžní dialog</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Dále reprezentujeme kritéria pro zadání zakázky jako vlastnost <tt>pc:awardCriteriaType</tt>. Máme dvě možnosti. Buďto bude hodnotou vlastnosti <tt>[pc:AwardCriteriaTypeLowestPrice]</tt> pro nejnižší cenu jakožto jediné kritérium a nebo vytvoříme anonymní instanci třídy <tt>pc:AwardCriteriaTypeCombination</tt> jako v našem příkladu. Této třídě pak přiřazujeme jednotlivá kritéria vlastností<tt>pc:awardCriteria</tt>, které jako hodnotu přiřazujeme anonymní instance třídy <tt>pc:AwardCriteria</tt>. Těmto instancím již přiřazujeme druh kritéria vlastností <tt>pc:criteria</tt> a jeho váhu v procentech v rozmezí 0 až 100 vlastností <tt>pc:criteriaWeight</tt>. Zde je třeba specifikovat tento datový typ pomocí atributu <tt>datatype</tt> s hodnotou <tt>pcdt:percentage</tt>.</p> 
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>
+  &lt;br/&gt;Typ kritéria pro zadání zakázky: 
+    &lt;span rel="pc:awardCriteriaType" typeof="pc:AwardCriteriaTypeCombination"&gt;
+    Ekonomicky nejvýhodnější nabídka.
+    &lt;br/&gt;Kritéria pro zadání zakázky:
+    &lt;span rel="pc:awardCriteria" typeof="pc:AwardCriteria"&gt;
+      &lt;span property="pc:criteria"&gt;Délka biče&lt;/span&gt;
+      (Váha: &lt;span property="pc:criteriaWeight" datatype="pcdt:percentage"&gt;20&lt;/span&gt;%)&lt;/span&gt;,
+    &lt;span rel="pc:awardCriteria" typeof="pc:AwardCriteria"&gt;
+      &lt;span property="pc:criteria"&gt;Pohodlnost sedla&lt;/span&gt;
+      (Váha: &lt;span property="pc:criteriaWeight" datatype="pcdt:percentage"&gt;80&lt;/span&gt;%)&lt;/span&gt;
+    &lt;/span&gt;</strong>
+</pre>
+
+
+<p>Dále můžete zveřejnit specifický údaj o veřejné zakázce dané českou legislativou. Tím myslíme limit zakázky (vlastnost <tt>pccz:limit</tt>). Tato vlastnost není součástí základního slovníku, ale modulu pro ČR, o kterém jsme se zmiňovali na začátku. Jejími hodnotami jsou opět zdroje reprezentující jednotlivé typy limitů.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  Limit: <strong>&lt;span rel="pccz:limit" resource="[pccz:UnderLimit]"&gt;Podlimitní&lt;/span&gt;</strong>
+</pre>
+
+<p>Konkrétně slovník nabízí tyto možné hodnoty:</p>
+
+<ul>
+  <li><tt>pccz:limit</tt> může mít jako hodnotu jeden z následujících zdrojů:
+    <ul>
+      <li><tt>pccz:SmallAmount</tt> - Zakázka malého rozsahu</li>
+      <li><tt>pccz:UnderLimit</tt> - Podlimitní zakázka</li>
+      <li><tt>pccz:AboveLimit</tt> - Nadlimitní zakázka</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>Předmět zakázky</h3>
+<p>Dalším údajem je předmět veřejné zakázky ve formě CPV kódu. Pro vyhledávání CPV kódů v rámci svého softwarového řešení můžete použít jednoduchý <a href="http://opendata.cz/vocabulary/cpv/2008">nástroj</a>. Předmětů může mít veřejná zakázka více. V našem slovníku jsou pro ně určeny RDF vlastnosti <tt>pc:mainObject</tt> pro hlavní předmět a <tt>pc:additionalObject</tt> pro další předměty. Oproti předchozím údajům ale nejsou CPV kódy jednoduché (atomické) datové hodnoty, ale samostatné entity identifikované vlastním URL.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;br/&gt;Hlavní předmět zakázky: &lt;span rel="pc:mainObject" resource="[cpv:18911000]"&gt;sedla&lt;/span&gt;
+  &lt;br/&gt;Další předmět zakázky: &lt;span rel="pc:additionalObject" resource="[cpv:18913000]"&gt;biče&lt;/span&gt;</strong>      
+</pre>
+<p>Dále vyplňte textový detailnější popis zakázky pomocí vlastnosti <tt>dcterms:description</tt>.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>Popis: &lt;span property="dcterms:description"&gt;Detailní slovní popis zakázky.&lt;/span&gt;</strong>      
+</pre>
+
+<h3>Cena</h3>
+<p>Dále vyplňte údaje o ceně zakázky. Na výběr jsou dvě možnosti. Buď je uvedena přesná odhadovaná cena pomocí vlastnosti <tt>pc:estimatedPrice</tt>, nebo je uveden její spodní a horní odhad pomocí vlastností <tt>pc:estimatedPriceLower</tt> a <tt>pc:estimatedPriceUpper</tt>. Hodnotou těchto vlastností je anonymní instance třídy <tt>gr:PriceSpecification</tt> a její vlastnosti <tt>gr:hasCurrencyValue</tt> udávající částku, <tt>gr:hasCurrency</tt> udávající měnu a <tt>gr:valueAdedTaxIncluded</tt> udávající zda je do ceny započítána DPH. Tato hodnota má datový typ <tt>xsd:boolean</tt>.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;div rel="pc:estimatedPrice" typeof="gr:PriceSpecification"&gt;
+    Přesná odhadovaná cena:
+    &lt;span property="gr:hasCurrencyValue" content="1000000" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
+  &lt;/div&gt;</strong>
+</pre>
+<p>Nebo:</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;div rel="pc:estimatedPriceLower" typeof="gr:PriceSpecification"&gt;
+    Počáteční rozsah odhadované ceny:
+    &lt;span property="gr:hasCurrencyValue" content="500000" datatype="xsd:int"&gt;500.000&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
+  &lt;/div&gt;
+  &lt;div rel="pc:estimatedPriceUpper" typeof="gr:PriceSpecification"&gt;
+    Koncový rozsah odhadované ceny:
+    &lt;span property="gr:hasCurrencyValue" content="2000000" datatype="xsd:int"&gt;2.000.000&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
+  &lt;/div&gt;</strong>    
+</pre>
+
+<h3>Lhůty a data</h3>
+<p>Dále uvádějte datum zveřejnění zakázky, lhůtu pro posílání nabídek nebo žádostí o účast, datum začátku realizace zakázky a očekávané datum konce realizace zakázky. Pro ně jsou v našem slovníku určeny RDF vlastnosti <tt>pc:publicationDate</tt>, <tt>pc:tenderDeadline</tt>, <tt>pc:startDate</tt> a <tt>pc:estimatedEndDate</tt>. Uveďte každé datum v samostatném HTML elementu, např. <tt>span</tt>, který opatřete RDFa atributem <tt>property</tt> s patřičnou hodnotou. Je zde ale jeden podstatný rozdíl oproti minulým použitím atributu <tt>property</tt>. Na webové stránce chcete návštěvníkům zobrazit datum ve formátu běžném v ČR, např. <tt>1. 2. 2010</tt> nebo <tt>1. února 2010</tt>. To ale není strojově čitelné datum. Pro strojově čitelnou podobu datumů používáme datový typ <tt>xsd:date</tt> jazyka XML Schema, např. <tt>2010-02-01</tt> (RRRR-MM-DD). Strojově čitelnou hodnotu ale pravděpodobně nechcete ukazovat svým návštěvníkům. Proto ji dávejte jako hodnotu RDFa atributu <tt>content</tt>. Také přidejte informaci o datovém typu pomocí atributu <tt>datatype</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>Datum zveřejnění zakázky: 
+  &lt;span property="pc:publicationDate" content="2010-01-01" datatype="xsd:date"&gt;1.1.2010&lt;/span&gt;
+  &lt;br/&gt;Lhůta pro doručení nabídek nebo přijetí žádostí o účast: 
+  &lt;span property="pc:tenderDeadline" content="2010-01-01" datatype="xsd:date"&gt;1.1.2010&lt;/span&gt;
+  &lt;br/&gt;Datum začátku realizace zakázky: 
+  &lt;span property="pc:startDate" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;
+  &lt;br/&gt;Očekávané datum konce realizace zakázky: 
+  &lt;span property="pc:estimatedEndDate" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</strong>
+</pre>
+<p>Dále také specifikujte dobu trvání zakázky ve dnech pomocí vlastnosti <tt>pc:durationDays</tt> která má datový typ <tt>xsd:positiveInteger</tt>.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;br/&gt;Doba trvání zakázky ve dnech: 
+  &lt;span property="pc:durationDays" datatype="xsd:positiveInteger"&gt;31&lt;/span&gt;</strong>
+</pre>
+
+<h3>Ostatní</h3>
+Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako odkaz na ně pomocí standardního HTML elementu <tt>a</tt>, kterému přidáme atribut <tt>rel</tt> s hodnotou <tt>pc:lot</tt>. Dále lze ještě odkázat na přílohy (například dokument se smlouvou, zadávací dokumentace, ...) opět pomocí hodnoty <tt>pc:attachment</tt> atributu <tt>rel</tt> elementu <tt>a</tt> s odkazem na přílohu. 
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>Podzakázky: &lt;a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678.html"&gt;Podzakázka 1&lt;/a&gt;,
+  &lt;a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678.html"&gt;Podzakázka 2&lt;/a&gt;
+  &lt;br/&gt;&lt;a rel="pc:attachment" href="http://www.mesto.cz/prilohy/1"&gt;Příloha 1&lt;/a&gt;</strong>
+</pre>
+
+<h2>Údaje při zadání veřejné zakázky</h2>
+
+<p>Po zadání veřejné zakázky můžete zveřejnit další údaje. První informací je počet obdržených nabídek, k čemuž použijte RDF vlastnost <tt>pc:numberOfTenders</tt>. Hodnota je datového typu <tt>xsd:nonNegativeInteger</tt>, který značí přirozená čísla a nulu. Proto ještě přidáváme RDFa atribut <tt>datatype</tt> s příslušnou hodnotou.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;h2&gt;Obdržené nabídky: &lt;span property="pc:numberOfTenders" datatype="xsd:nonNegativeInteger"&gt;2&lt;/span&gt;&lt;/h2&gt;</strong>      
+</pre>
+
+<p>Slovník umožňuje také zveřejnit jednotlivé nabídky jako instance třídy <tt>pc:Tender</tt>. Nabídku přiřadíte k veřejné zakázce pomocí vlastnosti <tt>pc:tender</tt>. Nabídek můžete přiřadit několik.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  Nabídky:
+  <strong>&lt;div rel="pc:tender" typeof="pc:Tender"&gt;</strong>
+      &hellip;
+  <strong>&lt;/div&gt;</strong>
+  <strong>&lt;div rel="pc:tender" typeof="pc:Tender"&gt;</strong>
+      &hellip;
+  <strong>&lt;/div&gt;</strong>
+&lt;/div&gt;
+</pre>
+
+<p>Ke každé nabídce přidejte společnost, která zaslala nabídku, pomocí vlastnosti <tt>pc:supplier</tt>. Společnost uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>. Doplňte data o nabízejícím - jeho název (RDF vlastnost <tt>gr:legalName</tt>) a IČ (RDF vlastnost <tt>pc:orgNumber</tt>). Kromě nabízejícího uvádějte k nabídce také nabídnutou cenu pomocí vlastnosti <tt>pc:offeredPrice</tt>. Cenu uvádějte stejně jako výše. Tedy jako anonymní instanci třídy <tt>gr:PriceSpecification</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:PriceSpecification</tt>. K ceně doplňte hodnotu (RDF vlastnost <tt>gr:hasCurrencyValue</tt>), měnu (RDF vlastnost <tt>gr:hasCurrency</tt>) a zda je cena s DPH (RDF vlastnost <tt>gr:valueAddedTaxIncluded</tt>).</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  &lt;div rel="pc:tender" typeof="pc:Tender"&gt;
+    <strong>&lt;span rel="pc:supplier" typeof="gr:BusinessEntity"&gt;
+      Nabízející:
+      &lt;span property="gr:legalName"&gt;Druhá pojízdná a.s.&lt;/span&gt;, IČ
+      &lt;span property="pc:orgNumber"&gt;24681012&lt;/span&gt;
+    &lt;/span&gt;
+    &lt;span rel="pc:offeredPrice" typeof="gr:PriceSpecification"&gt;
+      Nabídnutá cena:
+      &lt;span property="gr:hasCurrencyValue" content="550000" datatype="xsd:int"&gt;55.000&lt;/span&gt;
+      &lt;span property="gr:hasCurrency" content="EUR"&gt;€&lt;/span&gt;
+      &lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;      
+    &lt;/span&gt;
+</strong>
+&lt;/div&gt;
+</pre>
+
+<p><strong>Vítěznou nabídku nepřiřazujte k veřejné zakázce pomocí RDF vlastnosti <tt>pc:tender</tt> ale pomocí vlastnosti <tt>pc:awardedTender</tt></strong>. Samotnou vítěznou nabídku popište stejně jako ostatní nabídky, tj. jako instance třídy <tt>pc:Tender</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  Vítězná nabídka:
+  <strong>&lt;div rel="pc:awardedTender" typeof="pc:Tender"&gt;</strong>
+      &hellip;
+  <strong>&lt;/div&gt;</strong>
+</pre>
+
+<p>Cenu za zakázku dohodnutou s vítězným dodavatelem na smlouvě můžete uvést pomocí vlastnosti <tt>pc:pc:agreedPrice</tt> (opět jako instanci třídy <tt>gr:PriceSpecification</tt>). Datum přidělení zakázky uveďte jako vlastnost <tt>pc:awardDate</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>Datum přidělení zakázky:
+  &lt;span property="pc:awardDate" content="2010-01-01" datatype="xsd:date"&gt;1.1.2010&lt;/span&gt;
+  
+  &lt;div rel="pc:agreedPrice" typeof="gr:PriceSpecification"&gt;
+    Smluvní cena:
+    &lt;span property="gr:hasCurrencyValue" content="150000" datatype="xsd:int"&gt;150.000&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;           		
+    (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)
+  &lt;/div&gt;</strong>
+</pre>
+
+<h2>Údaje při dokončení realizace veřejné zakázky</h2>
+<p>Po dokončení zakázky zadejte ještě údaje o skutečně zaplacené ceně a skutečném datu dokončení zakázky ve stejném formátu jako výše uvedené údaje o cenách a datech.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>Skutečné datum konce realizace zakázky: 
+  &lt;span property="pc:actualEndDate" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;
+
+  &lt;div rel="pc:actualPrice" typeof="gr:PriceSpecification"&gt;
+    Skutečná cena po realizaci zakázky:
+    &lt;span property="gr:hasCurrencyValue" content="150000" datatype="xsd:int"&gt;150.000&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;           		
+    (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
+  &lt;/div&gt;</strong>
+</pre>
+
+<p>Dále také uvěďte případnou dotaci (částku z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) použitou pro zakázku. Protože ale u dotace nemá sémantiku ceny, používáme pro ni slovník pro platby <a href="http://data.gov.uk/resources/payments/reference">Payments Ontology</a>. Použijeme tedy vlastnost <tt>pc:subsidy</tt> a její hodnotu, anonymní instanci třídy <tt>payment:Payment</tt>. K této třídě připojíme pomocí vlastnosti <tt>payment:expenditureLine</tt> další anonymní instanci třídy, tentokrát <tt>payment:ExpenditureLine</tt>. Té už pomocí vlastnosti <tt>payment:netAmount</tt> nastavíme částku dotace, její strojově čitelnou podobu pomocí atributu <tt>content</tt> a správný datový typ <tt>xsd:decimal</tt>.</p>
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+  &hellip;
+  <strong>&lt;div rel="pc:subsidy" typeof="payment:Payment"&gt;
+    Dotace použitá pro zakázku:
+    &lt;span rel="payment:expenditureLine" typeof="payment:ExpenditureLine"&gt;
+      &lt;span property="payment:netAmount" content="2000000" datatype="xsd:decimal"&gt;2.000.000&lt;/span&gt;
+    &lt;/span&gt;            		
+  &lt;/div&gt;</strong>
+</pre>
+</body>
+</html>
