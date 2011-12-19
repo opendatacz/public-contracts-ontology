@@ -617,11 +617,15 @@ pc:criteriaWeight a owl:FunctionalProperty ;
 pc:Item a rdfs:Class ;
   rdfs:subClassOf gr:ProductOrService ;
   rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
+  rdfs:comment "Třída pro reprezentaci položky ve veřejné zakázce"@cs ;
+  rdfs:comment "Class for representation of an Item in public contract"@en ;
   rdfs:isDefinedBy pc:
   .
 
 pc:hasItem rdfs:subPropertyOf dcterms:hasPart ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Item ;
+  rdfs:comment "Vlastnost pro přiřazení položky veřejné zakázce"@cs ;
+  rdfs:comment "Property for attachment of an Item to a public contract"@en ;
   rdfs:isDefinedBy pc:
   .
