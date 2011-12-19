@@ -239,11 +239,11 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
 </pre>
 
 <h3>Procesní údaje</h3>
-<p>Mezi procesní údaje o zakázce patří například spisové číslo zakázky <tt>pc:referenceNumber</tt> s datovým typem <tt>xsd:string</tt>.</p>
+<p>Mezi procesní údaje o zakázce patří například spisové číslo zakázky <tt>pc:referenceNumber</tt>. Jelikož je ale reprezentováno jako řetězec, je třeba explicitně uvést že není v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
-  <strong>Spisové číslo zakázky: &lt;span property="pc:referenceNumber" datatype="xsd:string"&gt;1234567890&lt;/span&gt;</strong>
+  <strong>Spisové číslo zakázky: &lt;span property="pc:referenceNumber" lang=""&gt;1234567890&lt;/span&gt;</strong>
 </pre>
 
 <p>Pro nastavení dalších vlastností budeme pro přehlednost odkazovat na zkrácené URL zdroje pomocí tzv. <a href="http://www.w3.org/TR/curie/">SafeCURIE</a>. Je to hodnota atributu <tt>resource</tt> uzavřená v hranatých závorkách []. Jedná se o vlastnosti <tt>pc:kind</tt> a <tt>pc:procedureType</tt> pro určení druhu zakázky a druhu řízení zakázky. V našem příkladě je druhem zakázky <tt>pc:Supplies</tt> reprezendující "dodávky" a druhem řízení je <tt>pc:Open</tt> reprezentující otevřené řízení.</p>
