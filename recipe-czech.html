@@ -480,7 +480,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
   &lt;/div&gt;</strong>
 </pre>
 
-<p>Dále také uvěďte případnou dotaci (částku z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) použitou pro zakázku. Protože ale u dotace nemá sémantiku ceny, používáme pro ni slovník pro platby <a href="http://data.gov.uk/resources/payments/reference">Payments Ontology</a>. Použijeme tedy vlastnost <tt>pc:subsidy</tt> a její hodnotu, anonymní instanci třídy <tt>payment:Payment</tt>. K této třídě připojíme pomocí vlastnosti <tt>payment:expenditureLine</tt> další anonymní instanci třídy, tentokrát <tt>payment:ExpenditureLine</tt>. Té už pomocí vlastnosti <tt>payment:netAmount</tt> nastavíme částku dotace, její strojově čitelnou podobu pomocí atributu <tt>content</tt> a správný datový typ <tt>xsd:decimal</tt>.</p>
+<p>Dále také uvěďte případnou dotaci (částku z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) použitou pro zakázku. Protože ale u dotace nemá sémantiku ceny, používáme pro ni slovník pro platby <a href="http://data.gov.uk/resources/payments/reference">Payments Ontology</a>. Použijeme tedy vlastnost <tt>pc:subsidy</tt> a její hodnotu, anonymní instanci třídy <tt>payment:Payment</tt>. K této třídě připojíme pomocí vlastnosti <tt>payment:expenditureLine</tt> další anonymní instanci třídy, tentokrát <tt>payment:ExpenditureLine</tt>. Té už pomocí vlastnosti <tt>payment:netAmount</tt> nastavíme částku dotace, její strojově čitelnou podobu pomocí atributu <tt>content</tt> a správný datový typ <tt>xsd:decimal</tt>. Nakonec uvedeme pomocí vlastnosti <tt>payment:currency</tt> uvedeme měnu ve které je částka dotace uvedena. Hodnotou této vlastnosti ale není jednoduchá hodnota, nýbrž zdroj reprezentující měnu. Takovým zdrojem může být reprezentace na <a href="http://dbpedia.org">DBpedia</a> tak jako v příkladě.</p>
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
@@ -488,6 +488,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
     Dotace použitá pro zakázku:
     &lt;span rel="payment:expenditureLine" typeof="payment:ExpenditureLine"&gt;
       &lt;span property="payment:netAmount" content="2000000" datatype="xsd:decimal"&gt;2.000.000&lt;/span&gt;
+      &lt;span rel="payment:currency" resource="http://dbpedia.org/resource/Czech_koruna"&gt;Kč&lt;/span&gt;
     &lt;/span&gt;            		
   &lt;/div&gt;</strong>
 </pre>
