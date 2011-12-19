@@ -33,7 +33,7 @@
       Název: <span property="dcterms:title">Jezdecké potřeby městské policie</span>
       <br/><span rel="pc:contractingAuthority" typeof="gr:BusinessEntity">
         Zadavatel:
-        <span property="gr:legalName">Město Ukázkové</span>, IČ <span property="pc:orgNumber">987654321</span>
+        <span property="gr:legalName">Město Ukázkové</span>, IČ <span property="pc:orgNumber" lang="">987654321</span>
         WWW: <a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího</a>
       </span>
       
@@ -80,8 +80,13 @@
       <h3>Předmět zakázky</h3>
       Popis: <span property="dcterms:description">Detailní slovní popis pro zakázku pro potřeby městské policie.</span>      
       <br/>Hlavní předmět zakázky: <span rel="pc:mainObject" resource="[cpv:18911000]">sedla</span>
+      <span rel="pc:hasItem" typeof="http://www.productontology.org/id/Saddle">
+        <span property="rdfs:label" content="Sedlo"/>
+      </span>
       <br/>Další předmět zakázky: <span rel="pc:additionalObject" resource="[cpv:18913000]">biče</span>      
-
+      <span rel="pc:hasItem" typeof="http://www.productontology.org/id/Whip">
+        <span property="rdfs:label" content="Bič"/>
+      </span>
       <h3>Cena</h3>
       <div rel="pc:estimatedPrice" typeof="gr:PriceSpecification">
         Přesná odhadovaná cena:
@@ -119,7 +124,7 @@
         <span rel="pc:supplier" typeof="gr:BusinessEntity">
           Nabízející:
             <span property="gr:legalName">Druhá pojízdná a.s.</span>, IČ
-            <span property="pc:orgNumber">24681012</span>
+            <span property="pc:orgNumber" lang="">24681012</span>
         </span>
         <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
           Nabídnutá cena:
@@ -134,7 +139,7 @@
           <span rel="pc:supplier" typeof="gr:BusinessEntity">
             Vítěz:
               <span property="gr:legalName">První koňařská a.s.</span>, IČ
-              <span property="pc:orgNumber">1234567</span>
+              <span property="pc:orgNumber" lang="">1234567</span>
           </span>
           <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
             Nabídnutá cena:

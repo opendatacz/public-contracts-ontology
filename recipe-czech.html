@@ -191,7 +191,7 @@
   <strong>&lt;/span&gt;</strong>
 </pre>
 
-<p>Doplňte jméno (RDF vlastnost <tt>gr:legalName</tt>), IČ (RDF vlastnost <tt>pc:orgNumber</tt>) a odkaz na web (RDF vlastnost <tt>pc:buyerProfile</tt>) zadavatele. Tentokrát však nemá element s odkazem na web zadavatele RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>ppc:buyerProfile</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL je u elementu <tt>a</tt> v atributu <tt>href</tt>.</p>
+<p>Doplňte jméno (RDF vlastnost <tt>gr:legalName</tt>), IČ (RDF vlastnost <tt>pc:orgNumber</tt>) a odkaz na web (RDF vlastnost <tt>pc:buyerProfile</tt>) zadavatele. Tentokrát však nemá element s odkazem na web zadavatele RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:buyerProfile</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL je u elementu <tt>a</tt> v atributu <tt>href</tt>. Jelikož je IČ reprezentováno jako řetězec, je třeba explicitně uvést že není v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -200,7 +200,7 @@
   Zadavatel:
       &hellip;                 	
       <strong>&lt;span property="gr:legalName"&gt;Město Ukázkové&lt;/span&gt;,
-      IČ &lt;span property="pc:orgNumber"&gt;987654321&lt;/span&gt;,
+      IČ &lt;span property="pc:orgNumber" lang=""&gt;987654321&lt;/span&gt;,
       WWW: &lt;a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího&lt;/a&gt;</strong>
   &lt;/span&gt;
 </pre>
@@ -425,7 +425,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
     <strong>&lt;span rel="pc:supplier" typeof="gr:BusinessEntity"&gt;
       Nabízející:
       &lt;span property="gr:legalName"&gt;Druhá pojízdná a.s.&lt;/span&gt;, IČ
-      &lt;span property="pc:orgNumber"&gt;24681012&lt;/span&gt;
+      &lt;span property="pc:orgNumber" lang=""&gt;24681012&lt;/span&gt;
     &lt;/span&gt;
     &lt;span rel="pc:offeredPrice" typeof="gr:PriceSpecification"&gt;
       Nabídnutá cena:
