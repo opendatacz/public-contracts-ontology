@@ -328,6 +328,19 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
   <strong>Popis: &lt;span property="dcterms:description"&gt;Detailní slovní popis zakázky.&lt;/span&gt;</strong>      
 </pre>
 
+<p>Druhý způsob jak lze reprezentovat předmět zakázky v případě produktů je pomocí slovníku <a href="http://www.productontology.org/">The Product Types Ontology</a>. Protože už jsme ale uživateli předmět zobrazili při anotaci CPV kódy, použijeme pro anotaci tímto slovníkem prázdné elementy obsahující pouze příslušné RDFa atributy tvořící RDF trojice. Tvoříme tedy anonymní instance tříd ze slovníku reprezentujících daný produkt. Ty přiřazujeme pomocí vlastnosti <tt>pc:hasItem</tt> veřejné zakázce. K třídám produktu můžeme dále připojovat další vlastnosti, jako například český název pomocí vlastnosti <tt>rdfs:label</tt>.</p>
+
+<pre>
+&lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
+   &hellip;
+  <strong>&lt;span rel="pc:hasItem" typeof="http://www.productontology.org/id/Saddle"&gt;
+    &lt;span property="rdfs:label" content="Sedlo"/&gt;
+  &lt;/span&gt;
+  &lt;span rel="pc:hasItem" typeof="http://www.productontology.org/id/Whip"&gt;
+    &lt;span property="rdfs:label" content="Bič"/&gt;
+  &lt;/span&gt;</strong>
+</pre>
+
 <h3>Cena</h3>
 <p>Dále vyplňte údaje o ceně zakázky. Na výběr jsou dvě možnosti. Buď je uvedena přesná odhadovaná cena pomocí vlastnosti <tt>pc:estimatedPrice</tt>, nebo je uveden její spodní a horní odhad pomocí vlastností <tt>pc:estimatedPriceLower</tt> a <tt>pc:estimatedPriceUpper</tt>. Hodnotou těchto vlastností je anonymní instance třídy <tt>gr:PriceSpecification</tt> a její vlastnosti <tt>gr:hasCurrencyValue</tt> udávající částku, <tt>gr:hasCurrency</tt> udávající měnu a <tt>gr:valueAdedTaxIncluded</tt> udávající zda je do ceny započítána DPH. Tato hodnota má datový typ <tt>xsd:boolean</tt>. Jelikož kódy měn jsou řetězec, je třeba explicitně uvést že nejsou v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
 <pre>
@@ -480,7 +493,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
   &lt;/div&gt;</strong>
 </pre>
 
-<p>Dále také uvěďte případnou dotaci (částku z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) použitou pro zakázku. Protože ale u dotace nemá sémantiku ceny, používáme pro ni slovník pro platby <a href="http://data.gov.uk/resources/payments/reference">Payments Ontology</a>. Použijeme tedy vlastnost <tt>pc:subsidy</tt> a její hodnotu, anonymní instanci třídy <tt>payment:Payment</tt>. K této třídě připojíme pomocí vlastnosti <tt>payment:expenditureLine</tt> další anonymní instanci třídy, tentokrát <tt>payment:ExpenditureLine</tt>. Té už pomocí vlastnosti <tt>payment:netAmount</tt> nastavíme částku dotace, její strojově čitelnou podobu pomocí atributu <tt>content</tt> a správný datový typ <tt>xsd:decimal</tt>. Nakonec uvedeme pomocí vlastnosti <tt>payment:currency</tt> uvedeme měnu ve které je částka dotace uvedena. Hodnotou této vlastnosti ale není jednoduchá hodnota, nýbrž zdroj reprezentující měnu. Takovým zdrojem může být reprezentace na <a href="http://dbpedia.org">DBpedia</a> tak jako v příkladě.</p>
+<p>Dále také uvěďte případnou dotaci (částku z celkové konečné ceny zakázky, která byla pokryta nějakou dotací) použitou pro zakázku. Protože ale u dotace nemá sémantiku ceny, používáme pro ni slovník pro platby <a href="http://data.gov.uk/resources/payments">Payments Ontology</a>. Použijeme tedy vlastnost <tt>pc:subsidy</tt> a její hodnotu, anonymní instanci třídy <tt>payment:Payment</tt>. K této třídě připojíme pomocí vlastnosti <tt>payment:expenditureLine</tt> další anonymní instanci třídy, tentokrát <tt>payment:ExpenditureLine</tt>. Té už pomocí vlastnosti <tt>payment:netAmount</tt> nastavíme částku dotace, její strojově čitelnou podobu pomocí atributu <tt>content</tt> a správný datový typ <tt>xsd:decimal</tt>. Nakonec uvedeme pomocí vlastnosti <tt>payment:currency</tt> uvedeme měnu ve které je částka dotace uvedena. Hodnotou této vlastnosti ale není jednoduchá hodnota, nýbrž zdroj reprezentující měnu. Takovým zdrojem může být reprezentace na <a href="http://dbpedia.org">DBpedia</a> tak jako v příkladě.</p>
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
