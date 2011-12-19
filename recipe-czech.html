@@ -329,14 +329,14 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
 </pre>
 
 <h3>Cena</h3>
-<p>Dále vyplňte údaje o ceně zakázky. Na výběr jsou dvě možnosti. Buď je uvedena přesná odhadovaná cena pomocí vlastnosti <tt>pc:estimatedPrice</tt>, nebo je uveden její spodní a horní odhad pomocí vlastností <tt>pc:estimatedPriceLower</tt> a <tt>pc:estimatedPriceUpper</tt>. Hodnotou těchto vlastností je anonymní instance třídy <tt>gr:PriceSpecification</tt> a její vlastnosti <tt>gr:hasCurrencyValue</tt> udávající částku, <tt>gr:hasCurrency</tt> udávající měnu a <tt>gr:valueAdedTaxIncluded</tt> udávající zda je do ceny započítána DPH. Tato hodnota má datový typ <tt>xsd:boolean</tt>.</p>
+<p>Dále vyplňte údaje o ceně zakázky. Na výběr jsou dvě možnosti. Buď je uvedena přesná odhadovaná cena pomocí vlastnosti <tt>pc:estimatedPrice</tt>, nebo je uveden její spodní a horní odhad pomocí vlastností <tt>pc:estimatedPriceLower</tt> a <tt>pc:estimatedPriceUpper</tt>. Hodnotou těchto vlastností je anonymní instance třídy <tt>gr:PriceSpecification</tt> a její vlastnosti <tt>gr:hasCurrencyValue</tt> udávající částku, <tt>gr:hasCurrency</tt> udávající měnu a <tt>gr:valueAdedTaxIncluded</tt> udávající zda je do ceny započítána DPH. Tato hodnota má datový typ <tt>xsd:boolean</tt>. Jelikož kódy měn jsou řetězec, je třeba explicitně uvést že nejsou v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
    &hellip;
   <strong>&lt;div rel="pc:estimatedPrice" typeof="gr:PriceSpecification"&gt;
     Přesná odhadovaná cena:
     &lt;span property="gr:hasCurrencyValue" content="1000000" datatype="xsd:int"&gt;1.000.000&lt;/span&gt;
-    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
   &lt;/div&gt;</strong>
 </pre>
@@ -347,13 +347,13 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
   <strong>&lt;div rel="pc:estimatedPriceLower" typeof="gr:PriceSpecification"&gt;
     Počáteční rozsah odhadované ceny:
     &lt;span property="gr:hasCurrencyValue" content="500000" datatype="xsd:int"&gt;500.000&lt;/span&gt;
-    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
   &lt;/div&gt;
   &lt;div rel="pc:estimatedPriceUpper" typeof="gr:PriceSpecification"&gt;
     Koncový rozsah odhadované ceny:
     &lt;span property="gr:hasCurrencyValue" content="2000000" datatype="xsd:int"&gt;2.000.000&lt;/span&gt;
-    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;
+    &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
   &lt;/div&gt;</strong>    
 </pre>
@@ -430,7 +430,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
     &lt;span rel="pc:offeredPrice" typeof="gr:PriceSpecification"&gt;
       Nabídnutá cena:
       &lt;span property="gr:hasCurrencyValue" content="550000" datatype="xsd:int"&gt;55.000&lt;/span&gt;
-      &lt;span property="gr:hasCurrency" content="EUR"&gt;€&lt;/span&gt;
+      &lt;span property="gr:hasCurrency" content="EUR" lang=""&gt;€&lt;/span&gt;
       &lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;      
     &lt;/span&gt;
 </strong>
@@ -459,7 +459,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
   &lt;div rel="pc:agreedPrice" typeof="gr:PriceSpecification"&gt;
     Smluvní cena:
     &lt;span property="gr:hasCurrencyValue" content="150000" datatype="xsd:int"&gt;150.000&lt;/span&gt;
-    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;           		
+    &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;           		
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)
   &lt;/div&gt;</strong>
 </pre>
@@ -475,7 +475,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
   &lt;div rel="pc:actualPrice" typeof="gr:PriceSpecification"&gt;
     Skutečná cena po realizaci zakázky:
     &lt;span property="gr:hasCurrencyValue" content="150000" datatype="xsd:int"&gt;150.000&lt;/span&gt;
-    &lt;span property="gr:hasCurrency" content="CZK"&gt;Kč&lt;/span&gt;           		
+    &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;           		
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
   &lt;/div&gt;</strong>
 </pre>
