@@ -598,7 +598,7 @@ pc:supplier a rdf:Property ;
 pc:criteria a owl:FunctionalProperty ;
   rdfs:label "Specifikace kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria specification"@en ;
   rdfs:comment "Vlastnost pro specifikaci typu kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for criterion type for tender evalutaion. Cardinality 0..1"@en ;
+  rdfs:comment "Property for criterion type for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:AwardCriteria ;
   rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc: .
@@ -608,7 +608,7 @@ pc:criteria a owl:FunctionalProperty ;
 pc:criteriaWeight a owl:FunctionalProperty ;
   rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criteria weight"@en ;
   rdfs:comment "Vlastnost pro specifikaci váhy kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for criterion weight for tender evalutaion. Cardinality 0..1"@en ;
+  rdfs:comment "Property for criterion weight for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:AwardCriteria ;
   rdfs:range pcdt:percentage ;
   rdfs:isDefinedBy pc: .
