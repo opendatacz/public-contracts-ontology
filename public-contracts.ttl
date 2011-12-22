@@ -404,7 +404,7 @@ pc:actualEndDate a owl:FunctionalProperty ;
 # Type of contract award criteria
 # 0..1
 pc:awardCriteriaType a owl:FunctionalProperty ;
-  rdfs:label "Kombinace typů kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Type of critera combination for tender evaluation."@en ;
+  rdfs:label "Kombinace typů kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Type of criteria combination for tender evaluation."@en ;
   rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
@@ -441,7 +441,7 @@ pc:tenderDeadline a owl:FunctionalProperty ;
   rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs,
     "Time-limit for receipt of tenders or requests to participate"@en ;
   rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for time-limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
+  rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:isDefinedBy pc: ;
@@ -463,7 +463,7 @@ pc:lot a rdf:Property ;
 pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
   rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for time-limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
+  rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
