@@ -98,9 +98,9 @@ pc:AwardCriteriaTypeLowestPrice a owl:Class ;
     owl:onProperty pc:awardCriteria ;
     owl:maxCardinality "0"^^xsd:nonNegativeInteger
   ] ;
-  rdfs:label "Nejnižší cena je jediným rozhodujícím kritériem při hodnocení dodaných nabídek"@cs, "Lowest price is the only contract award criterium"@en ;
+  rdfs:label "Nejnižší cena je jediným rozhodujícím kritériem při hodnocení dodaných nabídek"@cs, "Lowest price is the only contract award criterion"@en ;
   rdfs:comment "Třída specifikující že jediným kritériem pro posuzování nabídek dodavatelů je nejnižší cena"@cs ;
-  rdfs:comment "Class specifying that the only evaluation crierion is the lowest price"@en ;
+  rdfs:comment "Class specifying that the only evaluation criterion is the lowest price"@en ;
   rdfs:isDefinedBy pc: .
 
 # Contract award criteria
@@ -346,7 +346,7 @@ pc:estimatedPrice a owl:FunctionalProperty ;
 # 0..1
 pc:estimatedPriceLower a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Počáteční rozsah odhadované ceny"@cs, "Lower range of estimated price"@en ;
+  rdfs:label "Dolní mez odhadované ceny"@cs, "Lower range of estimated price"@en ;
   rdfs:comment "Vlastnost pro dolní mez odhadované ceny veřejné zakázky. Pokud je známa přesná odhadovaná cena, použijte vlastnost pc:estimatedPrice. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for lower bound of estimated price of public contract. If exact estimated price is known, use pc:estimatedPrice instead. Cardinality 0..1"@en ;
   rdfs:isDefinedBy pc: .
@@ -355,7 +355,7 @@ pc:estimatedPriceLower a owl:FunctionalProperty ;
 # 0..1
 pc:estimatedPriceUpper a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Koncový rozsah odhadované ceny"@cs, "Upper range of estimated price"@en ;
+  rdfs:label "Horní mez odhadované ceny"@cs, "Upper range of estimated price"@en ;
   rdfs:comment "Vlastnost pro horní mez odhadované ceny veřejné zakázky. Pokud je známa přesná odhadovaná cena, použijte vlastnost pc:estimatedPrice. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for upper bound of estimated price of public contract. If exact estimated price is known, use pc:estimatedPrice instead. Cardinality 0..1"@en ;
   rdfs:isDefinedBy pc: .
