@@ -23,6 +23,7 @@ pc: a owl:Ontology ;
   dcterms:title "Public Contracts Ontology"@en,
     "Ontologie pro veřejné zakázky"@cs ;
   dcterms:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
+  dcterms:description "Public Contracts Ontology offers a means of expression for describing public contracts in the public sector."@en ;
   dcterms:modified "2011-11-18"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
