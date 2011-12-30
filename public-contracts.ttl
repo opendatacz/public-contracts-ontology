@@ -413,12 +413,12 @@ pc:awardCriteriaType a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc: .
   
 # Contract award criteria
-# 0..1
+# 0..*
 pc:awardCriteria a rdf:Property ;
   rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
     "Critères d'attribution"@fr, "Vergabekriterien"@de ;
-  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..1"@en ;
+  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
   rdfs:domain pc:AwardCriteriaTypeCombination ;
   rdfs:range pc:AwardCriteria ;
   rdfs:isDefinedBy pc: ;
