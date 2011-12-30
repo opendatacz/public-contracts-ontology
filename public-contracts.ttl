@@ -1,4 +1,4 @@
-@prefix c4n:      <http://vocab.deri.ie/c4n> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
@@ -238,7 +238,7 @@ pc:contractPrice a rdf:Property ;
 
 # Description of contract
 # 0..1
-# dcterms:description rdfs:domain pc:Contract .
+# dcterms:description rdfs:domain pc:Contract .
 
 # Contract main contact
 # 0..1
