@@ -294,8 +294,8 @@ pc:procedureType a owl:FunctionalProperty ;
 # Contracting authority
 # 0..1
 pc:contractingAuthority a owl:FunctionalProperty ;
-  owl:inverseOf [
-    rdfs:subPropertyOf c4n:issues
+  rdfs:subPropertyOf [
+    owl:inverseOf c4n:issues
   ] ;
   rdfs:label "Zadavatel"@cs, "Contracting authority"@en ;
   rdfs:comment "Zadavatel zakázky. Kardinalita 0..1"@cs ;
