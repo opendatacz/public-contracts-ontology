@@ -119,6 +119,7 @@
               cpv: http://purl.org/weso/pscs/cpv/2008/resource/
               v: http://www.w3.org/2006/vcard/ns#
               payment: http://reference.data.gov.uk/def/payment#
+              br: http://purl.org/business-register#              
               xsd: http://www.w3.org/2001/XMLSchema#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
@@ -137,7 +138,8 @@
       xmlns:cpv="http://purl.org/weso/pscs/cpv/2008/resource/"
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:v="http://www.w3.org/2006/vcard/ns#"
-      xmlns:payment="http://reference.data.gov.uk/def/payment#"&gt;</strong>
+      xmlns:payment="http://reference.data.gov.uk/def/payment#"
+      xmlns:br="http://purl.org/business-register#"&gt;</strong>
    &hellip;
 <strong>&lt;/html&gt;</strong>
 </pre>
@@ -191,7 +193,7 @@
   <strong>&lt;/span&gt;</strong>
 </pre>
 
-<p>Doplňte jméno (RDF vlastnost <tt>gr:legalName</tt>), IČ (RDF vlastnost <tt>pc:orgNumber</tt>) a odkaz na web (RDF vlastnost <tt>pc:buyerProfile</tt>) zadavatele. Tentokrát však nemá element s odkazem na web zadavatele RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:buyerProfile</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL je u elementu <tt>a</tt> v atributu <tt>href</tt>. Jelikož je IČ reprezentováno jako řetězec, je třeba explicitně uvést že není v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
+<p>Doplňte jméno (RDF vlastnost <tt>gr:legalName</tt>), IČ (RDF vlastnost <tt>br:officialNumber</tt>) a odkaz na web (RDF vlastnost <tt>pc:buyerProfile</tt>) zadavatele. Tentokrát však nemá element s odkazem na web zadavatele RDFa atribut <tt>property</tt> ale RDFa atribut <tt>rel</tt> s hodnotou <tt>pc:buyerProfile</tt>. Tím říkáme, že hodnotou vlastnosti není jednoduchá datová hodnota ale zdroj, jehož URL je u elementu <tt>a</tt> v atributu <tt>href</tt>. Jelikož je IČ reprezentováno jako řetězec, je třeba explicitně uvést že není v žádném specifickém jazyce pomocí atribudu <tt>lang</tt> s prázdnou hodnotou.</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -200,7 +202,7 @@
   Zadavatel:
       &hellip;                 	
       <strong>&lt;span property="gr:legalName"&gt;Město Ukázkové&lt;/span&gt;,
-      IČ &lt;span property="pc:orgNumber" lang=""&gt;987654321&lt;/span&gt;,
+      IČ &lt;span property="br:officialNumber" lang=""&gt;987654321&lt;/span&gt;,
       WWW: &lt;a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího&lt;/a&gt;</strong>
   &lt;/span&gt;
 </pre>
@@ -363,6 +365,7 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
     &lt;span property="gr:hasCurrency" content="CZK" lang=""&gt;Kč&lt;/span&gt;
     (&lt;span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean"&gt;bez daně&lt;/span&gt;)            		
   &lt;/div&gt;
+  
   &lt;div rel="pc:estimatedPriceUpper" typeof="gr:PriceSpecification"&gt;
     Koncový rozsah odhadované ceny:
     &lt;span property="gr:hasCurrencyValue" content="2000000" datatype="xsd:int"&gt;2.000.000&lt;/span&gt;
@@ -379,10 +382,13 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
    &hellip;
   <strong>Datum zveřejnění zakázky: 
   &lt;span property="pc:publicationDate" content="2010-01-01" datatype="xsd:date"&gt;1.1.2010&lt;/span&gt;
+  
   &lt;br/&gt;Lhůta pro doručení nabídek nebo přijetí žádostí o účast: 
   &lt;span property="pc:tenderDeadline" content="2010-01-01" datatype="xsd:date"&gt;1.1.2010&lt;/span&gt;
+  
   &lt;br/&gt;Datum začátku realizace zakázky: 
   &lt;span property="pc:startDate" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;
+  
   &lt;br/&gt;Očekávané datum konce realizace zakázky: 
   &lt;span property="pc:estimatedEndDate" content="2010-01-01" datatype="xsd:date"&gt;1. 1. 2010&lt;/span&gt;</strong>
 </pre>
@@ -429,7 +435,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
 &lt;/div&gt;
 </pre>
 
-<p>Ke každé nabídce přidejte společnost, která zaslala nabídku, pomocí vlastnosti <tt>pc:supplier</tt>. Společnost uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>. Doplňte data o nabízejícím - jeho název (RDF vlastnost <tt>gr:legalName</tt>) a IČ (RDF vlastnost <tt>pc:orgNumber</tt>). Kromě nabízejícího uvádějte k nabídce také nabídnutou cenu pomocí vlastnosti <tt>pc:offeredPrice</tt>. Cenu uvádějte stejně jako výše. Tedy jako anonymní instanci třídy <tt>gr:PriceSpecification</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:PriceSpecification</tt>. K ceně doplňte hodnotu (RDF vlastnost <tt>gr:hasCurrencyValue</tt>), měnu (RDF vlastnost <tt>gr:hasCurrency</tt>) a zda je cena s DPH (RDF vlastnost <tt>gr:valueAddedTaxIncluded</tt>).</p>
+<p>Ke každé nabídce přidejte společnost, která zaslala nabídku, pomocí vlastnosti <tt>pc:supplier</tt>. Společnost uvádějte jako anonymní instanci třídy <tt>gr:BusinessEntity</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:BusinessEntity</tt>. Doplňte data o nabízejícím - jeho název (RDF vlastnost <tt>gr:legalName</tt>) a IČ (RDF vlastnost <tt>br:officialNumber</tt>). Kromě nabízejícího uvádějte k nabídce také nabídnutou cenu pomocí vlastnosti <tt>pc:offeredPrice</tt>. Cenu uvádějte stejně jako výše. Tedy jako anonymní instanci třídy <tt>gr:PriceSpecification</tt>, tj. v samostatném elementu s RDFa atributem <tt>typeof</tt> s hodnotou <tt>gr:PriceSpecification</tt>. K ceně doplňte hodnotu (RDF vlastnost <tt>gr:hasCurrencyValue</tt>), měnu (RDF vlastnost <tt>gr:hasCurrency</tt>) a zda je cena s DPH (RDF vlastnost <tt>gr:valueAddedTaxIncluded</tt>).</p>
 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
@@ -438,7 +444,7 @@ Mezi další informace patří dělení na podzakázky. To lze vyjádřit jako o
     <strong>&lt;span rel="pc:supplier" typeof="gr:BusinessEntity"&gt;
       Nabízející:
       &lt;span property="gr:legalName"&gt;Druhá pojízdná a.s.&lt;/span&gt;, IČ
-      &lt;span property="pc:orgNumber" lang=""&gt;24681012&lt;/span&gt;
+      &lt;span property="br:officialNumber" lang=""&gt;24681012&lt;/span&gt;
     &lt;/span&gt;
     &lt;span rel="pc:offeredPrice" typeof="gr:PriceSpecification"&gt;
       Nabídnutá cena:
