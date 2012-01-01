@@ -84,7 +84,7 @@ pc:Tender a rdfs:Class ;
   .
   
 # Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
-pc:AwardCriteriaTypeCombination a rdfs:Class ;
+pc:AwardCriteriaCombination a rdfs:Class ;
   rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
   rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek dodavatelů"@cs ;
   rdfs:comment "Class for description of criteria combination used for tender evaluation"@en ;
@@ -92,7 +92,7 @@ pc:AwardCriteriaTypeCombination a rdfs:Class ;
  
 # Contract award criteria type: lowest price
 pc:AwardCriteriaTypeLowestPrice a owl:Class ;
-  rdfs:subClassOf pc:AwardCriteriaTypeCombination ;
+  rdfs:subClassOf pc:AwardCriteriaCombination ;
   rdfs:subClassOf [
 	a owl:Restriction ;
     owl:onProperty pc:awardCriteria ;
@@ -409,7 +409,7 @@ pc:awardCriteriaType a owl:FunctionalProperty ;
   rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range pc:AwardCriteriaTypeCombination ;
+  rdfs:range pc:AwardCriteriaCombination ;
   rdfs:isDefinedBy pc: .
   
 # Contract award criteria
@@ -419,7 +419,7 @@ pc:awardCriteria a rdf:Property ;
     "Critères d'attribution"@fr, "Vergabekriterien"@de ;
   rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
-  rdfs:domain pc:AwardCriteriaTypeCombination ;
+  rdfs:domain pc:AwardCriteriaCombination ;
   rdfs:range pc:AwardCriteria ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:AC
