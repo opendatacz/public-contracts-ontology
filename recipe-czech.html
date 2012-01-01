@@ -273,13 +273,13 @@ Pro specifikaic kontaktní osoby používáme slovník FOAF. Opět vytvoříme a
   </li>
 </ul>
 
-<p>Dále reprezentujeme kritéria pro zadání zakázky jako vlastnost <tt>pc:awardCriteriaType</tt>. Máme dvě možnosti. Buďto bude hodnotou vlastnosti <tt>[pc:AwardCriteriaTypeLowestPrice]</tt> pro nejnižší cenu jakožto jediné kritérium a nebo vytvoříme anonymní instanci třídy <tt>pc:AwardCriteriaTypeCombination</tt> jako v našem příkladu. Této třídě pak přiřazujeme jednotlivá kritéria vlastností<tt>pc:awardCriteria</tt>, které jako hodnotu přiřazujeme anonymní instance třídy <tt>pc:AwardCriteria</tt>. Těmto instancím již přiřazujeme druh kritéria vlastností <tt>pc:criteria</tt> a jeho váhu v procentech v rozmezí 0 až 100 vlastností <tt>pc:criteriaWeight</tt>. Zde je třeba specifikovat tento datový typ pomocí atributu <tt>datatype</tt> s hodnotou <tt>pcdt:percentage</tt>.</p> 
+<p>Dále reprezentujeme kritéria pro zadání zakázky jako vlastnost <tt>pc:awardCriteriaType</tt>. Máme dvě možnosti. Buďto bude hodnotou vlastnosti <tt>[pc:AwardCriteriaTypeLowestPrice]</tt> pro nejnižší cenu jakožto jediné kritérium a nebo vytvoříme anonymní instanci třídy <tt>pc:AwardCriteriaCombination</tt> jako v našem příkladu. Této třídě pak přiřazujeme jednotlivá kritéria vlastností<tt>pc:awardCriteria</tt>, které jako hodnotu přiřazujeme anonymní instance třídy <tt>pc:AwardCriteria</tt>. Těmto instancím již přiřazujeme druh kritéria vlastností <tt>pc:criteria</tt> a jeho váhu v procentech v rozmezí 0 až 100 vlastností <tt>pc:criteriaWeight</tt>. Zde je třeba specifikovat tento datový typ pomocí atributu <tt>datatype</tt> s hodnotou <tt>pcdt:percentage</tt>.</p> 
 <pre>
 &lt;div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract"&gt;
   &hellip;
   <strong>
   &lt;br/&gt;Typ kritéria pro zadání zakázky: 
-    &lt;span rel="pc:awardCriteriaType" typeof="pc:AwardCriteriaTypeCombination"&gt;
+    &lt;span rel="pc:awardCriteriaType" typeof="pc:AwardCriteriaCombination"&gt;
     Ekonomicky nejvýhodnější nabídka.
     &lt;br/&gt;Kritéria pro zadání zakázky:
     &lt;span rel="pc:awardCriteria" typeof="pc:AwardCriteria"&gt;
