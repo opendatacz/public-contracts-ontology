@@ -11,6 +11,7 @@
       xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
       xmlns:v="http://www.w3.org/2006/vcard/ns#"
       xmlns:payment="http://reference.data.gov.uk/def/payment#"
+      xmlns:br="http://purl.org/business-register#"
       prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
               rdfs: http://www.w3.org/2000/01/rdf-schema#
               gr: http://purl.org/goodrelations/v1#
@@ -20,6 +21,7 @@
               cpv: http://purl.org/weso/pscs/cpv/2008/resource/
               v: http://www.w3.org/2006/vcard/ns#
               payment: http://reference.data.gov.uk/def/payment#
+              br: http://purl.org/business-register#
               xsd: http://www.w3.org/2001/XMLSchema#">  
   <head>	
     <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />	
@@ -33,7 +35,7 @@
       Název: <span property="dcterms:title">Jezdecké potřeby městské policie</span>
       <br/><span rel="pc:contractingAuthority" typeof="gr:BusinessEntity">
         Zadavatel:
-        <span property="gr:legalName">Město Ukázkové</span>, IČ <span property="pc:orgNumber" lang="">987654321</span>
+        <span property="gr:legalName">Město Ukázkové</span>, IČ <span property="br:officialNumber" lang="">987654321</span>
         WWW: <a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího</a>
       </span>
       
@@ -124,7 +126,7 @@
         <span rel="pc:supplier" typeof="gr:BusinessEntity">
           Nabízející:
             <span property="gr:legalName">Druhá pojízdná a.s.</span>, IČ
-            <span property="pc:orgNumber" lang="">24681012</span>
+            <span property="br:officialNumber" lang="">24681012</span>
         </span>
         <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
           Nabídnutá cena:
@@ -139,7 +141,7 @@
           <span rel="pc:supplier" typeof="gr:BusinessEntity">
             Vítěz:
               <span property="gr:legalName">První koňařská a.s.</span>, IČ
-              <span property="pc:orgNumber" lang="">1234567</span>
+              <span property="br:officialNumber" lang="">1234567</span>
           </span>
           <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
             Nabídnutá cena:
