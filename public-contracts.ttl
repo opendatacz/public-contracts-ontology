@@ -498,7 +498,6 @@ pc:numberOfTenders a owl:FunctionalProperty ;
   rdfs:comment "Property for number of tenders received. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:nonNegativeInteger ;
-  rdfs:subPropertyOf dcterms:issued ;
   rdfs:isDefinedBy pc: .
   
 # Tender
