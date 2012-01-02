@@ -257,16 +257,6 @@ pc:contact a owl:FunctionalProperty ;
   rdfs:domain pc:Contract ;
   rdfs:range vcard:VCard ;
   rdfs:isDefinedBy pc: .
-  
-# Contract contact person
-# 0..*
-pc:contactPerson a rdf:Property ;
-  rdfs:label "Kontaktní osoba pro zakázku"@cs, "Contract contact person"@en ;
-  rdfs:comment "Kontaktní osoba pro zakázku. Kardinalita 0..*"@cs ;
-  rdfs:comment "Contract contact person. Cardinality 0..*"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range foaf:Person ;
-  rdfs:isDefinedBy pc: .
 
 # Kind
 # 0..1
