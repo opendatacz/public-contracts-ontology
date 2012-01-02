@@ -1,0 +1,81 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+
+<http://www.opendata.cz/pc/Contract/62349981>
+  a pc:Contract;
+  rdfs:label "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "dodávka nového vozidla na svoz separovaného odpadu (vyklápěče s nástavbou) zajišťovaného městem Volyně, včetně případného uvedení do provozu a zaškolení obsluhy"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:contact [
+    vcard:note "STAVEBNÍ PORADNA, spol. s r. o., Průběžná 48, 370 04 České Budějovice"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:fn "Ing. Martina Gabrielová"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:email "gabrielova@stav-poradna.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:tel [
+      a vcard:Work ;
+      rdf:value "+420 602356778"^^<http://www.w3.org/2001/XMLSchema#string> 
+    ] ;
+    vcard:tel [
+      a vcard:Fax ;
+      rdf:value "+420 387330460"^^<http://www.w3.org/2001/XMLSchema#string> 
+    ] ;
+  ] ;
+  pc:kind pc:Supplies ;
+  pc:procedureType pc:Negotiated ;
+  pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/65679922> ;
+  pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/34144510> ;
+  pc:estimatedPrice [
+    gr:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "4000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+  ] ;
+  pc:startDate "2012-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:estimatedEndDate "2013-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:awardCriteriaCombination [
+    pc:awardCriterion [
+      pc:criterionName "výše nabídkové ceny"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionWeight "70"^^pcdt:percentage
+    ] ;
+    pc:awardCriterion [
+      pc:criterionName "servisní podmínky"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionWeight "20"^^pcdt:percentage
+    ] ;
+    pc:awardCriterion [
+      pc:criterionName "záruční doba"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionWeight "10"^^pcdt:percentage
+    ]
+  ] ;
+  pc:referenceNumber "7000000004418"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:tenderDeadline "2011-11-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:publicationDate "2011-09-09"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:awardDate "2011-12-28"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:numberOfTenders "2"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+  pc:awardedTender [
+    pc:offeredPrice [
+      gr:hasCurrency "CZK" ;
+      gr:hasCurrencyValue "3916600"^^<http://www.w3.org/2001/XMLSchema#double> ;
+      gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+    ] ;
+    pc:supplier <http://opendata.cz/gr/BusinessEntity/32189547> ;
+  ]
+  pc:agreedPrice [
+    gr:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "3916600"^^<http://www.w3.org/2001/XMLSchema#double> ;
+    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+  ] ;
+  pccz:limit pccz:AboveLimit .
