@@ -26,15 +26,18 @@
     vcard:note "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:fn "Mgr. Martin Velík"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:email "martin@euroassist.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
-    vcard:workTel "+420 602356778"^^<http://www.w3.org/2001/XMLSchema#string>
+    vcard:tel [
+      a vcard:Work ;
+      rdf:value "+420 602356778"^^<http://www.w3.org/2001/XMLSchema#string> 
+    ]
   ] ;
   pc:kind pc:Works ;
   pc:procedureType pc:Negotiated ;
   pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/42571584> ;
-  pc:mainObject <http://purl.org/procurement/cpv/2008/45223200-8> ;
-  pc:additionalObject <http://purl.org/procurement/cpv/2008/45233142-6> ;
-  pc:additionalObject <http://purl.org/procurement/cpv/2008/34928470-3> ;
-  pc:additionalObject <http://purl.org/procurement/cpv/2008/71320000-7> ;
+  pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45223200> ;
+  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/45233142> ;
+  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/34928470> ;
+  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/71320000> ;
   pc:estimatedPrice [
     gr:hasCurrency "CZK" ;
     gr:hasCurrencyValue "20000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
@@ -64,7 +67,7 @@
       gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
     ] ;
     pc:supplier <http://opendata.cz/gr/BusinessEntity/32189547> ;
-  ]
+  ] ;
   pc:agreedPrice [
     gr:hasCurrency "CZK" ;
     gr:hasCurrencyValue "18989231"^^<http://www.w3.org/2001/XMLSchema#double> ;

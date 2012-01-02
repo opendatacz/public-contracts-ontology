@@ -26,12 +26,15 @@
     vcard:fn "Bc. Miroslava Rodová"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:note "Město Cheb" ;
     vcard:email "rodova@cheb.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
-    vcard:workTel "+420 354440514"^^<http://www.w3.org/2001/XMLSchema#string>
+    vcard:tel [
+      a vcard:Work;
+      rdf:value "+420 354440514"^^<http://www.w3.org/2001/XMLSchema#string>
+    ]
   ] ;
   pc:kind pc:Works ;
   pc:procedureType pc:Open ;
   pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/84512124> ;
-  pc:mainObject <http://purl.org/procurement/cpv/2008/45454100-5> ;
+  pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45454100> ;
   pc:estimatedPrice [
     gr:hasCurrency "CZK" ;
     gr:hasCurrencyValue "18000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
