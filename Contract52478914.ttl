@@ -24,7 +24,7 @@
   dcterms:description "dodávka nového vozidla na svoz separovaného odpadu (vyklápěče s nástavbou) zajišťovaného městem Volyně, včetně případného uvedení do provozu a zaškolení obsluhy"^^<http://www.w3.org/2001/XMLSchema#string> ;
   pc:contact [
     vcard:fn "Bc. Miroslava Rodová"^^<http://www.w3.org/2001/XMLSchema#string> ;
-    dcterms:title "Město Cheb" ;
+    vcard:note "Město Cheb" ;
     vcard:email "rodova@cheb.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:workTel "+420 354440514"^^<http://www.w3.org/2001/XMLSchema#string>
   ] ;
