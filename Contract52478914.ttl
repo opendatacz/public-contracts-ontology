@@ -19,9 +19,9 @@
 
 <http://www.opendata.cz/pc/Contract/52478914>
   a pc:Contract;
-  rdfs:label "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:title "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:description "dodávka nového vozidla na svoz separovaného odpadu (vyklápěče s nástavbou) zajišťovaného městem Volyně, včetně případného uvedení do provozu a zaškolení obsluhy"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  rdfs:label "Chebský hrad - oprava jihovýchodních kasemat"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Chebský hrad - oprava jihovýchodních kasemat"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Celková oprava a revitalizace vstupní partie hradu s jihovýchodními kasematami a jihovýchodním bastionem (průjezd, pokladna, zázemí a expoziční sál) bude zahrnovat následující úkony: -	Výměnu provizorních tesařských konstrukcí krovu v obnovené podobě pultové a valbové střechy - konzultace s Národně památkovým ústavem (NPÚ); -	Zřízení hradního občerstvení se zázemím obsluhy a veřejnými toaletami v podkroví kasemat; -	Zrušení stávajících toalet v přízemí; -	Realizaci nového schodiště umožňujícího přístup do podkroví apod. Navrhované architektonické, stavební a restaurátorské opravy jsou podrobně specifikovány v souhrnné technické zprávě k dokumentaci pro stavební povolení vyhotovené Projektovým ateliérem pro architekturu a pozemní stavby, s. r. o. z 10/2008 pod názvem Chebský hrad, Oprava jihovýchodních kasemat (paré č. 2)."^^<http://www.w3.org/2001/XMLSchema#string> ;
   pc:contact [
     vcard:fn "Bc. Miroslava Rodová"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:note "Město Cheb" ;
