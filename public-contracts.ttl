@@ -77,7 +77,7 @@ pc:Contract a rdfs:Class ;
   rdfs:comment "Základní třída pro popis veřejné zakázky"@cs ;
   rdfs:comment "Basic class for decribing a public contract"@en ;
   rdfs:isDefinedBy pc: ;
-  owl:sameAs loted:Contract 
+  owl:equivalentClass loted:Contract 
   .
   
 # Tender
@@ -87,7 +87,7 @@ pc:Tender a rdfs:Class ;
   rdfs:comment "Základní třída pro popis nabídky dodavatele"@cs ;
   rdfs:comment "Basic class for decribing a tender submitted by a supplier"@en ;
   rdfs:isDefinedBy pc: ;
-  owl:sameAs loted:Tender
+  owl:equivalentClass loted:Tender
   .
   
 # Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
@@ -117,7 +117,7 @@ pc:AwardCriterion a rdfs:Class ;
   rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
   rdfs:comment "Class for description of one criterion and its weight"@en ;
   rdfs:isDefinedBy pc: ;
-  owl:sameAs loted:AwardCriteria
+  owl:equivalentClass loted:AwardCriteria
   .
   
 #######
