@@ -71,7 +71,7 @@
       gr:hasCurrencyValue "3916600"^^<http://www.w3.org/2001/XMLSchema#double> ;
       gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
     ] ;
-    pc:supplier <http://opendata.cz/gr/BusinessEntity/32189547> ;
+    pc:supplier <http://opendata.cz/gr/BusinessEntity/78123400> ;
   ]
   pc:agreedPrice [
     gr:hasCurrency "CZK" ;
