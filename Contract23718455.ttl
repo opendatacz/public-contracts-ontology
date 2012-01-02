@@ -19,12 +19,12 @@
 
 <http://www.opendata.cz/pc/Contract/23718455>
   a pc:Contract;
-  rdfs:label "Most ev.è. 2623-2 izníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:title "Most ev.è. 2623-2 izníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:description "Pøedmìtem veøejné zakázky je provedení stavebních prací formou design&build."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  rdfs:label "Most ev.Ã¨. 2623-2 ÂiznÃ­kov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Most ev.Ã¨. 2623-2 ÂiznÃ­kov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "PÃ¸edmÃ¬tem veÃ¸ejnÃ© zakÃ¡zky je provedenÃ­ stavebnÃ­ch pracÃ­ formou design&build."^^<http://www.w3.org/2001/XMLSchema#string> ;
   pc:contact [
-    dcterms:title "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
-    vcard:fn "Mgr. Martin Velík"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:note "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:fn "Mgr. Martin VelÃ­k"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:email "martin@euroassist.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:workTel "+420 602356778"^^<http://www.w3.org/2001/XMLSchema#string>
   ] ;
@@ -44,7 +44,7 @@
   pc:estimatedEndDate "2013-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
   pc:awardCriteriaCombination [
     pc:awardCriterion [
-      pc:criterionName "Celková nabídková cena"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionName "CelkovÃ¡ nabÃ­dkovÃ¡ cena"^^<http://www.w3.org/2001/XMLSchema#string> ;
       pc:criterionWeight "80"^^pcdt:percentage
     ] ;
     pc:awardCriterion [
