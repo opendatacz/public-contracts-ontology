@@ -30,22 +30,13 @@ pc: a owl:Ontology ;
   dcterms:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
+    <http://www.facebook.com/nohis> ,
     <http://keg.vse.cz/resource/person/josef-petrak>,
-    <http://www.facebook.com/nohis> ;
+    <http://keg.vse.cz/resource/person/vojtech-svatek> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/procurement#>, <http://prefix.cc/pc> ;
   dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
-<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
-  foaf:name "Jindřich Mynarz" ;
-  foaf:mbox <mailto:mynarzjindrich@gmail.com> .
-
-<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
-  foaf:name "Josef Petrák" ;
-  foaf:mbox <mailto:me@jspetrak.name> .
-  
-<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
-  foaf:name "Martin Nečaský" ;
-  foaf:mbox <mailto:martinnec@gmail.com> .
+# --- Ontology authors  ---------------------------------------
 
 <http://purl.org/klimek#me> a foaf:Person ;
   foaf:name "Jakub Klímek" ;
@@ -55,10 +46,26 @@ pc: a owl:Ontology ;
   foaf:name "Tomáš Knap" ;
   foaf:mbox <mailto:toknap@gmail.com> .
 
+<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" ;
+  foaf:mbox <mailto:mynarzjindrich@gmail.com> .
+
+<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
+  foaf:name "Martin Nečaský" ;
+  foaf:mbox <mailto:martinnec@gmail.com> .
+
 <http://www.facebook.com/nohis> a foaf:Person ;
    foaf:name "Pavel Nohejl" ;
    foaf:mbox <mailto:nohejl.pavel@gmail.com> .
                                                
+<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+  foaf:name "Josef Petrák" ;
+  foaf:mbox <mailto:me@jspetrak.name> .
+
+<http://keg.vse.cz/person/vojtech-svatek> a foaf:Person ;
+  foaf:name "Vojtěch Svátek" ;
+  foaf:mbox <mailto:svatek@vse.cz> .  
+
 ####### 
 ####### Classes
 #######
