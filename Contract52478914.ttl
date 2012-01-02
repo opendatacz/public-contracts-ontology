@@ -1,0 +1,51 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+
+<http://www.opendata.cz/pc/Contract/52478914>
+  a pc:Contract;
+  rdfs:label "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Dodávka vozidla na svoz separovaného odpadu"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "dodávka nového vozidla na svoz separovaného odpadu (vyklápěče s nástavbou) zajišťovaného městem Volyně, včetně případného uvedení do provozu a zaškolení obsluhy"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:contact [
+    vcard:fn "Bc. Miroslava Rodová"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:note "Město Cheb" ;
+    vcard:email "rodova@cheb.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:tel [
+      a vcard:Work;
+      rdf:value "+420 354440514"^^<http://www.w3.org/2001/XMLSchema#string>
+    ]
+  ] ;
+  pc:kind pc:Works ;
+  pc:procedureType pc:Open ;
+  pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/84512124> ;
+  pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45454100> ;
+  pc:estimatedPrice [
+    gr:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "18000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+  ] ;
+  pc:startDate "2012-04-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:estimatedEndDate "2013-03-20"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:awardCriteriaCombination [
+    a pc:AwardCriteriaLowestPrice  
+  ] ;
+  pc:referenceNumber "7000000004424"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:tenderDeadline "2012-01-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:publicationDate "2006-09-29"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pccz:limit pccz:AboveLimit .

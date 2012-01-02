@@ -1,0 +1,93 @@
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix dct:      <http://purl.org/dc/dcmitype/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:      <http://purl.org/procurement/public-contracts-czech#> .
+
+# --- Ontology metadata ---------------------------------------
+
+pccz: a owl:Ontology ;
+  dc:title "Public Contracts Ontology – Czech Module"@en,
+    "Ontologie pro veřejné zakázky – modul pro Českou republiku"@cs ;
+  dc:description "Ontologie pro veřejné zakázky – modul pro Českou republiku, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou České republiky."@cs ;
+  dc:modified "2011-11-02"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts-czech#" ;
+  vann:preferredNamespacePrefix "pccz" ;
+  dc:creator <http://purl.org/klimek#me>,
+    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://www.ksi.mff.cuni.cz/~necasky>,
+    <http://keg.vse.cz/resource/person/josef-petrak> ;
+  rdfs:seeAlso <http://opendata.cz/vocabulary/procurement/czech#>, <http://prefix.cc/pccz> ;
+  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
+
+<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" .
+
+<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
+  foaf:name "Josef Petrák" ;
+  foaf:mbox <mailto:me@jspetrak.name> .
+  
+<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
+  foaf:name "Martin Nečaský" ;
+  foaf:mbox <mailto:martinnec@gmail.com> .
+  
+<http://purl.org/klimek#me> a foaf:Person ;
+  foaf:name "Jakub Klímek" ;
+  foaf:mbox <mailto:klimek.mff@gmail.com> .
+
+#######
+####### Terminologies
+#######
+
+####### Concept scheme of possible limits for public contracts
+
+pccz:LimitScheme rdf:type skos:ConceptScheme .
+  
+pccz:SmallAmount a skos:Concept ;
+  skos:inScheme pc:LimitScheme ;
+  rdfs:label "Veřejná zakázka malého rozsahu"@cs, "Public contract for small amount"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:UnderLimit a skos:Concept ;
+  skos:inScheme pc:LimitScheme ;
+  rdfs:label "Podlimitní veřejná zakázka"@cs, "Public contract under the limit"@en ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:AboveLimit a skos:Concept ;
+  skos:inScheme pc:LimitScheme ;
+  rdfs:label "Nadlimitní veřejná zakázka"@cs, "Public contract above the limit"@en ;
+  rdfs:isDefinedBy pccz: .
+  
+####### Concept scheme of contract procedure types
+
+pccz:SimplifiedUnderLimit a skos:Concept ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:label "Zjednodušené podlimitní"@cs, "Simplified under limit"@en ;
+  rdfs:isDefinedBy pccz: .
+
+
+########
+######## Properties
+########
+
+####### pc:Contract properties
+
+# Limit of a public contract
+# 0..1
+pccz:limit a rdf:Property ;
+  rdfs:label "Limit veřejné zakázky"@cs, "Limit of a public contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pccz: .
