@@ -404,8 +404,8 @@ pc:actualEndDate a owl:FunctionalProperty ;
 
 # Type of contract award criteria
 # 0..1
-pc:awardCriteriaType a owl:FunctionalProperty ;
-  rdfs:label "Kombinace typů kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Type of criteria combination for tender evaluation."@en ;
+pc:awardCriteriaCombination a owl:FunctionalProperty ;
+  rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
   rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
