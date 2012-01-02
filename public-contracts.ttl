@@ -402,7 +402,7 @@ pc:actualEndDate a owl:FunctionalProperty ;
   rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc: .
 
-# Type of contract award criteria
+# Combination of contract award criteria
 # 0..1
 pc:awardCriteriaCombination a owl:FunctionalProperty ;
   rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
