@@ -71,7 +71,7 @@ pc: a owl:Ontology ;
 #######
 
 # Public contract
-pc:Contract a rdfs:Class ;
+pc:Contract a owl:Class ;
   rdfs:subClassOf c4n:Call ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Základní třída pro popis veřejné zakázky"@cs ;
@@ -81,7 +81,7 @@ pc:Contract a rdfs:Class ;
   .
   
 # Tender
-pc:Tender a rdfs:Class ;
+pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
   rdfs:comment "Základní třída pro popis nabídky dodavatele"@cs ;
@@ -91,7 +91,7 @@ pc:Tender a rdfs:Class ;
   .
   
 # Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
-pc:AwardCriteriaCombination a rdfs:Class ;
+pc:AwardCriteriaCombination a owl:Class ;
   rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
   rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek dodavatelů"@cs ;
   rdfs:comment "Class for description of criteria combination used for tender evaluation"@en ;
@@ -111,7 +111,7 @@ pc:AwardCriteriaLowestPrice a owl:Class ;
   rdfs:isDefinedBy pc: .
 
 # Contract award criterion
-pc:AwardCriterion a rdfs:Class ;
+pc:AwardCriterion a owl:Class ;
   rdfs:subClassOf c4n:Condition ;
   rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criterion"@en ;
   rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
@@ -611,7 +611,7 @@ pc:criterionWeight a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc: .
 
 # Contracted item
-pc:Item a rdfs:Class ;
+pc:Item a owl:Class ;
   rdfs:subClassOf gr:ProductOrService ;
   rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
   rdfs:comment "Třída pro reprezentaci položky ve veřejné zakázce"@cs ;
