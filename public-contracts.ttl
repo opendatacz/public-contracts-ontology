@@ -120,6 +120,15 @@ pc:AwardCriterion a owl:Class ;
   owl:equivalentClass loted:AwardCriteria
   .
   
+# Contracted item
+pc:Item a owl:Class ;
+  rdfs:subClassOf gr:ProductOrService ;
+  rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
+  rdfs:comment "Třída pro reprezentaci položky ve veřejné zakázce"@cs ;
+  rdfs:comment "Class for representation of an Item in public contract"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
 #######
 ####### Terminologies
 #######
@@ -609,15 +618,6 @@ pc:criterionWeight a owl:FunctionalProperty ;
   rdfs:domain pc:AwardCriterion ;
   rdfs:range pcdt:percentage ;
   rdfs:isDefinedBy pc: .
-
-# Contracted item
-pc:Item a owl:Class ;
-  rdfs:subClassOf gr:ProductOrService ;
-  rdfs:label "Contracted item"@en, "Poptávaná položka"@cs ;
-  rdfs:comment "Třída pro reprezentaci položky ve veřejné zakázce"@cs ;
-  rdfs:comment "Class for representation of an Item in public contract"@en ;
-  rdfs:isDefinedBy pc:
-  .
 
 pc:hasItem rdfs:subPropertyOf dcterms:hasPart ;
   rdfs:domain pc:Contract ;
