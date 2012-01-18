@@ -249,14 +249,6 @@ pc:contractPrice a rdf:Property ;
 
 ####### pc:Contract properties
 
-# Title of contract
-# 0..1    
-# dcterms:title rdfs:domain pc:Contract .
-
-# Description of contract
-# 0..1
-# dcterms:description rdfs:domain pc:Contract .
-
 # Contract main contact
 pc:contact a owl:FunctionalProperty ;
   rdfs:label "Hlavní kontakt pro zakázku"@cs, "Main contact for a contract"@en ;
