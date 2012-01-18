@@ -416,8 +416,8 @@ pc:awardDate a owl:FunctionalProperty ;
 # Start date of contract
 pc:startDate a owl:FunctionalProperty ;
   rdfs:label "Datum začátku realizace zakázky"@cs, "Start date of contract"@en ;
-  rdfs:comment "Vlastnost pro datum začátku realizace zakázky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for start date of public contract realization.. Cardinality 0..1"@en ;
+  rdfs:comment "Vlastnost pro datum začátku realizace zakázky, které je uvedené ve smlouvě. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for start date of public contract realization coming from the contract's text. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:date ;
