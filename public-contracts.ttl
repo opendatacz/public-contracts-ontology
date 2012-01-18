@@ -408,6 +408,16 @@ pc:actualEndDate a owl:FunctionalProperty ;
   rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc: .
 
+# Date of cancellation
+# 0..1
+pc:cancellationDate a owl:FunctionalProperty ;
+  rdfs:label "Date when the contract was cancelled"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+
 # Combination of contract award criteria
 # 0..1
 pc:awardCriteriaCombination a owl:FunctionalProperty ;
