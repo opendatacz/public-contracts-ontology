@@ -19,11 +19,11 @@
 
 <http://www.opendata.cz/pc/Contract/23718455>
   a pc:Contract;
-  rdfs:label "Most ev.è. 2623-2 izníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:title "Most ev.è. 2623-2 izníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:description "Pøedmìtem veøejné zakázky je provedení stavebních prací formou design&build."^^<http://www.w3.org/2001/XMLSchema#string> ;
+   rdfs:label "Most ev.č. 2623-2 Žizníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Most ev.č. 2623-2 Žizníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Předmětem veřejné zakázky je provedení stavebních prací formou design&build."^^<http://www.w3.org/2001/XMLSchema#string> ;
   pc:contact [
-    vcard:note "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
+    dcterms:title "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:fn "Mgr. Martin Velík"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:email "martin@euroassist.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
     vcard:tel [
