@@ -612,7 +612,7 @@ pc:criterionName a owl:FunctionalProperty ;
   rdfs:comment "Vlastnost pro specifikaci typu kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criterion type for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:AwardCriterion ;
-  rdfs:range skos:Concept ;
+  rdfs:range xsd:string ;
   rdfs:isDefinedBy pc:
   .
 
