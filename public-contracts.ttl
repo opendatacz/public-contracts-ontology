@@ -33,7 +33,7 @@ pc: a owl:Ontology ;
     <http://www.facebook.com/nohis> ,
     <http://keg.vse.cz/resource/person/josef-petrak>,
     <http://keg.vse.cz/resource/person/vojtech-svatek> ;
-  rdfs:seeAlso <http://opendata.cz/vocabulary/procurement#>, <http://prefix.cc/pc> ;
+  rdfs:seeAlso <http://code.google.com/p/public-contracts-ontology/>, <http://prefix.cc/pc> ;
   dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
 # --- Ontology authors  ---------------------------------------
