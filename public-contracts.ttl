@@ -76,8 +76,7 @@ pc:Contract a owl:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Základní třída pro popis veřejné zakázky"@cs ;
   rdfs:comment "Basic class for decribing a public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentClass loted:Contract 
+  rdfs:isDefinedBy pc:
   .
   
 # Tender
@@ -86,8 +85,7 @@ pc:Tender a owl:Class ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
   rdfs:comment "Základní třída pro popis nabídky dodavatele"@cs ;
   rdfs:comment "Basic class for decribing a tender submitted by a supplier"@en ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentClass loted:Tender
+  rdfs:isDefinedBy pc:
   .
   
 # Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
