@@ -76,7 +76,8 @@ pc:Contract a owl:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Základní třída pro popis veřejné zakázky"@cs ;
   rdfs:comment "Basic class for decribing a public contract"@en ;
-  rdfs:isDefinedBy pc:
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentClass loted:Tender
   .
   
 # Tender
