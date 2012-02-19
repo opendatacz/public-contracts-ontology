@@ -1,14 +1,6 @@
-@prefix c4n:      <http://vocab.deri.ie/c4n#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix loted:    <http://www.loted.eu/ontology#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
@@ -16,19 +8,17 @@
 @prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
 @prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
 
-
 <http://www.opendata.cz/pc/Contract/52478914>
   a pc:Contract;
-  rdfs:label "Chebský hrad - oprava jihovýchodních kasemat"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:title "Chebský hrad - oprava jihovýchodních kasemat"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:description "Celková oprava a revitalizace vstupní partie hradu s jihovýchodními kasematami a jihovýchodním bastionem (průjezd, pokladna, zázemí a expoziční sál) bude zahrnovat následující úkony: -	Výměnu provizorních tesařských konstrukcí krovu v obnovené podobě pultové a valbové střechy - konzultace s Národně památkovým ústavem (NPÚ); -	Zřízení hradního občerstvení se zázemím obsluhy a veřejnými toaletami v podkroví kasemat; -	Zrušení stávajících toalet v přízemí; -	Realizaci nového schodiště umožňujícího přístup do podkroví apod. Navrhované architektonické, stavební a restaurátorské opravy jsou podrobně specifikovány v souhrnné technické zprávě k dokumentaci pro stavební povolení vyhotovené Projektovým ateliérem pro architekturu a pozemní stavby, s. r. o. z 10/2008 pod názvem Chebský hrad, Oprava jihovýchodních kasemat (paré č. 2)."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Chebský hrad - oprava jihovýchodních kasemat" ;
+  dcterms:description "Celková oprava a revitalizace vstupní partie hradu s jihovýchodními kasematami a jihovýchodním bastionem (průjezd, pokladna, zázemí a expoziční sál) bude zahrnovat následující úkony: -	Výměnu provizorních tesařských konstrukcí krovu v obnovené podobě pultové a valbové střechy - konzultace s Národně památkovým ústavem (NPÚ); -	Zřízení hradního občerstvení se zázemím obsluhy a veřejnými toaletami v podkroví kasemat; -	Zrušení stávajících toalet v přízemí; -	Realizaci nového schodiště umožňujícího přístup do podkroví apod. Navrhované architektonické, stavební a restaurátorské opravy jsou podrobně specifikovány v souhrnné technické zprávě k dokumentaci pro stavební povolení vyhotovené Projektovým ateliérem pro architekturu a pozemní stavby, s. r. o. z 10/2008 pod názvem Chebský hrad, Oprava jihovýchodních kasemat (paré č. 2)." ;
   pc:contact [
-    vcard:fn "Bc. Miroslava Rodová"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:fn "Bc. Miroslava Rodová" ;
     vcard:note "Město Cheb" ;
-    vcard:email "rodova@cheb.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    vcard:email "rodova@cheb.cz" ;
     vcard:tel [
-      a vcard:Work;
-      rdf:value "+420 354440514"^^<http://www.w3.org/2001/XMLSchema#string>
+      a vcard:Work ;
+      rdf:value "+420 354440514"
     ]
   ] ;
   pc:kind pc:Works ;
@@ -37,15 +27,16 @@
   pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45454100> ;
   pc:estimatedPrice [
     gr:hasCurrency "CZK" ;
-    gr:hasCurrencyValue "18000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
-    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+    gr:hasCurrencyValue "18000000.0"^^xsd:float ;
+    gr:valueAddedTaxIncluded "false"^^xsd:boolean
   ] ;
-  pc:startDate "2012-04-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:estimatedEndDate "2013-03-20"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:startDate "2012-04-01"^^xsd:date ;
+  pc:estimatedEndDate "2013-03-20"^^xsd:date ;
   pc:awardCriteriaCombination [
     a pc:AwardCriteriaLowestPrice  
   ] ;
-  pc:referenceNumber "7000000004424"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  pc:tenderDeadline "2012-01-30"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:publicationDate "2006-09-29"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pccz:limit pccz:AboveLimit .
+  pc:referenceNumber "7000000004424" ;
+  pc:tenderDeadline "2012-01-30"^^xsd:date ;
+  pc:publicationDate "2006-09-29"^^xsd:date ;
+  pccz:limit pccz:AboveLimit
+  .

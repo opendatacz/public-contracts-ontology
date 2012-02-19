@@ -1,14 +1,6 @@
-@prefix c4n:      <http://vocab.deri.ie/c4n#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
-@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix loted:    <http://www.loted.eu/ontology#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
@@ -18,59 +10,59 @@
 
 
 <http://www.opendata.cz/pc/Contract/23718455>
-  a pc:Contract;
-   rdfs:label "Most ev.č. 2623-2 Žizníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:title "Most ev.č. 2623-2 Žizníkov"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  dcterms:description "Předmětem veřejné zakázky je provedení stavebních prací formou design&build."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  a pc:Contract ;
+  dcterms:title "Most ev.č. 2623-2 Žizníkov" ;
+  dcterms:description "Předmětem veřejné zakázky je provedení stavebních prací formou design&build." ;
   pc:contact [
-    dcterms:title "EuroAssist, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ;
-    vcard:fn "Mgr. Martin Velík"^^<http://www.w3.org/2001/XMLSchema#string> ;
-    vcard:email "martin@euroassist.cz"^^<http://www.w3.org/2001/XMLSchema#string> ;
+    dcterms:title "EuroAssist, s.r.o." ;
+    vcard:fn "Mgr. Martin Velík" ;
+    vcard:email "martin@euroassist.cz" ;
     vcard:tel [
       a vcard:Work ;
-      rdf:value "+420 602356778"^^<http://www.w3.org/2001/XMLSchema#string> 
+      rdf:value "+420 602356778" 
     ]
   ] ;
   pc:kind pc:Works ;
   pc:procedureType pc:Negotiated ;
   pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/42571584> ;
   pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45223200> ;
-  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/45233142> ;
-  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/34928470> ;
-  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/71320000> ;
+  pc:additionalObject <http://purl.org/weso/pscs/cpv/2008/resource/45233142>,
+    <http://purl.org/weso/pscs/cpv/2008/resource/34928470>,
+    <http://purl.org/weso/pscs/cpv/2008/resource/71320000> ;
   pc:estimatedPrice [
     gr:hasCurrency "CZK" ;
-    gr:hasCurrencyValue "20000000"^^<http://www.w3.org/2001/XMLSchema#double> ;
-    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+    gr:hasCurrencyValue "20000000.0"^^xsd:float ;
+    gr:valueAddedTaxIncluded "false"^^xsd:boolean
   ] ;
-  pc:startDate "2012-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:estimatedEndDate "2013-01-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
+  pc:startDate "2012-01-01"^^xsd#date ;
+  pc:estimatedEndDate "2013-01-01"^^xsd:date ;
   pc:awardCriteriaCombination [
     pc:awardCriterion [
-      pc:criterionName "Celková nabídková cena"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionName "Celková nabídková cena" ;
       pc:criterionWeight "80"^^pcdt:percentage
     ] ;
     pc:awardCriterion [
-      pc:criterionName "Doba realizace"^^<http://www.w3.org/2001/XMLSchema#string> ;
+      pc:criterionName "Doba realizace" ;
       pc:criterionWeight "20"^^pcdt:percentage
     ]
   ] ;
-  pc:referenceNumber "7000000004375"^^<http://www.w3.org/2001/XMLSchema#string> ;
-  pc:tenderDeadline "2011-11-01"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:publicationDate "2011-09-09"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:awardDate "2011-11-11"^^<http://www.w3.org/2001/XMLSchema#date> ;
-  pc:numberOfTenders "5"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ;
+  pc:referenceNumber "7000000004375" ;
+  pc:tenderDeadline "2011-11-01"^^xsd:date ;
+  pc:publicationDate "2011-09-09"^^xsd:date ;
+  pc:awardDate "2011-11-11"^^xsd:date ;
+  pc:numberOfTenders "5"^^xsd:nonNegativeInteger ;
   pc:awardedTender [
     pc:offeredPrice [
       gr:hasCurrency "CZK" ;
-      gr:hasCurrencyValue "18989231"^^<http://www.w3.org/2001/XMLSchema#double> ;
-      gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+      gr:hasCurrencyValue "18989231.0"^^xsd:float ;
+      gr:valueAddedTaxIncluded "false"^^xsd:boolean
     ] ;
-    pc:supplier <http://opendata.cz/gr/BusinessEntity/32189547> ;
+    pc:supplier <http://opendata.cz/gr/BusinessEntity/32189547>
   ] ;
   pc:agreedPrice [
     gr:hasCurrency "CZK" ;
-    gr:hasCurrencyValue "18989231"^^<http://www.w3.org/2001/XMLSchema#double> ;
-    gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+    gr:hasCurrencyValue "18989231.0"^^xsd:float ;
+    gr:valueAddedTaxIncluded "false"^^xsd:boolean
   ] ;
-  pccz:limit pccz:AboveLimit .
+  pccz:limit pccz:AboveLimit
+  .
