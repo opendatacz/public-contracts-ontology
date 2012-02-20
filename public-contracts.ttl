@@ -408,7 +408,7 @@ pc:awardDate a owl:FunctionalProperty ;
   rdfs:comment "Property for date of contract award to a supplier. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:issued ;
+  rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc:
   .
   
