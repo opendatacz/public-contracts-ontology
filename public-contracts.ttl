@@ -5,6 +5,7 @@
 @prefix loted:    <http://loted.eu/ontology#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
@@ -249,7 +250,7 @@ pc:contact a owl:FunctionalProperty ;
   .
 
 # Kind
-pc:kind a owl:FunctionalProperty ;
+pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:label "Druh zakázky"@cs, "Type of contract"@en ;
   rdfs:comment "Druh zakázky. Kardinalita 0..1"@cs ;
   rdfs:comment "Type or kind of contract. Cardinality 0..1"@en ;
@@ -263,7 +264,7 @@ pc:kind a owl:FunctionalProperty ;
   .
   
 # Type of procedure
-pc:procedureType a owl:FunctionalProperty ;
+pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:label "Druh řízení zakázky"@cs, "Type of procedure of contract"@en ;
   rdfs:comment "Druh řízení zakázky. Kardinalita 0..1"@cs ;
   rdfs:comment "Type of procedure of contract. Cardinality 0..1"@en ;
