@@ -292,7 +292,7 @@ pc:contractingAuthority a owl:FunctionalProperty ;
   .
 
 # Product or service requested in the contract
-pc:hasItem a rdf:Property ;
+pc:item a rdf:Property ;
   rdfs:subPropertyOf dcterms:hasPart ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Item ;
