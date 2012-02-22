@@ -1,15 +1,14 @@
-@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl:      <http://www.w3.org/2002/07/owl#> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
-
 @prefix dc:       <http://purl.org/dc/terms/> .
 @prefix dct:      <http://purl.org/dc/dcmitype/> .
-@prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix vann:     <http://purl.org/vocab/vann/> .
-
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
 # --- Own namespaces ------------------------------------------
 
@@ -53,28 +52,31 @@ pccz: a owl:Ontology ;
 
 ####### Concept scheme of possible limits for public contracts
 
-pccz:LimitScheme rdf:type skos:ConceptScheme .
+pccz:LimitScheme a skos:ConceptScheme
+  .
   
 pccz:SmallAmount a skos:Concept ;
   skos:inScheme pc:LimitScheme ;
-  rdfs:label "Veřejná zakázka malého rozsahu"@cs, "Public contract for small amount"@en ;
-  rdfs:isDefinedBy pccz: .
+  skos:prefLabel "Veřejná zakázka malého rozsahu"@cs, "Public contract for small amount"@en ;
+  rdfs:isDefinedBy pccz:
+  .
 
 pccz:UnderLimit a skos:Concept ;
   skos:inScheme pc:LimitScheme ;
-  rdfs:label "Podlimitní veřejná zakázka"@cs, "Public contract under the limit"@en ;
-  rdfs:isDefinedBy pccz: .
+  skos:prefLabel "Podlimitní veřejná zakázka"@cs, "Public contract under the limit"@en ;
+  rdfs:isDefinedBy pccz:
+  .
 
 pccz:AboveLimit a skos:Concept ;
   skos:inScheme pc:LimitScheme ;
-  rdfs:label "Nadlimitní veřejná zakázka"@cs, "Public contract above the limit"@en ;
+  skos:prefLabel "Nadlimitní veřejná zakázka"@cs, "Public contract above the limit"@en ;
   rdfs:isDefinedBy pccz: .
   
 ####### Concept scheme of contract procedure types
 
 pccz:SimplifiedUnderLimit a skos:Concept ;
   skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Zjednodušené podlimitní"@cs, "Simplified under limit"@en ;
+  skos:prefLabel "Zjednodušené podlimitní"@cs, "Simplified under limit"@en ;
   rdfs:isDefinedBy pccz: .
 
 
@@ -86,8 +88,12 @@ pccz:SimplifiedUnderLimit a skos:Concept ;
 
 # Limit of a public contract
 # 0..1
-pccz:limit a rdf:Property ;
+pccz:limit a rdf:Property, qb:CodedProperty ;
   rdfs:label "Limit veřejné zakázky"@cs, "Limit of a public contract"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue pccz:LimitScheme
+  ] ;
   rdfs:isDefinedBy pccz: .
