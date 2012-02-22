@@ -30,7 +30,7 @@
   <body>
     <h1>Příklad veřejné zakázky v RDFa</h1>	
     <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek.</p>
-    <div about="http://www.mesto.cz/VZ/12345678.html" typeof="pc:Contract">
+    <div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract">
       <h2>Údaje při zveřejnění veřejné zakázky</h2>
       Název: <span property="dcterms:title">Jezdecké potřeby městské policie</span>
       <br/><span rel="pc:contractingAuthority" typeof="gr:BusinessEntity">
@@ -82,11 +82,11 @@
       <h3>Předmět zakázky</h3>
       Popis: <span property="dcterms:description">Detailní slovní popis pro zakázku pro potřeby městské policie.</span>      
       <br/>Hlavní předmět zakázky: <span rel="pc:mainObject" resource="[cpv:18911000]">sedla</span>
-      <span rel="pc:hasItem" typeof="http://www.productontology.org/id/Saddle">
+      <span rel="pc:item" typeof="http://www.productontology.org/id/Saddle">
         <span property="rdfs:label" content="Sedlo"/>
       </span>
       <br/>Další předmět zakázky: <span rel="pc:additionalObject" resource="[cpv:18913000]">biče</span>      
-      <span rel="pc:hasItem" typeof="http://www.productontology.org/id/Whip">
+      <span rel="pc:item" typeof="http://www.productontology.org/id/Whip">
         <span property="rdfs:label" content="Bič"/>
       </span>
       <h3>Cena</h3>
@@ -118,8 +118,10 @@
       <br/>Doba trvání zakázky ve dnech: <span property="pc:durationDays" datatype="xsd:positiveInteger">31</span>
       
       <h3>Ostatní</h3>
-      Podzakázky: <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678.html">Podzakázka 1</a>, <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678.html">Podzakázka 2</a>
-      <br/><a rel="pc:attachment" href="">Příloha 1</a>
+      Podzakázky: <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678">Podzakázka 1</a>, <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678">Podzakázka 2</a>
+      <br/><a rel="pc:specification" href="http://www.mesto.cz/VZ/12345678-spec.html">Specifikace požadavků</a>
+      <br/><a rel="pc:agreement" href="http://www.mesto.cz/VZ/12345678-agreement.pdf">Smlouva s dodavatelem</a>
+      <br/><a rel="pc:attachment" href="http://www.mesto.cz/VZ/12345678-att1.html">Příloha 1</a>
       
       <h2>Obdržené nabídky: <span property="pc:numberOfTenders" datatype="xsd:nonNegativeInteger">2</span></h2>      
       <div rel="pc:tender" typeof="pc:Tender">
