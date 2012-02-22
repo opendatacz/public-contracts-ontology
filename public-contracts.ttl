@@ -558,11 +558,31 @@ pc:actualPrice a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc:
   .
   
+# Contract specification
+pc:specification a rdf:Property ;
+  rdfs:label "Specifikace zakázky"@cs, "Contract specification"@en ;
+  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících specifikaci veřejné zakázky. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of documents containing the contract specification. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdf:Resource ;
+  rdfs:isDefinedBy pc:
+  .
+
+# Contract agreement
+pc:agreement a rdf:Property ;
+  rdfs:label "Smlouva na veřejnou zakázku"@cs, "Contract agreement"@en ;
+  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících smlouvy na veřejnou zakázku uzavřené mezi zadavatelem a dodavatelem. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of documents containing the agreement between supplier and contractor. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range rdf:Resource ;
+  rdfs:isDefinedBy pc:
+  .
+
 # Contract attachment
 pc:attachment a rdf:Property ;
   rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
-  rdfs:comment "Vlastnost pro připojení příhloh jako zadávací listina, smlouva apod. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for attachment of documents like the agreement etc. Cardinality 0..*"@en ;
+  rdfs:comment "Vlastnost pro připojení ostatních příhloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of other documents. For attachment of contract specification use pc:specification. For attachment of contract agreement use pc:agreement. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range rdf:Resource ;
   rdfs:isDefinedBy pc:
