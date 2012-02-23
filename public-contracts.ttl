@@ -380,6 +380,7 @@ pc:durationDays a owl:FunctionalProperty ;
 
 # Time-limit for receipt of tenders or requests to participate
 pc:tenderDeadline a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:date ;
   rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs,
     "Time-limit for receipt of tenders or requests to participate"@en ;
   rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
