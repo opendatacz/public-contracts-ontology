@@ -92,10 +92,12 @@ pc:Tender a owl:Class ;
   
 # Default contract award criteria type: combination of criteria (= most economically advantageous award criteria type)
 pc:AwardCriteriaCombination a owl:Class ;
+  owl:equivalentClass loted:AwardCriteria ;
   rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
   rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek dodavatelů"@cs ;
   rdfs:comment "Class for description of criteria combination used for tender evaluation"@en ;
-  rdfs:isDefinedBy pc: .
+  rdfs:isDefinedBy pc:
+  .
  
 # Contract award criteria type: lowest price
 pc:AwardCriteriaLowestPrice a owl:Class ;
@@ -116,8 +118,7 @@ pc:AwardCriterion a owl:Class ;
   rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criterion"@en ;
   rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
   rdfs:comment "Class for description of one criterion and its weight"@en ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentClass loted:AwardCriteria
+  rdfs:isDefinedBy pc:
   .
   
 #######
