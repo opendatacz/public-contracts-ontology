@@ -293,32 +293,25 @@ pc:item a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
   
-####### ABSTRACT
-# Object
-pc:object a rdf:Property ;
-  rdfs:label "Předmět zakázky"@cs, "Object of contract"@en ;
-  rdfs:comment "Abstraktní vlastnost pro předmět veřejné zakázky. Pro specifikaci předmětu použijte vlastnosti pc:mainObject a pc:additionalObject. Kardinalita 0..*"@cs ;
-  rdfs:comment "Abstract property for object of public contract. For object specification use pc:mainObject and pc:additionalObject properties. Cardinality 0..*"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range skos:Concept ;
-  rdfs:isDefinedBy pc:
-  .
-
 # Main object 
 pc:mainObject a owl:FunctionalProperty ;
-  rdfs:subPropertyOf pc:object ;
+  rdfs:subPropertyOf dcterms:subject ;
   rdfs:label "Hlavní předmět zakázky"@cs, "Main object of contract"@en ;
   rdfs:comment "Vlastnost pro hlavní předmět veřejné zakázky. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for main object of public contract. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc:
   .
   
 # Additional object 
 pc:additionalObject a rdf:Property ;
-  rdfs:subPropertyOf pc:object ;
+  rdfs:subPropertyOf dcterms:subject ;
   rdfs:label "Další předmět zakázky"@cs, "Additional object of contract"@en ;
   rdfs:comment "Vlastnost pro další předmět veřejné zakázky. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for additional object of public contract. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc:
   .
 
