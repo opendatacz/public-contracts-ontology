@@ -423,7 +423,7 @@ pc:estimatedEndDate a owl:FunctionalProperty ;
 
 # Actual end date of contact's realization
 pc:actualEndDate a owl:FunctionalProperty ; 
-  rdfs:label "Skutečné datum konce realizace zakázky"@cs, "Actual end data of contract"@en ;
+  rdfs:label "Skutečné datum konce realizace zakázky"@cs, "Actual end date of contract"@en ;
   rdfs:comment "Vlastnost pro skutečné datum konce realizace zakázky. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for actual end date of public contract's realization. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
