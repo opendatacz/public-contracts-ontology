@@ -8,6 +8,7 @@
 @prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema:   <http://schema.org/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
@@ -288,7 +289,7 @@ pc:item a rdf:Property ;
   rdfs:subPropertyOf dcterms:hasPart ;
   rdfs:domain [
     a owl:Class ;
-    owl:unionOf ( pc:Contract, pc:Tender )
+    owl:unionOf ( pc:Contract pc:Tender )
   ] ;
   rdfs:range gr:Offering ;
   rdfs:comment "Vlastnost pro přiřazení položky veřejné zakázce. Kardinalita 0..*"@cs ;
@@ -315,6 +316,16 @@ pc:additionalObject a rdf:Property ;
   rdfs:comment "Property for additional object of public contract. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc:
+  .
+
+# Location
+pc:location a rdf:Property ;
+  rdfs:label "Místo uskutečnění zakázky"@cs, "Place of contract's realization"@en ;
+  rdfs:comment "Místo, kde dojde k dodání produktu nebo služby nasmlouvané ve veřejné zakázce. Kardinalita 0..*"@cs ;
+  rdfs:comment "Place of delivery of contracted product or service. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range schema:Place ;
   rdfs:isDefinedBy pc:
   .
 
