@@ -495,7 +495,7 @@ pc:lot a rdf:Property ;
   rdfs:range pc:Contract ;
   rdfs:label "Část zakázky"@cs, "Contract lot"@en ;
   rdfs:comment "Vlastnost pro specifikaci části zakázky. Zakázku rozděluje na části zadavatel, pokud je zakázka přiliš velká. Dodavatelé podávají nabídky na každou část odděleně a pro každou část zakázky je vybrán samostatný dodavatel. Pro samotnou zakázku nabídky nejsou podávány. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for specifying contract lot. A contract is split to lots by the contracting authority when the contract is too big. Suppliers then tender each lot separately. For each lot an authority awards separate tender. The contract itself has no tenders. Cardinality 0..*"@en ;  
+  rdfs:comment "Property for specifying contract lot. When contract is too big, it is split to lots by contracting authority. Suppliers then tender each lot separately. For each lot the authority awards a separate tender. The contract itself has no tenders. Cardinality 0..*"@en ;  
   rdfs:isDefinedBy pc:
   .
   
