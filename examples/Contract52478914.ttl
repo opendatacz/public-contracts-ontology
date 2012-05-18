@@ -1,0 +1,42 @@
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://www.opendata.cz/pc/Contract/52478914>
+  a pc:Contract;
+  dcterms:title "Chebský hrad - oprava jihovýchodních kasemat" ;
+  dcterms:description "Celková oprava a revitalizace vstupní partie hradu s jihovýchodními kasematami a jihovýchodním bastionem (průjezd, pokladna, zázemí a expoziční sál) bude zahrnovat následující úkony: -	Výměnu provizorních tesařských konstrukcí krovu v obnovené podobě pultové a valbové střechy - konzultace s Národně památkovým ústavem (NPÚ); -	Zřízení hradního občerstvení se zázemím obsluhy a veřejnými toaletami v podkroví kasemat; -	Zrušení stávajících toalet v přízemí; -	Realizaci nového schodiště umožňujícího přístup do podkroví apod. Navrhované architektonické, stavební a restaurátorské opravy jsou podrobně specifikovány v souhrnné technické zprávě k dokumentaci pro stavební povolení vyhotovené Projektovým ateliérem pro architekturu a pozemní stavby, s. r. o. z 10/2008 pod názvem Chebský hrad, Oprava jihovýchodních kasemat (paré č. 2)." ;
+  pc:contact [
+    vcard:fn "Bc. Miroslava Rodová" ;
+    vcard:note "Město Cheb" ;
+    vcard:email "rodova@cheb.cz" ;
+    vcard:tel [
+      a vcard:Work ;
+      rdf:value "+420 354440514"
+    ]
+  ] ;
+  pc:kind pc:Works ;
+  pc:procedureType pc:Open ;
+  pc:contractingAuthority <http://opendata.cz/gr/BusinessEntity/84512124> ;
+  pc:mainObject <http://purl.org/weso/pscs/cpv/2008/resource/45454100> ;
+  pc:estimatedPrice [
+    gr:hasCurrency "CZK" ;
+    gr:hasCurrencyValue "18000000.0"^^xsd:float ;
+    gr:valueAddedTaxIncluded "false"^^xsd:boolean
+  ] ;
+  pc:startDate "2012-04-01"^^xsd:date ;
+  pc:estimatedEndDate "2013-03-20"^^xsd:date ;
+  pc:awardCriteriaCombination [
+    a pc:AwardCriteriaLowestPrice  
+  ] ;
+  pc:referenceNumber "7000000004424" ;
+  pc:tenderDeadline "2012-01-30"^^xsd:date ;
+  pc:publicationDate "2006-09-29"^^xsd:date ;
+  pccz:limit pccz:AboveLimit
+  .
