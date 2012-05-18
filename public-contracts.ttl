@@ -2,6 +2,7 @@
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
 @prefix loted:    <http://loted.eu/ontology#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
@@ -81,7 +82,13 @@ pc:Contract a owl:Class ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentClass loted:Tender
   .
-  
+
+# Public notice
+pc:Notice a owl:Class ;
+  rdfs:subClassOf irw:InformationResource ;
+  rdfs:label "Oznámení"@cs, "Notice"@en
+  .
+    
 # Tender
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
@@ -329,6 +336,13 @@ pc:location a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
 
+# Contract notice
+pc:notice a rdf:Property ;
+  rdfs:label "Oznámení o zakázce"@cs, "Contract notice"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Notice
+  .
+
 ####### ABSTRACT
 # Price
 pc:contractPrice a rdf:Property ;
@@ -389,19 +403,7 @@ pc:tenderDeadline a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:DT
   .
-  
-# Contract publication date
-pc:publicationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
-  rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:issued ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentProperty loted:PD
-  .
-  
+   
 # Date of contract award
 pc:awardDate a owl:FunctionalProperty ;
   rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
@@ -586,6 +588,40 @@ pc:agreement a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
 
+####### pc:Notice properties
+
+# Contract notice publication date
+pc:publicationDate a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:issued ;
+  rdfs:label "Datum zveřejnění oznámení o zakázce"@cs, "Contract notice publication date"@en ;
+  rdfs:comment "Datum, kdy je zveřejněno oznámení o zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Date of publication of contract notice. Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range xsd:date ;
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:PD
+  .
+
+# Contract notice reference number
+pc:noticeReferenceNumber a owl:FunctionalProperty ;
+  rdfs:label "Spisové číslo oznámení o zakázce"@cs, "File reference number of contract notice"@en ;
+  rdfs:comment "Vlastnost pro spisové číslo oznámení o zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for a contract notice file reference number. Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy pc:
+  .
+
+# Previous version
+pc:previousNotice a owl:FunctionalProperty ;
+  rdfs:label "Přecházející verze oznámení o zakázce"@cs, "Previous version of the contract notice"@en ;
+  rdfs:comment "Odkaz na přecházející verzi totožného oznámení o zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Reference to previous version of the same notice. Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range pc:Notice ;
+  rdfs:isDefinedBy pc: 
+  .
+ 
 ####### gr:BusinessEntity properties
 
 # Buyer's profile
