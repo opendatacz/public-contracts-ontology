@@ -470,17 +470,6 @@ pc:actualEndDate a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc:
   .
 
-# Date of cancellation
-pc:cancellationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zrušení zakázky"@cs, "Date when the contract was cancelled"@en ;
-  rdfs:comment "Vlastnost určující datum, kdy byla zakázka zrušena. Kardinalita 0..1"@cs ;
-  rdfs:comment  "Property specifying the date when the contract was cancelled. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:date ;
-  rdfs:isDefinedBy pc:
-  .
-
 # Combination of contract award criteria
 pc:awardCriteriaCombination a owl:FunctionalProperty ;
   rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
