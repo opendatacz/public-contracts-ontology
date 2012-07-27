@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.1//EN"
+   "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-2.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs" version="XHTML+RDFa 1.1"
+      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+      xmlns:gr="http://purl.org/goodrelations/v1#"
+      xmlns:dcterms="http://purl.org/dc/terms/"
+      xmlns:pc="http://purl.org/procurement/public-contracts#"
+      xmlns:pccz="http://purl.org/procurement/public-contracts-czech#"
+      xmlns:cpv="http://purl.org/weso/pscs/cpv/2008/resource/"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+      xmlns:v="http://www.w3.org/2006/vcard/ns#"
+      xmlns:payment="http://reference.data.gov.uk/def/payment#"
+      xmlns:br="http://purl.org/business-register#"
+      prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              rdfs: http://www.w3.org/2000/01/rdf-schema#
+              gr: http://purl.org/goodrelations/v1#
+              dcterms: http://purl.org/dc/terms/
+              pc: http://purl.org/procurement/public-contracts#
+              pccz: http://purl.org/procurement/public-contracts-czech#
+              cpv: http://purl.org/weso/pscs/cpv/2008/resource/
+              v: http://www.w3.org/2006/vcard/ns#
+              payment: http://reference.data.gov.uk/def/payment#
+              br: http://purl.org/business-register#
+              xsd: http://www.w3.org/2001/XMLSchema#">  
+  <head>	
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />	
+    <title>Příklad veřejné zakázky v XHTML+RDFa 1.1</title>
+  </head>
+  <body>
+    <h1>Příklad veřejné zakázky v RDFa</h1>	
+    <p>Příklad obsahuje popis vzorové veřejné zakázky s výčtem všech soutěžních nabídek.</p>
+    <div about="http://www.mesto.cz/VZ/12345678" typeof="pc:Contract">
+      <h2>Údaje při zveřejnění veřejné zakázky</h2>
+      Název: <span property="dcterms:title">Jezdecké potřeby městské policie</span>
+      <br/><span rel="pc:contractingAuthority" typeof="gr:BusinessEntity">
+        Zadavatel:
+        <span property="gr:legalName">Město Ukázkové</span>, IČ <span property="br:officialNumber" lang="">987654321</span>
+        WWW: <a rel="pc:buyerProfile" href="http://www.mesto.cz">stránka kupujícího</a>
+      </span>
+      
+      <h3>Hlavní kontakt:</h3>
+      <div rel="pc:contact" typeof="v:VCard">
+         <span property="v:fn">Jan Novák</span>
+         <div rel="v:adr" typeof="v:Address">
+            <span property="v:street-address">Václavské Náměstí 1</span> 
+            <br/><span property="v:postal-code">110 00</span> 
+            <span property="v:locality">Praha 1</span>
+            <br/><span property="v:country-name">Česká republika</span>
+         </div>
+         <br/>Telefon: 
+         <span rel="v:tel" typeof="v:Tel">
+          <a rel="rdf:value" href="tel:+420212345678">+420212345678</a>
+         </span>
+         <br/>Email: <a rel="v:email" href="mailto:novak@priklad.cz">novak@priklad.cz</a>
+      </div>
+      
+      <h3>Kontaktní osoba</h3>
+      <span rel="pc:contactPerson" typeof="foaf:Person">
+        <span property="foaf:name">Jana Nováková</span>
+        <br/>Telefon: <a rel="foaf:phone" href="tel:+420123456789">+420123456789</a>
+        <br/>Email: <a rel="foaf:mbox" href="malito:novakova@priklad.cz">novakova@priklad.cz</a>
+      </span>
+      
+      <h3>Procesní informace</h3>
+        Spisové číslo zakázky: <span property="pc:referenceNumber" lang="">1234567890</span>
+        <br/>Druh zakázky: <span rel="pc:kind" resource="[pc:Supplies]">Dodávky</span>
+        <br/>Druh řízení zakázky: <span rel="pc:procedureType" resource="[pc:Open]">Otevřené</span>
+        <br/>Typ kritéria pro zadání zakázky: 
+          <span rel="pc:awardCriteriaType" typeof="pc:AwardCriteriaCombination">
+          Ekonomicky nejvýhodnější nabídka.
+          <br/>Kritéria pro zadání zakázky:
+          <span rel="pc:awardCriteria" typeof="pc:AwardCriteria">
+            <span property="pc:criteria">Délka biče</span>
+            (Váha: <span property="pc:criteriaWeight" datatype="pcdt:percentage">20</span>%)</span>,
+          <span rel="pc:awardCriteria" typeof="pc:AwardCriteria">
+            <span property="pc:criteria">Pohodlnost sedla</span>
+            (Váha: <span property="pc:criteriaWeight" datatype="pcdt:percentage">80</span>%)</span>
+          </span>
+        <br/>Limit veřejné zakázky (české specifikum): <span rel="pccz:limit" resource="[pccz:UnderLimit]">Podlimitní veřejná zakázka</span>
+
+      <h3>Předmět zakázky</h3>
+      Popis: <span property="dcterms:description">Detailní slovní popis pro zakázku pro potřeby městské policie.</span>      
+      <br/>Hlavní předmět zakázky: <span rel="pc:mainObject" resource="[cpv:18911000]">sedla</span>
+      <span rel="pc:item" typeof="http://www.productontology.org/id/Saddle">
+        <span property="rdfs:label" content="Sedlo"/>
+      </span>
+      <br/>Další předmět zakázky: <span rel="pc:additionalObject" resource="[cpv:18913000]">biče</span>      
+      <span rel="pc:item" typeof="http://www.productontology.org/id/Whip">
+        <span property="rdfs:label" content="Bič"/>
+      </span>
+      <h3>Cena</h3>
+      <div rel="pc:estimatedPrice" typeof="gr:PriceSpecification">
+        Přesná odhadovaná cena:
+        <span property="gr:hasCurrencyValue" content="1000000.0" datatype="xsd:float">1.000.000</span>
+        <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>
+        (<span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>)            		
+      </div>
+      Nebo:
+      <div rel="pc:estimatedPriceLower" typeof="gr:PriceSpecification">
+        Počáteční rozsah odhadované ceny:
+        <span property="gr:hasCurrencyValue" content="500000.0" datatype="xsd:float">500.000</span>
+        <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>
+        (<span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>)            		
+      </div>
+      <div rel="pc:estimatedPriceUpper" typeof="gr:PriceSpecification">
+        Koncový rozsah odhadované ceny:
+        <span property="gr:hasCurrencyValue" content="2000000.0" datatype="xsd:float">2.000.000</span>
+        <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>
+        (<span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>)            		
+      </div>      
+      
+      <h3>Lhůty a data</h3>
+      Datum zveřejnění zakázky: <span property="pc:publicationDate" content="2010-01-01" datatype="xsd:date">1.1.2010</span>
+      <br/>Lhůta pro doručení nabídek nebo přijetí žádostí o účast: <span property="pc:tenderDeadline" content="2010-01-01" datatype="xsd:date">1.1.2010</span>
+      <br/>Datum začátku realizace zakázky: <span property="pc:startDate" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span>
+      <br/>Očekávané datum konce realizace zakázky: <span property="pc:estimatedEndDate" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span>
+      <br/>Doba trvání zakázky ve dnech: <span property="pc:durationDays" datatype="xsd:positiveInteger">31</span>
+      
+      <h3>Ostatní</h3>
+      Podzakázky: <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678">Podzakázka 1</a>, <a rel="pc:lot" href="http://www.mesto.cz/VZ/12345678">Podzakázka 2</a>
+      <br/><a rel="pc:specification" href="http://www.mesto.cz/VZ/12345678-spec.html">Specifikace požadavků</a>
+      <br/><a rel="pc:agreement" href="http://www.mesto.cz/VZ/12345678-agreement.pdf">Smlouva s dodavatelem</a>
+      <br/><a rel="pc:attachment" href="http://www.mesto.cz/VZ/12345678-att1.html">Příloha 1</a>
+      
+      <h2>Obdržené nabídky: <span property="pc:numberOfTenders" datatype="xsd:nonNegativeInteger">2</span></h2>      
+      <div rel="pc:tender" typeof="pc:Tender">
+        <span rel="pc:supplier" typeof="gr:BusinessEntity">
+          Nabízející:
+            <span property="gr:legalName">Druhá pojízdná a.s.</span>, IČ
+            <span property="br:officialNumber" lang="">24681012</span>
+        </span>
+        <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
+          Nabídnutá cena:
+            <span property="gr:hasCurrencyValue" content="550000.0" datatype="xsd:float">55.000</span>
+            <span property="gr:hasCurrency" content="EUR" lang="">€</span>
+            <span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>            
+        </span>
+      </div>
+
+      <h2>Informace o zadání zakázky</h2>
+      <div rel="pc:awardedTender" typeof="pc:Tender">
+          <span rel="pc:supplier" typeof="gr:BusinessEntity">
+            Vítěz:
+              <span property="gr:legalName">První koňařská a.s.</span>, IČ
+              <span property="br:officialNumber" lang="">1234567</span>
+          </span>
+          <span rel="pc:offeredPrice" typeof="gr:PriceSpecification">
+            Nabídnutá cena:
+              <span property="gr:hasCurrencyValue" content="1000000.0" datatype="xsd:float">1.000.000</span> 						
+              <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>
+              <span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>
+          </span>
+      </div>
+      Datum přidělení zakázky: <span property="pc:awardDate" content="2010-01-01" datatype="xsd:date">1.1.2010</span>
+      <div rel="pc:agreedPrice" typeof="gr:PriceSpecification">
+        Smluvní cena:
+          <span property="gr:hasCurrencyValue" content="150000.0" datatype="xsd:float">150.000</span>
+          <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>           		
+          (<span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>)            		
+      </div>
+
+      <h2>Informace po dokončení zakázky</h2>
+      Skutečné datum konce realizace zakázky: <span property="pc:actualEndDate" content="2010-01-01" datatype="xsd:date">1. 1. 2010</span>
+      <div rel="pc:subsidy" typeof="payment:Payment">
+        Dotace použitá pro zakázku:
+        <span rel="payment:expenditureLine" typeof="payment:ExpenditureLine">
+          <span property="payment:netAmount" content="2000000" datatype="xsd:decimal">2.000.000</span>
+          <span rel="payment:currency" resource="http://dbpedia.org/resource/Czech_koruna">Kč</span>
+        </span>            		
+      </div>
+      <div rel="pc:actualPrice" typeof="gr:PriceSpecification">
+        Skutečná cena po realizaci zakázky:
+          <span property="gr:hasCurrencyValue" content="150000.0" datatype="xsd:float">150.000</span>
+          <span property="gr:hasCurrency" content="CZK" lang="">Kč</span>           		
+          (<span property="gr:valueAddedTaxIncluded" content="false" datatype="xsd:boolean">bez daně</span>)            		
+      </div>
+    </div>
+  </body>
+</html>

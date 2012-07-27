@@ -1,0 +1,106 @@
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp:       <http://spinrdf.org/sp#> .
+@prefix spin:     <http://spinrdf.org/spin#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccons:    <http://purl.org/procurement/public-contracts-constraints#> . # Does not resolve (for the time being).
+
+pccons: a owl:Ontology ; 
+  dcterms:title "Integrity constraints for Public Contracts Ontology"@en ,
+    "Integritní omezení pro Ontologii pro veřejné zakázky"@cs ;
+  dcterms:creator <http://keg.vse.cz/resource/person/jindrich-mynarz> ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/cz/>
+  .
+
+pccons:TitleExists a sp:Construct ;
+  rdfs:label "Contract's title (dcterms:title) must exist."@en ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object dcterms:title
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:contract
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Please fill in the contract's title (dcterms:title)."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Doplňte prosím název zakázky (dcterms:title)."@cs
+  ]) ;
+  sp:where ([
+    sp:elements (([
+      sp:subject _:contract ;
+      sp:predicate rdf:type ;
+      sp:object pc:Contract
+    ] [
+      a sp:Filter ;
+      sp:expression [
+        a sp:NotExists ;
+        sp:elements ([
+          sp:subject _:contract ;
+          sp:predicate dcterms:title ;
+          sp:object _:title
+        ])
+      ]
+    ]) ([
+      sp:subject _:contract ;
+      sp:predicate rdf:type ;
+      sp:object pc:Contract
+    ] [
+      sp:subject _:contract ;
+      sp:predicate dcterms:title ;
+      sp:object _:title
+    ] [
+      a sp:Filter ;
+      sp:expression [
+        a sp:regex ;
+        sp:arg1 [
+          a sp:str ;
+          sp:arg1 _:title
+        ] ;
+        sp:arg2 "^(\\s*)$"
+      ]
+    ])) ;
+    a sp:Union
+  ]) ;
+  sp:text """
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationPath dcterms:title ;
+        spin:violationRoot ?contract ;
+        rdfs:label \"Please fill in the contract's title (dcterms:title).\"@en ,
+          \"Doplňte prosím název zakázky (dcterms:title).\"@cs
+        .
+    } WHERE {
+      {
+        ?contract a pc:Contract .
+        FILTER NOT EXISTS {
+          ?contract dcterms:title ?title .
+        }
+      } UNION {
+        ?contract a pc:Contract ;
+          dcterms:title ?title .
+        FILTER (regex(str(?title), \"^(\\s*)$\"))
+      }
+    }
+  """ ;
+  rdfs:isDefinedBy pccons:
+  .
+
+# Variables
+
+_:contract sp:varName "contract"^^xsd:string .
+_:title sp:varName "title"^^xsd:string .
