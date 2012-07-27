@@ -1,0 +1,50 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp:       <http://spinrdf.org/sp#> .
+@prefix spin:     <http://spinrdf.org/spin#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccons:    <http://purl.org/procurement/public-contracts-constraints#> . # Does not resolve (for the time being).
+@prefix pcfa:      <http://purl.org/procurement/pc-filing-app#> . # Does not resolve (for the time being).
+
+# pc:PriorInformationNotice
+  # Mandatory data (based on TED):
+    # Basic info: pc:contact, pc:contractingAuthority, pc:kind, pc:mainObject, pc:notice, pc:referenceNumber
+    # Original language info: dcterms:title, pc:location, dcterms:description, pc:estimatedPrice || (pc:estimatedPriceLower && pc:estimatedPriceUpper)
+
+# pc:ContractNotice 
+  # Mandatory data (based on TED):
+    # Basic info: pc:procedureType, pc:tenderDeadline
+    # Original language info: pc:estimatedEndDate, pc:awardCriteriaCombination
+
+# pc:CancellationNotice
+  # Mandatory data (based on TED):
+    # Cancellation date of a contract is the same as the pc:publicationDate of pc:CancellationNotice
+    
+### Mandatory data
+
+pc:PriorInformationNotice spin:constraint pccons:TitleExists, pccons:BusinessEntityIsPublished
+  . 
+
+pccons:BusinessEntityIsPublished a sp:Construct ;
+  rdfs:label "The business entity (gr:BusinessEntity) the contract references must be published."@en ;
+  sp:text """
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationRoot ?contract
+        .
+    } WHERE {
+      GRAPH <http://contracts.opendata.cz/resource/dataset/public-contracts/private> { # Insert the URI of the named graph for the private data space of the user of public contracts filing application.
+        ?contract pc:contractingAuthority ?businessEntity .
+      } .
+      FILTER NOT EXISTS {
+        GRAPH <http://ld.opendata.cz/resource/dataset/public-contracts/public> { # Insert the URI of the named graph for the public data space of the public contracts filing application
+          ?businessEntity a gr:BusinessEntity .
+        } .
+      }
+    }
+  """
+  .  
