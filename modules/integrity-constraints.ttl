@@ -79,6 +79,11 @@ pccons:TitleExists a sp:Construct ;
     a sp:Union
   ]) ;
   sp:text """
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+    PREFIX pc:      <http://purl.org/procurement/public-contracts#>
+    PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#> 
+    PREFIX spin:    <http://spinrdf.org/spin#>
+
     CONSTRUCT {
       _:b0 a spin:ConstraintViolation ;
         spin:violationPath dcterms:title ;
@@ -105,12 +110,14 @@ pccons:TitleExists a sp:Construct ;
 ### Datatype violations ###
 
 pccons:DurationDaysDatatypeViolation a sp:Construct ;
+  rdfs:label "pc:durationDays datatype violation"@en ,
+    "Porušení datového typu předepsaného pro pc:durationDays"@cs ;
   sp:templates ([
     sp:subject _:b0 ;
     sp:predicate rdf:type ;
     sp:object spin:ConstraintViolation
   ] [
-    sp:subject _:b1 ;
+    sp:subject _:b0 ;
     sp:predicate spin:violationRoot ;
     sp:object _:contract
   ] [
@@ -154,7 +161,7 @@ pccons:DurationDaysDatatypeViolation a sp:Construct ;
     ]
   ]) ;
   sp:text """
-    PREFIX pc: <http://purl.org/procurement/public-contracts#>
+    PREFIX pc:   <http://purl.org/procurement/public-contracts#>
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX spin: <http://spinrdf.org/spin#>
 
@@ -171,8 +178,79 @@ pccons:DurationDaysDatatypeViolation a sp:Construct ;
     """^^xsd:string
   .
 
+### Range violations ###
+
+pccons:DatatypeMismatch a sp:Construct ;
+  rdfs:label "Datatype mismatch"@en , "Neshodující se datový typ"@cs ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:resource
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object _:property
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "The property's value doesn't have a correct datatype."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Hodnota vlastnosti nemá předepsaný datový typ."@cs
+  ]) ;
+  sp:where ([
+    sp:subject _:resource ;
+    sp:predicate _:property ;
+    sp:object _:object
+  ] [
+    sp:subject _:property ;
+    sp:predicate rdfs:range ;
+    sp:object _:range
+  ] [
+    a sp:Filter ;
+    sp:expression [
+      a sp:and ;
+      sp:arg1 [
+        a sp:isLiteral ;
+        sp:arg1 _:object
+      ] ;
+      sp:arg2 [
+        a sp:ne ;
+        sp:arg1 [
+          a sp:datatype ;
+          sp:arg1 _:object
+        ] ;
+        sp:arg2 _:range
+      ]
+    ]  
+  ]) ;
+  sp:text """
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationPath ?property ;
+        spin:violationRoot ?this ;
+        rdfs:label \"The property's value doesn't have a correct datatype.\"@en ,
+          \"Hodnota vlastnosti nemá předepsaný datový typ.\"@cs
+        .
+    } WHERE {
+      ?this ?property ?object .
+      ?property rdfs:range ?range .
+      FILTER (isLiteral(?object) && (datatype(?object) != ?range))
+    }
+  """
+  .
+
 ### Variables ###
 
 _:contract sp:varName "contract"^^xsd:string .
 _:durationDays sp:varName "durationDays"^^xsd:string .
+_:object sp:varName "object"^^xsd:string .
+_:property sp:varName "property"^^xsd:string .
+_:range sp:varName "range"^^xsd:string .
+_:resource sp:varName "resource"^^xsd:string .
 _:title sp:varName "title"^^xsd:string .
