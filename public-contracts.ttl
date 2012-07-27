@@ -376,6 +376,16 @@ pc:durationDays a owl:FunctionalProperty ;
   rdfs:range xsd:positiveInteger ;
   rdfs:isDefinedBy pc:
   .
+  
+# Exact duration of contract in months
+pc:durationMonths a owl:FunctionalProperty ;
+  rdfs:label "Doba trvání zakázky v měsících"@cs, "Exact duration of contract in months"@en ;
+  rdfs:comment "Vlastnost pro dobu trvání zakázky v měsících. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for exact duration of contract in months. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:positiveInteger ;
+  rdfs:isDefinedBy pc:
+  .
 
 # Time-limit for receipt of tenders or requests to participate
 pc:tenderDeadline a owl:FunctionalProperty ;
