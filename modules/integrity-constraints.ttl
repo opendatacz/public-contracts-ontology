@@ -17,6 +17,8 @@ pccons: a owl:Ontology ;
   dcterms:license <http://creativecommons.org/licenses/by/3.0/cz/>
   .
 
+### Tests for missing data ###
+
 pccons:TitleExists a sp:Construct ;
   rdfs:label "Contract's title (dcterms:title) must exist."@en ;
   sp:templates ([
@@ -100,7 +102,77 @@ pccons:TitleExists a sp:Construct ;
   rdfs:isDefinedBy pccons:
   .
 
-# Variables
+### Datatype violations ###
+
+pccons:DurationDaysDatatypeViolation a sp:Construct ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b1 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:contract
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object pc:durationDays
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Please enter a positive integer as the value of the exact duration of contract in days."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Dobu trvání zakázky prosím zapište jako celé kladné číslo."@cs
+  ]) ;
+  sp:where ([
+    sp:subject _:contract ;
+    sp:predicate pc:durationDays ;
+    sp:object _:durationDays
+  ] [
+    a sp:Filter ;
+    sp:expression [
+      sp:not ;
+      sp:arg1 [
+        a sp:and ;
+        sp:arg1 [
+          a sp:regex ; # There seems to be a bug in sp: namespace,
+                       # since sp:regex is not present there.
+          sp:arg1 [
+            a sp:str ;
+            sp:arg1 _:durationDays
+          ] ;
+          sp:arg2 "^([\-+]?[0-9]+)$"
+        ] ;
+        sp:arg2 [
+          a sp:gt ;
+          sp:arg1 _:durationDays ;
+          sp:arg2 0
+        ]
+      ]
+    ]
+  ]) ;
+  sp:text """
+    PREFIX pc: <http://purl.org/procurement/public-contracts#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX spin: <http://spinrdf.org/spin#>
+
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationRoot ?contract ;
+        spin:violationPath pc:durationDays ;
+        rdfs:label \"Please enter a positive integer as the value of the duration of the contract in days.\"@en ,
+          \"Dobu trvání zakázky prosím zapište jako celé kladné číslo.\"@cs .
+    } WHERE {
+      ?contract pc:durationDays ?durationDays .
+      FILTER (!(regex(str(?durationDays), \"^([\\-+]?[0-9]+)$\") && (?durationDays > 0))
+    }
+    """^^xsd:string
+  .
+
+### Variables ###
 
 _:contract sp:varName "contract"^^xsd:string .
+_:durationDays sp:varName "durationDays"^^xsd:string .
 _:title sp:varName "title"^^xsd:string .
