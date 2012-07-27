@@ -86,9 +86,31 @@ pc:Contract a owl:Class ;
 # Public notice
 pc:Notice a owl:Class ;
   rdfs:subClassOf irw:InformationResource ;
-  rdfs:label "Oznámení"@cs, "Notice"@en
+  rdfs:label "Oznámení"@cs, "Notice"@en ;
+  rdfs:isDefinedBy pc: 
   .
-    
+
+# Prior information notice
+pc:PriorInformationNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Předběžné oznámení o zakázce"@cs, "Prior information notice"@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+# Contract notice
+pc:ContractNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o zakázce"@cs , "Contract notice"@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+# Cancellation notice
+pc:CancellationNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o zrušení zakázky"@cs , "Cancellation notice"@en ;
+  rdfs:isDefinedBy pc:
+  .
+      
 # Tender
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
