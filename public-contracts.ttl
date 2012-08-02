@@ -934,8 +934,8 @@ pc:tenderDeadline a owl:FunctionalProperty ;
 # Contract publication date
 pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
-  rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
+  rdfs:comment "Vlastnost pro datum, kdy bylo oznámení publikováno. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for date, on which notice is published. Cardinality 0..1"@en ;
   rdfs:domain pc:Notice ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
