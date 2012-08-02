@@ -1,0 +1,77 @@
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:        <http://www.w3.org/2004/02/skos/core#> . 
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+
+####### Concept scheme of main activities of contracting authorities
+
+activities: a skos:ConceptScheme ;
+  skos:hasTopConcept activities:GeneralServices, activities:DefenceActivity,
+    activities:Safety, activities:EnvironmentActivity,
+    activities:EconomicAffairs, activities:HealthActivity,
+    activities:Housing, activities:SocialProtectionActivity,
+    activities:Cultural, activities:EducationalActivity ;
+  rdfs:label "Schéma konceptů pro hlavní aktivity veřejných zadavatelů"@cs ,
+    "Concept scheme for main activities of constracting authorities"@en
+  .
+
+activities:GeneralServices a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Služby pro širokou veřejnost"@cs, "General public services"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Defence a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Obrana"@cs, "Defence"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Safety a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Veřejný pořádek a bezpečnost"@cs, "Public order and safety"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Environment a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Životní prostředí"@cs, "Environment"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:EconomicAffairs a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Hospodářské a finanční záležitosti"@cs, "Economic and financial affairs"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Health a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Zdravotnictví"@cs, "Health"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Housing a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Bydlení a občanská vybavenost"@cs, "Housing and community amenities"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:SocialProtection a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Sociální služby"@cs, "Social protection"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Cultural a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Rekreace, kultura a náboženství"@cs, "Recreation, culture and religion"@en ;
+  skos:topConceptOf activities:
+  .
+
+activities:Educational a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "Školství"@cs, "Education"@en ;
+  skos:topConceptOf activities:
+  .
