@@ -1067,7 +1067,7 @@ pc:lot a rdf:Property ;
   .
   
 # Public contract is contracted on the base of a framework agreement
-pc:onBaseOfFrameworkAgreement a rdf:Property ;
+pc:frameworkAgreement a rdf:Property ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:FrameworkAgreement 
   rdfs:label "Na základě rámcové smlouvy"@cs, "On the base of a framework agreement"@en ;
