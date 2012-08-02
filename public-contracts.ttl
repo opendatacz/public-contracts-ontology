@@ -177,7 +177,13 @@ pc:AwardCriterion a owl:Class ;
   rdfs:comment "Class for description of one criterion and its weight"@en ;
   rdfs:isDefinedBy pc:
   .
-  
+
+# Reference number
+pc:ReferenceNumber a owl:Class ;
+  rdfs:label "Referenční číslo"@cs, "Reference number"@en ;
+  rdfs:isDefinedBy pc :
+  .
+    
 ########
 ######## Properties
 ########
@@ -488,7 +494,7 @@ pc:referenceNumber a owl:FunctionalProperty ;
     a owl:Class ;
     owl:unionOf ( pc:Contract pc:Notice )
   ] ;
-  rdfs:range xsd:string ;
+  rdfs:range pc:ReferenceNumber ;
   rdfs:isDefinedBy pc:
   .
 
