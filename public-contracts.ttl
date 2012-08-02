@@ -1051,7 +1051,10 @@ pc:referenceNumber a owl:FunctionalProperty ;
   rdfs:label "Spisové číslo zakázky"@cs, "File reference number"@en ;
   rdfs:comment "Spisové číslo zakázky přidělené veřejným zadavatelem. Kardinalita 0..1"@cs ;
   rdfs:comment "File reference number attributed by the contracting authority. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf ( pc:Contract pc:Notice )
+  ] ;
   rdfs:range xsd:string ;
   rdfs:isDefinedBy pc:
   .
