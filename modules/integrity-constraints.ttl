@@ -175,7 +175,15 @@ pccons:DurationDaysDatatypeViolation a sp:Construct ;
       ?contract pc:durationDays ?durationDays .
       FILTER (!(regex(str(?durationDays), \"^([\\-+]?[0-9]+)$\") && (?durationDays > 0))
     }
-    """^^xsd:string
+    """^^xsd:string ;
+  rdfs:isDefinedBy pccons:
+  .
+
+pccons:DataDatatypeViolation a sp:Construct ;
+  rdfs:label "" ;
+  # ((month(?date) IN (4, 6, 9, 11)) && (day(?date) > 30)) || ((month(?date) = 2) && (day(?date) > 29)) || (?date > now())
+  # Leap years are not accounted for.
+  rdfs:isDefinedBy pccons:
   .
 
 ### Range violations ###

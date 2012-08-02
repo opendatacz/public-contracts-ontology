@@ -862,7 +862,9 @@ pc:onBehalfOf a rdf:Property ;
 pc:notice a rdf:Property ;
   rdfs:label "Oznámení o zakázce"@cs, "Contract notice"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range pc:Notice
+  rdfs:range pc:Notice ;
+  rdfs:isDefinedBy pc:
+  .
 
 ####### ABSTRACT
 # Price
