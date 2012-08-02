@@ -48,13 +48,6 @@ kinds:SuppliesHire a skos:Concept ;
   rdfs:comment "Hire of supplies is the kind of public contract"@en
   .
   
-kinds:CombinedSupplies a skos:Concept ;
-  skos:broader kinds:Supplies ;
-  rdfs:label "Kombinace více forem dodávek"@cs, "Combination of more kinds of supplies"@en ;
-  rdfs:comment "Druhem veřejné zakázky je kombinace více forem dodávek"@cs ;
-  rdfs:comment "Combination of more kinds of supplies is the kind of public contract"@en
-  .
-  
 kinds:Works a skos:Concept ;
   skos:inScheme kinds: ;
   rdfs:label "Stavební práce"@cs, "Works"@en ;
