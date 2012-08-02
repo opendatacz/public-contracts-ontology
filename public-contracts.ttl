@@ -178,7 +178,6 @@ pc:AwardCriterion a owl:Class ;
 ####### Terminologies
 #######
   
- 
 ####### Concept scheme of types of contracting authorities
 
 pc:AuthorityTypeScheme a skos:ConceptScheme ;
