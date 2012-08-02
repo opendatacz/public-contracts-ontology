@@ -17,26 +17,26 @@
 
 # --- Own namespaces ------------------------------------------
 
+@prefix kinds:     <http://purl.org/procurement/public-contracts-kinds#> .
 @prefix pc:        <http://purl.org/procurement/public-contracts#> .
 @prefix pceu:      <http://purl.org/procurement/public-contracts-eu#> .
 
 # --- Ontology metadata ---------------------------------------
 
 pceu: a owl:Ontology ;
-  dc:title "Public Contracts Ontology – EU Module"@en,
+  dcterms:title "Public Contracts Ontology – EU Module"@en,
     "Ontologie pro veřejné zakázky – modul pro EU"@cs ;
-  dc:description "Ontologie pro veřejné zakázky – modul pro EU, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou EU."@cs ;
-  dc:modified "2012-07-31"^^xsd:date ;
+  dcterms:description "Ontologie pro veřejné zakázky – modul pro EU, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou EU."@cs ;
+  dcterms:modified "2012-07-31"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts-eu#" ;
   vann:preferredNamespacePrefix "pceu" ;
-  dc:creator <http://purl.org/klimek#me>,
+  dcterms:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
-    <http://keg.vse.cz/resource/person/josef-petrak> ;
   rdfs:seeAlso <http://opendata.cz/vocabulary/procurement/eu#>, <http://prefix.cc/pceu> ;
-  dc:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
+  dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
-<http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
+<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
 
 <http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
@@ -52,7 +52,7 @@ pceu: a owl:Ontology ;
 #######
 
 # Dynamic purchasing system
-pc:DynamicPurchasingSystem a owl:Class ;
+pceu:DynamicPurchasingSystem a owl:Class ;
   rdfs:subClassOf pc:Contract ;
   rdfs:label "Dynamický nákupní systém"@cs, "Dynamic purchasing system"@en ;
   rdfs:comment "Třída pro popis dynamického nákupního systému"@cs ;
@@ -64,7 +64,12 @@ pc:DynamicPurchasingSystem a owl:Class ;
 ####### Terminologies
 #######
 
-
+pceu:CombinedSupplies a skos:Concept ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Kombinace více forem dodávek"@cs, "Combination of more kinds of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky je kombinace více forem dodávek"@cs ,
+    "Combination of more kinds of supplies is the kind of public contract"@en
+  .
 
 ########
 ######## Properties
