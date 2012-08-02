@@ -1,0 +1,811 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard-class/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/vcard-class-class/1>
+  a vcard:VCard ;
+  vcard:note "Oddělení právních věcí"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:fn "Eva Trávníková"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:eva.travnikova@fnbrno.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420532233743"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420532233807"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/vcard-class-class/2>
+  a vcard:VCard ;
+  vcard:note "Oddělení právních věcí"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:fn "Alena Rellová"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:arellova@fnbrno.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420532232806"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420532233807"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "65795000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513>
+  a pc:FrameworkAgreement ; # Jedná se o rámcovou smlouvu, II.1.3). Rámcové smlouvy mají jiné čislování polí v sekci II než obyčejná veřejná zakázka.
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/vcard-class/1> ; # I.1) (vyplývá z oznámení 6006251302001)
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/vcard-class/2> ; # I.1) (vyplývá z oznámení 6006251351001)
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/218a47cb-fde3-466f-8c52-6af38e817492> ; # I.1)
+  dcterms:title "Antivirotika"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1.1)
+  rdfs:label "Antivirotika"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:kind pc:SuppliesPurchase ; # II.1.2)
+  pc:location <http://ld.opendata.cz/resource/isvzus.cz/place/Brno> ; # II.1.2)
+  pc:numberOfOperators "1"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> ; # II.1.4)
+  pc:durationYears "2"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> ; # II.1.4) Doba platnosti rámcové smlouvy
+  pc:durationMonths "24"^^<http://www.w3.org/2001/XMLSchema#positiveInteger> ; # II.3)
+  pc:estimatedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/price-specification/1> # II.1.4) Celková předpokládaná hodnota zakázek po celou dobu platnosti rámcové smlouvy ...
+  dcterms:description "Předmětem zadávacího řízení je uzavření rámcové smlouvy týkající se jednotlivých veřejných zakázek na opakující se plnění - dodávky léčivých přípravků (dále také „zboží“) dle potřeb zadavatele. Specifikace zboží: Léčivý přípravek s účinnou látkou Ribavirinum, ATC skupina J05AB04, síla 200 mg/tbl; Léčivý přípravek s účinnou látkou Ganciclovirum, ATC skupina J05AB06, síla 500 mg/inj. lah.; Léčivý přípravek s účinnou látkou Valaciclovir hydrochlorid, ATC skupina J05AB11, síla 500 mg/tbl; Léčivý přípravek s účinnou látkou Cidofovirum anhydricum, ATC skupina J05AB12, síla 75 mg/ml; Léčivý přípravek s účinnou látkou Valganciclovir hydrochlorid, ATC skupina J05AB14, síla 450 mg/tbl; Léčivý přípravek s účinnou látkou Ritonavir, ATC skupina J05AE03, síla 100 mg/tbl; Léčivý přípravek s účinnou látkou Lopinavir + Ritonavir, ATC skupina J05AE06, síla 200 mg + 50 mg/tbl; Léčivý přípravek s účinnou látkou Lamivudin, ATC skupina J05AF05, síla 300 mg/tbl; Léčivý přípravek s účinnou látkou Lamivudin, ATC skupina J05AF05, síla 100 mg/tbl; Léčivý přípravek s účinnou látkou Abakavir, ATC skupina J05AF06, síla 300 mg/tbl; Léčivý přípravek s účinnou látkou Tenofovir disoproxil, ATC skupina J05AF07, síla 245 mg/tbl; Léčivý přípravek s účinnou látkou Adefovir dipivoxil, ATC skupina J05AF08, síla 10 mg/tbl; Léčivý přípravek s účinnou látkou Emtricitabin, ATC skupina J05AF09, síla 200 mg/tbl; Léčivý přípravek s účinnou látkou Entecavir monohydrát, ATC skupina J05AF10, síla 1 mg/tbl; Léčivý přípravek s účinnou látkou Nevirapinum anhydrát, ATC skupina J05AG01, síla 200 mg/tbl; Léčivý přípravek s účinnou látkou Efavirenzum, ATC skupina J05AG03, síla 600 mg/tbl; Léčivý přípravek s účinnou látkou Lamivudin + Zidovudinum, ATC skupina J05AR01, síla 150 mg + 300 mg/tbl; Léčivý přípravek s účinnou látkou Abakavir + Lamivudin, ATC skupina J05AR02, síla 600 mg + 300 mg/tbl; Léčivý přípravek s účinnou látkou Emtricitabin + Tenofovir disoproxil, ATC skupina J05AR03, síla 200 mg + 245 mg/tbl; Léčivý přípravek s účinnou látkou Enfuvirtidum, ATC skupina J05AX07, síla 90 mg/inj. lah.; Léčivý přípravek s účinnou látkou Raltegravirum, ATC skupina J05AX08, síla 400 mg/tbl; Léčivý přípravek s účinnou látkou Maravicorum, ATC skupina J05AX09, síla 150 mg/tbl a 300 mg/tbl."^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.5)
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ; # II.1.6)
+  pc:procedureType pc:Open ; # IV.1.1)
+  pc:awardCriteriaCombination pc:AwardCriteriaLowestPrice ; # IV.1.1)
+  pc:referenceNumber "20/11"^^<http://www.w3.org/2001/XMLSchema#string> ; # IV.3.1)
+  pc:tenderDeadline "2011-08-23"^^<http://www.w3.org/2001/XMLSchema#date> ; # IV.3.4)
+  pc:publicationDate "2011-07-12"^^<http://www.w3.org/2001/XMLSchema#date> ; # IV.3.1) Konec hlavní části před přílohou B "Datum odeslání tohoto oznámení"
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-4> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-6> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20> ; # Priloha B
+  pc:lot <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21> ; # Priloha B
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-notice/6006251302001> ;
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/6006251303001> ;
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/partial-cancellation-notice/6006251351001> ;
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/partial-cancellation-notice/6006251351002>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 1"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 1"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Ribavirinum, ATC skupina J05AB04, síla 200 mg/tbl. Předpokládaná spotřeba zboží za rok: - 168 x 200 mg 38 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1030000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1001191"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1001191"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 2"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 2"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Ganciclovirum, ATC skupina J05AB06, síla 500 mg/inj.lah. Předpokládaná spotřeba zboží za rok: - 1 x 500 mg, 350 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "610000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-1/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "425129"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-2/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "425129"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 3"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 3"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Valaciclovir hydrochlorid, ATC skupina J05AB11, síla 500 mg/tbl. Předpokládaná spotřeba zboží za rok: - 42 x 500 mg, 131 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "270000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/d13b0172-77f2-48f1-b956-98797efab9a8>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "239416"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-3/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "239416"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-4>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 4"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 4"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Cidofovirum anhydricum, ATC skupina J05AB12, síla 75 mg/ml. Předpokládaná spotřeba zboží za rok: - 1 x 5 ml, 5 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  cancellationDate "2011-08-25"^^<http://www.w3.org/2001/XMLSchema#date> # Na základě oznámení č. 6006251351001
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-4/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "200000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 5"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 5"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Valganciclovir hydrochlorid, ATC skupina J05AB14, síla 450 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 450 mg, 52 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3505000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> ;
+  cancellationDate "2011-10-20"^^<http://www.w3.org/2001/XMLSchema#date> # Na základě oznámení č. 6006251351002
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2902239"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-5/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2902239"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-6>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 6"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 6"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Ritonavir, ATC skupina J05AE03, síla 100 mg/tbl. Předpokládaná spotřeba zboží za rok: - 336 x 100 mg, 12 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  cancellationDate "2011-10-20"^^<http://www.w3.org/2001/XMLSchema#date> # Na základě oznámení č. 6006251351001
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-6/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "215000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 7"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 7"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Lopinavir + Ritonavir, ATC skupina J05AE06, síla 200 mg + 50 mg/tbl. Předpokládaná spotřeba zboží za rok: - 120 x 200 mg + 50 mg, 733 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-20"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "14565000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/320eb0dc-c9a6-4504-a184-59e139a0b396>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "14461621"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-7/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "14461621"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 8"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 8"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Lamivudin, ATC skupina J05AF05, síla 300 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 300 mg, 39 balení. Léčivý přípravek s účinnou látkou Lamivudin, ATC skupina J05AF05, síla 100 mg/tbl. Předpokládaná spotřeba zboží za rok: - 28 x 100 mg, 29 balení, 84 x 100 mg, 296 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2640000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2577563"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-8/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2577563"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 9"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 9"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Abakavir, ATC skupina J05AF06, síla 300 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 300 mg, 12 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "140000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "140035"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-9/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "140035"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 10"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 10"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Tenofovir disoproxil, ATC skupina J05AF07, síla 245 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 245 mg, 680 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "9075000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "8967681"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-10/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "8967681"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 11"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 11"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Adefovir dipivoxil, ATC skupina J05AF08, síla 10 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 10 mg, 225 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "4290000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/320eb0dc-c9a6-4504-a184-59e139a0b396>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "4162100"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-11/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "4162100"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 12"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 12"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Emtricitabin, ATC skupina J05AF09, síla 200 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 200 mg, 365 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3134757"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3134757"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-12/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1001191"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 13"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 13"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Entecavir mohohydrát, ATC skupina J05AF10, síla 1 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 1 mg, 90 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1930000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1900165"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-13/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1900165"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 14"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 14"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Nevirapinum anhydrát, ATC skupina J05AG01, síla 200 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 200 mg, 9 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  cancellationDate "2011-08-25"^^<http://www.w3.org/2001/XMLSchema#date> # Na základě oznámení č. 6006251351001
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "95000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean> 
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1001191"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-14/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1001191"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 15"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 15"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Efavirenzum, ATC skupina J05AG03, síla 600 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 600 mg, 189 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2410000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2383871"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-15/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2383871"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 16"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 16"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Lamivudin + Zidovudinum, ATC skupina J05AR01, síla 150 mg + 300 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 150 mg + 300 mg, 24 balení" ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "350000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "348424"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-16/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "348424"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 17"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 17"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Abakavir + Lamivudin, ATC skupina J05AR02, síla 600 mg + 300 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 600 mg + 300 mg, 395 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-11"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "7295000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/cdff27dc-5fff-4c53-8ebf-1705c7e4928e>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "7216460"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-17/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "7216460"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .  
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 18"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 18"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Emtricitabin + Tenofovir disoproxil, ATC skupina J05AR03, síla 200 mg + 245 mg/tbl. Předpokládaná spotřeba zboží za rok: - 30 x 200 mg + 245 mg, 48 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1150000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1115714"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-18/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1115714"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 19"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 19"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Enfuvirtidum, ATC skupina J05AX07, síla 90 mg/inj.lah. Předpokládaná spotřeba zboží za rok: - 60 x 90 mg, 54 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3325000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3335859"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-19/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3335859"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 20"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 20"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látkou Raltegravirum, ATC skupina J05AX08, síla 400 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 400 mg, 240 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "8465000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "8203447"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-20/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "8203447"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21>
+  a pc:FrameworkAgreement ;
+  dcterms:title "Část č. 21"^^<http://www.w3.org/2001/XMLSchema#string> ; # Název (pokud by bylo uvedeno číslo části zakázky, pak by to bylo pc:referenceNumber)
+  rdfs:label "Část č. 21"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:description "Léčivý přípravek s účinnou látku Maravicorum, ATC skupina J05AX09, síla 150 mg/tbl a 300 mg/tbl. Předpokládaná spotřeba zboží za rok: - 60 x 150 mg, 9 balení, 60 x 300 mg, 24 balení." ;
+  pc:mainObject <http://purl.org/weso/cpv/2008/33651400> ;
+  pc:awardDate "2011-10-17"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1 v oznámení č. 6006251303001
+  pc:numberOfTenders "4"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2 v oznámení č. 6006251303001
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1> # Oddil V
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1065000"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1/price-specification/1> ; # V.4 v oznámení č. 6006251303001
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1/price-specification/2> ; # V ISVZ se shoduje s pc:offeredPrice
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/e0ebc1a6-c26e-48a7-a7ff-6aec10ab5acc>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1003276"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513/framework-agreement/cast-c-21/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "1003276"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .

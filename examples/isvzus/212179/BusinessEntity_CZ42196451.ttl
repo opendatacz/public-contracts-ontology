@@ -1,0 +1,40 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix s:        <http://schema.org/>
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix br:       <http://purl.org/business-register#> .
+
+<http://ld.opendata.cz/resource/business-entity/CZ42196451>
+  a gr:BusinessEntity;
+  rdfs:label "Lesy České republiky, s.p."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dc:title "Lesy České republiky, s.p."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  rdfs:label "Lesy České republiky, s.p. Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ; # Z ozn. 7203010012179  
+  dc:title "Lesy České republiky, s.p. Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ; # Z ozn. 7203010012179 
+  br:officialNumber "CZ42196451"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:address <http://ld.opendata.cz/resource/business-entity/CZ00234346/postal-address/1> ;
+  foaf:page <http://www.lesycr.cz> ; # V oznámení je www.lesycr.cz, ale hodilo by se to upravit na HTTP URI
+  pc:buyerProfile <http://www.lesycr.cz/profil-zadavatele/Stranky/default.aspx> ; # Z ozn. 7203010012179
+  pc:authorityType pc:OtherAuthority ;
+  pc:authorityText "státní podnik"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:mainActivity pc:OtherActivity ;
+  pc:mainActivityText "lesnictví"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  .
+  
+<http://ld.opendata.cz/resource/business-entity/CZ42196451/postal-address/1>
+  a s:PostalAddress ;
+  s:streetAddress "Přemyslova 1106"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressLocality "Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:postalCode "50168"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressCountry "CZ"^^<http://www.w3.org/2001/XMLSchema#string>
+  .
