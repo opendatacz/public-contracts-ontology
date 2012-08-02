@@ -1168,16 +1168,6 @@ pc:agreement a rdf:Property ;
   
 ####### pc:Notice properties
 
-# Contract notice reference number
-pc:noticeReferenceNumber a owl:FunctionalProperty ;
-  rdfs:label "Spisové číslo oznámení"@cs, "File reference number of contract notice"@en ;
-  rdfs:comment "Spisové číslo oznámení přidělené veřejným zadavatelem. Kardinalita 0..1"@cs ;
-  rdfs:comment "Contract notice file reference number attributed bz the contracting authority. Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
-  rdfs:range xsd:string ;
-  rdfs:isDefinedBy pc:
-  .
-
 # Previous notice
 pc:previousNotice a owl:FunctionalProperty ;
   rdfs:label "Přecházející verze oznámení o zakázce"@cs, "Previous version of the contract notice"@en ;
