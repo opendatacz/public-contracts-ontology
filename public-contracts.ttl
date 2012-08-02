@@ -568,7 +568,7 @@ pc:AuthorityTypeScheme a skos:ConceptScheme ;
   .
 
 pc:NationalAuthority a skos:Concept ;
-  skos:inScheme pc:ContractingAuthorityTypeScheme ;
+  skos:inScheme pc:AuthorityTypeScheme ;
   rdfs:label "Ministerstvo nebo jiný celostátní či federální orgán"@cs, "Ministry or any other national or federal authority"@en ;
   rdfs:comment "Ministerstvo nebo jiný celostátní či federální orgán včetně jejich organizačních složek"@cs ;
   rdfs:comment "Ministry or any other national or federal authority, including their regional or local sub-divisions"@en ;
@@ -624,13 +624,13 @@ pc:InternationalOrganization a skos:Concept ;
 ####### Concept scheme of main activities of contracting authorities
 
 pc:AuthorityMainActivityScheme a skos:ConceptScheme ;
-  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization ;
+  skos:hasTopConcept pc:GeneralServicesActivity, ;
   rdfs:comment "Schéma konceptů pro hlavní aktivity veřejných zadavatelů"@cs ;
   rdfs:comment "Concept scheme for main activities of constracting authorities"@en
   .
 
 pc:GeneralServicesActivity a skos:Concept ;
-  skos:inScheme pc:AuthorityMainActivityScheme ;
+  skos:inScheme pc:AuthorityMainActivityScheme, pc:DefenceActivity, pc:SafetyActivity, pc:EnvironmentActivity, pc:EconomicAffairsActivity, pc:HealthActivity, pc:HousingActivity, pc:SocialProtectionActivity, pc:CulturalActivity, pc:EducationalActivity ;
   rdfs:label "Služby pro širokou veřejnost"@cs, "General public services"@en ;
   rdfs:comment "Služby pro širokou veřejnost"@cs ;
   rdfs:comment "General public services"@en ;
