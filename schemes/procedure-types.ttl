@@ -2,63 +2,63 @@
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 
-@prefix proctype: <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix proctypes: <http://purl.org/procurement/public-contracts-procedure-types#> .
   
 ####### Concept scheme of contract procedure types
 
-proctype: a skos:ConceptScheme ; 
-  skos:hasTopConcept proctype:Open, proctype:Restricted,
-    proctype:Negotiated, proctype:CompetitiveDialogue ;
-  rdfs:comment "Schéma konceptů pro druh řízení veřejné zakázky"@cs ;
-  rdfs:comment "Concept scheme for description of procedure types for public contracts"@en ;
+proctypes: a skos:ConceptScheme ; 
+  skos:hasTopConcept proctypes:Open, proctypes:Restricted,
+    proctypes:Negotiated, proctypes:CompetitiveDialogue ;
+  rdfs:label "Schéma konceptů pro druh řízení veřejné zakázky"@cs ,
+    "Concept scheme for description of procedure types for public contracts"@en ;
   .
 
-proctype:Open a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Otevřené"@cs, "Open"@en ;
-  rdfs:comment "Otevřené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Open procedure type of public contract"@en ;
-  skos:topConceptOf proctype: 
+proctypes:Open a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Otevřené"@cs, "Open"@en ;
+  skos:definition "Otevřené řízení veřejné zakázky"@cs ,
+    "Open procedure type of public contract"@en ;
+  skos:topConceptOf proctypes: 
   .
 
-proctype:Restricted a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Omezené"@cs, "Restricted"@en ;
-  rdfs:comment "Omezené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Restricted procedure type of public contract"@en ;
-  skos:narrower proctype:AcceleratedRestricted ;
-  skos:topConceptOf proctype:
+proctypes:Restricted a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Omezené"@cs, "Restricted"@en ;
+  skos:definition "Omezené řízení veřejné zakázky"@cs ,
+    "Restricted procedure type of public contract"@en ;
+  skos:narrower proctypes:AcceleratedRestricted ;
+  skos:topConceptOf proctypes:
   .
   
-proctype:AcceleratedRestricted a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Urychlené omezené"@cs, "Accelerated restricted"@en ;
-  rdfs:comment "Urychlené omezené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Accelerated restricted procedure type of public contract"@en ;
-  skos:broader proctype:Restricted
+proctypes:AcceleratedRestricted a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Urychlené omezené"@cs, "Accelerated restricted"@en ;
+  skos:definition "Urychlené omezené řízení veřejné zakázky"@cs ,
+    "Accelerated restricted procedure type of public contract"@en ;
+  skos:broader proctypes:Restricted
   .
 
-proctype:Negotiated a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Vyjednávací"@cs, "Negotiated"@en ;
-  rdfs:comment "Vyjednávací řízení veřejné zakázky s výzvou k účasti v soutěži"@cs ;
-  rdfs:comment "Negotiated procedure type of public contract"@en ;
-  skos:narrower proctype:AcceleratedNegotiated ;
-  skos:topConceptOf proctype:ProcedureTypeScheme
+proctypes:Negotiated a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Vyjednávací"@cs, "Negotiated"@en ;
+  skos:definition "Vyjednávací řízení veřejné zakázky s výzvou k účasti v soutěži"@cs ,
+    "Negotiated procedure type of public contract"@en ;
+  skos:narrower proctypes:AcceleratedNegotiated ;
+  skos:topConceptOf proctypes:
   .
 
-proctype:AcceleratedNegotiated a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Urychlené vyjednávací"@cs, "Accelerated negotiated"@en ;
-  rdfs:comment "Urychlené vyjednávací řízení veřejné zakázky"@cs ;
-  rdfs:comment "Accelerated negotiated procedure type of public contract"@en ;
-  skos:broader proctype:Negotiated
+proctypes:AcceleratedNegotiated a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Urychlené vyjednávací"@cs, "Accelerated negotiated"@en ;
+  skos:definition "Urychlené vyjednávací řízení veřejné zakázky"@cs ,
+    "Accelerated negotiated procedure type of public contract"@en ;
+  skos:broader proctypes:Negotiated
   .
 
-proctype:CompetitiveDialogue a skos:Concept ;
-  skos:inScheme proctype: ;
-  rdfs:label "Soutěžní dialog"@cs, "Competition dialogue"@en ;
-  rdfs:comment "Soutěžní dialog jako typ řízení veřejné zakázky"@cs ;
-  rdfs:comment "Competitive dialogue is the procedure type of public contract"@en ;
-  skos:topConceptOf proctype:
+proctypes:CompetitiveDialogue a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Soutěžní dialog"@cs, "Competition dialogue"@en ;
+  skos:definition "Soutěžní dialog jako typ řízení veřejné zakázky"@cs ,
+    "Competitive dialogue is the procedure type of public contract"@en ;
+  skos:topConceptOf proctypes:
   .
