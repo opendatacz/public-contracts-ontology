@@ -178,68 +178,6 @@ pc:AwardCriterion a owl:Class ;
 ####### Terminologies
 #######
   
-####### Concept scheme of types of contracting authorities
-
-pc:AuthorityTypeScheme a skos:ConceptScheme ;
-  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization ;
-  rdfs:comment "Schéma konceptů pro typy veřejných zadavatelů"@cs ;
-  rdfs:comment "Concept scheme for kinds of constracting authorities"@en
-  .
-
-pc:NationalAuthority a skos:Concept ;
-  skos:inScheme pc:AuthorityTypeScheme ;
-  rdfs:label "Ministerstvo nebo jiný celostátní či federální orgán"@cs, "Ministry or any other national or federal authority"@en ;
-  rdfs:comment "Ministerstvo nebo jiný celostátní či federální orgán včetně jejich organizačních složek"@cs ;
-  rdfs:comment "Ministry or any other national or federal authority, including their regional or local sub-divisions"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
-pc:NationalAgency a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Celostátní či federální úřad/agentura"@cs, "National or federal agency/office"@en ;
-  rdfs:comment "Celostátní či federální úřad/agentura"@cs ;
-  rdfs:comment "National or federal agency/office"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
-pc:LocalAuthority a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Regionální či místní orgán"@cs, "Regional or local authority"@en ;
-  rdfs:comment "Regionální či místní orgán"@cs ;
-  rdfs:comment "Regional or local authority"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
-pc:LocalAgency a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Regionální či místní úřad/agentura"@cs, "Regional or local agency/office"@en ;
-  rdfs:comment "Regionální či místní úřad/agentura"@cs ;
-  rdfs:comment "Regional or local agency/office"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
-pc:PublicBody a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Veřejnoprávní instituce"@cs, "Body governed by public law"@en ;
-  rdfs:comment "Veřejnoprávní instituce"@cs ;
-  rdfs:comment "Body governed by public law"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
-pc:InternationalOrganization a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Evropská instituce/agentura nebo mezinárodní organizace"@cs, "European institution/agency or international organisation""@en ;
-  rdfs:comment "Evropská instituce/agentura nebo mezinárodní organizace"@cs ;
-  rdfs:comment "European institution/agency or international organisation"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
 ####### Concept scheme of main activities of contracting authorities
 
 pc:AuthorityMainActivityScheme a skos:ConceptScheme ;
