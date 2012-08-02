@@ -962,7 +962,7 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
   rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
+  rdfs:domain pc:Notice ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
   rdfs:isDefinedBy pc: ;
@@ -1164,18 +1164,6 @@ pc:agreement a rdf:Property ;
   .
   
 ####### pc:Notice properties
-
-# Date of dispatch of notice
-pc:dispatchDate a owl:FunctionalProperty ;
-  rdfs:subPropertyOf dcterms:issued ;
-  rdfs:label "Datum odeslání oznámení"@cs, "Date of dispatch of notice"@en ;
-  rdfs:comment "Datum odeslání oznámení. Kardinalita 0..1"@cs ;
-  rdfs:comment "Date of dispatch of notice. Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
-  rdfs:range xsd:date ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentProperty loted:PD
-  .
 
 # Contract notice reference number
 pc:noticeReferenceNumber a owl:FunctionalProperty ;
