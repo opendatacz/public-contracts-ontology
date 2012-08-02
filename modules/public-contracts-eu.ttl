@@ -8,7 +8,7 @@
 @prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s:   <http://schema.org/> .
+@prefix s:        <http://schema.org/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
@@ -27,7 +27,7 @@ pceu: a owl:Ontology ;
   dc:description "Ontologie pro veřejné zakázky – modul pro EU, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou EU."@cs ;
   dc:modified "2012-07-31"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts-eu#" ;
-  vann:preferredNamespacePrefix "pccz" ;
+  vann:preferredNamespacePrefix "pceu" ;
   dc:creator <http://purl.org/klimek#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
@@ -38,10 +38,6 @@ pceu: a owl:Ontology ;
 <http://keg.vse.cz/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" .
 
-<http://keg.vse.cz/person/josef-petrak> a foaf:Person ;
-  foaf:name "Josef Petrák" ;
-  foaf:mbox <mailto:me@jspetrak.name> .
-  
 <http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
   foaf:name "Martin Nečaský" ;
   foaf:mbox <mailto:martinnec@gmail.com> .
@@ -64,6 +60,7 @@ pceu: a owl:Ontology ;
 
 # Contract notice number in TED
 pceu:numberInTED a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:referenceNumber ;
   rdfs:label "Číslo oznámení v Úř. věstníku EU"@cs, "Contract notice number in TED"@en ;
   rdfs:comment "Číslo oznámení v Úř. věstníku EU. Kardinalita 0..1"@cs ;
   rdfs:comment "Contract notice number in TED (in the OJEU). Cardinality 0..1"@en ;
