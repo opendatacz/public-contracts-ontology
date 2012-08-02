@@ -10,7 +10,7 @@
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s:        <http://schema.org/> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
@@ -177,71 +177,6 @@ pc:AwardCriterion a owl:Class ;
 #######
 ####### Terminologies
 #######
-  
-####### Concept scheme of contract procedure types
-
-pc:ProcedureTypeScheme a skos:ConceptScheme ; 
-  skos:hasTopConcept pc:Open, pc:Restricted,
-    pc:Negotiated, pc:CompetitiveDialogue ;
-  rdfs:comment "Schéma konceptů pro druh řízení veřejné zakázky"@cs ;
-  rdfs:comment "Concept scheme for description of procedure types for public contracts"@en
-  .
-
-pc:Open a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Otevřené"@cs, "Open"@en ;
-  rdfs:comment "Otevřené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Open procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:ProcedureTypeScheme
-  .
-
-pc:Restricted a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Omezené"@cs, "Restricted"@en ;
-  rdfs:comment "Omezené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Restricted procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:narrower pc:AcceleratedRestricted ;
-  skos:topConceptOf pc:ProcedureTypeScheme
-  .
-  
-pc:AcceleratedRestricted a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Urychlené omezené"@cs, "Accelerated restricted"@en ;
-  rdfs:comment "Urychlené omezené řízení veřejné zakázky"@cs ;
-  rdfs:comment "Accelerated restricted procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:broader pc:Restricted
-  .
-
-pc:Negotiated a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Vyjednávací"@cs, "Negotiated"@en ;
-  rdfs:comment "Vyjednávací řízení veřejné zakázky s výzvou k účasti v soutěži"@cs ;
-  rdfs:comment "Negotiated procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:narrower pc:AcceleratedNegotiated ;
-  skos:topConceptOf pc:ProcedureTypeScheme
-  .
-
-pc:AcceleratedNegotiated a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Urychlené vyjednávací"@cs, "Accelerated negotiated"@en ;
-  rdfs:comment "Urychlené vyjednávací řízení veřejné zakázky"@cs ;
-  rdfs:comment "Accelerated negotiated procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:broader pc:Negotiated
-  .
-
-pc:CompetitiveDialogue a skos:Concept ;
-  skos:inScheme pc:ProcedureTypeScheme ;
-  rdfs:label "Soutěžní dialog"@cs, "Competition dialogue"@en ;
-  rdfs:comment "Soutěžní dialog jako typ řízení veřejné zakázky"@cs ;
-  rdfs:comment "Competitive dialogue is the procedure type of public contract"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:ProcedureTypeScheme
-  .
   
 ####### Concept scheme of kinds of public contracts
 
