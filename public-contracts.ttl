@@ -129,20 +129,13 @@ pc:CancellationNotice a owl:Class ;
   rdfs:isDefinedBy pc:
   .
   
-# Partial cancellation notice
-pc:PartialCancellationNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o zrušení částí veřejné zakázky"@cs , "Notice about cancellation of parts of a public contract"@en ;
-  rdfs:isDefinedBy pc:
-  .
-  
 # Contract notice
 pc:ContractAwardNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zadání zakázky"@cs , "Contract award notice"@en ;
   rdfs:isDefinedBy pc:
   .
-  
+
 # Tender
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
