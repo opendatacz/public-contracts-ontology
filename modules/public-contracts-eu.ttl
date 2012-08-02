@@ -3,6 +3,7 @@
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
 @prefix loted:    <http://loted.eu/ontology#> .
+@prefix nuts:     <http://ec.europa.eu/eurostat/ramon/ontologies/geographic.rdf#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
 @prefix qb:       <http://purl.org/linked-data/cube#> .
@@ -77,6 +78,6 @@ pceu:hasParentRegion a rdf:Property ;
   rdfs:comment "Nadřazený NUTS region. Kardinalita 0..1"@cs ;
   rdfs:comment "Parent NUTS region. Cardinality 0..1"@en ;
   rdfs:domain s:Place ;
-  rdfs:range rdf:Resource;
+  rdfs:range nuts:NUTSRegion;
   rdfs:isDefinedBy pc:
   .
