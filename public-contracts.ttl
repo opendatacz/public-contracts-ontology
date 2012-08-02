@@ -136,6 +136,13 @@ pc:ContractAwardNotice a owl:Class ;
   rdfs:isDefinedBy pc:
   .
 
+# Contract amendment notice
+pc:ContractAmendmentNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o změně zakázky"@cs , "Contract amendment notice"@en ;
+  rdfs:isDefinedBy pc:
+  .
+
 # Tender
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
