@@ -559,18 +559,10 @@ pc:CulturalServices a skos:Concept ;
   rdfs:isDefinedBy pc: ;
   .
   
-pc:OtherServices a skos:Concept ;
-  skos:broader pc:Services ;
-  rdfs:label ""@cs, "Other services"@en ;
-  rdfs:comment ""@cs ;
-  rdfs:comment "Other services"@en ;
-  rdfs:isDefinedBy pc: ;
-  .
-  
 ####### Concept scheme of types of contracting authorities
 
 pc:AuthorityTypeScheme a skos:ConceptScheme ;
-  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization, pc:OtherAuthority ;
+  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization ;
   rdfs:comment "Schéma konceptů pro typy veřejných zadavatelů"@cs ;
   rdfs:comment "Concept scheme for kinds of constracting authorities"@en
   .
@@ -629,19 +621,10 @@ pc:InternationalOrganization a skos:Concept ;
   skos:topConceptOf pc:AuthorityTypeScheme
   .
 
-pc:OtherAuthority a skos:Concept ;
-  skos:inScheme pc:KindScheme ;
-  rdfs:label "Jiný typ veřejného zadavatele"@cs, "Other kind of contracting authority"@en ;
-  rdfs:comment "Jiný typ veřejného zadavatele. Konkrétní hodnota zadána textově."@cs ;
-  rdfs:comment "Other kind of contracting authority. Concrete value specified in text."@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityTypeScheme
-  .
-
 ####### Concept scheme of main activities of contracting authorities
 
 pc:AuthorityMainActivityScheme a skos:ConceptScheme ;
-  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization, pc:OtherAuthority ;
+  skos:hasTopConcept pc:NationalAuthority, pc:NationalAgency, pc:LocalAuthority, pc:LocalAgency, pc:PublicBody, pc:InternationalOrganization ;
   rdfs:comment "Schéma konceptů pro hlavní aktivity veřejných zadavatelů"@cs ;
   rdfs:comment "Concept scheme for main activities of constracting authorities"@en
   .
@@ -732,15 +715,6 @@ pc:EducationalActivity a skos:Concept ;
   rdfs:label "Školství"@cs, "Education"@en ;
   rdfs:comment "Školství"@cs ;
   rdfs:comment "Education"@en ;
-  rdfs:isDefinedBy pc: ;
-  skos:topConceptOf pc:AuthorityMainActivityScheme
-  .
-
-pc:OtherActivity a skos:Concept ;
-  skos:inScheme pc:AuthorityMainActivityScheme ;
-  rdfs:label "Jiná hlavní aktivita"@cs, "Other main activity"@en ;
-  rdfs:comment "Jiná hlavní aktivity veřejného zadavatele. Konkrétní hodnota zadána textově."@cs ;
-  rdfs:comment "Other main activity of contracting authority. Concrete value specified in text."@en ;
   rdfs:isDefinedBy pc: ;
   skos:topConceptOf pc:AuthorityMainActivityScheme
   .
@@ -1227,20 +1201,6 @@ pc:authorityType a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:isDefinedBy pc:
   .
   
-# Specification of other type of authority
-pc:authorityTypeText a owl:FunctionalProperty ;
-  rdfs:label "Typ (textově)"@cs, "Kind (in text)"@en ;
-  rdfs:comment "Typ veřejného zadavatele (textově). Kardinalita 0..1"@cs ;
-  rdfs:comment "Kind of contracting authority (in text). Cardinality 0..1"@en ;
-  rdfs:domain gr:BusinessEntity, [
-    a owl:Restriction ;
-    owl:onProperty pc:authorityType ;
-    owl:hasValue pc:OtherAuthority
-  ] ;
-  rdfs:range xsd:string ;
-  rdfs:isDefinedBy pc:
-  .
-
 # Main activity of authority
 pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:label "Hlavní aktivita"@cs, "Hlavní aktivita"@en ;
@@ -1252,20 +1212,6 @@ pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
     owl:onProperty skos:inScheme ;
     owl:hasValue pc:AuthorityMainActivityScheme
   ] ;
-  rdfs:isDefinedBy pc:
-  .
-  
-# Specification of other main activity of authority in text
-pc:mainActivityText a owl:FunctionalProperty ;
-  rdfs:label "Hlavní aktivita (textově)"@cs, "Hlavní aktivita (in text)"@en ;
-  rdfs:comment "Hlavní aktivita veřejného zadavatele (textově). Kardinalita 0..1"@cs ;
-  rdfs:comment "Main activity of contracting authority (in text). Cardinality 0..1"@en ;
-  rdfs:domain gr:BusinessEntity, [
-    a owl:Restriction ;
-    owl:onProperty pc:mainActivity ;
-    owl:hasValue pc:OtherAuthority
-  ] ;
-  rdfs:range xsd:string ;
   rdfs:isDefinedBy pc:
   .
   
