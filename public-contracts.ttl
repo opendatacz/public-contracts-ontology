@@ -17,8 +17,12 @@
 
 # --- Own namespaces ------------------------------------------
 
-@prefix pc:        <http://purl.org/procurement/public-contracts#> .
-@prefix pcdt:      <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -192,14 +196,14 @@ pc:contact a owl:FunctionalProperty ;
 
 # Kind
 pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Druh zakázky"@cs, "Type of contract"@en ;
+  rdfs:label "Druh zakázky"@cs, "Kind of contract"@en ;
   rdfs:comment "Druh zakázky. Kardinalita 0..1"@cs ;
   rdfs:comment "Type or kind of contract. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
-    owl:hasValue pc:KindScheme
+    owl:hasValue kinds:
   ] ;
   rdfs:isDefinedBy pc:
   .
@@ -213,7 +217,7 @@ pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
-    owl:hasValue pc:ProcedureTypeScheme
+    owl:hasValue proctypes: 
   ] ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:PR
@@ -651,7 +655,7 @@ pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
-    owl:hasValue pc:AuthorityTypeScheme
+    owl:hasValue authkinds: 
   ] ;
   rdfs:isDefinedBy pc:
   .
@@ -665,7 +669,7 @@ pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
-    owl:hasValue pc:AuthorityMainActivityScheme
+    owl:hasValue activities: 
   ] ;
   rdfs:isDefinedBy pc:
   .
