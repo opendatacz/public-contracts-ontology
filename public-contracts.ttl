@@ -92,15 +92,6 @@ pc:FrameworkAgreement a owl:Class ;
   rdfs:isDefinedBy pc: 
   .
 
-# Dynamic purchasing system
-pc:DynamicPurchasingSystem a owl:Class ;
-  rdfs:subClassOf pc:Contract ;
-  rdfs:label "Dynamický nákupní systém"@cs, "Dynamic purchasing system"@en ;
-  rdfs:comment "Třída pro popis dynamického nákupního systému"@cs ;
-  rdfs:comment "Class for decribing a dynamic purchasing system"@en ;
-  rdfs:isDefinedBy pc: 
-  .
-
 # Public notice
 pc:Notice a owl:Class ;
   rdfs:subClassOf irw:InformationResource ;
