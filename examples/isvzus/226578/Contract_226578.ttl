@@ -1,0 +1,94 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard-class/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/vcard-class/1>
+  a vcard:VCard ;
+  vcard:note "CPS cosnulting, s.r.o."^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:email <mailto:cpsconsulting@cpsconsulting.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420233931338"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420233931339"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "11772138.61"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1>
+  a pc:AwardCriteriaCombination ;
+  pc:awardCriterion <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1/contract-award-criterion/1> ;
+  pc:awardCriterion <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1/contract-award-criterion/2>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1/contract-award-criterion/1>
+  a pc:AwardCriterion
+  pc:criterionName "Výše nabídkové ceny v Kč bez DPH" ;
+  pc:criterionWeight "80"^^pcdt:percentage
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1/contract-award-criterion/2>
+  a pc:AwardCriterion
+  pc:criterionName "Podrobný harmonogram výstavby a technologický rozbor" ;
+  pc:criterionWeight "20"^^pcdt:percentage
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578>
+  a pc:Contract ;
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/vcard-class/1> ;
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/CZ00234346> ; # I.1)
+  dcterms:title "„DŘÍNOV – DRCHKOV – ČISTÍRNA ODPADNÍCH VOD“"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1.1)
+  rdfs:label "„DŘÍNOV – DRCHKOV – ČISTÍRNA ODPADNÍCH VOD“"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:kind pc:WorksDesignExecution ; # II.1.2)
+  pc:location <http://ld.opendata.cz/resource/isvzus.cz/place/obec-drinov-stredocesky-kraj> ; # II.1.2)
+  dcterms:description "Předmětem plnění veřejné zakázky na stavební práce je dodávka stavebních prací, dodávek a služeb s provedením výstavby čistírny odpadních vod pro 400 EO v obci Dřínov v rozsahu dle projektové dokumentace."^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.5)
+  pc:mainObject <http://purl.org/weso/cpv/2008/45232421> ; # II.1.5)
+  pc:estimatedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/price-specification/1> # II.2.1)
+  pc:procedureType pc:Negotiated ; # IV.1.1)
+  pc:awardCriteriaCombination <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/combination-of-contract-award-criteria/1> ; # IV.2.1)
+  pc:referenceNumber "1152C/2012"^^<http://www.w3.org/2001/XMLSchema#string> ; # IV.3.1)
+  pc:awardDate "2012-07-27"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1
+  pc:numberOfTenders "5"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/tender/1> ; # Oddil V
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203012026578>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/tender/1/price-specification/1> ; # V.4
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/226578/tender/1/price-specification/2> ; # II.2.1
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/1ac728e3-7a60-4faa-b2a3-fe946c6b9eac>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/framework-agreement/cast-c-1/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "11772138.61"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226578/framework-agreement/cast-c-1/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "11772138.61"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
