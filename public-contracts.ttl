@@ -1275,7 +1275,7 @@ pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
   .
   
 # Specification of other main activity of authority in text
-pc:authorityTypeText a owl:FunctionalProperty ;
+pc:mainActivityText a owl:FunctionalProperty ;
   rdfs:label "Hlavní aktivita (textově)"@cs, "Hlavní aktivita (in text)"@en ;
   rdfs:comment "Hlavní aktivita veřejného zadavatele (textově). Kardinalita 0..1"@cs ;
   rdfs:comment "Main activity of contracting authority (in text). Cardinality 0..1"@en ;
