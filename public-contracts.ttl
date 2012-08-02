@@ -1188,9 +1188,9 @@ pc:buyerProfile a owl:InverseFunctionalProperty ;
   .
   
 # Type of authority
-pc:authorityType a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Typ"@cs, "Kind"@en ;
-  rdfs:comment "Typ veřejného zadavatele. Kardinalita 0..1"@cs ;
+pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty ;
+  rdfs:label "Druh zadavatele"@cs, "Kind of contracting authority"@en ;
+  rdfs:comment "Druh veřejného zadavatele. Kardinalita 0..1"@cs ;
   rdfs:comment "Kind of contracting authority. Cardinality 0..1"@en ;
   rdfs:domain gr:BusinessEntity ;
   rdfs:range skos:Concept, [
