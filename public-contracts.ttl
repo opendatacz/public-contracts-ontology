@@ -679,7 +679,8 @@ pc:supplier a rdf:Property ;
 ####### pc:AwardCriterion properties
 
 # Contract award criterion specification
-pc:criterionName a owl:FunctionalProperty ;
+pc:criterionSpecification a owl:FunctionalProperty ;
+  rdfs:subPropertyOf skos:definition ;
   rdfs:label "Specifikace kritéria pro výběr dodavatele zakázky"@cs, "Contract award criterion specification"@en ;
   rdfs:comment "Vlastnost pro specifikaci typu kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criterion type for tender evaluation. Cardinality 0..1"@en ;
