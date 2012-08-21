@@ -220,8 +220,7 @@ pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
     owl:onProperty skos:inScheme ;
     owl:hasValue proctypes: 
   ] ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentProperty loted:PR
+  rdfs:isDefinedBy pc:
   .
 
 # Contracting authority
@@ -379,8 +378,7 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:domain pc:Notice ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentProperty loted:PD
+  rdfs:isDefinedBy pc:
   .
   
 # Date of contract award
