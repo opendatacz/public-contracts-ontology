@@ -171,7 +171,7 @@ pc:AwardCriteriaLowestPrice a owl:Class ;
   rdfs:isDefinedBy pc: .
 
 # Contract award criterion
-pc:AwardCriterion a owl:Class ;
+pc:CriterionWeighting a owl:Class ;
   rdfs:subClassOf c4n:Condition ;
   rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criterion"@en ;
   rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
@@ -453,7 +453,7 @@ pc:awardCriterion a rdf:Property ;
   rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
   rdfs:domain pc:AwardCriteriaCombination ;
-  rdfs:range pc:AwardCriterion ;
+  rdfs:range pc:CriterionWeighting ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:AC
   .
@@ -676,16 +676,15 @@ pc:supplier a rdf:Property ;
  rdfs:isDefinedBy pc:
  .
 
-####### pc:AwardCriterion properties
+####### pc:CriterionWeighting properties
 
-# Contract award criterion specification
-pc:criterionSpecification a owl:FunctionalProperty ;
-  rdfs:subPropertyOf skos:definition ;
-  rdfs:label "Specifikace kritéria pro výběr dodavatele zakázky"@cs, "Contract award criterion specification"@en ;
-  rdfs:comment "Vlastnost pro specifikaci typu kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for criterion type for tender evaluation. Cardinality 0..1"@en ;
-  rdfs:domain pc:AwardCriterion ;
-  rdfs:range xsd:string ;
+pc:weightedCriterion a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:subject ;
+  rdfs:label "Vážené kritérium"@cs, "Weighted criterion"@en ;
+  rdfs:comment "Vlastnost pro připojení kritéria, které je váženo. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for attaching criterion that is weighted. Cardinality 0..1"@en ;
+  rdfs:domain pc:CriterionWeighting ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc:
   .
 
@@ -694,7 +693,7 @@ pc:criterionWeight a owl:FunctionalProperty ;
   rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criterion weight"@en ;
   rdfs:comment "Vlastnost pro specifikaci váhy kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criterion weight for tender evaluation. Cardinality 0..1"@en ;
-  rdfs:domain pc:AwardCriterion ;
+  rdfs:domain pc:CriterionWeighting ;
   rdfs:range pcdt:percentage ;
   rdfs:isDefinedBy pc:
   .
