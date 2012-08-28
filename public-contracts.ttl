@@ -309,51 +309,38 @@ pc:contractPrice a rdf:Property ;
   rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy pc:
   .
-  
-# Total quantity or scope
-pc:totalQuantityOrScope a owl:FunctionalProperty ;
-  rdfs:label "Množství nebo rozsah zakázky"@cs, "Total quantity or scope"@en ;
-  rdfs:comment "Množství nebo rozsah zakázky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for total quantity or scope. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:string ;
-  rdfs:isDefinedBy pc:
-  .
 
-# Exact estimated contract price
+# Estimated contract price
 pc:estimatedPrice a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Přesná odhadovaná cena cena"@cs, "Exact estimated price"@en ;
-  rdfs:comment "Vlastnost pro přesnou odhadovanou cenu veřejné zakázky. Pokud je odhadovanou cenou interval, použijte vlastnosti pc:estimatedPriceLower a pc:estimatedPriceUpper. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for exact estimated price of public contract. If only estimated interval is known, use pc:estimatedPriceLower and pc:estimatedPriceUpper properties instead. Cardinality 0..1"@en ;
+  rdfs:label "Odhadovaná cena zakázky"@cs, "Exact estimated price"@en ;
+  rdfs:comment "Vlastnost pro odhadovanou cenu veřejné zakázky. Může jít o přesně odhadovanou částku nebo interval. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for estimated price of public contract. It can be an exact estimation or an interval. Cardinality 0..1"@en ;
   rdfs:isDefinedBy pc:
   .
   
-# Lower range of estimated contract price
-pc:estimatedPriceLower a owl:FunctionalProperty ;
-  rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Dolní mez odhadované ceny"@cs, "Lower range of estimated price"@en ;
-  rdfs:comment "Vlastnost pro dolní mez odhadované ceny veřejné zakázky. Pokud je známa přesná odhadovaná cena, použijte vlastnost pc:estimatedPrice. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for lower bound of estimated price of public contract. If exact estimated price is known, use pc:estimatedPrice instead. Cardinality 0..1"@en ;
+# Contract or notice publication date
+pc:publicationDate a owl:FunctionalProperty ;
+  rdfs:label "Datum zveřejnění oznámení o zakázce či zveřejnění zakázky samotné"@cs, Notice or contract publication date"@en ;
+  rdfs:comment "Vlastnost pro datum, kdy bylo oznámení či zakázka publikována. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for date, on which notice or contract is published. Cardinality 0..1"@en ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf ( pc:Contract pc:Notice )
+  ] ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:issued ;
   rdfs:isDefinedBy pc:
   .
   
-# Upper range of estimated contract price
-pc:estimatedPriceUpper a owl:FunctionalProperty ;
-  rdfs:subPropertyOf pc:contractPrice ;
-  rdfs:label "Horní mez odhadované ceny"@cs, "Upper range of estimated price"@en ;
-  rdfs:comment "Vlastnost pro horní mez odhadované ceny veřejné zakázky. Pokud je známa přesná odhadovaná cena, použijte vlastnost pc:estimatedPrice. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for upper bound of estimated price of public contract. If exact estimated price is known, use pc:estimatedPrice instead. Cardinality 0..1"@en ;
-  rdfs:isDefinedBy pc:
-  .
-
-# Exact duration of contract in days
-pc:duration a owl:FunctionalProperty ;
-  rdfs:label "Doba trvání zakázky"@cs, "Duration of contract"@en ;
-  rdfs:comment "Vlastnost pro dobu trvání zakázky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for duration of contract. Cardinality 0..1"@en ;
+# Date of cancellation
+pc:cancellationDate a owl:FunctionalProperty ;
+  rdfs:label "Datum zrušení zakázky"@cs, "Date when the contract was cancelled"@en ;
+  rdfs:comment "Vlastnost určující datum, kdy byla zakázka zrušena. Kardinalita 0..1"@cs ;
+  rdfs:comment  "Property specifying the date when the contract was cancelled. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range xsd:duration ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc:
   .
   
@@ -369,18 +356,7 @@ pc:tenderDeadline a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentProperty loted:DT
   .
-  
-# Contract publication date
-pc:publicationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zveřejnění zakázky"@cs, "Contract publication date"@en ;
-  rdfs:comment "Vlastnost pro datum, kdy bylo oznámení publikováno. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for date, on which notice is published. Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:issued ;
-  rdfs:isDefinedBy pc:
-  .
-  
+   
 # Date of contract award
 pc:awardDate a owl:FunctionalProperty ;
   rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
@@ -389,6 +365,16 @@ pc:awardDate a owl:FunctionalProperty ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+  
+# Duration of contract
+pc:duration a owl:FunctionalProperty ;
+  rdfs:label "Doba trvání zakázky"@cs, "Duration of contract"@en ;
+  rdfs:comment "Vlastnost pro dobu trvání zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for duration of contract. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:duration ;
   rdfs:isDefinedBy pc:
   .
   
@@ -425,17 +411,6 @@ pc:actualEndDate a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc:
   .
 
-# Date of cancellation
-pc:cancellationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zrušení zakázky"@cs, "Date when the contract was cancelled"@en ;
-  rdfs:comment "Vlastnost určující datum, kdy byla zakázka zrušena. Kardinalita 0..1"@cs ;
-  rdfs:comment  "Property specifying the date when the contract was cancelled. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:date ;
-  rdfs:isDefinedBy pc:
-  .
-
 # Combination of contract award criteria
 pc:awardCriteriaCombination a owl:FunctionalProperty ;
   rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
@@ -445,24 +420,12 @@ pc:awardCriteriaCombination a owl:FunctionalProperty ;
   rdfs:range pc:AwardCriteriaCombination ;
   rdfs:isDefinedBy pc:
   .
-  
-# Contract award criterion
-pc:awardCriterion a rdf:Property ;
-  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
-    "Critères d'attribution"@fr, "Vergabekriterien"@de ;
-  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
-  rdfs:domain pc:AwardCriteriaCombination ;
-  rdfs:range pc:CriterionWeighting ;
-  rdfs:isDefinedBy pc: ;
-  owl:equivalentProperty loted:AC
-  .
 
-# Contract file reference number
+# Contract or notice file reference number
 pc:referenceNumber a owl:FunctionalProperty ;
-  rdfs:label "Spisové číslo zakázky"@cs, "File reference number"@en ;
-  rdfs:comment "Spisové číslo zakázky přidělené veřejným zadavatelem. Kardinalita 0..1"@cs ;
-  rdfs:comment "File reference number attributed by the contracting authority. Cardinality 0..1"@en ;
+  rdfs:label "Spisové číslo zakázky či oznámení"@cs, "File reference number of a contract or notice"@en ;
+  rdfs:comment "Spisové číslo zakázky či oznámení přidělené veřejným zadavatelem. Kardinalita 0..1"@cs ;
+  rdfs:comment "File reference number attributed by the contracting authority to a contract or notice. Cardinality 0..1"@en ;
   rdfs:domain [
     a owl:Class ;
     owl:unionOf ( pc:Contract pc:Notice )
@@ -590,28 +553,32 @@ pc:previousNotice a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc:
   . 
   
+####### pc:AwardCriteriaCombination properties
+
+# Contract award criterion
+pc:awardCriterion a rdf:Property ;
+  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
+    "Critères d'attribution"@fr, "Vergabekriterien"@de ;
+  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
+  rdfs:domain pc:AwardCriteriaCombination ;
+  rdfs:range pc:CriterionWeighting ;
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:AC
+  .
+  
 ####### pc:FrameworkAgreement properties
 
-# Number of operators in a framework agreement
-pc:numberOfOperators a owl:FunctionalProperty ;
-  rdfs:label "Počet účastníků rámcové smlouvy"@cs, "Number of operators of framework agreement"@en ;
-  rdfs:comment "Počet účastníků rámcové smlouvy. Kardinalita 0..1"@cs ;
-  rdfs:comment "Number of operators of framework agreement. Cardinality 0..1"@en ;
+# Expected number of operators in a framework agreement
+pc:expectedNumberOfOperators a owl:FunctionalProperty ;
+  rdfs:label "Očekávaný počet účastníků rámcové smlouvy"@cs, "Expected number of operators of framework agreement"@en ;
+  rdfs:comment "Očekávaný počet účastníků rámcové smlouvy. Kardinalita 0..1"@cs ;
+  rdfs:comment "Expected number of operators of framework agreement. Cardinality 0..1"@en ;
   rdfs:domain pc:FrameworkAgreement ;
-  rdfs:range xsd:positiveInteger ;
+  rdfs:range gr:QuantitativeValueInteger ;
   rdfs:isDefinedBy pc:
   .
   
-# Maximum number of operators in a framework agreement
-pc:maxNumberOfOperators a owl:FunctionalProperty ;
-  rdfs:label "Maximální počet účastníků rámcové smlouvy"@cs, "Maximum number of operators of framework agreement"@en ;
-  rdfs:comment "Maximální počet účastníků rámcové smlouvy. Kardinalita 0..1"@cs ;
-  rdfs:comment "Maximum number of operators of framework agreement. Cardinality 0..1"@en ;
-  rdfs:domain pc:FrameworkAgreement ;
-  rdfs:range xsd:positiveInteger ;
-  rdfs:isDefinedBy pc:
-  .
-
 ####### gr:BusinessEntity properties
 
 # Buyer's profile
