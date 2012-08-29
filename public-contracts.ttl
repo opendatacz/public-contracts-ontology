@@ -183,10 +183,16 @@ pc:CriterionWeighting a owl:Class ;
 ######## Properties
 ########
 
+####### General rules
+# Use dcterms:title and dcterms:description to specify title and description of a public contract.
+# Use adms:identifier for reference numbers assigned to contracts and notices by TED/national authorities/contracting authorities
+# Use adms:identifier for official national numbers of business entities
+# You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
+
 ####### pc:Contract properties
 
 # Contract main contact
-pc:contact a owl:FunctionalProperty ;
+pc:contact a owl:Property ;
   rdfs:label "Hlavní kontakt pro zakázku"@cs, "Main contact for a contract"@en ;
   rdfs:comment "Hlavní kontakt pro zakázku. Kardinalita 0..1"@cs ;
   rdfs:comment "Main contact for a contract. Cardinality 0..1"@en ;
@@ -195,11 +201,11 @@ pc:contact a owl:FunctionalProperty ;
   rdfs:isDefinedBy pc:
   .
 
-# Kind
+# Kind (type) of contract
 pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Druh zakázky"@cs, "Kind of contract"@en ;
-  rdfs:comment "Druh zakázky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Type or kind of contract. Cardinality 0..1"@en ;
+  rdfs:label "Druh (typ) zakázky"@cs, "Kind (type) of contract"@en ;
+  rdfs:comment "Druh (typ) zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Kind (type) of contract. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
@@ -321,7 +327,7 @@ pc:estimatedPrice a owl:FunctionalProperty ;
   
 # Contract or notice publication date
 pc:publicationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zveřejnění oznámení o zakázce či zveřejnění zakázky samotné"@cs, Notice or contract publication date"@en ;
+  rdfs:label "Datum zveřejnění oznámení o zakázce či zveřejnění zakázky samotné"@cs, "Notice or contract publication date"@en ;
   rdfs:comment "Vlastnost pro datum, kdy bylo oznámení či zakázka publikována. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for date, on which notice or contract is published. Cardinality 0..1"@en ;
   rdfs:domain [
@@ -418,19 +424,6 @@ pc:awardCriteriaCombination a owl:FunctionalProperty ;
   rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:AwardCriteriaCombination ;
-  rdfs:isDefinedBy pc:
-  .
-
-# Contract or notice file reference number
-pc:referenceNumber a owl:FunctionalProperty ;
-  rdfs:label "Spisové číslo zakázky či oznámení"@cs, "File reference number of a contract or notice"@en ;
-  rdfs:comment "Spisové číslo zakázky či oznámení přidělené veřejným zadavatelem. Kardinalita 0..1"@cs ;
-  rdfs:comment "File reference number attributed by the contracting authority to a contract or notice. Cardinality 0..1"@en ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf ( pc:Contract pc:Notice )
-  ] ;
-  rdfs:range adms:Identifier ;
   rdfs:isDefinedBy pc:
   .
 
@@ -578,8 +571,6 @@ pc:expectedNumberOfOperators a owl:FunctionalProperty ;
   rdfs:range gr:QuantitativeValueInteger ;
   rdfs:isDefinedBy pc:
   .
-  
-####### gr:BusinessEntity properties
 
 # Buyer's profile
 pc:buyerProfile a owl:InverseFunctionalProperty ;
