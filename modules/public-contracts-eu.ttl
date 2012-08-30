@@ -75,19 +75,6 @@ pceu:CombinedSupplies a skos:Concept ;
 ######## Properties
 ########
 
-####### pc:Notice properties
-
-# Contract notice number in TED
-pceu:numberInTED a owl:FunctionalProperty ;
-  rdfs:subPropertyOf pc:referenceNumber ;
-  rdfs:label "Číslo oznámení v Úř. věstníku EU"@cs, "Contract notice number in TED"@en ;
-  rdfs:comment "Číslo oznámení v Úř. věstníku EU. Kardinalita 0..1"@cs ;
-  rdfs:comment "Contract notice number in TED (in the OJEU). Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
-  rdfs:range xsd:string ;
-  rdfs:isDefinedBy pc:
-  .
-
 ####### s:Place properties
 
 # Parent NUTS region
