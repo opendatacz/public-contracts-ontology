@@ -16,14 +16,26 @@
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
 @prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
 @prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
-@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
-
 
 <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010012179>
   a pc:ContractAwardNotice ; # Jedná se o oznámení o zadání zakázky
   pc:publicationDate "2012-07-27"^^<http://www.w3.org/2001/XMLSchema#date> ; # Na konci oddílu VI. (pozor je zamíchaný mezi prvním oddílem V a dalšími oddíly V)
-  pc:previousNotice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7202010012179>
+  pc:previousNotice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7202010012179> ;
+  adms:identifier <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010012179/identifier/1>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010012179/identifier/1> # evidencni cislo oznameni v ISVZUS
+  a adms:Identifier ;
+  skos:notation "7203010012179"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:creator <http://ld.opendata.cz/resource/business-entity/CZ66002222> ; #URL ministerstva pro mistni rozvoj, ktery vydava evidencni cisla
+  adms:schemeAgency "Ministerstvo pro místní rozvoj"
   .

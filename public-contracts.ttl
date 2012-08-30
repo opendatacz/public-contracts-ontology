@@ -22,6 +22,7 @@
 @prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
 @prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
 @prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
 @prefix pc:          <http://purl.org/procurement/public-contracts#> .
 @prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
 
@@ -121,7 +122,7 @@ pc:ContractNotice a owl:Class ;
 
 pc:CancellationNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o zrušení celé veřejné zakázky"@cs , "Notice about cancellation of a whole public contract"@en ;
+  rdfs:label "Oznámení o zrušení zakázky"@cs , "Contract cancellation notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs
   rdfs:comment "A special type of a contract notice which informs about cancelling the contract."@en
   rdfs:isDefinedBy pc:
@@ -159,21 +160,9 @@ pc:AwardCriteriaCombination a owl:Class ;
   rdfs:isDefinedBy pc:
   .
  
-pc:AwardCriteriaLowestPrice a owl:Class ;
-  rdfs:subClassOf pc:AwardCriteriaCombination ;
-  rdfs:subClassOf [
-	a owl:Restriction ;
-    owl:onProperty pc:awardCriterion ;
-    owl:maxCardinality "0"^^xsd:nonNegativeInteger
-  ] ;
-  rdfs:label "Nejnižší cena je jediným rozhodujícím kritériem při hodnocení dodaných nabídek"@cs, "Lowest price is the only contract award criterion"@en ;
-  rdfs:comment "Třída specifikující že jediným kritériem pro posuzování nabídek dodavatelů je nejnižší cena"@cs ;
-  rdfs:comment "Class specifying that the only evaluation criterion is the lowest price"@en ;
-  rdfs:isDefinedBy pc: .
-
 pc:CriterionWeighting a owl:Class ;
   rdfs:subClassOf c4n:Condition ;
-  rdfs:label "Kritérium pro udělení zakázky"@cs, "Contract award criterion"@en ;
+  rdfs:label "Vážené kritérium pro udělení zakázky"@cs, "Contract award weighted criterion"@en ;
   rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
   rdfs:comment "Class for description of one criterion and its weight"@en ;
   rdfs:isDefinedBy pc:
@@ -195,7 +184,7 @@ pc:CriterionWeighting a owl:Class ;
 # Use dcterms:description for a longer plain text description of a public contract
 
 pc:contact a owl:Property ;
-  rdfs:label "Kontaktní osoba pro zakázku"@cs, "Contact person for a contract"@en ;
+  rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
   rdfs:comment "Kontaktní údaje na osobu určenou pro komunikaci s veřejností a zadavateli. Pokud je kontaktních osob více, je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
   rdfs:comment "Contact information for a person responsible for a communication with the public and suppliers. If there are more contact persons, there is a separate contact for each person. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
@@ -204,7 +193,7 @@ pc:contact a owl:Property ;
   .
 
 pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Druh (typ) zakázky"@cs, "Kind (type) of contract"@en ;
+  rdfs:label "Druh zakázky"@cs, "Contract kind"@en ;
   rdfs:comment "Druh (typ) veřejné zakázky specifikuje základní zaměření veřejné zakázky na stavební práce, dodávku zboží nebo služby. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
   rdfs:comment "Kind (type) of a public contract specifies a basic focus of the contract on works, supplies or services. Only a predefined value can be used. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
@@ -217,7 +206,7 @@ pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
   .
   
 pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Typ řízení zakázky"@cs, "Type of procedure of contract"@en ;
+  rdfs:label "Typ řízení"@cs, "Procedure type"@en ;
   rdfs:comment "Typ řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
   rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and chose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
@@ -608,7 +597,11 @@ pc:weightedCriterion a owl:FunctionalProperty ;
   rdfs:comment "Vlastnost pro připojení kritéria, které je váženo. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for attaching criterion that is weighted. Cardinality 0..1"@en ;
   rdfs:domain pc:CriterionWeighting ;
-  rdfs:range skos:Concept ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue criteria:
+  ] ;
   rdfs:isDefinedBy pc:
   .
 

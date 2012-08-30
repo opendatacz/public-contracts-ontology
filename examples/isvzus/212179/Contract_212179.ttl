@@ -16,10 +16,15 @@
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
 @prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
 @prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
-@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
 
 <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1>
   a vcard:VCard ;
@@ -64,8 +69,8 @@ Sklad jadrného krmiva   1 ks
    Dochytávací zařízení (padací a vnitřní brána 4 m)   1 ks 
 Oplocená plocha obůrky činí  5,2  ha"^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.5)
   pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1> ;
-  pc:kind pc:WorksDesign ; # II.1.2)
-  pc:procedureType pc:Open ; # IV.1.1)
+  pc:kind kinds:WorksDesign ; # II.1.2)
+  pc:procedureType proctypes:Open ; # IV.1.1)
   pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/CZ42196451> ; # I.1)
   pc:mainObject <http://purl.org/weso/cpv/2008/45211100> ; # II.1.6)
   pc:additionalObject <http://purl.org/weso/cpv/2008/45213240> ; # II.1.6), z Ozn. 7203010012179
@@ -78,11 +83,30 @@ Oplocená plocha obůrky činí  5,2  ha"^^<http://www.w3.org/2001/XMLSchema#str
   pc:awardDate "2012-07-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1
   pc:startDate "2012-05-15"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3
   pc:estimatedEndDate "2012-10-31"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3  
-  pc:awardCriteriaCombination pc:AwardCriteriaLowestPrice ; # IV.2.1)
+  pc:awardCriteriaCombination <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1> ; # IV.2.1)
   pc:numberOfTenders "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2
   pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1> ; # Oddil V
   pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/2> ; # II.2.1
+  adms:identifier <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/identifier/1>
   .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/identifier/1> # evidencni cislo zakazky v ISVZUS
+  a adms:Identifier ;
+  skos:notation "212179"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:creator <http://ld.opendata.cz/resource/business-entity/CZ66002222> ; #URL ministerstva pro mistni rozvoj, ktery vydava evidencni cisla
+  adms:schemeAgency "Ministerstvo pro místní rozvoj"
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1>
+  a pc:AwardCriteriaCombination ;
+  pc:awardCriterion <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1/contract-award-weighted-criterion/1>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1/contract-award-weighted-criterion/1>
+  a pc:CriterionWeighting;
+  pc:weightedCriterion criteria:LowestPrice ;
+  pc:criterionWeight "100"^^pcdt:percentage
+  .  
 
 <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1>
   a pc:Tender ;

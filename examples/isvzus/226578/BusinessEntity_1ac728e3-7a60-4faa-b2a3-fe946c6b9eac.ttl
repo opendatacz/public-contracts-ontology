@@ -1,19 +1,30 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
 @prefix c4n:      <http://vocab.deri.ie/c4n#> .
-@prefix dc:       <http://purl.org/dc/terms/> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix gr:       <http://purl.org/goodrelations/v1#> .
-@prefix s:        <http://schema.org/>
-@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix loted:    <http://loted.eu/ontology#> .
 @prefix owl:      <http://www.w3.org/2002/07/owl#> .
 @prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix br:       <http://purl.org/business-register#> .
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
 
 <http://ld.opendata.cz/resource/business-entity/1ac728e3-7a60-4faa-b2a3-fe946c6b9eac>
   a gr:BusinessEntity;
