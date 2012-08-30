@@ -1,0 +1,70 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard-class/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226889/vcard-class/1>
+  a vcard:VCard ;
+  vcard:note "Magistrát města Ústí nad Labem"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:fn "Ing. Dalibor Dařílek"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:dalibor.darilek@mag-ul.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420475271111"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420475271850"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226889>
+  a pc:Contract ;
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/226889/vcard-class/1> ;
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/CZ00081531> ; # I.1)
+  dcterms:title "Lokální opravy konstrukcí vozovek v rámci působnosti Statutárního města Ústí nad Labem"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1.1)
+  rdfs:label "Lokální opravy konstrukcí vozovek v rámci působnosti Statutárního města Ústí nad Labem"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:kind pc:WorksExecution ; # II.1.2)
+  pc:location <http://ld.opendata.cz/resource/isvzus.cz/place/ustecky-kraj> ; # II.1.2)
+  dcterms:description "Předmětem plnění zhotovitele je provádění lokálních oprav konstrukcí vozovek, které jsou v majetku Statutárního města Ústí nad Labem a spravované odborem dopravy Magistrátu města Ústí nad Labem."^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.4)
+  pc:mainObject <http://purl.org/weso/cpv/2008/45233142-6> ; # II.1.5)
+  pc:procedureType pc:Restricted ; # IV.1.1)
+  pc:awardCriteriaCombination pc:AwardCriteriaLowestPrice ; # IV.2.1)
+  pc:referenceNumber "7202010015020"^^<http://www.w3.org/2001/XMLSchema#string> ; # IV.3.1)
+  pc:awardDate "2012-07-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1
+  pc:numberOfTenders "16"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/contract/226889/tender/1> ; # Oddil V
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010026889>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226889/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/226889/tender/1/price-specification/1> ; # V.4
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/226889/tender/1/price-specification/2> ; # II.2.1
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/c1858089-9100-4651-a944-fa4794911aa8>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226889/framework-agreement/cast-c-1/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2653"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/226889/framework-agreement/cast-c-1/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2653"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .

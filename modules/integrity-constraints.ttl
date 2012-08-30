@@ -1,0 +1,265 @@
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sp:       <http://spinrdf.org/sp#> .
+@prefix spin:     <http://spinrdf.org/spin#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pccons:    <http://purl.org/procurement/public-contracts-constraints#> . # Does not resolve (for the time being).
+
+pccons: a owl:Ontology ; 
+  dcterms:title "Integrity constraints for Public Contracts Ontology"@en ,
+    "Integritní omezení pro Ontologii pro veřejné zakázky"@cs ;
+  dcterms:creator <http://keg.vse.cz/resource/person/jindrich-mynarz> ;
+  dcterms:license <http://creativecommons.org/licenses/by/3.0/cz/>
+  .
+
+### Tests for missing data ###
+
+pccons:TitleExists a sp:Construct ;
+  rdfs:label "Contract's title (dcterms:title) must exist."@en ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object dcterms:title
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:contract
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Please fill in the contract's title (dcterms:title)."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Doplňte prosím název zakázky (dcterms:title)."@cs
+  ]) ;
+  sp:where ([
+    sp:elements (([
+      sp:subject _:contract ;
+      sp:predicate rdf:type ;
+      sp:object pc:Contract
+    ] [
+      a sp:Filter ;
+      sp:expression [
+        a sp:NotExists ;
+        sp:elements ([
+          sp:subject _:contract ;
+          sp:predicate dcterms:title ;
+          sp:object _:title
+        ])
+      ]
+    ]) ([
+      sp:subject _:contract ;
+      sp:predicate rdf:type ;
+      sp:object pc:Contract
+    ] [
+      sp:subject _:contract ;
+      sp:predicate dcterms:title ;
+      sp:object _:title
+    ] [
+      a sp:Filter ;
+      sp:expression [
+        a sp:regex ;
+        sp:arg1 [
+          a sp:str ;
+          sp:arg1 _:title
+        ] ;
+        sp:arg2 "^(\\s*)$"
+      ]
+    ])) ;
+    a sp:Union
+  ]) ;
+  sp:text """
+    PREFIX dcterms: <http://purl.org/dc/terms/>
+    PREFIX pc:      <http://purl.org/procurement/public-contracts#>
+    PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#> 
+    PREFIX spin:    <http://spinrdf.org/spin#>
+
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationPath dcterms:title ;
+        spin:violationRoot ?contract ;
+        rdfs:label \"Please fill in the contract's title (dcterms:title).\"@en ,
+          \"Doplňte prosím název zakázky (dcterms:title).\"@cs
+        .
+    } WHERE {
+      {
+        ?contract a pc:Contract .
+        FILTER NOT EXISTS {
+          ?contract dcterms:title ?title .
+        }
+      } UNION {
+        ?contract a pc:Contract ;
+          dcterms:title ?title .
+        FILTER (regex(str(?title), \"^(\\s*)$\"))
+      }
+    }
+  """ ;
+  rdfs:isDefinedBy pccons:
+  .
+
+### Datatype violations ###
+
+pccons:DurationDaysDatatypeViolation a sp:Construct ;
+  rdfs:label "pc:durationDays datatype violation"@en ,
+    "Porušení datového typu předepsaného pro pc:durationDays"@cs ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:contract
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object pc:durationDays
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Please enter a positive integer as the value of the exact duration of contract in days."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Dobu trvání zakázky prosím zapište jako celé kladné číslo."@cs
+  ]) ;
+  sp:where ([
+    sp:subject _:contract ;
+    sp:predicate pc:durationDays ;
+    sp:object _:durationDays
+  ] [
+    a sp:Filter ;
+    sp:expression [
+      a sp:not ;
+      sp:arg1 [
+        a sp:and ;
+        sp:arg1 [
+          a sp:regex ; # There seems to be a bug in sp: namespace,
+                       # since sp:regex is not present there.
+          sp:arg1 [
+            a sp:str ;
+            sp:arg1 _:durationDays
+          ] ;
+          sp:arg2 "^([\\-+]?[0-9]+)$"
+        ] ;
+        sp:arg2 [
+          a sp:gt ;
+          sp:arg1 _:durationDays ;
+          sp:arg2 0
+        ]
+      ]
+    ]
+  ]) ;
+  sp:text """
+    PREFIX pc:   <http://purl.org/procurement/public-contracts#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX spin: <http://spinrdf.org/spin#>
+
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationRoot ?contract ;
+        spin:violationPath pc:durationDays ;
+        rdfs:label \"Please enter a positive integer as the value of the duration of the contract in days.\"@en ,
+          \"Dobu trvání zakázky prosím zapište jako celé kladné číslo.\"@cs .
+    } WHERE {
+      ?contract pc:durationDays ?durationDays .
+      FILTER (!(regex(str(?durationDays), \"^([\\-+]?[0-9]+)$\") && (?durationDays > 0))
+    }
+    """^^xsd:string ;
+  rdfs:isDefinedBy pccons:
+  .
+
+pccons:DataDatatypeViolation a sp:Construct ;
+  rdfs:label "" ;
+  # ((month(?date) IN (4, 6, 9, 11)) && (day(?date) > 30)) || ((month(?date) = 2) && (day(?date) > 29)) || (?date > now())
+  # Leap years are not accounted for.
+  rdfs:isDefinedBy pccons:
+  .
+
+### Range violations ###
+
+pccons:DatatypeMismatch a sp:Construct ;
+  rdfs:label "Datatype mismatch"@en , "Neshodující se datový typ"@cs ;
+  sp:templates ([
+    sp:subject _:b0 ;
+    sp:predicate rdf:type ;
+    sp:object spin:ConstraintViolation
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationRoot ;
+    sp:object _:resource
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate spin:violationPath ;
+    sp:object _:property
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "The property's value doesn't have a correct datatype."@en
+  ] [
+    sp:subject _:b0 ;
+    sp:predicate rdfs:label ;
+    sp:object "Hodnota vlastnosti nemá předepsaný datový typ."@cs
+  ]) ;
+  sp:where ([
+    sp:subject _:resource ;
+    sp:predicate _:property ;
+    sp:object _:object
+  ] [
+    sp:subject _:property ;
+    sp:predicate rdfs:range ;
+    sp:object _:range
+  ] [
+    a sp:Filter ;
+    sp:expression [
+      a sp:and ;
+      sp:arg1 [
+        a sp:isLiteral ;
+        sp:arg1 _:object
+      ] ;
+      sp:arg2 [
+        a sp:ne ;
+        sp:arg1 [
+          a sp:datatype ;
+          sp:arg1 _:object
+        ] ;
+        sp:arg2 _:range
+      ]
+    ]  
+  ]) ;
+  sp:text """
+    CONSTRUCT {
+      _:b0 a spin:ConstraintViolation ;
+        spin:violationPath ?property ;
+        spin:violationRoot ?this ;
+        rdfs:label \"The property's value doesn't have a correct datatype.\"@en ,
+          \"Hodnota vlastnosti nemá předepsaný datový typ.\"@cs
+        .
+    } WHERE {
+      ?this ?property ?object .
+      ?property rdfs:range ?range .
+      FILTER (isLiteral(?object) && (datatype(?object) != ?range))
+    }
+  """
+  .
+
+### Variables ###
+
+_:contract sp:varName "contract"^^xsd:string .
+_:durationDays sp:varName "durationDays"^^xsd:string .
+_:object sp:varName "object"^^xsd:string .
+_:property sp:varName "property"^^xsd:string .
+_:range sp:varName "range"^^xsd:string .
+_:resource sp:varName "resource"^^xsd:string .
+_:title sp:varName "title"^^xsd:string .

@@ -1,0 +1,101 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix nuts:     <http://ec.europa.eu/eurostat/ramon/ontologies/geographic.rdf#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix kinds:     <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix pc:        <http://purl.org/procurement/public-contracts#> .
+@prefix pceu:      <http://purl.org/procurement/public-contracts-eu#> .
+
+# --- Ontology metadata ---------------------------------------
+
+pceu: a owl:Ontology ;
+  dcterms:title "Public Contracts Ontology – EU Module"@en,
+    "Ontologie pro veřejné zakázky – modul pro EU"@cs ;
+  dcterms:description "Ontologie pro veřejné zakázky – modul pro EU, rozšiřuje základní ontologii pro veřejné zakázky o specifika daná legislativou EU."@cs ;
+  dcterms:modified "2012-07-31"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts-eu#" ;
+  vann:preferredNamespacePrefix "pceu" ;
+  dcterms:creator <http://purl.org/klimek#me>,
+    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://www.ksi.mff.cuni.cz/~necasky>,
+  rdfs:seeAlso <http://opendata.cz/vocabulary/procurement/eu#>, <http://prefix.cc/pceu> ;
+  dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
+
+<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" .
+
+<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
+  foaf:name "Martin Nečaský" ;
+  foaf:mbox <mailto:martinnec@gmail.com> .
+  
+<http://purl.org/klimek#me> a foaf:Person ;
+  foaf:name "Jakub Klímek" ;
+  foaf:mbox <mailto:klimek.mff@gmail.com> .
+
+#######
+####### Classes
+#######
+
+# Dynamic purchasing system
+pceu:DynamicPurchasingSystem a owl:Class ;
+  rdfs:subClassOf pc:Contract ;
+  rdfs:label "Dynamický nákupní systém"@cs, "Dynamic purchasing system"@en ;
+  rdfs:comment "Třída pro popis dynamického nákupního systému"@cs ;
+  rdfs:comment "Class for decribing a dynamic purchasing system"@en ;
+  rdfs:isDefinedBy pceu: 
+  .
+
+#######
+####### Terminologies
+#######
+
+pceu:CombinedSupplies a skos:Concept ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Kombinace více forem dodávek"@cs, "Combination of more kinds of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky je kombinace více forem dodávek"@cs ,
+    "Combination of more kinds of supplies is the kind of public contract"@en
+  .
+
+########
+######## Properties
+########
+
+####### pc:Notice properties
+
+# Contract notice number in TED
+pceu:numberInTED a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:referenceNumber ;
+  rdfs:label "Číslo oznámení v Úř. věstníku EU"@cs, "Contract notice number in TED"@en ;
+  rdfs:comment "Číslo oznámení v Úř. věstníku EU. Kardinalita 0..1"@cs ;
+  rdfs:comment "Contract notice number in TED (in the OJEU). Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range xsd:string ;
+  rdfs:isDefinedBy pc:
+  .
+
+####### s:Place properties
+
+# Parent NUTS region
+pceu:hasParentRegion a rdf:Property ;
+  rdfs:label "Nadřazený NUTS region"@cs, "Parent NUTS region"@en ;
+  rdfs:comment "Nadřazený NUTS region. Kardinalita 0..1"@cs ;
+  rdfs:comment "Parent NUTS region. Cardinality 0..1"@en ;
+  rdfs:domain s:Place ;
+  rdfs:range nuts:NUTSRegion;
+  rdfs:isDefinedBy pc:
+  .

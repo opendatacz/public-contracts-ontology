@@ -1,0 +1,93 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard-class/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1>
+  a vcard:VCard ;
+  vcard:note "Krajské ředitelství Liberec, Sokolská 1383/37"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:note "Krajské ředitelství Liberec, Sokolská 1383/37, 460 01 Liberec 1"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo, z Ozn. 7203010012179 
+  vcard:fn "Ing. Ludvík Řičář"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:oi36@lesycr.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420485113052"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420485113117"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3507588"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179>
+  a pc:Contract ;
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1> ;
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/CZ42196451> ; # I.1)
+  dcterms:title "Monitorizační obora Prácheň"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1.1)
+  rdfs:label "Monitorizační obora Prácheň"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:kind pc:WorksDesign ; # II.1.2)
+  pc:location <http://ld.opendata.cz/resource/isvzus.cz/place/k-u-prachen-obec-kamenicky-senov-liberecky-kraj> ; # II.1.2)
+  dcterms:description "Předmětem této veřejné zakázky je výstavba monitorizační obory. Podrobný popis zakázky je uveden v zadávací dokumentaci."^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.5)
+  pc:mainObject <http://purl.org/weso/cpv/2008/45211100> ; # II.1.6)
+  pc:mainObject <http://purl.org/weso/cpv/2008/45213240> ; # II.1.6), z Ozn. 7203010012179 
+  pc:estimatedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/1> # II.2.1)
+  pc:startDate "2012-05-15"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3
+  pc:estimatedEndDate "2012-10-31"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3
+  pc:procedureType pc:Open ; # IV.1.1)
+  pc:awardCriteriaCombination pc:AwardCriteriaLowestPrice ; # IV.2.1)
+  pc:tenderDeadline "2012-04-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # IV.3.3
+  pc:totalQuantityOrScope "Krecht – sklep na dužnatá krmiva  1 ks
+Zásobník sena                1 ks
+Přístřešky na balíkové seno   4 ks 
+Sklad jadrného krmiva   1 ks
+   Oplocení    délka 920 m
+   Vjezdová brána 6 m    3 ks
+                              Oplůtky okolo stromů                                   25 ks
+                              Folie proti okusu stromů                            2000 ks
+                              Vyjímatelná pole                                           3 ks
+   Dochytávací zařízení (padací a vnitřní brána 4 m)   1 ks 
+Oplocená plocha obůrky činí  5,2  ha"^^<http://www.w3.org/2001/XMLSchema#string> ; # II.2.1
+  pc:awardDate "2012-07-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1
+  pc:numberOfTenders "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1> ; # Oddil V
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-notice/7202010012179>
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010012179>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1/price-specification/1> ; # V.4
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1/price-specification/2> ; # II.2.1
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/f01f598e-88e3-4e40-bfaa-85d0c98971f8>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/framework-agreement/cast-c-1/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2861669"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/framework-agreement/cast-c-1/tender/1/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2861669"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .

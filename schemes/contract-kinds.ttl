@@ -1,0 +1,252 @@
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+
+####### Concept scheme of kinds of public contracts
+
+@prefix kinds:    <http://purl.org/procurement/public-contracts-kinds#> .
+
+kinds: a skos:ConceptScheme ;
+  skos:hasTopConcept kinds:Supplies, kinds:Works, kinds:Services ;
+  rdfs:label "Schéma konceptů pro druh veřejné zakázky"@cs ,
+    "Concept scheme for kinds of public contracts"@en
+  .
+
+kinds:Supplies a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:prefLabel "Dodávky"@cs, "Supplies"@en ;
+  skos:definition "Druhem veřejné zakázky jsou dodávky"@cs ,
+    "Supplies is the kind of public contract"@en ;
+  skos:topConceptOf kinds:
+  .
+  
+kinds:SuppliesPurchase a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Koupě"@cs, "Purchase of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky jsou dodávky formou nákupu"@cs ,
+    "Purchase of supplies is the kind of public contract"@en
+  .
+  
+kinds:SuppliesLease a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Nájem"@cs, "Lease of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky jsou dodávky formou nájmu"@cs ,
+    "Lease of supplies is the kind of public contract"@en
+  .
+  
+kinds:SuppliesRental a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Koupě najaté věci"@cs, "Rental of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky jsou dodávky fomou najaté věci"@cs ,
+    "Rental of supplies is the kind of public contract"@en
+  .
+  
+kinds:SuppliesHire a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Supplies ;
+  skos:prefLabel "Koupě na splátky"@cs, "Hire of supplies"@en ;
+  skos:definition "Druhem veřejné zakázky jsou dodávky formou koupě na splátky"@cs ,
+    "Hire of supplies is the kind of public contract"@en
+  .
+  
+kinds:Works a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:prefLabel "Stavební práce"@cs, "Works"@en ;
+  skos:definition "Druhem veřejné zakázky jsou stavební práce"@cs ,
+    "Works is the kind of public contract"@en ;
+  skos:topConceptOf kinds:
+  .
+  
+kinds:WorksExecution a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Works ;
+  skos:prefLabel "Provádění stavebních prací"@cs, "Execution of works"@en ;
+  skos:definition "Druhem veřejné zakázky je provádění stavebních prací"@cs ,
+    "Execution of works is the kind of public contract"@en
+  .
+  
+kinds:WorksDesignExecution a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Works ;
+  skos:prefLabel "Projekt a provádění stavebních prací"@cs, "Design and execution of works"@en ;
+  skos:definition "Design and execution of works is the kind of public contract"@en
+  .
+  
+kinds:WorksRealisation a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Works ;
+  skos:prefLabel "Realisation of works"@en ;
+  skos:definition "Realisation, by whatever means of work, corresponding to the requirements specified by the contracting authorities"@en
+  .
+
+kinds:Services a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:prefLabel "Služby"@cs, "Services"@en ;
+  skos:note "Druhem veřejné zakázky jsou služby"@cs ,
+    "Services is the kind of public contract"@en ;
+  skos:topConceptOf kinds:
+  .
+  
+kinds:MaintenanceAndRepairServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Maintenance and repair services"@en ;
+  .
+  
+kinds:LandTransportServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Land transport services"@en ;
+  skos:definition "Land transport services, including armoured car services, and courier services, except transport of mail"@en
+  .
+  
+kinds:AirTransportServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Air transport services"@en ;
+  skos:definition "Air transport services of passengers and freight, except transport of mail"@en
+  .
+  
+kinds:TransportOfMailServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Transport of mail by land and by air"@en
+  .
+  
+kinds:TelecommunicationServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Telecommunications services"@en
+  .
+  
+kinds:FinancialServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Financial services"@en ;
+  skos:definition "Financial services: a) Insurances services b) Banking and investment services"@en
+  .
+  
+kinds:ComputerServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Computer and related services"@en
+  .
+  
+kinds:ResearchAndDevelopmentServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Research and development services"@en
+  .
+  
+kinds:AccountingServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Accounting, auditing and bookkeeping services"@en
+  .
+  
+kinds:MarketResearchServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Market research and public opinion polling services"@en
+  .
+  
+kinds:ConsultingServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Management consulting services"@en ;
+  skos:definition "Management consulting services and related services"@en
+  .
+  
+kinds:ArchitecturalServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Architectural and engineering services"@en ;
+  skos:definition "Architectural services; engineering services and integrated engineering services; urban planning and landscape engineering services; related scientific and technical consulting services; technical testing and analysis services"@en
+  .
+  
+kinds:AdvertisingServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Advertising services"@en
+  .
+  
+kinds:BuildingCleaningServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Building-cleaning services and property management services"@en
+  .
+  
+kinds:PublishingServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Publishing and printing services on a fee or contract basis"@en
+  .
+  
+kinds:SewageServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Sewage and refuse disposal services; sanitation and similar services"@en
+  .
+  
+kinds:HotelAndRestaurantServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Hotel and restaurant services"@en
+  .
+  
+kinds:RailTransportServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Rail transport services"@en
+  .
+  
+kinds:WaterTransportServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Water transport services"@en
+  .
+  
+kinds:SupportingTransportServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Supporting and auxiliary transport services"@en
+  .
+  
+kinds:LegalServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Legal services"@en
+  .
+  
+kinds:PersonnelPlacementServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Personnel placement and supply services"@en
+  .
+  
+kinds:InvestigationAndSecurityServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Investigation and security services, except armoured car services"@en
+  .
+  
+kinds:EducationServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Education and vocational education services"@en
+  .
+  
+kinds:HealthServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Health and social services"@en
+  .
+  
+kinds:CulturalServices a skos:Concept ;
+  skos:inScheme kinds: ;
+  skos:broader kinds:Services ;
+  skos:prefLabel "Recreational, cultural and sporting services"@en
+  .
