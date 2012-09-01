@@ -226,7 +226,7 @@ pc:contractingAuthority a owl:FunctionalProperty ;
   rdfs:comment "Instituce, která vypisuje veřejnou zakázku, přijímá nabídky a vybírá vhodného dodavatele na základě pravidel stanovených zakázkou. Kardinalita 0..1"@cs ;
   rdfs:comment "Institution which issues a public contract, receives tenders to the contract and chooses a suitable supplier on the base of the conditions given by the contract. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range gr:BusinessEntity, s:Organization ;
+  rdfs:range gr:BusinessEntity;
   rdfs:isDefinedBy pc:
   .
 
@@ -597,11 +597,7 @@ pc:weightedCriterion a owl:FunctionalProperty ;
   rdfs:comment "Vlastnost pro připojení kritéria, které je váženo. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for attaching criterion that is weighted. Cardinality 0..1"@en ;
   rdfs:domain pc:CriterionWeighting ;
-  rdfs:range skos:Concept, [
-    a owl:Restriction ;
-    owl:onProperty skos:inScheme ;
-    owl:hasValue criteria:
-  ] ;
+  rdfs:range skos:Concept ;
   rdfs:isDefinedBy pc:
   .
 
