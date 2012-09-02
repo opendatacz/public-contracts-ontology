@@ -183,6 +183,19 @@ pc:CriterionWeighting a owl:Class ;
 
 # Use dcterms:description for a longer plain text description of a public contract
 
+pc:referenceNumber a owl:FunctionalProperty ;
+  rdfs:subPropertyOf adms:identifier ;
+  rdfs:label "Spisové číslo"@cs, "File reference number"@en ;
+  rdfs:comment "Spisové číslo. Kardinalita 0..1"@cs ;
+  rdfs:comment "File reference number. Cardinality 0..1"@en ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf ( pc:Contract pc:Notice )
+  ] ;
+  rdfs:range adms:Identifier ;
+  rdfs:isDefinedBy pc:
+  .
+
 pc:contact a owl:Property ;
   rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
   rdfs:comment "Kontaktní údaje na osobu určenou pro komunikaci s veřejností a zadavateli. Pokud je kontaktních osob více, je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
