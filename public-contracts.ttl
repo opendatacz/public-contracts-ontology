@@ -325,22 +325,9 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění oznámení o zakázce či zveřejnění zakázky samotné"@cs, "Notice or contract publication date"@en ;
   rdfs:comment "Vlastnost pro datum, kdy bylo oznámení či zakázka publikována. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for date, on which notice or contract is published. Cardinality 0..1"@en ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf ( pc:Contract pc:Notice )
-  ] ;
+  rdfs:domain pc:Notice ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
-  rdfs:isDefinedBy pc:
-  .
-  
-pc:cancellationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zrušení zakázky"@cs, "Date when the contract was cancelled"@en ;
-  rdfs:comment "Vlastnost určující datum, kdy byla zakázka zrušena. Kardinalita 0..1"@cs ;
-  rdfs:comment  "Property specifying the date when the contract was cancelled. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc:
   .
   
@@ -356,16 +343,6 @@ pc:tenderDeadline a owl:FunctionalProperty ;
   owl:equivalentProperty loted:DT
   .
    
-pc:awardDate a owl:FunctionalProperty ;
-  rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
-  rdfs:comment "Vlastnost pro datum přidělení zakázky dodavateli. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for date of contract award to a supplier. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:date ;
-  rdfs:isDefinedBy pc:
-  .
-  
 pc:duration a owl:FunctionalProperty ;
   rdfs:label "Doba trvání zakázky"@cs, "Duration of contract"@en ;
   rdfs:comment "Vlastnost pro dobu trvání zakázky. Doba trvání může být uvedena ve dnech, měsících, letech apod. Kardinalita 0..1"@cs ;
