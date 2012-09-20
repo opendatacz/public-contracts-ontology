@@ -1,0 +1,144 @@
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix loted2:   <http://loted.eu/ontology2/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+
+# --- Own namespaces ------------------------------------------
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+
+
+####### 
+####### Classes
+#######
+
+##pc:Contract in the stage before contract award is the same concept as loted2:ted#ProposedContract
+pc:Contract rdfs:subClassOf loted2:ted#ProposedPublicContract .
+
+pc:FrameworkAgreement rdfs:subClassOf loted2:contract#ProposedFrameworkAgreement .
+
+pc:Notice rdfs:subClassOf loted2:tender_documents#TenderDocument .
+
+pc:PriorInformationNotice owl:equivalentClass loted2:tender_documents#PriorInformationNotice .
+
+pc:ContractNotice owl:equivalentClass loted2:tender_documents#ContractNotice .
+
+pc:CancellationNotice a owl:Class ;
+  .
+  
+pc:ContractAwardNotice owl:equivalentClass loted2:tender_documents#ContractAwardNotice .
+
+pc:ContractAmendmentNotice a owl:Class ;
+  .
+
+pc:Tender owl:equivalentClass loted2:TenderOffer#TenderBid .
+
+########
+######## Properties
+########
+
+pc:referenceNumber a owl:FunctionalProperty ;
+  .
+
+pc:contact a owl:Property .
+
+##PCO kinds can be mapped 1:1 to loted2:Objects
+pc:kind rdfs:subPropertyOf loted2:ted#hasObject .
+
+##PCO procedure types can be mapped 1:1 to loted2 individuals  
+pc:procedureType a owl:FunctionalProperty, qb:CodedProperty .
+
+pc:contractingAuthority a owl:FunctionalProperty .
+
+pc:item a rdf:Property .
+  
+pc:mainObject a owl:FunctionalProperty 
+  
+pc:additionalObject a rdf:Property ;
+  .
+
+pc:location owl:equivalentProperty loted2:ted#hasPlaceOfExecution .
+  
+pc:onBehalfOf a rdf:Property ;
+  .
+
+pc:notice a rdf:Property ;
+  .
+
+####### ABSTRACT
+
+pc:contractPrice a rdf:Property ;
+  .
+
+##LOTED2 should reuse gr:PriceSpecification or we need to map it for them
+pc:estimatedPrice owl:equivalentProperty loted2:ted#hasEstimatedValueExludingVAT .
+  
+pc:publicationDate a owl:FunctionalProperty .
+  
+pc:tenderDeadline a owl:FunctionalProperty .
+   
+##should be only one, pc:duration range is unit independent
+pc:duration rdfs:subPropertyOf loted2:contract#durationOfContractInDays ;
+            rdfs:subPropertyOf loted2:contract#durationOfContractInMonths .
+  
+##nonexistent property... map to the supposedly correct ones?
+pc:startDate owl:equivalentProperty <http://www.ontologydesignpatterns.org/cp/owl/timeinterval#hasStartingDate> .
+  
+##nonexistent property... map to the supposedly correct ones?
+pc:estimatedEndDate owl:equivalentProperty <http://www.ontologydesignpatterns.org/cp/owl/timeinterval#hasTimeLimitForCompletion> .
+
+pc:actualEndDate a owl:FunctionalProperty .
+
+pc:awardCriteriaCombination a owl:FunctionalProperty .
+
+pc:lot a owl:equivalentProperty loted2:ted#isDividedInto .
+
+pc:frameworkAgreement owl:equivalentProperty loted2:contract#subjectToTermsAndConditionsLaidDownWith .
+
+pc:numberOfTenders a owl:FunctionalProperty .
+
+pc:tender a rdf:Property .
+
+pc:awardedTender a owl:FunctionalProperty .
+
+pc:subsidy a rdf:Property .
+
+pc:agreedPrice a owl:FunctionalProperty .
+
+pc:actualPrice a owl:FunctionalProperty .
+    
+pc:attachment a rdf:Property .
+  
+pc:specification a rdf:Property .
+
+pc:agreement a rdf:Property .
+
+pc:previousNotice a owl:FunctionalProperty .
+
+pc:awardCriterion a rdf:Property .
+
+pc:expectedNumberOfOperators a owl:FunctionalProperty .
+
+pc:buyerProfile a owl:InverseFunctionalProperty .
+
+pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty .
+
+pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty .
+      
+#############
+### CRITERIA
+#############
+
+##skos:Concept as a owl:Class? In specification, they intentionally leave this question open.
+criteria:LowestPrice owl:sameAs loted2:ted#LowestPrice .
