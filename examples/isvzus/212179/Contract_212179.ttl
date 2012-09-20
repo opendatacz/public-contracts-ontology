@@ -55,8 +55,8 @@
 
 <http://ld.opendata.cz/resource/isvzus.cz/contract/212179>
   a pc:Contract ;
-  dcterms:title "Monitorizační obora Prácheň"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1.1)
-  rdfs:label "Monitorizační obora Prácheň"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Monitorizační obora Prácheň"@cs ; # I.1.1)
+  rdfs:label "Monitorizační obora Prácheň"@cs ;
   dcterms:description "Předmětem této veřejné zakázky je výstavba monitorizační obory. Podrobný popis zakázky je uveden v zadávací dokumentaci. Krecht – sklep na dužnatá krmiva  1 ks
 Zásobník sena                1 ks
 Přístřešky na balíkové seno   4 ks 
