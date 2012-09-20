@@ -14,7 +14,7 @@ authkinds: a skos:ConceptScheme ;
 
 authkinds:NationalAuthority a skos:Concept ;
   skos:inScheme authkinds: ;
-  skos:prefLabel "Ministerstvo nebo jiný celostátní či federální orgán"@cs, "Ministry or any other national or federal authority"@en ;
+  skos:prefLabel "Ministerstvo nebo jiný celostátní či federální orgán"@cs, "Ministry or any other national or federal authority, including their regional or local sub-divisions"@en ;
   skos:topConceptOf authkinds:
   .
 
