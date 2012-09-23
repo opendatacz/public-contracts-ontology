@@ -207,7 +207,7 @@ pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
 pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:label "Typ řízení"@cs, "Procedure type"@en ;
   rdfs:comment "Typ řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
-  rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and chose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
+  rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and choose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
@@ -490,7 +490,7 @@ pc:attachment a rdf:Property ;
   rdfs:comment "Vlastnost pro připojení ostatních příhloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for attachment of other documents. For attachment of contract specification use pc:specification. For attachment of contract agreement use pc:agreement. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range rdf:Resource ;
+  rdfs:range foaf:Document ;
   rdfs:isDefinedBy pc:
   .
   

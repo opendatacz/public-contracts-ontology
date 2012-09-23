@@ -23,3 +23,9 @@ criteria:LowestPrice a skos:Concept ;
   skos:prefLabel "Nejnižší cena"@cs, "Lowest price"@en ;
   skos:broader criteria:Price
   .
+
+criteria:TechnicalQuality a skos:Concept ;
+  skos:inScheme criteria: ;
+  skos:prefLabel "Technická kvalita"@cs, "Technical quality"@en ;
+  skos:topConceptOf criteria:
+  .

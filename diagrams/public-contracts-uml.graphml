@@ -42,12 +42,11 @@
           <y:Geometry height="182.21873842033088" width="222.0" x="-5.350000000000023" y="86.75000000000004"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="151.01171875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="212.9990234375" x="4.50048828125" y="4.0">- dcterms:title
+          <y:NodeLabel alignment="left" autoSizePolicy="content" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="138.7607421875" modelName="internal" modelPosition="t" textColor="#000000" visible="true" width="212.9990234375" x="4.50048828125" y="4.0">- dcterms:title
 - dcterms:description
 - pc:documentsRequestDeadline xsd:dateTime
 - pc:tenderDeadline xsd:dateTime
 - pc:tenderOpeningDateTime xsd:dateTime
-- pc:awardDate xsd:date
 - pc:duration xsd:duration
 - pc:tenderMaintenanceDuration xsd:duration
 - pc:startDate xsd:date
@@ -153,7 +152,7 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="155.0" x="61.64999999999998" y="-35.24999999999997"/>
+          <y:Geometry height="20.0" width="155.0" x="28.149999999999977" y="-35.24999999999997"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="96.70703125" x="29.146484375" y="0.6494140625">gr:BusinessEntity<y:LabelModel>
@@ -297,7 +296,7 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="146.0" x="-24.19999999999999" y="316.13989790940497"/>
+          <y:Geometry height="20.0" width="146.0" x="-100.22500000000002" y="314.12989790940503"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="138.712890625" x="3.6435546875" y="0.6494140625">pc:FrameworkAgreement<y:LabelModel>
@@ -315,10 +314,10 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="100.0" x="265.75" y="304.9687384203309"/>
+          <y:Geometry height="20.0" width="100.0" x="306.0333333333333" y="268.9687384203309"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
-          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="72.6953125" x="13.65234375" y="0.6494140625">rdf:Resource<y:LabelModel>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="82.041015625" x="8.9794921875" y="0.6494140625">foaf:Document<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -405,7 +404,7 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="162.0" x="-46.200000000000045" y="351.62989790940503"/>
+          <y:Geometry height="20.0" width="162.0" x="-69.11666666666667" y="351.62989790940503"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="139.38671875" x="11.306640625" y="0.6494140625">pc:PriorInformationNotice<y:LabelModel>
@@ -550,7 +549,7 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="27.216682891559657" width="100.0" x="150.14999999999998" y="-109.60834144577983"/>
+          <y:Geometry height="27.216682891559657" width="100.0" x="116.64999999999998" y="-109.60834144577983"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="9" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="26.0517578125" modelName="custom" textColor="#000000" visible="true" width="83.541015625" x="8.2294921875" y="0.5824625395298284">&lt;&lt;owl:Restriction&gt;&gt;
@@ -569,7 +568,7 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="27.216682891559657" width="100.0" x="33.00193790940098" y="-109.60834144577983"/>
+          <y:Geometry height="27.216682891559657" width="100.0" x="-0.49806209059902073" y="-109.60834144577983"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="9" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="26.0517578125" modelName="custom" textColor="#000000" visible="true" width="83.541015625" x="8.2294921875" y="0.5824625395298284">&lt;&lt;owl:Restriction&gt;&gt;
@@ -588,10 +587,28 @@ skos:Concept<y:LabelModel>
       <data key="d4"/>
       <data key="d6">
         <y:ShapeNode>
-          <y:Geometry height="20.0" width="100.0" x="597.65" y="-5.249999999999972"/>
+          <y:Geometry height="20.0" width="100.0" x="561.1916666666665" y="-35.25"/>
           <y:Fill hasColor="false" transparent="false"/>
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="62.681640625" x="18.6591796875" y="0.6494140625">nuts:NUTS<y:LabelModel>
+              <y:SmartNodeLabelModel distance="4.0"/>
+            </y:LabelModel>
+            <y:ModelParameter>
+              <y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="0.0" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/>
+            </y:ModelParameter>
+          </y:NodeLabel>
+          <y:Shape type="rectangle"/>
+        </y:ShapeNode>
+      </data>
+    </node>
+    <node id="n32">
+      <data key="d4"/>
+      <data key="d6">
+        <y:ShapeNode>
+          <y:Geometry height="20.0" width="100.0" x="392.94999999999993" y="-35.25"/>
+          <y:Fill hasColor="false" transparent="false"/>
+          <y:BorderStyle color="#000000" type="line" width="1.0"/>
+          <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="18.701171875" modelName="custom" textColor="#000000" visible="true" width="72.6953125" x="13.65234375" y="0.6494140625">rdf:Resource<y:LabelModel>
               <y:SmartNodeLabelModel distance="4.0"/>
             </y:LabelModel>
             <y:ModelParameter>
@@ -666,7 +683,7 @@ skos:Concept<y:LabelModel>
     <edge id="e5" source="n0" target="n7">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="33.5" sy="-10.024739583333215" tx="0.0" ty="10.0"/>
+          <y:Path sx="33.5" sy="-10.024739583333215" tx="33.5" ty="10.033333333333301"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="105.71875" x="2.0000061035156023" y="-71.85025787353513">pc:contractingAuthority</y:EdgeLabel>
@@ -696,7 +713,7 @@ skos:Concept<y:LabelModel>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="-6.000006103515602" y="25.125000000000014"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-20.854888916015625" y="1.124511718749993">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-20.854888916015625" y="1.1245117187499893">0..*</y:EdgeLabel>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-25.854888916015625" y="38.12451171875">0..*</y:EdgeLabel>
           <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="36.2314453125" x="8.474271240234373" y="34.97617838541674">pc:item</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
@@ -747,12 +764,12 @@ skos:Concept<y:LabelModel>
     <edge id="e11" source="n0" target="n7">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="-16.869981894556318" sy="-9.98487914198688" tx="-50.36998189455632" ty="10.00911458333338"/>
+          <y:Path sx="-34.204564111947164" sy="-9.973177083333312" tx="-34.204564111947164" ty="10.029687085408927"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="67.3740234375" x="-69.37402699953681" y="-71.85008239746091">pc:onBehalfOf</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="1.9999964379631905" y="-71.85008239746091">0..*</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-23.247404479980332" y="-18.263154012044083">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="67.3740234375" x="-69.37402211975969" y="-71.86178588867185">pc:onBehalfOf</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="2.0000013177403133" y="-71.86178588867185">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-23.24739960020321" y="-18.263155444601452">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -760,11 +777,11 @@ skos:Concept<y:LabelModel>
     <edge id="e12" source="n1" target="n11">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="46.14999999999998" sy="91.09074934872105" tx="0.0" ty="0.0"/>
+          <y:Path sx="0.0" sy="91.10936921016543" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="44.0244140625" x="2.3188107503257243" y="87.71960864257824">pc:notice</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-21.63219836425762" y="88.76127530924487">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="44.0244140625" x="48.07112477620433" y="94.65576171875">pc:notice</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="14.745115661621071" y="98.82242838541674">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -784,13 +801,13 @@ skos:Concept<y:LabelModel>
     <edge id="e14" source="n1" target="n14">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="111.00426302556943" sy="44.716042256315774" tx="0.0" ty="0.0">
-            <y:Point x="516.8500000000001" y="222.57541146648126"/>
+          <y:Path sx="111.02551616666437" sy="37.50612749246699" tx="0.0" ty="0.0">
+            <y:Point x="516.8500000000001" y="215.36549670263247"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="132.9453125" x="305.26974405924466" y="20.63243611653644">pc:awardCriteriaCombination</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="277.51604614257826" y="20.017352922284033">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="132.9453125" x="305.9032107883032" y="25.981434611002896">pc:awardCriteriaCombination</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="277.4947906494142" y="27.227268083416845">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -813,12 +830,14 @@ skos:Concept<y:LabelModel>
     <edge id="e16" source="n1" target="n15">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="-30.908569226504454" sy="91.12636545343979" tx="-45.58334075216099" ty="-10.012607447602932"/>
+          <y:Path sx="-110.98508589945372" sy="81.85238872301085" tx="0.0" ty="0.0">
+            <y:Point x="-27.225000000000023" y="259.71175793317633"/>
+          </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="112.9306640625" x="-102.41509755452472" y="21.305430094401117">pc:frameworkAgreement</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-96.09881687392092" y="32.55126776139281">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-42.95464833577472" y="1.513763427734375">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="112.9306640625" x="-142.7708257993063" y="31.162750244140625">pc:frameworkAgreement</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-19.24800418472285" y="4.06075024414065">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-15.810376580556301" y="32.49608357747394">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -826,7 +845,7 @@ skos:Concept<y:LabelModel>
     <edge id="e17" source="n15" target="n1">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="56.849999999999966" sy="-9.981354166666563" tx="0.0" ty="91.10936921016544"/>
+          <y:Path sx="56.849999999999966" sy="-9.981354166666563" tx="-76.02500000000003" ty="91.11458912316783"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
@@ -894,13 +913,13 @@ skos:Concept<y:LabelModel>
       <data key="d11">
         <y:PolyLineEdge>
           <y:Path sx="75.98922619693312" sy="91.12108085658507" tx="0.0" ty="0.0">
-            <y:Point x="181.6392261969331" y="348.12989790940503"/>
-            <y:Point x="315.75" y="348.12989790940503"/>
+            <y:Point x="181.6392261969331" y="316.1298979094051"/>
+            <y:Point x="356.0333333333333" y="316.1298979094051"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="centered" modelPosition="center" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="66.8125" x="33.64914190706031" y="71.02397139573316">pc:attachment</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="113.10101318359375" y="64.00589165119607">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="66.8125" x="177.73925103081638" y="28.899823486328387">pc:attachment</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="153.38434651692705" y="30.005891651196123">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -941,8 +960,8 @@ skos:Concept<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="148.51171875" x="-202.04983777872698" y="33.686619140625055">pc:expectedNumberOfOperators</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-239.17548882039364" y="33.68661914062511">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="148.51171875" x="-206.5268609008789" y="19.468855468750007">pc:expectedNumberOfOperators</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-159.50684527587896" y="41.48485546874997">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -950,11 +969,13 @@ skos:Concept<y:LabelModel>
     <edge id="e26" source="n1" target="n16">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="-10.0"/>
+          <y:Path sx="110.96805555555588" sy="56.93804745650138" tx="0.0" ty="-10.0">
+            <y:Point x="356.0333333333333" y="234.79741666666686"/>
+          </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="72.369140625" x="84.63812329101575" y="34.09606636555998">pc:specification</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="55.27451652018249" y="43.47106636555998">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="72.369140625" x="143.7880523003475" y="3.989519327799769">pc:specification</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="111.17944552951417" y="5.269519327799799">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -962,30 +983,26 @@ skos:Concept<y:LabelModel>
     <edge id="e27" source="n1" target="n16">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="88.35000000000002" sy="91.13849258319435" tx="0.0" ty="0.0">
-            <y:Point x="194.0" y="314.9687384203309"/>
+          <y:Path sx="110.9813888888892" sy="81.10936921016543" tx="0.0" ty="0.0">
+            <y:Point x="238.75805555555587" y="278.9687384203309"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="65.1474609375" x="0.5929361979167993" y="28.861647949218764">pc:agreement</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="40.9453125" y="47.97087465079966">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="65.1474609375" x="14.704658542209472" y="20.758647135416936">pc:agreement</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="58.575645955403616" y="1.729480607830908">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e28" source="n7" target="n16">
+    <edge id="e28" source="n7" target="n32">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="30.052516262823303" ty="9.975269198375145">
-            <y:Point x="705.3333333333333" y="-25.24999999999997"/>
-            <y:Point x="705.3333333333333" y="384.3382312427384"/>
-            <y:Point x="345.8025162628233" y="384.3382312427384"/>
-          </y:Path>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.69921875" x="132.0003967285155" y="362.12451171875">pc:buyerProfile</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="106.47283486633893" y="360.3437384203309">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="242.34167277018224" y="28.00000000000003">
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.69921875" x="95.9545633951825" y="-21.079738281249803">pc:buyerProfile</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="ttail" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="178.99531860351556" y="2.000000000000007">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="12" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" hasText="false" height="4.0" modelName="custom" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="4.0" x="102.90000610351558" y="28.000000000000014">
             <y:LabelModel>
               <y:SmartEdgeLabelModel autoRotationEnabled="false" defaultAngle="0.0" defaultDistance="10.0"/>
             </y:LabelModel>
@@ -1003,7 +1020,7 @@ skos:Concept<y:LabelModel>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.8076171875" x="7.446197509765625" y="-18.2509765625">skos:inScheme</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.8076171875" x="24.196197509765625" y="-18.2509765625">skos:inScheme</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -1014,7 +1031,7 @@ skos:Concept<y:LabelModel>
           <y:Path sx="61.0" sy="9.981770833333314" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="75.708984375" x="6.108847249349083" y="-40.626414184570365">pc:authorityKind</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="75.708984375" x="6.245513916015682" y="-42.27141418457032">pc:authorityKind</y:EdgeLabel>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-26.656504313150947" y="-41.88641418457033">0..1</y:EdgeLabel>
           <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="6.678456624348939" y="-18.53808085123694">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
@@ -1025,12 +1042,12 @@ skos:Concept<y:LabelModel>
       <data key="d11">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="83.00193790940098" y="-126.66666666666666"/>
+            <y:Point x="49.50193790940098" y="-126.66666666666666"/>
             <y:Point x="516.85" y="-126.66666666666666"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.8076171875" x="443.26092020670603" y="-20.865476582845133">skos:inScheme</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="71.8076171875" x="476.12758687337237" y="-20.183809916178348">skos:inScheme</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -1038,12 +1055,12 @@ skos:Concept<y:LabelModel>
     <edge id="e32" source="n7" target="n30">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="-56.148062090599" sy="-9.983567912566684" tx="0.0" ty="0.0"/>
+          <y:Path sx="-56.148062090599" sy="-9.97500000000003" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.6845703125" x="5.449110310872527" y="-44.03058080037438">pc:mainActivity</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-25.341781616210767" y="-43.54391413370769">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="4.826512654622377" y="-17.528914133707644">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="70.6845703125" x="5.449110310872527" y="-44.03057688316906">pc:mainActivity</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-25.34178161621078" y="-43.543910216502354">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="4.826512654622377" y="-17.528910216502318">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -1066,14 +1083,14 @@ skos:Concept<y:LabelModel>
     <edge id="e34" source="n9" target="n7">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="-231.64999999999998" y="-25.24999999999997"/>
+          <y:Path sx="42.41153334170045" sy="-10.006000000000009" tx="0.0" ty="0.0">
+            <y:Point x="-189.23846665829953" y="-25.24999999999997"/>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="52.359375" x="115.90780639648438" y="-33.25097656249997">pc:supplier</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="262.49530639648435" y="-33.25097656249997">0..1</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-21.52155558268231" y="-21.542154947916636">0..*</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="head" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="52.359375" x="77.95204352631897" y="-33.24497699737546">pc:supplier</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="six_pos" modelPosition="thead" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="186.58377685546873" y="-33.24497699737546">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-2.2264184570312864" y="-31.557488716125476">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
@@ -1166,17 +1183,18 @@ skos:Concept<y:LabelModel>
     <edge id="e42" source="n10" target="n31">
       <data key="d11">
         <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
+          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
+            <y:Point x="611.1916666666665" y="24.75000000000003"/>
+          </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="105.73828125" x="-5.305986165364402" y="-31.38328968811031">pceu:hasParentRegion</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="73.40464404296893" y="-6.8072896881103055">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="105.73828125" x="8.039180501301985" y="-27.792154947916636">pceu:hasParentRegion</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="124.52681070963547" y="-27.792154947916615">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
     <edge id="e43" source="n1" target="n12">
-      <data key="d10"/>
       <data key="d11">
         <y:PolyLineEdge>
           <y:Path sx="-110.97516406249981" sy="-78.12403587683201" tx="37.609243008541966" ty="-9.987017748205687">
@@ -1184,22 +1202,37 @@ skos:Concept<y:LabelModel>
           </y:Path>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="89.0390625" x="-186.4816273053487" y="2.141175415039129">pc:documentsPrice</y:EdgeLabel>
-          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-213.10193980534888" y="3.2078420817057633">0..1</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="89.0390625" x="-186.4816273053487" y="2.141175415039143">pc:documentsPrice</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="-213.10193980534893" y="3.2078420817057633">0..1</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
     </edge>
     <edge id="e44" source="n1" target="n10">
-      <data key="d10"/>
       <data key="d11">
         <y:PolyLineEdge>
           <y:Path sx="111.01891705707163" sy="-78.37726845440507" tx="40.03938827513497" ty="9.992587973155068"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
           <y:Arrows source="none" target="standard"/>
-          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="121.3095703125" x="233.56796671549506" y="-56.77642305501288">pc:tenderOpeningLocation</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="121.3095703125" x="233.56796671549506" y="-56.776423055012884">pc:tenderOpeningLocation</y:EdgeLabel>
           <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="20.6796875" x="210.81624145507828" y="-55.17642305501286">0..1</y:EdgeLabel>
           <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="30.317869059244913" y="-17.84308972167952">0..*</y:EdgeLabel>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e45" source="n9" target="n9">
+      <data key="d10"/>
+      <data key="d11">
+        <y:PolyLineEdge>
+          <y:Path sx="30.208" sy="-9.99000000000001" tx="-42.14200000000005" ty="-6.814000000000007">
+            <y:Point x="-201.44199999999998" y="-52.631999999999984"/>
+            <y:Point x="-273.79200000000003" y="-52.631999999999984"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="standard"/>
+          <y:EdgeLabel alignment="center" backgroundColor="#FFFFFF" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="102.9404296875" x="-122.79621350097659" y="-36.65208950805665">pc:subContractTender</y:EdgeLabel>
+          <y:EdgeLabel alignment="center" distance="2.0" fontFamily="Dialog" fontSize="10" fontStyle="plain" hasBackgroundColor="false" hasLineColor="false" height="16.2509765625" modelName="free" modelPosition="anywhere" preferredPlacement="anywhere" ratio="0.5" textColor="#000000" visible="true" width="19.009765625" x="-64.44688146972658" y="-19.24408950805664">0..*</y:EdgeLabel>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>
       </data>
