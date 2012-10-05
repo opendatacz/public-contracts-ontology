@@ -172,7 +172,7 @@ pc:ContractIdentifierIssuedByContractingAuthority a owl:Class ;
   rdfs:label "Pomocná třída identifikátorů zakázek přiřazených zadavatelem"@cs, "Auxiliary class of public contract identifiers issued by contracting authority"@en ;
   rdfs:isDefinedBy pc:
   .
-  
+
 pc:ContractPartIdentifierIssuedByContractingAuthority a owl:Class ;
   rdfs:label "Pomocná třída identifikátorů částí zakázek přiřazených zadavatelem"@cs, "Auxiliary class of public contract parts identifiers issued by contracting authority"@en ;
   rdfs:isDefinedBy pc:
