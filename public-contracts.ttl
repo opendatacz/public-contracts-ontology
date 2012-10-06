@@ -107,40 +107,40 @@ pc:Notice a owl:Class ;
 pc:PriorInformationNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Předběžné oznámení o zakázce"@cs, "Prior information notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující základní údaje o zakázce ještě před tím než je oficiálně zakázka vypsána."@cs
-  rdfs:comment "A special type of a contract notice which publishes only basic information about the contract before its is official issue."@en
+  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující základní údaje o zakázce ještě před tím než je oficiálně zakázka vypsána."@cs ;
+  rdfs:comment "A special type of a contract notice which publishes only basic information about the contract before its is official issue."@en ;
   rdfs:isDefinedBy pc:
   .
 
 pc:ContractNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zakázce"@cs , "Contract notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující detailní údaje o zakázce a oficiálně vyhlašující zakázku."@cs
-  rdfs:comment "A special type of a contract notice which publishes detailed information about the contract and which officially issues the contract."@en
+  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující detailní údaje o zakázce a oficiálně vyhlašující zakázku."@cs ;
+  rdfs:comment "A special type of a contract notice which publishes detailed information about the contract and which officially issues the contract."@en ;
   rdfs:isDefinedBy pc:
   .
 
 pc:CancellationNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zrušení zakázky"@cs , "Contract cancellation notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs
-  rdfs:comment "A special type of a contract notice which informs about cancelling the contract."@en
+  rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about cancelling the contract."@en ;
   rdfs:isDefinedBy pc:
   .
   
 pc:ContractAwardNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zadání zakázky"@cs , "Contract award notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o zadání zakázky vybranému dodavateli."@cs
-  rdfs:comment "A special type of a contract notice which informs about awarding the contract to a chosen supplier."@en
+  rdfs:comment "Speciální typ oznámení o zakázce informující o zadání zakázky vybranému dodavateli."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about awarding the contract to a chosen supplier."@en ;
   rdfs:isDefinedBy pc:
   .
 
 pc:ContractAmendmentNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o změně zakázky"@cs , "Contract amendment notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o změně v informacích o zakázce."@cs
-  rdfs:comment "A special type of a contract notice which informs about changing an information about the contract.."@en
+  rdfs:comment "Speciální typ oznámení o zakázce informující o změně v informacích o zakázce."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about changing an information about the contract.."@en ;
   rdfs:isDefinedBy pc:
   .
 
