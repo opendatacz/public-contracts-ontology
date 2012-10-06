@@ -1,0 +1,69 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+
+<http://ld.opendata.cz/resource/business-entity/CZ42196451>
+  a gr:BusinessEntity ;
+  rdfs:label "Lesy České republiky, s.p."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:title "Lesy České republiky, s.p."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  gr:legalName "Lesy České republiky, s.p."^^<http://www.w3.org/2001/XMLSchema#string> ;
+  rdfs:label "Lesy České republiky, s.p. Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ; # Z ozn. 7203010012179  
+  dcterms:title "Lesy České republiky, s.p. Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ; # Z ozn. 7203010012179
+  gr:legalName "Lesy České republiky, s.p. Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  adms:identifier <http://ld.opendata.cz/resource/business-entity/CZ42196451/identifier/1> ;
+  s:address <http://ld.opendata.cz/resource/business-entity/CZ42196451/postal-address/1> ;
+  foaf:page <http://www.lesycr.cz> ; # V oznámení je www.lesycr.cz, ale hodilo by se to upravit na HTTP URI
+  pc:buyerProfile <http://www.lesycr.cz/profil-zadavatele/Stranky/default.aspx> ; # Z ozn. 7203010012179
+  pc:authorityKind authkinds:1c161a20-e1b0-4977-be18-ade4d402e754 ; # Pokud je to other kind specifikovaný textově, tak se pro to vytvoří nový umělý
+  pc:mainActivity activities:4394a893-61ed-4c6f-82c2-05697c702b2c # Pokud je to other activity specifikovaný textově, tak se pro to vytvoří nový umělý 
+  .
+
+<http://ld.opendata.cz/resource/business-entity/CZ42196451/identifier/1>
+  a adms:Identifier ; 
+  skos:notation "42196451"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:creator <http://ld.opendata.cz/resource/business-entity/CZ00025593> ;
+  adms:schemeAgency "Český statistický úřad" .
+
+authkinds:1c161a20-e1b0-4977-be18-ade4d402e754 a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "státní podnik"@cs ;
+  skos:topConceptOf authkinds:
+  .
+  
+activities:4394a893-61ed-4c6f-82c2-05697c702b2c a skos:Concept ;
+  skos:inScheme activities: ;
+  skos:prefLabel "lesnictví"@cs ;
+  skos:topConceptOf activities:
+  .
+  
+<http://ld.opendata.cz/resource/business-entity/CZ42196451/postal-address/1>
+  a s:PostalAddress ;
+  s:streetAddress "Přemyslova 1106"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressLocality "Hradec Králové"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:postalCode "50168"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressCountry "CZ"^^<http://www.w3.org/2001/XMLSchema#string>
+  .

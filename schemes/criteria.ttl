@@ -1,0 +1,31 @@
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:        <http://www.w3.org/2004/02/skos/core#> . 
+
+@prefix criteria:  <http://purl.org/procurement/public-contracts-criteria#> .
+
+####### Concept scheme of weighted award criteria of public contracts
+
+criteria: a skos:ConceptScheme ;
+  skos:hasTopConcept criteria:Price ;
+  rdfs:label "Schéma konceptů pro vážená kritéria veřejných zakázek"@cs ,
+    "Concept scheme of weighted award criteria of public contracts"@en
+  .
+
+criteria:Price a skos:Concept ;
+  skos:inScheme criteria: ;
+  skos:prefLabel "Kritérium týkající se ceny veřejné zakázky"@cs, "Criterion related to a price of a public contract"@en ;
+  skos:topConceptOf criteria:
+  .
+  
+criteria:LowestPrice a skos:Concept ;
+  skos:inScheme criteria: ;
+  skos:prefLabel "Nejnižší cena"@cs, "Lowest price"@en ;
+  skos:broader criteria:Price
+  .
+
+criteria:TechnicalQuality a skos:Concept ;
+  skos:inScheme criteria: ;
+  skos:prefLabel "Technická kvalita"@cs, "Technical quality"@en ;
+  skos:topConceptOf criteria:
+  .

@@ -1,0 +1,121 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1>
+  a vcard:VCard ;
+  vcard:note "Krajské ředitelství Liberec, Sokolská 1383/37"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:note "Krajské ředitelství Liberec, Sokolská 1383/37, 460 01 Liberec 1"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo, z Ozn. 7203010012179 
+  vcard:fn "Ing. Ludvík Řičář"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:oi36@lesycr.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420485113052"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420485113117"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "3507588"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/2>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2861669"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179>
+  a pc:Contract ;
+  dcterms:title "Monitorizační obora Prácheň"@cs ; # I.1.1)
+  rdfs:label "Monitorizační obora Prácheň"@cs ;
+  dcterms:description "Předmětem této veřejné zakázky je výstavba monitorizační obory. Podrobný popis zakázky je uveden v zadávací dokumentaci. Krecht – sklep na dužnatá krmiva  1 ks
+Zásobník sena                1 ks
+Přístřešky na balíkové seno   4 ks 
+Sklad jadrného krmiva   1 ks
+   Oplocení    délka 920 m
+   Vjezdová brána 6 m    3 ks
+                              Oplůtky okolo stromů                                   25 ks
+                              Folie proti okusu stromů                            2000 ks
+                              Vyjímatelná pole                                           3 ks
+   Dochytávací zařízení (padací a vnitřní brána 4 m)   1 ks 
+Oplocená plocha obůrky činí  5,2  ha"^^<http://www.w3.org/2001/XMLSchema#string> ; # II.1.5)
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/vcard-class/1> ;
+  pc:kind kinds:WorksDesign ; # II.1.2)
+  pc:procedureType proctypes:Open ; # IV.1.1)
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/CZ42196451> ; # I.1)
+  pc:mainObject <http://purl.org/weso/cpv/2008/45211100> ; # II.1.6)
+  pc:additionalObject <http://purl.org/weso/cpv/2008/45213240> ; # II.1.6), z Ozn. 7203010012179
+  pc:location <http://ld.opendata.cz/resource/isvzus.cz/place/k-u-prachen-obec-kamenicky-senov-liberecky-kraj> ; # II.1.2)
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-notice/7202010012179>
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7203010012179>  
+  pc:estimatedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/1> # II.2.1)
+  pc:publicationDate "2012-03-30"^^<http://www.w3.org/2001/XMLSchema#date>
+  pc:tenderDeadline "2012-04-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # IV.3.3
+  pc:awardDate "2012-07-19"^^<http://www.w3.org/2001/XMLSchema#date> ; # V.1
+  pc:startDate "2012-05-15"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3
+  pc:estimatedEndDate "2012-10-31"^^<http://www.w3.org/2001/XMLSchema#date> ; # II.3  
+  pc:awardCriteriaCombination <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1> ; # IV.2.1)
+  pc:numberOfTenders "3"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # V.2
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1> ; # Oddil V
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/price-specification/2> ; # II.2.1
+  adms:identifier <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/identifier/1>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/identifier/1> # evidencni cislo zakazky v ISVZUS
+  a adms:Identifier ;
+  skos:notation "212179"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:creator <http://ld.opendata.cz/resource/business-entity/CZ66002222> ; #URL ministerstva pro mistni rozvoj, ktery vydava evidencni cisla
+  adms:schemeAgency "Ministerstvo pro místní rozvoj"
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1>
+  a pc:AwardCriteriaCombination ;
+  pc:awardCriterion <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1/contract-award-weighted-criterion/1>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/combination-of-contract-award-criteria/1/contract-award-weighted-criterion/1>
+  a pc:CriterionWeighting;
+  pc:weightedCriterion criteria:LowestPrice ;
+  pc:criterionWeight "100"^^pcdt:percentage
+  .  
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1>
+  a pc:Tender ;
+  pc:offeredPrice <http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1/price-specification/1> ; # V.4
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/f01f598e-88e3-4e40-bfaa-85d0c98971f8>
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/212179/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "2861669"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .

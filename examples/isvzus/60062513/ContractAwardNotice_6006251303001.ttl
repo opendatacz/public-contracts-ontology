@@ -1,0 +1,25 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/6006251303001>
+  a pc:ContractAwardNotice ; # Jedná se o oznámení o zadání zakázky
+  pc:dispatchDate "2011-10-25"^^<http://www.w3.org/2001/XMLSchema#date> ; # Na konci oddílu VI. (pozor je zamíchaný mezi prvním oddílem V a dalšími oddíly V)
+  pc:previousNotice <http://ld.opendata.cz/resource/isvzus.cz/Notice/6006251302001> ; # Nejde o link na poslední zveřejněný, ale na logicky předcházející oznámení (u contract notice je to poslední prior information notice, u cancellation je to posledni contract notice, u contract award je to posledni contract notice, apod.)
+  .

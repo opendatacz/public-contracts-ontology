@@ -1,0 +1,636 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+
+# --- Ontology metadata ---------------------------------------
+
+pc: a owl:Ontology ;
+  dcterms:title "Public Contracts Ontology"@en,
+    "Ontologie pro veřejné zakázky"@cs ;
+  dcterms:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
+  dcterms:description "Public Contracts Ontology offers a means of expression for describing public contracts in the public sector."@en ;
+  dcterms:modified "2011-11-18"^^xsd:date ;
+  vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
+  vann:preferredNamespacePrefix "pc" ;
+  dcterms:creator <http://purl.org/klimek#me>,
+    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://www.ksi.mff.cuni.cz/~necasky>,
+    <http://www.facebook.com/nohis> ,
+    <http://keg.vse.cz/resource/person/josef-petrak>,
+    <http://keg.vse.cz/resource/person/vojtech-svatek> ;
+  rdfs:seeAlso <http://code.google.com/p/public-contracts-ontology/>, <http://prefix.cc/pc> ;
+  dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
+
+# --- Ontology authors  ---------------------------------------
+
+<http://purl.org/klimek#me> a foaf:Person ;
+  foaf:name "Jakub Klímek" ;
+  foaf:mbox <mailto:klimek.mff@gmail.com> .
+  
+<http://purl.org/knap#me> a foaf:Person ;
+  foaf:name "Tomáš Knap" ;
+  foaf:mbox <mailto:toknap@gmail.com> .
+
+<http://keg.vse.cz/resourceresource//person/jindrich-mynarz> a foaf:Person ;
+  foaf:name "Jindřich Mynarz" ;
+  foaf:mbox <mailto:mynarzjindrich@gmail.com> .
+
+<http://www.ksi.mff.cuni.cz/~necasky> a foaf:Person ;
+  foaf:name "Martin Nečaský" ;
+  foaf:mbox <mailto:martinnec@gmail.com> .
+
+<http://www.facebook.com/nohis> a foaf:Person ;
+   foaf:name "Pavel Nohejl" ;
+   foaf:mbox <mailto:nohejl.pavel@gmail.com> .
+                                               
+<http://keg.vse.cz/resource/person/josef-petrak> a foaf:Person ;
+  foaf:name "Josef Petrák" ;
+  foaf:mbox <mailto:me@jspetrak.name> .
+
+<http://keg.vse.cz/resource/person/vojtech-svatek> a foaf:Person ;
+  foaf:name "Vojtěch Svátek" ;
+  foaf:mbox <mailto:svatek@vse.cz> .  
+
+####### 
+####### Classes
+#######
+
+pc:Contract a owl:Class ;
+  rdfs:subClassOf c4n:Call ;
+  rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
+  rdfs:comment "Instance této třídy je abstraktní informační entitou o veřejné zakázce. Obsahuje všechny aktuálně známé informace o zakázce, tj. např. o zadavateli veřejné zakázky, službách či dodávkách, které ve veřejné zakázce nakupuje, a o podmínkách nákupu (termíny, očekávané ceny, atd.). Dále obsahuje informace o nabídkách od dodavatelů a o vybrané nabídce. Pokud již byla zakázka realizována, obsahuje i informace o skutečné ceně za realizaci apod."@cs ;
+  rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about received tenders of particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price for realization, etc."@en ;
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentClass loted:Tender
+  .
+
+pc:FrameworkAgreement a owl:Class ;
+  rdfs:subClassOf pc:Contract ;
+  rdfs:label "Rámcová smlouva"@cs, "Framework agreement"@en ;
+  rdfs:comment "Třída pro popis rámcové smlouvy"@cs ;
+  rdfs:comment "Class for decribing a framework agreement"@en ;
+  rdfs:isDefinedBy pc: 
+  .
+
+pc:Notice a owl:Class ;
+  rdfs:subClassOf irw:InformationResource ;
+  rdfs:label "Oznámení"@cs, "Notice"@en ;
+  rdfs:comment "Instance této třídy reprezentuje dokument oznamující veřejnosti informace o veřejné zakázce. Veškeré údaje jsou již uvedeny přímo u veřejné zakázky. Proto instance třídy pc:Notice pouze uvádí datum svého uveřejnění a odkaz na zakázku, kde lze údaje nalézt. Je rozlišováno několik typů oznámení modelovaných různými podtřídami pc:Notice."@cs ;
+  rdfs:comment "An instance of this class represents a document which notifies the public about the public contract. All data is already present at the contract itself. Therefore, the instance of pc:Notice only contains the date of publication and a link to the contract where it is possible to find all necessary information. We distinguish several types of notices which is modeled by different subclasses of pc:Notice."@en ;
+  rdfs:isDefinedBy pc: 
+  .
+
+pc:PriorInformationNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Předběžné oznámení o zakázce"@cs, "Prior information notice"@en ;
+  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující základní údaje o zakázce ještě před tím než je oficiálně zakázka vypsána."@cs ;
+  rdfs:comment "A special type of a contract notice which publishes only basic information about the contract before its is official issue."@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:ContractNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o zakázce"@cs , "Contract notice"@en ;
+  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující detailní údaje o zakázce a oficiálně vyhlašující zakázku."@cs ;
+  rdfs:comment "A special type of a contract notice which publishes detailed information about the contract and which officially issues the contract."@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:CancellationNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o zrušení zakázky"@cs , "Contract cancellation notice"@en ;
+  rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about cancelling the contract."@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:ContractAwardNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o zadání zakázky"@cs , "Contract award notice"@en ;
+  rdfs:comment "Speciální typ oznámení o zakázce informující o zadání zakázky vybranému dodavateli."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about awarding the contract to a chosen supplier."@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:ContractAmendmentNotice a owl:Class ;
+  rdfs:subClassOf pc:Notice ;
+  rdfs:label "Oznámení o změně zakázky"@cs , "Contract amendment notice"@en ;
+  rdfs:comment "Speciální typ oznámení o zakázce informující o změně v informacích o zakázce."@cs ;
+  rdfs:comment "A special type of a contract notice which informs about changing an information about the contract.."@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:Tender a owl:Class ;
+  rdfs:subClassOf gr:Offering ;
+  rdfs:label "Nabídka"@cs, "Tender"@en ;
+  rdfs:comment "Základní třída pro popis nabídky dodavatele"@cs ;
+  rdfs:comment "Basic class for decribing a tender submitted by a supplier"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:AwardCriteriaCombination a owl:Class ;
+  owl:equivalentClass loted:AwardCriteria ;
+  rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
+  rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek dodavatelů"@cs ;
+  rdfs:comment "Class for description of criteria combination used for tender evaluation"@en ;
+  rdfs:isDefinedBy pc:
+  .
+ 
+pc:CriterionWeighting a owl:Class ;
+  rdfs:subClassOf c4n:Condition ;
+  rdfs:label "Vážené kritérium pro udělení zakázky"@cs, "Contract award weighted criterion"@en ;
+  rdfs:comment "Třída pro popis jednoho kritéria a jeho váhy."@cs ;
+  rdfs:comment "Class for description of one criterion and its weight"@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+########
+######## Properties
+########
+
+####### General rules
+# Use adms:identifier for official national numbers of business entities
+# You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
+
+####### pc:Contract properties
+
+# Use dcterms:title and rdfs:label for a short title of a public contract
+# Use dcterms:description for a longer plain text description of a public contract
+# Use adms:identifier for official national numbers of public contracts, reference numbers of public contracts attributed by contracting authorities, notice numbers in EU TED, etc.
+
+pc:contact a owl:Property ;
+  rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
+  rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a dodavateli. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for contact information for a person or place responsible for a communication with the public and suppliers. If there are more contact places or persons (e.g., for collecting documentation to the public contract), there is a separate contact for each person. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range vcard:VCard ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
+  rdfs:label "Druh (typ) zakázky"@cs, "Contract kind (type)"@en ;
+  rdfs:comment "Druh (typ) veřejné zakázky specifikuje základní zaměření veřejné zakázky na stavební práce, dodávku zboží nebo služby. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
+  rdfs:comment "Kind (type) of a public contract specifies a basic focus of the contract on works, supplies or services. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue kinds:
+  ] ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
+  rdfs:label "Typ řízení"@cs, "Procedure type"@en ;
+  rdfs:comment "Typ řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
+  rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and choose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue proctypes: 
+  ] ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:contractingAuthority a owl:FunctionalProperty ;
+  rdfs:subPropertyOf [
+    owl:inverseOf c4n:issues
+  ] ;
+  rdfs:label "Zadavatel"@cs, "Contracting authority"@en ;
+  rdfs:comment "Instituce, která vypisuje veřejnou zakázku, přijímá nabídky a vybírá vhodného dodavatele na základě pravidel stanovených zakázkou. Kardinalita 0..1"@cs ;
+  rdfs:comment "Institution which issues a public contract, receives tenders to the contract and chooses a suitable supplier on the base of the conditions given by the contract. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range gr:BusinessEntity;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:item a rdf:Property ;
+  rdfs:subPropertyOf dcterms:hasPart ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf ( pc:Contract pc:Tender )
+  ] ;
+  rdfs:range gr:Offering ;
+  rdfs:comment "Položka poptávaná v rámci veřejné zakázky. Může být kombinací několika produktů či služeb, což lze vyjádřit pomocí vlastností gr:Offering. Kardinalita 0..*"@cs ;
+  rdfs:comment "An item inquired by a public contract. It can be a combination of several products or services which can be expressed using properties of gr:Offering. Cardinality 0..*"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:mainObject a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:subject ;
+  rdfs:label "Hlavní předmět zakázky"@cs, "Main object of contract"@en ;
+  rdfs:comment "CPV (Common Procurement Vocabulary) kód popisující hlavní předmět veřejné zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "CPV (Common Procurement Vocabulary) code describing the main object of a public contract. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:additionalObject a rdf:Property ;
+  rdfs:subPropertyOf dcterms:subject ;
+  rdfs:label "Další předmět zakázky"@cs, "Additional object of contract"@en ;
+  rdfs:comment "CPV (Common Procurement Vocabulary) kód popisující doplňující předmět veřejné zakázky. Kardinalita 0..*"@cs ;
+  rdfs:comment "CPV (Common Procurement Vocabulary) code describing an additional object of a public contract. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:location a rdf:Property ;
+  rdfs:label "Místo uskutečnění zakázky"@cs, "Place of contract's realization"@en ;
+  rdfs:comment "Místo, kde dojde k dodání produktu nebo plnění služby nasmlouvané ve veřejné zakázce. Kardinalita 0..*"@cs ;
+  rdfs:comment "Place of delivery of contracted product or performance of contracted service. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range s:Place ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:onBehalfOf a rdf:Property ;
+  rdfs:label "Jménem"@cs, "On behalf of"@en ;
+  rdfs:comment "Zadání zakázky jménem jiných veřejných zadavatelů. Kardinalita 0..*"@cs ;
+  rdfs:comment "Contract award on behalf of other contracting authorities. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range gr:BusinessEntity ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:notice a rdf:Property ;
+  rdfs:label "Oznámení o zakázce"@cs, "Contract notice"@en ;
+  rdfs:comment "Oznámení o zakázce publikované zadavatelem. Kardinalita 0..*"@cs ;
+  rdfs:comment "Notice about a contract published by the contracting authority. Kardinalita 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Notice ;
+  rdfs:isDefinedBy pc:
+  .
+
+####### ABSTRACT
+pc:contractPrice a rdf:Property ;
+  rdfs:label "Cena"@cs, "Price"@en ;
+  rdfs:comment "Abstraktní vlastnost pro cenu přiřazené k veřejné zakázce"@cs ;
+  rdfs:comment "Abstract property for price of public contract"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:documentsPrice a owl:FunctionalProperty ;
+  rdfs:label "Cena zadávací dokumentace k zakázce"@cs, "Price of specification documents of public contract"@en ;
+  rdfs:comment "Vlastnost pro cenu zadávací dokumentace k zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for price of specification documents of public contract.Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:estimatedPrice a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:contractPrice ;
+  rdfs:label "Odhadovaná cena zakázky"@cs, "Exact estimated price"@en ;
+  rdfs:comment "Vlastnost pro odhadovanou cenu veřejné zakázky. Může jít o přesně odhadovanou částku nebo interval. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for estimated price of public contract. It can be an exact estimation or an interval. Cardinality 0..1"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:tenderDeadline a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:label "Lhůta pro doručení nabídek nebo přijetí žádostí o účast"@cs,
+    "Time-limit for receipt of tenders or requests to participate"@en ;
+  rdfs:comment "Vlastnost pro lhůtu pro doručení nabídek nebo přijetí žádostí o účast. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for time limit for receipt of tenders or requests to participate. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:dateTime ;
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:DT
+  .
+  
+pc:documentsRequestDeadline a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:label "Lhůta pro vyžádání dokumentace k veřejné zakázce"@cs,
+    "Time-limit for receipt of requests for documents"@en ;
+  rdfs:comment "Vlastnost pro lhůtu pro vyžádání dokumentace k veřejné zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for time limit for receipt of requests for documents. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:dateTime ;
+  rdfs:isDefinedBy pc: 
+  .
+  
+pc:tenderOpeningDateTime a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:label "Termín otevírání obálek"@cs, "Date and time of opening tenders"@en ;
+  rdfs:comment "Vlastnost pro termín otevírání obálek s nabídkami do veřejné zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for date and time of opening tenders. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:dateTime ;
+  rdfs:isDefinedBy pc: 
+  .
+  
+pc:tenderOpeningLocation a owl:FunctionalProperty ;
+  rdfs:label "Místo otevírání obálek"@cs, "Place of opening tenders"@en ;
+  rdfs:comment "Místo, kde dojde otevření obálek s nabídkami do veřejné zakázky. Kardinalita 0..*"@cs ;
+  rdfs:comment "Place of opening tenders. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range s:Place ;
+  rdfs:isDefinedBy pc:
+  .
+   
+pc:duration a owl:FunctionalProperty ;
+  rdfs:label "Doba trvání zakázky"@cs, "Duration of contract"@en ;
+  rdfs:comment "Vlastnost pro dobu trvání zakázky. Doba trvání může být uvedena ve dnech, měsících, letech apod. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for duration of contract. The duration may be described in days, months, years, etc. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:duration ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:tenderMaintenanceDuration a owl:FunctionalProperty ;
+  rdfs:label "Doba trvání nabídky"@cs, "Duration of tender validity"@en ;
+  rdfs:comment "Vlastnost pro vyjádření minimální doby, po kterou je uchazeč svou nabídkou vázán. Doba trvání může být uvedena ve dnech, měsících, letech apod. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for expressing minimum time frame during which the tenderer must maintain the tender. The duration may be described in days, months, years, etc. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:duration ;
+  rdfs:isDefinedBy pc:
+  .  
+  
+pc:startDate a owl:FunctionalProperty ;
+  rdfs:label "Datum začátku realizace zakázky"@cs, "Start date of contract"@en ;
+  rdfs:comment "Vlastnost pro datum začátku realizace zakázky, které je uvedené ve smlouvě. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for start date of public contract realization coming from the contract's text. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:estimatedEndDate a owl:FunctionalProperty ;
+  rdfs:label "Očekávané datum konce realizace zakázky"@cs, "Estimated end date of contract"@en ;
+  rdfs:comment "Vlastnost pro očekávané datum konce realizace zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for estimated end date of public contract realization. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:actualEndDate a owl:FunctionalProperty ; 
+  rdfs:label "Skutečné datum konce realizace zakázky"@cs, "Actual end date of contract realization"@en ;
+  rdfs:comment "Vlastnost pro skutečné datum konce realizace zakázky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for actual end date of public contract's realization. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:awardCriteriaCombination a owl:FunctionalProperty ;
+  rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
+  rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:AwardCriteriaCombination ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:lot a rdf:Property ;  
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Contract ;
+  rdfs:label "Část zakázky"@cs, "Contract lot"@en ;
+  rdfs:comment "Vlastnost pro specifikaci části zakázky. Zakázku rozděluje na části zadavatel, pokud je zakázka přiliš velká. Dodavatelé podávají nabídky na každou část odděleně a pro každou část zakázky je vybrán samostatný dodavatel. Pro samotnou zakázku nabídky nejsou podávány. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for specifying contract lot. When contract is too big, it is split to lots by contracting authority. Suppliers then tender each lot separately. For each lot the authority awards a separate tender. The contract itself has no tenders. Cardinality 0..*"@en ;  
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:frameworkAgreement a rdf:Property ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:FrameworkAgreement ; 
+  rdfs:label "Na základě rámcové smlouvy"@cs, "On the base of a framework agreement"@en ;
+  rdfs:comment "Vlastnost pro rámcovou smlouvu na základě byla veřejná zakázka zadána. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for a framework agreement on which base a public contract was issued. Cardinality 0..1"@cs ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:numberOfTenders a owl:FunctionalProperty ;
+  rdfs:label "Počet obdržených nabídek"@cs, "Number of tenders received"@en ;
+  rdfs:comment "Vlastnost pro počet obdržených nabídek. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for number of tenders received. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:nonNegativeInteger ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:tender a rdf:Property ;
+  rdfs:label "Nabídka"@cs, "Tender"@en ;
+  rdfs:comment "Vlastnost pro nabídku dodavatele. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for a tender submitted by a supplier. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range pc:Tender ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:awardedTender a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:tender ;
+  rdfs:label "Vybraná nabídka"@cs, "Awarded tender"@en ;
+  rdfs:comment "Vlastnost pro vítěznou nabídku dodavatele. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for awarded tender submitted by a supplier. Cardinality 0..1"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:subsidy a rdf:Property ;
+  rdfs:label "Dotace použitá pro zakázku"@cs, "Subsidy supplemented for contract"@en ;
+  rdfs:comment "Vlastnost pro dotaci použitou pro zakázku. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for used tender subsidy. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range payment:Payment ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:agreedPrice a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:contractPrice ;
+  rdfs:label "Smluvní cena"@cs, "Agreed price"@en ;
+  rdfs:comment "Vlastnost pro cenu napsanou na smlouvě s dodavatelem. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for a price stated on the contract with the supplier. Cardinality 0..1"@en ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:actualPrice a owl:FunctionalProperty ;
+  rdfs:subPropertyOf pc:contractPrice ;
+  rdfs:label "Skutečná cena po realizaci zakázky"@cs, "Actual price after contract realization"@en ;
+  rdfs:comment "Vlastnost pro skutečnou cenu zaplacenou za zakázku. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for actual price of the public contract. Cardinality 0..1"@en ;
+  rdfs:range gr:PriceSpecification ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:attachment a rdf:Property ;
+  rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
+  rdfs:comment "Vlastnost pro připojení ostatních příhloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of other documents. For attachment of contract specification use pc:specification. For attachment of contract agreement use pc:agreement. Cardinality 0..*"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range foaf:Document ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:specification a rdf:Property ;
+  rdfs:subPropertyOf pc:attachment ;
+  rdfs:label "Specifikace zakázky"@cs, "Contract specification"@en ;
+  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících specifikaci veřejné zakázky. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of documents containing the contract specification. Cardinality 0..*"@en ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:agreement a rdf:Property ;
+  rdfs:subPropertyOf pc:attachment ;
+  rdfs:label "Smlouva na veřejnou zakázku"@cs, "Contract agreement"@en ;
+  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících smlouvy na veřejnou zakázku uzavřené mezi zadavatelem a dodavatelem. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for attachment of documents containing the agreement between supplier and contractor. Cardinality 0..*"@en ;
+  rdfs:isDefinedBy pc:
+  .
+  
+####### pc:Notice properties
+
+pc:publicationDate a owl:FunctionalProperty ;
+  rdfs:label "Datum zveřejnění oznámení o zakázce"@cs, "Notice publication date"@en ;
+  rdfs:comment "Vlastnost pro datum, kdy bylo oznámení publikováno. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for date, on which notice was published. Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:issued ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:previousNotice a owl:FunctionalProperty ;
+  rdfs:label "Přecházející verze oznámení o zakázce"@cs, "Previous version of the contract notice"@en ;
+  rdfs:comment "Odkaz na přecházející verzi totožného oznámení o zakázce. Kardinalita 0..1"@cs ;
+  rdfs:comment "Reference to previous version of the same notice. Cardinality 0..1"@en ;
+  rdfs:domain pc:Notice ;
+  rdfs:range pc:Notice ;
+  rdfs:isDefinedBy pc:
+  . 
+  
+####### pc:AwardCriteriaCombination properties
+
+pc:awardCriterion a rdf:Property ;
+  rdfs:label "Kritérium pro zadání zakázky."@cs, "Critera for contract award."@en, 
+    "Critères d'attribution"@fr, "Vergabekriterien"@de ;
+  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
+  rdfs:domain pc:AwardCriteriaCombination ;
+  rdfs:range pc:CriterionWeighting ;
+  rdfs:isDefinedBy pc: ;
+  owl:equivalentProperty loted:AC
+  .
+  
+####### pc:FrameworkAgreement properties
+
+pc:expectedNumberOfOperators a owl:FunctionalProperty ;
+  rdfs:label "Očekávaný počet účastníků rámcové smlouvy"@cs, "Expected number of operators of framework agreement"@en ;
+  rdfs:comment "Očekávaný počet účastníků rámcové smlouvy. Kardinalita 0..1"@cs ;
+  rdfs:comment "Expected number of operators of framework agreement. Cardinality 0..1"@en ;
+  rdfs:domain pc:FrameworkAgreement ;
+  rdfs:range gr:QuantitativeValueInteger ;
+  rdfs:isDefinedBy pc:
+  .
+
+####### gr:BusinessEntity properties
+
+pc:buyerProfile a owl:InverseFunctionalProperty ;
+  rdfs:subPropertyOf foaf:homepage ;
+  rdfs:label "Profilová stránka kupujícího"@cs, "Buyers's profile website"@en ;
+  rdfs:comment "Vlastnost pro internetovou adresu profilové stránky kupujícího (URL). Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for the internet address of the buyer profile (URL). Cardinality 0..1"@en ;
+  rdfs:domain gr:BusinessEntity ;
+  rdfs:range rdf:Resource ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty ;
+  rdfs:label "Druh veřejného zadavatele"@cs, "Kind of contracting authority"@en ;
+  rdfs:comment "Vlastnost pro druh veřejného zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for a kind of a contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  rdfs:domain gr:BusinessEntity ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue authkinds: 
+  ] ;
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
+  rdfs:label "Hlavní aktivita"@cs, "Hlavní aktivita"@en ;
+  rdfs:comment "Vlastnost pro hlavní aktivitu veřejného zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for main activity of contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  rdfs:domain gr:BusinessEntity ;
+  rdfs:range skos:Concept, [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue activities: 
+  ] ;
+  rdfs:isDefinedBy pc:
+  .
+  
+####### pc:Tender properties
+
+pc:offeredPrice a owl:FunctionalProperty ;
+  rdfs:subPropertyOf gr:hasPriceSpecification ;
+  rdfs:label "Nabídnutá cena v nabídce"@cs, "Offered price in tender"@en ;
+  rdfs:comment "Vlastnost pro cenu nabídnutou dodavatelem. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for price offered by supplier. Cardinality 0..1"@en ;
+  rdfs:domain pc:Tender ;
+  rdfs:range gr:PriceSpecification ;  
+  rdfs:isDefinedBy pc:
+  .
+  
+pc:supplier a rdf:Property ;
+ rdfs:label "Dodavatel, který podal nabídku"@cs, "Tender supplier"@en ;
+ rdfs:comment "Vlastnost pro dodavatele podávajícího nabídku. Kardinalita 0..1"@cs ;
+ rdfs:comment "Property for supplier submitting the tender. Cardinality 0..1"@en ;
+ rdfs:domain pc:Tender ;
+ rdfs:range gr:BusinessEntity ;
+ rdfs:isDefinedBy pc:
+ .
+
+####### pc:CriterionWeighting properties
+
+pc:weightedCriterion a owl:FunctionalProperty ;
+  rdfs:subPropertyOf dcterms:subject ;
+  rdfs:label "Vážené kritérium"@cs, "Weighted criterion"@en ;
+  rdfs:comment "Vlastnost pro připojení kritéria, které je váženo. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for attaching criterion that is weighted. Cardinality 0..1"@en ;
+  rdfs:domain pc:CriterionWeighting ;
+  rdfs:range skos:Concept ;
+  rdfs:isDefinedBy pc:
+  .
+
+pc:criterionWeight a owl:FunctionalProperty ;
+  rdfs:label "Váha kritéria pro výběr dodavatele zakázky"@cs, "Contract award criterion weight"@en ;
+  rdfs:comment "Vlastnost pro specifikaci váhy kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for criterion weight for tender evaluation. Cardinality 0..1"@en ;
+  rdfs:domain pc:CriterionWeighting ;
+  rdfs:range pcdt:percentage ;
+  rdfs:isDefinedBy pc:
+  .

@@ -1,0 +1,48 @@
+@prefix rdf:        <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:       <http://www.w3.org/2004/02/skos/core#> . 
+
+@prefix authkinds:  <http://purl.org/procurement/public-contracts-authority-kinds#> .
+
+####### Concept scheme of types of contracting authorities
+
+authkinds: a skos:ConceptScheme ;
+  rdfs:label "Schéma konceptů pro druhy veřejných zadavatelů"@cs ,
+    "Concept scheme for kinds of contracting authorities"@en ;
+  skos:hasTopConcept authkinds:NationalAuthority, authkinds:NationalAgency, authkinds:LocalAuthority, authkinds:LocalAgency, authkinds:PublicBody, authkinds:InternationalOrganization
+  .
+
+authkinds:NationalAuthority a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Ministerstvo nebo jiný celostátní či federální orgán"@cs, "Ministry or any other national or federal authority, including their regional or local sub-divisions"@en ;
+  skos:topConceptOf authkinds:
+  .
+
+authkinds:NationalAgency a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Celostátní či federální úřad/agentura"@cs, "National or federal agency/office"@en ;
+  skos:topConceptOf authkinds:
+  .
+
+authkinds:LocalAuthority a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Regionální či místní orgán"@cs , "Regional or local authority"@en ;
+  skos:topConceptOf authkinds:
+  .
+
+authkinds:LocalAgency a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Regionální či místní úřad/agentura"@cs, "Regional or local agency/office"@en ;
+  skos:topConceptOf authkinds:
+  .
+
+authkinds:PublicBody a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Veřejnoprávní instituce"@cs, "Body governed by public law"@en
+  .
+
+authkinds:InternationalOrganization a skos:Concept ;
+  skos:inScheme authkinds: ;
+  skos:prefLabel "Evropská instituce/agentura nebo mezinárodní organizace"@cs, "European institution/agency or international organisation""@en ;
+  skos:topConceptOf authkinds:
+  .
