@@ -33,13 +33,14 @@ pc: a owl:Ontology ;
     "Ontologie pro veřejné zakázky"@cs ;
   dcterms:description "Ontologie pro veřejné zakázky poskytuje vyjadřovací prostředky pro popis zakázek zadávaných institucemi veřejné správy."@cs ;
   dcterms:description "Public Contracts Ontology offers a means of expression for describing public contracts in the public sector."@en ;
-  dcterms:modified "2011-11-18"^^xsd:date ;
+  dcterms:modified "2012-10-10"^^xsd:date ;
   vann:preferredNamespaceUri "http://purl.org/procurement/public-contracts#" ;
   vann:preferredNamespacePrefix "pc" ;
   dcterms:creator <http://purl.org/klimek#me>,
+    <http://purl.org/knap#me>,
     <http://keg.vse.cz/resource/person/jindrich-mynarz>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
-    <http://www.facebook.com/nohis> ,
+    <http://www.facebook.com/nohis>,
     <http://keg.vse.cz/resource/person/josef-petrak>,
     <http://keg.vse.cz/resource/person/vojtech-svatek> ;
   rdfs:seeAlso <http://code.google.com/p/public-contracts-ontology/>, <http://prefix.cc/pc> ;
@@ -55,7 +56,7 @@ pc: a owl:Ontology ;
   foaf:name "Tomáš Knap" ;
   foaf:mbox <mailto:toknap@gmail.com> .
 
-<http://keg.vse.cz/resourceresource//person/jindrich-mynarz> a foaf:Person ;
+<http://keg.vse.cz/resource/person/jindrich-mynarz> a foaf:Person ;
   foaf:name "Jindřich Mynarz" ;
   foaf:mbox <mailto:mynarzjindrich@gmail.com> .
 
@@ -83,7 +84,7 @@ pc:Contract a owl:Class ;
   rdfs:subClassOf c4n:Call ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Instance této třídy je abstraktní informační entitou o veřejné zakázce. Obsahuje všechny aktuálně známé informace o zakázce, tj. např. o zadavateli veřejné zakázky, službách či dodávkách, které ve veřejné zakázce nakupuje, a o podmínkách nákupu (termíny, očekávané ceny, atd.). Dále obsahuje informace o nabídkách od dodavatelů a o vybrané nabídce. Pokud již byla zakázka realizována, obsahuje i informace o skutečné ceně za realizaci apod."@cs ;
-  rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about received tenders of particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price for realization, etc."@en ;
+  rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about tenders received from particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price of realization, etc."@en ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentClass loted:Tender
   .
@@ -100,7 +101,7 @@ pc:Notice a owl:Class ;
   rdfs:subClassOf irw:InformationResource ;
   rdfs:label "Oznámení"@cs, "Notice"@en ;
   rdfs:comment "Instance této třídy reprezentuje dokument oznamující veřejnosti informace o veřejné zakázce. Veškeré údaje jsou již uvedeny přímo u veřejné zakázky. Proto instance třídy pc:Notice pouze uvádí datum svého uveřejnění a odkaz na zakázku, kde lze údaje nalézt. Je rozlišováno několik typů oznámení modelovaných různými podtřídami pc:Notice."@cs ;
-  rdfs:comment "An instance of this class represents a document which notifies the public about the public contract. All data is already present at the contract itself. Therefore, the instance of pc:Notice only contains the date of publication and a link to the contract where it is possible to find all necessary information. We distinguish several types of notices which is modeled by different subclasses of pc:Notice."@en ;
+  rdfs:comment "An instance of this class represents a document which notifies the public about a public contract. All data is already present in the contract itself. Therefore, the instance of pc:Notice contains only the date of publication and a link to the contract where it is possible to find all necessary information. We distinguish several types of notices which are modelled by different subclasses of pc:Notice."@en ;
   rdfs:isDefinedBy pc: 
   .
 
@@ -108,7 +109,7 @@ pc:PriorInformationNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Předběžné oznámení o zakázce"@cs, "Prior information notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce uveřejňující základní údaje o zakázce ještě před tím než je oficiálně zakázka vypsána."@cs ;
-  rdfs:comment "A special type of a contract notice which publishes only basic information about the contract before its is official issue."@en ;
+  rdfs:comment "A special type of notice which publishes only basic information about the contract before it is issued officially."@en ;
   rdfs:isDefinedBy pc:
   .
 
@@ -116,7 +117,7 @@ pc:ContractNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zakázce"@cs , "Contract notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce uveřejňující detailní údaje o zakázce a oficiálně vyhlašující zakázku."@cs ;
-  rdfs:comment "A special type of a contract notice which publishes detailed information about the contract and which officially issues the contract."@en ;
+  rdfs:comment "A special type of notice which publishes detailed information about the contract and which officially issues the contract."@en ;
   rdfs:isDefinedBy pc:
   .
 
@@ -124,7 +125,7 @@ pc:CancellationNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zrušení zakázky"@cs , "Contract cancellation notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs ;
-  rdfs:comment "A special type of a contract notice which informs about cancelling the contract."@en ;
+  rdfs:comment "A special type of notice which informs about contract's cancellation."@en ;
   rdfs:isDefinedBy pc:
   .
   
@@ -132,7 +133,7 @@ pc:ContractAwardNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o zadání zakázky"@cs , "Contract award notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce informující o zadání zakázky vybranému dodavateli."@cs ;
-  rdfs:comment "A special type of a contract notice which informs about awarding the contract to a chosen supplier."@en ;
+  rdfs:comment "A special type of notice which informs about awarding the contract to a chosen supplier."@en ;
   rdfs:isDefinedBy pc:
   .
 
@@ -140,7 +141,7 @@ pc:ContractAmendmentNotice a owl:Class ;
   rdfs:subClassOf pc:Notice ;
   rdfs:label "Oznámení o změně zakázky"@cs , "Contract amendment notice"@en ;
   rdfs:comment "Speciální typ oznámení o zakázce informující o změně v informacích o zakázce."@cs ;
-  rdfs:comment "A special type of a contract notice which informs about changing an information about the contract.."@en ;
+  rdfs:comment "A special type of notice which informs about changes made to the description of a contract."@en ;
   rdfs:isDefinedBy pc:
   .
 
