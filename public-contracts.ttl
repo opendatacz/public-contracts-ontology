@@ -530,7 +530,10 @@ pc:publicationDate a owl:FunctionalProperty ;
   rdfs:label "Datum zveřejnění oznámení o zakázce"@cs, "Notice publication date"@en ;
   rdfs:comment "Vlastnost pro datum, kdy bylo oznámení publikováno. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for date, on which notice was published. Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
+  rdfs:domain [
+    a owl:Class ;
+    owl:unionOf (pc:Notice pc:Tender)
+  ] ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:issued ;
   rdfs:isDefinedBy pc:
