@@ -184,14 +184,17 @@ pc:ContractPartIdentifierIssuedByContractingAuthority a owl:Class ;
 ########
 
 ####### General rules
-# Use adms:identifier for official national numbers of business entities
+
+
 # You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
 
 ####### pc:Contract properties
 
-# Use dcterms:title and rdfs:label for a short title of a public contract
-# Use dcterms:description for a longer plain text description of a public contract
-# Use adms:identifier for official national numbers of public contracts, reference numbers of public contracts attributed by contracting authorities, notice numbers in EU TED, etc.
+adms:identifier vann:usageNote "Use for attaching identifiers (instances of adms:Identifier) to contracting authorities and suppliers (instances of gr:BusinessEntity). The property should be used for official numbers assigned to public contracts in national public procurement systems, reference numbers of public contracts assigned by their contracting authorities, notice number in EU TED, etc. The domain is a union of gr:BusinessEntity, pc:Notice and pc:Contract."@en .
+
+dcterms:title vann:usageNote "Use for labelling public contracts (instances of pc:Contract). The domain is pc:Contract."@en .
+
+dcterms:description vann:usageNote "Use for attaching plain text description of public contracts (instances of pc:Contract). The domain is pc:Contract."@en .
 
 pc:contact a owl:Property ;
   rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
