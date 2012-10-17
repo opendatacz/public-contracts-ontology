@@ -312,10 +312,10 @@ pc:contractPrice a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
 
-pc:documentsPrice a owl:FunctionalProperty ;
-  rdfs:label "Cena zadávací dokumentace k zakázce"@cs, "Price of specification documents of public contract"@en ;
+pc:documentationPrice a owl:FunctionalProperty ;
+  rdfs:label "Cena zadávací dokumentace k zakázce"@cs, "Price of documentation for public contract"@en ;
   rdfs:comment "Vlastnost pro cenu zadávací dokumentace k zakázce. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for price of specification documents of public contract.Cardinality 0..1"@en ;
+  rdfs:comment "Property for price of documentation for public contract. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range gr:PriceSpecification ;
   rdfs:isDefinedBy pc:
@@ -341,12 +341,12 @@ pc:tenderDeadline a owl:FunctionalProperty ;
   owl:equivalentProperty loted:DT
   .
   
-pc:documentsRequestDeadline a owl:FunctionalProperty ;
+pc:documentationRequestDeadline a owl:FunctionalProperty ;
   rdfs:subPropertyOf dcterms:date ;
   rdfs:label "Lhůta pro vyžádání dokumentace k veřejné zakázce"@cs,
-    "Time-limit for receipt of requests for documents"@en ;
+    "Time-limit for receipt of requests for documentation"@en ;
   rdfs:comment "Vlastnost pro lhůtu pro vyžádání dokumentace k veřejné zakázce. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for time limit for receipt of requests for documents. Cardinality 0..1"@en ;
+  rdfs:comment "Property for time limit for receipt of requests for documentation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:dateTime ;
   rdfs:isDefinedBy pc: 
