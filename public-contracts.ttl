@@ -179,6 +179,13 @@ pc:ContractPartIdentifierIssuedByContractingAuthority a owl:Class ;
   rdfs:isDefinedBy pc:
   .
 
+pc:TendersOpening a owl:Class ;
+  rdfs:subClassOf s:Event ;
+  rdfs:label "Tenders' opening"@en, "Otevírání nabídek"@cs ;
+  rdfs:description "Opening of tenders submitted for a public contract"@en, "Otevírání nabídek zaslaných pro veřejnou zakázku"@cs ;
+  rdfs:isDefinedBy pc:
+  .
+
 ########
 ######## Properties
 ########
@@ -276,6 +283,7 @@ pc:additionalObject a rdf:Property ;
   .
 
 pc:location a rdf:Property ;
+  rdfs:subPropertyOf s:location ;
   rdfs:label "Místo uskutečnění zakázky"@cs, "Place of contract's realization"@en ;
   rdfs:comment "Místo, kde dojde k dodání produktu nebo plnění služby nasmlouvané ve veřejné zakázce. Kardinalita 0..*"@cs ;
   rdfs:comment "Place of delivery of contracted product or performance of contracted service. Cardinality 0..*"@en ;
@@ -351,26 +359,7 @@ pc:documentationRequestDeadline a owl:FunctionalProperty ;
   rdfs:range xsd:dateTime ;
   rdfs:isDefinedBy pc: 
   .
-  
-pc:tenderOpeningDateTime a owl:FunctionalProperty ;
-  rdfs:subPropertyOf dcterms:date ;
-  rdfs:label "Termín otevírání obálek"@cs, "Date and time of opening tenders"@en ;
-  rdfs:comment "Vlastnost pro termín otevírání obálek s nabídkami do veřejné zakázky. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for date and time of opening tenders. Cardinality 0..1"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range xsd:dateTime ;
-  rdfs:isDefinedBy pc: 
-  .
-  
-pc:tenderOpeningLocation a owl:FunctionalProperty ;
-  rdfs:label "Místo otevírání obálek"@cs, "Place of opening tenders"@en ;
-  rdfs:comment "Místo, kde dojde otevření obálek s nabídkami do veřejné zakázky. Kardinalita 0..*"@cs ;
-  rdfs:comment "Place of opening tenders. Cardinality 0..*"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range s:Place ;
-  rdfs:isDefinedBy pc:
-  .
-   
+
 pc:duration a owl:FunctionalProperty ;
   rdfs:label "Doba trvání zakázky"@cs, "Duration of contract"@en ;
   rdfs:comment "Vlastnost pro dobu trvání zakázky. Doba trvání může být uvedena ve dnech, měsících, letech apod. Kardinalita 0..1"@cs ;
@@ -630,6 +619,25 @@ pc:supplier a rdf:Property ;
  rdfs:range gr:BusinessEntity ;
  rdfs:isDefinedBy pc:
  .
+
+####### pc:TendersOpening properties
+
+pc:contract a rdf:Property ;
+  rdfs:label "Public contract"@en, "Veřejná zakázka"@cs ;
+  rdfs:description "Public contract, for which tenders are opened"@en ,
+    "Veřejná zakázka, pro níž jsou otevírány nabídky"@cs ;
+  rdfs:domain pc:TendersOpening ;
+  rdfs:range pc:Contract ;
+  rdfs:isDefinedBy pc:
+  .
+
+dcterms:date vann:usageNote "Use for date and time, when tenders are opened. The domain is pc:TendersOpening. Cardinality 0..1"@en , 
+  "Používejte pro datum a čas otevření nabídek. Definičním oborem je pc:TendersOpening. Kardinalita 0..1"@cs
+  .
+
+s:location vann:usageNote "Use for location, where tenders are opened. The domain is pc:TendersOpening. Cardinality 0..1"@en,
+  "Místo, kde dojde k otevření obálek s nabídkami pro veřejnou zakázku. Definičním oborem je pc:TendersOpening. Kardinalita 0..1"@cs
+  .
 
 ####### pc:CriterionWeighting properties
 
