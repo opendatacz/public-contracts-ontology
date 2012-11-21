@@ -82,7 +82,6 @@ pc: a owl:Ontology ;
 #######
 
 pc:Contract a owl:Class ;
-  rdfs:subClassOf c4n:Call ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
   rdfs:comment "Instance této třídy je abstraktní informační entitou o veřejné zakázce. Obsahuje všechny aktuálně známé informace o zakázce, tj. např. o zadavateli veřejné zakázky, službách či dodávkách, které ve veřejné zakázce nakupuje, a o podmínkách nákupu (termíny, očekávané ceny, atd.). Dále obsahuje informace o nabídkách od dodavatelů a o vybrané nabídce. Pokud již byla zakázka realizována, obsahuje i informace o skutečné ceně za realizaci apod."@cs ;
   rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about tenders received from particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price of realization, etc."@en ;
