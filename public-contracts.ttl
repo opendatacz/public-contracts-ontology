@@ -181,6 +181,16 @@ pc:notice a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
 
+pc:awardDate a owl:FunctionalProperty ;
+  rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
+  rdfs:comment "Vlastnost pro datum přidělení zakázky dodavateli. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for date of contract award to a supplier. Cardinality 0..1"@en ;
+  rdfs:domain pc:Contract ;
+  rdfs:range xsd:date ;
+  rdfs:subPropertyOf dcterms:date ;
+  rdfs:isDefinedBy pc:
+  .
+
 ####### pc:ContractStatus properties
 
 dcterms:title vann:usageNote "Use for labelling states of public contracts (instances of pc:ContractStatus). The domain is pc:ContractStatus."@en .
