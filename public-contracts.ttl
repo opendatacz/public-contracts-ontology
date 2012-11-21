@@ -11,6 +11,7 @@
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix s:        <http://schema.org/> .
+@prefix sit:      <http://www.ontologydesignpatterns.org/cp/owl/timeindexedsituation.owl#> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
@@ -87,6 +88,12 @@ pc:Contract a owl:Class ;
   rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about tenders received from particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price of realization, etc."@en ;
   rdfs:isDefinedBy pc: ;
   owl:equivalentClass loted:Tender
+  .
+
+pc:ContractStatus a owl:Class ;
+  rdfs:subClassOf sit:TimeIndexedSituation ;
+  rdfs:label "Stav veřejné zakázky"@cs, "Status of a public contract"@en ;
+  rdfs:isDefinedBy pc: 
   .
 
 pc:FrameworkAgreement a owl:Class ;
