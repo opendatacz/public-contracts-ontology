@@ -257,6 +257,14 @@ pc:onBehalfOf a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
 
+pc:previous a owl:FunctionalProperty ;
+  rdfs:label "Předchozí stav zakázky"@cs, "Previous status of a contract"@en ;
+  rdfs:comment "Kardinalita 0..1"@cs, "Cardinality 0..1"@en ;
+  rdfs:domain pc:ContractStatus ;
+  rdfs:range pc:ContractStatus ;
+  rdfs:isDefinedBy pc:
+  .
+
 ####### ABSTRACT
 
 pc:contractPrice a rdf:Property ;
