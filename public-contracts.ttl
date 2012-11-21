@@ -165,7 +165,6 @@ pc:TendersOpening a owl:Class ;
 
 ####### General rules
 
-
 # You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
 
 ####### pc:Contract properties
@@ -190,6 +189,12 @@ pc:awardDate a owl:FunctionalProperty ;
   rdfs:subPropertyOf dcterms:date ;
   rdfs:isDefinedBy pc:
   .
+
+####### pc:Notice properties
+
+dcterms:dateSubmitted vann:usageNote "Use for expressing the date, when a notice was submitted. The domain is pc:Notice."@en .
+
+dcterms:dateAccepted vann:usageNote "Use for expressing the date, when a notice was accepted. The domain is pc:Notice."@en .
 
 ####### pc:ContractStatus properties
 
