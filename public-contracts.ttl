@@ -542,9 +542,9 @@ pc:expectedNumberOfOperators a owl:FunctionalProperty ;
 
 pc:profile a owl:InverseFunctionalProperty ;
   rdfs:subPropertyOf foaf:homepage ;
-  rdfs:label "Profilová stránka kupujícího"@cs, "Buyers's profile website"@en ;
-  rdfs:comment "Vlastnost pro internetovou adresu profilové stránky kupujícího (URL). Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for the internet address of the buyer profile (URL). Cardinality 0..1"@en ;
+  rdfs:label "Profilová stránka zadavatele"@cs, "Profile web site of contracting authority"@en ;
+  rdfs:comment "Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL). Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for the internet address of the profile of contracting authority (URL). Cardinality 0..1"@en ;
   rdfs:domain gr:BusinessEntity ;
   rdfs:range rdf:Resource ;
   rdfs:isDefinedBy pc:
