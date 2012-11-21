@@ -202,6 +202,10 @@ dcterms:title vann:usageNote "Use for labelling states of public contracts (inst
 
 dcterms:description vann:usageNote "Use for attaching plain text description of public contracts (instances of pc:ContractStatus). The domain is pc:ContractStatus."@en .
 
+sit:atTime vann:usageNote "Use for attaching the time interval during which contract status (instance of pc:ContractStatus) lasted. The domain is pc:ContractStatus. The range is timeinterval:TimeInterval (http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#TimeInterval)."@en .
+
+sit:forEntity vann:usageNote "Use for referring to the contract that is represented in a contract status (instance of pc:ContractStatus). The domain is pc:ContractStatus. The range is pc:Contract."@en .
+
 pc:contact a owl:Property ;
   rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
   rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a dodavateli. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
