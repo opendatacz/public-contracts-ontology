@@ -102,54 +102,6 @@ pc:ContractStatus a owl:Class ;
   rdfs:isDefinedBy pc: 
   .
 
-pc:Notice a owl:Class ;
-  rdfs:subClassOf irw:InformationResource ;
-  rdfs:label "Oznámení"@cs, "Notice"@en ;
-  rdfs:comment "Instance této třídy reprezentuje dokument oznamující veřejnosti informace o veřejné zakázce. Veškeré údaje jsou již uvedeny přímo u veřejné zakázky. Proto instance třídy pc:Notice pouze uvádí datum svého uveřejnění a odkaz na zakázku, kde lze údaje nalézt. Je rozlišováno několik typů oznámení modelovaných různými podtřídami pc:Notice."@cs ;
-  rdfs:comment "An instance of this class represents a document which notifies the public about a public contract. All data is already present in the contract itself. Therefore, the instance of pc:Notice contains only the date of publication and a link to the contract where it is possible to find all necessary information. We distinguish several types of notices which are modelled by different subclasses of pc:Notice."@en ;
-  rdfs:isDefinedBy pc: 
-  .
-
-pc:PriorInformationNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Předběžné oznámení o zakázce"@cs, "Prior information notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující základní údaje o zakázce ještě před tím než je oficiálně zakázka vypsána."@cs ;
-  rdfs:comment "A special type of notice which publishes only basic information about the contract before it is issued officially."@en ;
-  rdfs:isDefinedBy pc:
-  .
-
-pc:ContractNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o zakázce"@cs , "Contract notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce uveřejňující detailní údaje o zakázce a oficiálně vyhlašující zakázku."@cs ;
-  rdfs:comment "A special type of notice which publishes detailed information about the contract and which officially issues the contract."@en ;
-  rdfs:isDefinedBy pc:
-  .
-
-pc:CancellationNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o zrušení zakázky"@cs , "Contract cancellation notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o zrušení zakázky."@cs ;
-  rdfs:comment "A special type of notice which informs about contract's cancellation."@en ;
-  rdfs:isDefinedBy pc:
-  .
-  
-pc:ContractAwardNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o zadání zakázky"@cs , "Contract award notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o zadání zakázky vybranému dodavateli."@cs ;
-  rdfs:comment "A special type of notice which informs about awarding the contract to a chosen supplier."@en ;
-  rdfs:isDefinedBy pc:
-  .
-
-pc:ContractAmendmentNotice a owl:Class ;
-  rdfs:subClassOf pc:Notice ;
-  rdfs:label "Oznámení o změně zakázky"@cs , "Contract amendment notice"@en ;
-  rdfs:comment "Speciální typ oznámení o zakázce informující o změně v informacích o zakázce."@cs ;
-  rdfs:comment "A special type of notice which informs about changes made to the description of a contract."@en ;
-  rdfs:isDefinedBy pc:
-  .
-
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
@@ -202,7 +154,7 @@ pc:TendersOpening a owl:Class ;
 
 ####### pc:Contract properties
 
-adms:identifier vann:usageNote "Use for attaching identifiers (instances of adms:Identifier) to contracting authorities and suppliers (instances of gr:BusinessEntity). The property should be used for official numbers assigned to public contracts in national public procurement systems, reference numbers of public contracts assigned by their contracting authorities, notice number in EU TED, etc. The domain is a union of gr:BusinessEntity, pc:Notice and pc:Contract."@en .
+adms:identifier vann:usageNote "Use for attaching identifiers (instances of adms:Identifier) to contracting authorities and suppliers (instances of gr:BusinessEntity). The property should be used for official numbers assigned to public contracts in national public procurement systems, reference numbers of public contracts assigned by their contracting authorities, notice number in EU TED, etc. The domain is a union of gr:BusinessEntity and pc:Contract."@en .
 
 ####### pc:ContractStatus properties
 
@@ -302,15 +254,6 @@ pc:onBehalfOf a rdf:Property ;
   rdfs:comment "Contract award on behalf of other contracting authorities. Cardinality 0..*"@en ;
   rdfs:domain pc:ContractStatus ;
   rdfs:range gr:BusinessEntity ;
-  rdfs:isDefinedBy pc:
-  .
-
-pc:notice a rdf:Property ;
-  rdfs:label "Oznámení o zakázce"@cs, "Contract notice"@en ;
-  rdfs:comment "Oznámení o zakázce publikované zadavatelem. Kardinalita 0..*"@cs ;
-  rdfs:comment "Notice about a contract published by the contracting authority. Kardinalita 0..*"@en ;
-  rdfs:domain pc:Contract ;
-  rdfs:range pc:Notice ;
   rdfs:isDefinedBy pc:
   .
 
@@ -518,30 +461,7 @@ pc:agreement a rdf:Property ;
   rdfs:isDefinedBy pc:
   .
   
-####### pc:Notice properties
 
-pc:publicationDate a owl:FunctionalProperty ;
-  rdfs:label "Datum zveřejnění oznámení o zakázce"@cs, "Notice publication date"@en ;
-  rdfs:comment "Vlastnost pro datum, kdy bylo oznámení publikováno. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for date, on which notice was published. Cardinality 0..1"@en ;
-  rdfs:domain [
-    a owl:Class ;
-    owl:unionOf (pc:Notice pc:Tender pc:TendersOpening)
-  ] ;
-  rdfs:range xsd:date ;
-  rdfs:subPropertyOf dcterms:issued ;
-  rdfs:isDefinedBy pc:
-  .
-
-pc:previousNotice a owl:FunctionalProperty ;
-  rdfs:label "Přecházející verze oznámení o zakázce"@cs, "Previous version of the contract notice"@en ;
-  rdfs:comment "Odkaz na přecházející verzi totožného oznámení o zakázce. Kardinalita 0..1"@cs ;
-  rdfs:comment "Reference to previous version of the same notice. Cardinality 0..1"@en ;
-  rdfs:domain pc:Notice ;
-  rdfs:range pc:Notice ;
-  rdfs:isDefinedBy pc:
-  . 
-  
 ####### pc:AwardCriteriaCombination properties
 
 pc:awardCriterion a rdf:Property ;
