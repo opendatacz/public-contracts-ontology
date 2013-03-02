@@ -43,6 +43,6 @@ authkinds:PublicBody a skos:Concept ;
 
 authkinds:InternationalOrganization a skos:Concept ;
   skos:inScheme authkinds: ;
-  skos:prefLabel "Evropská instituce/agentura nebo mezinárodní organizace"@cs, "European institution/agency or international organisation""@en ;
+  skos:prefLabel "Evropská instituce/agentura nebo mezinárodní organizace"@cs, "European institution/agency or international organisation"@en ;
   skos:topConceptOf authkinds:
   .
