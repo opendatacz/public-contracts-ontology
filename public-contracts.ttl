@@ -162,9 +162,9 @@ pc:contact a owl:Property ;
 
 pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:subPropertyOf dcterms:type ;
-  rdfs:label "Druh (typ) zakázky"@cs, "Contract kind (type)"@en ;
-  rdfs:comment "Druh (typ) veřejné zakázky specifikuje základní zaměření veřejné zakázky na stavební práce, dodávku zboží nebo služby. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
-  rdfs:comment "Kind (type) of a public contract specifies a basic focus of the contract on works, supplies or services. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  rdfs:label "Kategorie zakázky"@cs, "Contract kind"@en ;
+  rdfs:comment "Kategorie veřejné zakázky specifikuje základní zaměření veřejné zakázky na stavební práce, dodávku zboží nebo služby. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
+  rdfs:comment "Kind of a public contract specifies a basic focus of the contract on works, supplies or services. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept, [
     a owl:Restriction ;
@@ -175,8 +175,8 @@ pc:kind a owl:FunctionalProperty, qb:CodedProperty ;
   .
   
 pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Typ řízení"@cs, "Procedure type"@en ;
-  rdfs:comment "Typ řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
+  rdfs:label "Druh řízení"@cs, "Procedure type"@en ;
+  rdfs:comment "Druh řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
   rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and choose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range skos:Concept, [
