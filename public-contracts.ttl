@@ -81,8 +81,8 @@
 
 pc:Contract a owl:Class ;
   rdfs:label "Veřejná zakázka"@cs, "Public contract"@en ;
-  rdfs:comment "Instance této třídy je abstraktní informační entitou o veřejné zakázce. Obsahuje všechny aktuálně známé informace o zakázce, tj. např. o zadavateli veřejné zakázky, službách či dodávkách, které ve veřejné zakázce nakupuje, a o podmínkách nákupu (termíny, očekávané ceny, atd.). Dále obsahuje informace o nabídkách od dodavatelů a o vybrané nabídce. Pokud již byla zakázka realizována, obsahuje i informace o skutečné ceně za realizaci apod."@cs ;
-  rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about tenders received from particular suppliers and about an accepted tender. If the contract has already been realized it also informs about an actual price of realization, etc."@en ;
+  rdfs:comment "Instance této třídy je abstraktní informační entitou o veřejné zakázce. Obsahuje všechny aktuálně známé informace o zakázce, tj. např. o zadavateli veřejné zakázky, službách či dodávkách, které ve veřejné zakázce nakupuje, a o podmínkách nákupu (termíny, očekávané ceny, atd.). Dále obsahuje informace o nabídkách od zájemců o zakázku a o vybrané nabídce. Pokud již byla zakázka realizována, obsahuje i informace o skutečné ceně za realizaci apod."@cs ;
+  rdfs:comment "An instance of this class is an abstract information entity about a public contract. It consists of all currently known information about a contract, e.g., a contracting authority, services or supplies which shall be purchased, and contract conditions (e.g., important dates, expected price, etc.). It also informs about tenders received from particular bidders and about an accepted tender. If the contract has already been realized it also informs about an actual price of realization, etc."@en ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts> ;
   owl:equivalentClass loted:Tender
   .
@@ -97,15 +97,15 @@ pc:FrameworkAgreement a owl:Class ;
 pc:Tender a owl:Class ;
   rdfs:subClassOf gr:Offering ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
-  rdfs:comment "Základní třída pro popis nabídky dodavatele"@cs ;
-  rdfs:comment "Basic class for decribing a tender submitted by a supplier"@en ;
+  rdfs:comment "Základní třída pro popis nabídky zájemce o zakázku"@cs ;
+  rdfs:comment "Basic class for decribing a tender submitted by a bidder"@en ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
 pc:AwardCriteriaCombination a owl:Class ;
   owl:equivalentClass loted:AwardCriteria ;
   rdfs:label "Kombinace kritérií pro hodnocení dodaných nabídek"@cs, "Combination of contract award criteria"@en ;
-  rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek dodavatelů"@cs ;
+  rdfs:comment "Třída pro popis kombinace kritérií pro posuzování nabídek zájemců o zakázku"@cs ;
   rdfs:comment "Class for description of criteria combination used for tender evaluation"@en ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
@@ -135,12 +135,12 @@ pc:TendersOpening a owl:Class ;
 
 ####### pc:Contract properties
 
-adms:identifier vann:usageNote "Use for attaching identifiers (instances of adms:Identifier) to contracting authorities and suppliers (instances of gr:BusinessEntity). The property should be used for official numbers assigned to public contracts in national public procurement systems, reference numbers of public contracts assigned by their contracting authorities, notice number in EU TED, etc. The domain is a union of gr:BusinessEntity and pc:Contract."@en .
+adms:identifier vann:usageNote "Use for attaching identifiers (instances of adms:Identifier) to contracting authorities and bidders (instances of gr:BusinessEntity). The property should be used for official numbers assigned to public contracts in national public procurement systems, reference numbers of public contracts assigned by their contracting authorities, notice number in EU TED, etc. The domain is a union of gr:BusinessEntity and pc:Contract."@en .
 
 pc:awardDate a owl:FunctionalProperty ;
   rdfs:label "Datum přidělení zakázky"@cs, "Date of contract award"@en ;
   rdfs:comment "Vlastnost pro datum přidělení zakázky dodavateli. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for date of contract award to a supplier. Cardinality 0..1"@en ;
+  rdfs:comment "Property for date of contract award to a bidder. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range xsd:date ;
   rdfs:subPropertyOf dcterms:date ;
@@ -153,8 +153,8 @@ dcterms:description vann:usageNote "Use for attaching plain text description of 
 
 pc:contact a owl:Property ;
   rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
-  rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a dodavateli. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for contact information for a person or place responsible for a communication with the public and suppliers. If there are more contact places or persons (e.g., for collecting documentation to the public contract), there is a separate contact for each person. Cardinality 0..*"@en ;
+  rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a zájemci o zakázku. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for contact information for a person or place responsible for a communication with the public and bidders. If there are more contact places or persons (e.g., for collecting documentation to the public contract), there is a separate contact for each person. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range vcard:VCard ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
@@ -347,8 +347,8 @@ pc:actualEndDate a owl:FunctionalProperty ;
   .
 
 pc:awardCriteriaCombination a owl:FunctionalProperty ;
-  rdfs:label "Kombinace kritérií pro hodnocení nabídek dodavatelů zakázky."@cs, "Criteria combination for tender evaluation."@en ;
-  rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek dodavatelů. Kardinalita 0..1"@cs ;
+  rdfs:label "Kombinace kritérií pro hodnocení nabídek zájemců o zakázku."@cs, "Criteria combination for tender evaluation."@en ;
+  rdfs:comment "Vlastnost pro nastavení kombinace kritérií pro hodnocení nabídek zájemců o zakázku. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for criteria combination for tender evaluation. Cardinality 0..1"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:AwardCriteriaCombination ;
@@ -359,8 +359,8 @@ pc:lot a rdf:Property ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Contract ;
   rdfs:label "Část zakázky"@cs, "Contract lot"@en ;
-  rdfs:comment "Vlastnost pro specifikaci části zakázky. Zakázku rozděluje na části zadavatel, pokud je zakázka přiliš velká. Dodavatelé podávají nabídky na každou část odděleně a pro každou část zakázky je vybrán samostatný dodavatel. Pro samotnou zakázku nabídky nejsou podávány. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for specifying contract lot. When contract is too big, it is split to lots by contracting authority. Suppliers then tender each lot separately. For each lot the authority awards a separate tender. The contract itself has no tenders. Cardinality 0..*"@en ;  
+  rdfs:comment "Vlastnost pro specifikaci části zakázky. Zakázku rozděluje na části zadavatel, pokud je zakázka přiliš velká. Zájemci o zakázku podávají nabídky na každou část odděleně a pro každou část zakázky je vybrán samostatný dodavatel. Pro samotnou zakázku nabídky nejsou podávány. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for specifying contract lot. When contract is too big, it is split to lots by contracting authority. Bidders then tender each lot separately. For each lot the authority awards a separate tender. The contract itself has no tenders. Cardinality 0..*"@en ;  
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
@@ -384,8 +384,8 @@ pc:numberOfTenders a owl:FunctionalProperty ;
   
 pc:tender a rdf:Property ;
   rdfs:label "Nabídka"@cs, "Tender"@en ;
-  rdfs:comment "Vlastnost pro nabídku dodavatele. Kardinalita 0..*"@cs ;
-  rdfs:comment "Property for a tender submitted by a supplier. Cardinality 0..*"@en ;
+  rdfs:comment "Vlastnost pro nabídku zájemce o zakázku. Kardinalita 0..*"@cs ;
+  rdfs:comment "Property for a tender submitted by a bidder. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range pc:Tender ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
@@ -394,8 +394,8 @@ pc:tender a rdf:Property ;
 pc:awardedTender a owl:FunctionalProperty ;
   rdfs:subPropertyOf pc:tender ;
   rdfs:label "Vybraná nabídka"@cs, "Awarded tender"@en ;
-  rdfs:comment "Vlastnost pro vítěznou nabídku dodavatele. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for awarded tender submitted by a supplier. Cardinality 0..1"@en ;
+  rdfs:comment "Vlastnost pro vítěznou nabídku zájemce o zakázku. Kardinalita 0..1"@cs ;
+  rdfs:comment "Property for awarded tender submitted by a bidder. Cardinality 0..1"@en ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
@@ -456,7 +456,7 @@ pc:agreement a rdf:Property ;
 pc:awardCriterion a rdf:Property ;
   rdfs:label "Kritérium pro zadání zakázky."@cs, "Criterion for contract award."@en, 
     "Critères d'attribution"@fr, "Vergabekriterien"@de ;
-  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek dodavatelů. Kardinalita 0..*"@cs ;
+  rdfs:comment "Vlastnost pro nastavení jednoho kritéria pro hodnocení nabídek zájemců o zakázku. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for setting a criterion for tender evaluation. Cardinality 0..*"@en ;
   rdfs:domain pc:AwardCriteriaCombination ;
   rdfs:range pc:CriterionWeighting ;
@@ -518,17 +518,17 @@ pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
 pc:offeredPrice a owl:FunctionalProperty ;
   rdfs:subPropertyOf gr:hasPriceSpecification ;
   rdfs:label "Nabídnutá cena v nabídce"@cs, "Offered price in tender"@en ;
-  rdfs:comment "Vlastnost pro cenu nabídnutou dodavatelem. Kardinalita 0..1"@cs ;
+  rdfs:comment "Vlastnost pro cenu nabídnutou zájemcem o zakázku. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for price offered by supplier. Cardinality 0..1"@en ;
   rdfs:domain pc:Tender ;
   rdfs:range gr:PriceSpecification ;  
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
-pc:supplier a rdf:Property ;
- rdfs:label "Dodavatel, který podal nabídku"@cs, "Tender supplier"@en ;
- rdfs:comment "Vlastnost pro dodavatele podávajícího nabídku. Kardinalita 0..1"@cs ;
- rdfs:comment "Property for supplier submitting the tender. Cardinality 0..1"@en ;
+pc:bidder a rdf:Property ;
+ rdfs:label "Zájemce o zakázku"@cs, "Tender bidder"@en ;
+ rdfs:comment "Vlastnost pro zájemce o zakázku podávajícího nabídku. Kardinalita 0..1"@cs ;
+ rdfs:comment "Property for bidder submitting the tender. Cardinality 0..1"@en ;
  rdfs:domain pc:Tender ;
  rdfs:range gr:BusinessEntity ;
  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
