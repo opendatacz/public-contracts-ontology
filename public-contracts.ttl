@@ -369,7 +369,7 @@ pc:frameworkAgreement a rdf:Property ;
   rdfs:range pc:FrameworkAgreement ; 
   rdfs:label "Na základě rámcové smlouvy"@cs, "On the base of a framework agreement"@en ;
   rdfs:comment "Vlastnost pro rámcovou smlouvu na základě byla veřejná zakázka zadána. Kardinalita 0..1"@cs ;
-  rdfs:comment "Property for a framework agreement on which base a public contract was issued. Cardinality 0..1"@cs ;
+  rdfs:comment "Property for a framework agreement on which base a public contract was issued. Cardinality 0..1"@en ;
   rdfs:isDefinedBy pc:
   .
   
