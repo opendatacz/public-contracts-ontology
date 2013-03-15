@@ -428,7 +428,7 @@ pc:actualPrice a owl:FunctionalProperty ;
   
 pc:attachment a rdf:Property ;
   rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
-  rdfs:comment "Vlastnost pro připojení ostatních příhloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
+  rdfs:comment "Vlastnost pro připojení ostatních příloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for attachment of other documents. For attachment of contract specification use pc:specification. For attachment of contract agreement use pc:agreement. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range foaf:Document ;
