@@ -428,7 +428,7 @@ pc:actualPrice a owl:FunctionalProperty ;
   
 pc:attachment a rdf:Property ;
   rdfs:label "Příloha k zakázce"@cs, "Contract attachment"@en ;
-  rdfs:comment "Vlastnost pro připojení ostatních příloh. Specifikaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
+  rdfs:comment "Vlastnost pro připojení ostatních příloh. Zadávací dokumentaci připojte pomocí pc:specification, smlouvu pomocí pc:agreement. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for attachment of other documents. For attachment of contract specification use pc:specification. For attachment of contract agreement use pc:agreement. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
   rdfs:range foaf:Document ;
@@ -437,8 +437,8 @@ pc:attachment a rdf:Property ;
   
 pc:specification a rdf:Property ;
   rdfs:subPropertyOf pc:attachment ;
-  rdfs:label "Specifikace zakázky"@cs, "Contract specification"@en ;
-  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících specifikaci veřejné zakázky. Kardinalita 0..*"@cs ;
+  rdfs:label "Zadávací dokumentace zakázky"@cs, "Contract specification"@en ;
+  rdfs:comment "Vlastnost pro připojení dokumentů obsahujících zadávací dokumentaci veřejné zakázky. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for attachment of documents containing the contract specification. Cardinality 0..*"@en ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
