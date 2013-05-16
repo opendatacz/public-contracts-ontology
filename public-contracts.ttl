@@ -121,7 +121,7 @@ pc:CriterionWeighting a owl:Class ;
 pc:TendersOpening a owl:Class ;
   rdfs:subClassOf s:Event ;
   rdfs:label "Tenders' opening"@en, "Otevírání nabídek"@cs ;
-  rdfs:description "Opening of tenders submitted for a public contract"@en, "Otevírání nabídek zaslaných pro veřejnou zakázku"@cs ;
+  rdfs:comment "Opening of tenders submitted for a public contract"@en, "Otevírání nabídek zaslaných pro veřejnou zakázku"@cs ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
 
@@ -538,7 +538,7 @@ pc:bidder a rdf:Property ;
 
 pc:contract a rdf:Property ;
   rdfs:label "Public contract"@en, "Veřejná zakázka"@cs ;
-  rdfs:description "Public contract, for which tenders are opened"@en ,
+  rdfs:comment "Public contract, for which tenders are opened"@en ,
     "Veřejná zakázka, pro níž jsou otevírány nabídky"@cs ;
   rdfs:domain pc:TendersOpening ;
   rdfs:range pc:Contract ;
