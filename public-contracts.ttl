@@ -151,7 +151,7 @@ dcterms:title vann:usageNote "Use for labelling states of public contracts (inst
 
 dcterms:description vann:usageNote "Use for attaching plain text description of public contracts (instances of pc:Contract). The domain is pc:Contract."@en .
 
-pc:contact a owl:Property ;
+pc:contact a rdf:Property ;
   rdfs:label "Kontaktní osoba"@cs, "Contact person"@en ;
   rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a zájemci o zakázku. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for contact information for a person or place responsible for a communication with the public and bidders. If there are more contact places or persons (e.g., for collecting documentation to the public contract), there is a separate contact for each person. Cardinality 0..*"@en ;
