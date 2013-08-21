@@ -501,7 +501,7 @@ pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty ;
   .
   
 pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Hlavní aktivita"@cs, "Hlavní aktivita"@en ;
+  rdfs:label "Hlavní aktivita"@cs, "Main activity"@en ;
   rdfs:comment "Vlastnost pro hlavní aktivitu zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
   rdfs:comment "Property for main activity of contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
   rdfs:domain gr:BusinessEntity ;
