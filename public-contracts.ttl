@@ -9,6 +9,7 @@
 @prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov:      <http://www.w3.org/ns/regorg#> .
 @prefix schema:   <http://schema.org/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
@@ -141,38 +142,10 @@ pc:TendersOpening a owl:Class ;
 
 ####### General rules
 
-# You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
-
 ####### gr:BusinessEntity properties
 
-pc:authorityKind a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Kind of contracting authority"@en, "Druh zadavatele"@cs ;
-  rdfs:comment "Property for a kind of a contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
-  rdfs:comment "Vlastnost pro druh zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
-  schema:domainIncludes gr:BusinessEntity ;
-  schema:rangeIncludes skos:Concept ;
-  rdfs:range [
-    a owl:Restriction ;
-    owl:onProperty skos:inScheme ;
-    owl:hasValue authkinds: 
-  ] ;
-  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
-  .
-  
-pc:mainActivity a owl:FunctionalProperty, qb:CodedProperty ;
-  rdfs:label "Main activity"@en, "Hlavní aktivita"@cs ;
-  rdfs:comment "Property for main activity of contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
-  rdfs:comment "Vlastnost pro hlavní aktivitu zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
-  schema:domainIncludes gr:BusinessEntity ;
-  schema:rangeIncludes skos:Concept ;
-  rdfs:range [
-    a owl:Restriction ;
-    owl:onProperty skos:inScheme ;
-    owl:hasValue activities: 
-  ] ;
-  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
-  .
-  
+# You can also use gr:taxID, gr:vatID, etc., for official national taxation numbers of business entities
+
 pc:profile a owl:InverseFunctionalProperty ;
   rdfs:subPropertyOf foaf:homepage ;
   rdfs:label "Profile"@en, "Profil"@cs ;
@@ -183,6 +156,26 @@ pc:profile a owl:InverseFunctionalProperty ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
+rov:orgActivity schema:domainIncludes gr:BusinessEntity ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue activities: 
+  ] ;
+  vann:usageNote "Property for main activity of contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  vann:usageNote "Vlastnost pro hlavní aktivitu zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs
+  .
+   
+rov:orgType schema:domainIncludes gr:BusinessEntity ;
+  schema:rangeIncludes [
+    a owl:Restriction ;
+    owl:onProperty skos:inScheme ;
+    owl:hasValue authkinds: 
+  ] ;
+  vann:usageNote "Property for a kind of a contracting authority. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
+  vann:usageNote "Vlastnost pro druh zadavatele. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs
+  .
+   
 ####### pc:AwardCriteriaCombination properties
 
 pc:awardCriterion a rdf:Property ;
@@ -350,8 +343,7 @@ pc:contractKind a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:comment "Kind of a public contract specifies a basic focus of the contract on works, supplies or services. Only a predefined SKOS concept can be used. Cardinality 0..1"@en ;
   rdfs:comment "Kategorie veřejné zakázky specifikuje základní zaměření veřejné zakázky na stavební práce, dodávku zboží nebo služby. Lze použít pouze jeden z předdefinovaných SKOS konceptů. Kardinalita 0..1"@cs ;
   schema:domainIncludes pc:Contract ;
-  schema:rangeIncludes skos:Concept ;
-  rdfs:range [
+  schema:rangeIncludes skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
     owl:hasValue kinds:
@@ -486,8 +478,7 @@ pc:procedureType a owl:FunctionalProperty, qb:CodedProperty ;
   rdfs:comment "Type of procedure of a public contract specifies a procedure which is applied to publish information about the contract and choose a supplier. Only a predefined value can be used. Cardinality 0..1"@en ;
   rdfs:comment "Druh řízení veřejné zakázky specifikuje proceduru, podle které je zakázka uveřejňována a podle které je vybírán dodavatel. Lze použít pouze jednu z předdefinovaných hodnot. Kardinalita 0..1"@cs ;
   schema:domainIncludes pc:Contract ;
-  schema:rangeIncludes skos:Concept ;
-  rdfs:range [
+  schema:rangeIncludes skos:Concept, [
     a owl:Restriction ;
     owl:onProperty skos:inScheme ;
     owl:hasValue proctypes: 
