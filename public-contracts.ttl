@@ -230,8 +230,8 @@ pc:publicContract a rdf:Property ;
 
 pc:publicNotice a rdf:Property ;
   rdfs:label "Public notice"@en, "Oznámení o zakázce"@cs ;
-  schema:domainIncludes pc:ContractAward ;
-  schema:rangeInclude pc:PublicNotice ;
+  schema:domainIncludes pc:ContractAward, pc:PublicContract ;
+  schema:rangeIncludes pc:PublicNotice ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
    
