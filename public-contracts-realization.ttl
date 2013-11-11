@@ -1,0 +1,50 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov:      <http://www.w3.org/ns/regorg#> .
+@prefix schema:   <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+# --- Own namespaces ------------------------------------------
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcr:         <http://purl.org/procurement/public-contracts-realization#> .
+
+####### Classes 
+
+pcr:ContractRealization a owl:Class ;
+  rdfs:subClassOf schema:Event ;
+  rdfs:label "Contract realization"@en, "Realizace zakázky"@cs ;
+  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts-realization>
+  .
+
+####### pcr:ContractRealization properties
+
+schema:endDate schema:domainIncludes pcr:ContractRealization ; 
+  vann:usageNote "Property for actual end date of public contract's realization. Cardinality 0..1"@en,
+                 "Vlastnost pro skutečné datum konce realizace zakázky. Kardinalita 0..1"@cs
+  .
+
+pcr:actualPrice a owl:FunctionalProperty ;
+  rdfs:label "Actual price"@en, "Skutečná cena"@cs ;
+  rdfs:comment "Property for actual price of the public contract. Cardinality 0..1"@en,
+               "Vlastnost pro skutečnou cenu zaplacenou za zakázku. Kardinalita 0..1"@cs ;
+  schema:domainIncludes pcr:ContractRealization ;
+  schema:rangeIncludes gr:PriceSpecification ;
+  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts-realization>
+  .
