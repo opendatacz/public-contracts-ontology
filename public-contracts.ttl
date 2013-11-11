@@ -9,7 +9,7 @@
 @prefix qb:       <http://purl.org/linked-data/cube#> .
 @prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix s:        <http://schema.org/> .
+@prefix schema:   <http://schema.org/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
 @prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
@@ -129,7 +129,7 @@ pc:Tender a owl:Class ;
   .
 
 pc:TendersOpening a owl:Class ;
-  rdfs:subClassOf s:Event ;
+  rdfs:subClassOf schema:Event ;
   rdfs:label "Tenders' opening"@en, "Otevírání nabídek"@cs ;
   rdfs:comment "Opening of tenders submitted for a public contract"@en,
                "Otevírání nabídek zaslaných pro veřejnou zakázku"@cs ;
@@ -430,12 +430,12 @@ pc:item a rdf:Property ;
   .
   
 pc:location a rdf:Property ;
-  rdfs:subPropertyOf s:location ;
+  rdfs:subPropertyOf schema:location ;
   rdfs:label "Place of contract's realization"@en, "Místo uskutečnění zakázky"@cs ;
   rdfs:comment "Place of delivery of contracted product or performance of contracted service. Cardinality 0..*"@en ;
   rdfs:comment "Místo, kde dojde k dodání produktu nebo plnění služby nasmlouvané ve veřejné zakázce. Kardinalita 0..*"@cs ;
   rdfs:domain pc:Contract ;
-  rdfs:range s:Place ;
+  rdfs:range schema:Place ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
@@ -581,7 +581,6 @@ pc:publicContract a rdf:Property ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
 
-s:location vann:usageNote "Use for location, where tenders are opened. The domain is pc:TendersOpening. Cardinality 0..1"@en,
+schema:location vann:usageNote "Use for location, where tenders are opened. The domain is pc:TendersOpening. Cardinality 0..1"@en,
   "Místo, kde dojde k otevření obálek s nabídkami pro veřejnou zakázku. Definičním oborem je pc:TendersOpening. Kardinalita 0..1"@cs
   .
-
