@@ -23,7 +23,6 @@
 @prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
 @prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
 @prefix pc:          <http://purl.org/procurement/public-contracts#> .
-@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -206,7 +205,7 @@ pc:criterionWeight a owl:FunctionalProperty ;
   rdfs:comment "Vlastnost pro specifikaci váhy kritéria pro hodnocení nabídky. Kardinalita 0..1"@cs,
                "Property for criterion weight for tender evaluation. Cardinality 0..1"@en ;
   schema:domainIncludes pc:CriterionWeighting ;
-  schema:rangeIncludes pcdt:percentage ;
+  schema:rangeIncludes pc:percentage ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
 
@@ -592,4 +591,20 @@ pc:publicContract a rdf:Property ;
 schema:location schema:domainIncludes pc:TendersOpening ;
   vann:usageNote "Use for location, where tenders are opened. Cardinality 0..1"@en,
                  "Místo, kde dojde k otevření obálek s nabídkami pro veřejnou zakázku. Kardinalita 0..1"@cs
+  .
+
+####### Datatypes
+
+pc:percentage a rdfs:Datatype ;
+  rdfs:label "Percentage"@en, "Procento"@cs ;
+  owl:onDatatype xsd:integer ;
+  owl:withRestrictions (
+    [
+      xsd:minInclusive 0 ;
+    ]
+    [
+      xsd:maxInclusive 100 ;
+    ]
+  ) ;
+  rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
