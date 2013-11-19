@@ -223,14 +223,14 @@ pc:publicContract a rdf:Property ;
   rdfs:label "public contract"@en, "veřejná zakázka"@cs ;
   rdfs:comment "Reference to public contract"@en ,
                "Odkaz na veřejnou zakázku"@cs ;
-  schema:domainIncludes pc:ContractAward, pc:TendersOpening ;
+  schema:domainIncludes pc:ContractAward ;
   schema:rangeIncludes pc:PublicContract ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
 
 pc:publicNotice a rdf:Property ;
   rdfs:label "Public notice"@en, "Oznámení o zakázce"@cs ;
-  schema:domainIncludes pc:ContractAward, pc:PublicContract ;
+  schema:domainIncludes pc:ContractAward, pc:PublicContract, pc:TendersOpening ;
   schema:rangeIncludes pc:PublicNotice ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
