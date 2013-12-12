@@ -56,19 +56,19 @@ pccz:LimitScheme a skos:ConceptScheme
   .
   
 pccz:SmallAmount a skos:Concept ;
-  skos:inScheme pc:LimitScheme ;
+  skos:inScheme pccz:LimitScheme ;
   skos:prefLabel "Veřejná zakázka malého rozsahu"@cs, "Public contract for small amount"@en ;
   rdfs:isDefinedBy pccz:
   .
 
 pccz:UnderLimit a skos:Concept ;
-  skos:inScheme pc:LimitScheme ;
+  skos:inScheme pccz:LimitScheme ;
   skos:prefLabel "Podlimitní veřejná zakázka"@cs, "Public contract under the limit"@en ;
   rdfs:isDefinedBy pccz:
   .
 
 pccz:AboveLimit a skos:Concept ;
-  skos:inScheme pc:LimitScheme ;
+  skos:inScheme pccz:LimitScheme ;
   skos:prefLabel "Nadlimitní veřejná zakázka"@cs, "Public contract above the limit"@en ;
   rdfs:isDefinedBy pccz: .
   
