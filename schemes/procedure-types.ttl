@@ -8,7 +8,8 @@
 
 proctypes: a skos:ConceptScheme ; 
   skos:hasTopConcept proctypes:Open, proctypes:Restricted,
-    proctypes:Negotiated, proctypes:CompetitiveDialogue ;
+    proctypes:Negotiated, proctypes:CompetitiveDialogue,
+    proctypes:AwardWithoutPriorPublication ;
   rdfs:label "Schéma konceptů pro druh řízení veřejné zakázky"@cs ,
     "Concept scheme for description of procedure types for public contracts"@en ;
   .
@@ -60,5 +61,11 @@ proctypes:CompetitiveDialogue a skos:Concept ;
   skos:prefLabel "Soutěžní dialog"@cs, "Competition dialogue"@en ;
   skos:definition "Soutěžní dialog jako typ řízení veřejné zakázky"@cs ,
     "Competitive dialogue is the procedure type of public contract"@en ;
+  skos:topConceptOf proctypes:
+  .
+
+proctypes:AwardWithoutPriorPublication a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Award without prior publication"@en, "Jednací řízení bez uveřejnění"@cs ;
   skos:topConceptOf proctypes:
   .
