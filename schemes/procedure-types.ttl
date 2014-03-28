@@ -42,9 +42,11 @@ proctypes:AcceleratedRestricted a skos:Concept ;
 proctypes:Negotiated a skos:Concept ;
   skos:inScheme proctypes: ;
   skos:prefLabel "Vyjednávací"@cs, "Negotiated"@en ;
-  skos:definition "Vyjednávací řízení veřejné zakázky s výzvou k účasti v soutěži"@cs ,
+  skos:definition "Vyjednávací řízení veřejné zakázky"@cs ,
     "Negotiated procedure type of public contract"@en ;
-  skos:narrower proctypes:AcceleratedNegotiated ;
+  skos:narrower proctypes:AcceleratedNegotiated ,
+    proctypes:NegotiatedWithCompetition ,
+    proctypes:NegotiatedWithoutCompetition
   skos:topConceptOf proctypes:
   .
 
@@ -53,6 +55,22 @@ proctypes:AcceleratedNegotiated a skos:Concept ;
   skos:prefLabel "Urychlené vyjednávací"@cs, "Accelerated negotiated"@en ;
   skos:definition "Urychlené vyjednávací řízení veřejné zakázky"@cs ,
     "Accelerated negotiated procedure type of public contract"@en ;
+  skos:broader proctypes:Negotiated
+  .
+  
+proctypes:NegotiatedWithCompetition a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Vyjednávací s výzvou k účasti v soutěži"@cs, "Negotiated with competition"@en ;
+  skos:definition "Vyjednávací s výzvou k účasti v soutěži jako typ řízení veřejné zakázky"@cs ,
+    "Negotiated with competition procedure type of public contract"@en ;
+  skos:broader proctypes:Negotiated
+  .
+  
+proctypes:NegotiatedWithoutCompetition a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel "Vyjednávací bez výzvy k účasti v soutěži"@cs, "Negotiated without competition"@en ;
+  skos:definition "Vyjednávací řízení bez výzvy k účasti v soutěži jako typ řízení veřejné zakázky"@cs ,
+    "Negotiated without competition procedure type of public contract"@en ;
   skos:broader proctypes:Negotiated
   .
 
@@ -66,6 +84,7 @@ proctypes:CompetitiveDialogue a skos:Concept ;
 
 proctypes:AwardWithoutPriorPublication a skos:Concept ;
   skos:inScheme proctypes: ;
-  skos:prefLabel "Award without prior publication"@en, "Jednací řízení bez uveřejnění"@cs ;
+  skos:prefLabel "Award without prior publication"@en, "Zjednodušené podlimitní"@cs ;
+  skos:altLabel "Jednací řízení bez uveřejnění"@cs
   skos:topConceptOf proctypes:
   .
