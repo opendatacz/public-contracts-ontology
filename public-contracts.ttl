@@ -12,7 +12,6 @@
 @prefix s:        <http://schema.org/> .
 @prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
 @prefix vann:     <http://purl.org/vocab/vann/> .
-@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
 
 # --- Own namespaces ------------------------------------------
@@ -156,7 +155,7 @@ pc:contact a rdf:Property ;
   rdfs:comment "Vlastnost pro kontaktní údaje na místo nebo osobu určenou pro komunikaci s veřejností a zájemci o zakázku. Pokud je kontaktních míst či osob více (např. pro vyzvednutí dokumentace k veřejné zakázce), je pro každou uveden samostatný kontakt. Kardinalita 0..*"@cs ;
   rdfs:comment "Property for contact information for a person or place responsible for a communication with the public and bidders. If there are more contact places or persons (e.g., for collecting documentation to the public contract), there is a separate contact for each person. Cardinality 0..*"@en ;
   rdfs:domain pc:Contract ;
-  rdfs:range vcard:VCard ;
+  rdfs:range schema:ContactPoint ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
 
@@ -483,7 +482,7 @@ pc:profile a owl:InverseFunctionalProperty ;
   rdfs:comment "Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL). Kardinalita 0..1"@cs ;
   rdfs:comment "Property for the internet address of the profile of contracting authority (URL). Cardinality 0..1"@en ;
   rdfs:domain gr:BusinessEntity ;
-  rdfs:range rdf:Resource ;
+  rdfs:range xsd:anyURI ;
   rdfs:isDefinedBy <http://purl.org/procurement/public-contracts>
   .
   
