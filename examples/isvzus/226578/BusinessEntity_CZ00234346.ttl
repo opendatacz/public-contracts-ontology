@@ -1,0 +1,53 @@
+@prefix adms:     <http://www.w3.org/ns/adms#> .
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix irw:      <http://www.ontologydesignpatterns.org/ont/web/irw.owl#> .
+@prefix loted:    <http://loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix s:        <http://schema.org/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> . 
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix activities:  <http://purl.org/procurement/public-contracts-activities#> .
+@prefix authkinds:   <http://purl.org/procurement/public-contracts-authority-kinds#> .
+@prefix kinds:       <http://purl.org/procurement/public-contracts-kinds#> .
+@prefix proctypes:   <http://purl.org/procurement/public-contracts-procedure-types#> .
+@prefix criteria:    <http://purl.org/procurement/public-contracts-criteria#> .
+@prefix pc:          <http://purl.org/procurement/public-contracts#> .
+@prefix pcdt:        <http://purl.org/procurement/public-contracts-datatypes#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+
+<http://ld.opendata.cz/resource/business-entity/CZ00234346>
+  a gr:BusinessEntity;
+  rdfs:label "Obec Dřínov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dc:title "Obec Dřínov"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  adms:identifier <http://ld.opendata.cz/resource/business-entity/CZ00234346/identifier/1> ;
+  s:address <http://ld.opendata.cz/resource/business-entity/CZ00234346/postal-address/1> ;
+  foaf:page <http://www.obec-drinov.cz/>  ;
+  pc:authorityKind authkinds:LocalAuthority ;
+  pc:mainActivity activities:GeneralServicesActivity
+  .
+  
+<http://ld.opendata.cz/resource/business-entity/CZ00234346/identifier/1>
+  a adms:Identifier ; 
+  skos:notation "00234346"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  dcterms:creator <http://ld.opendata.cz/resource/business-entity/CZ00025593> ;
+  adms:schemeAgency "Český statistický úřad"
+  .
+  
+<http://ld.opendata.cz/resource/business-entity/CZ00234346/postal-address/1>
+  a s:PostalAddress ;
+  s:streetAddress "Dřínov 28"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressLocality "Zlonice"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:postalCode "27371"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  s:addressCountry "CZ"^^<http://www.w3.org/2001/XMLSchema#string>
+  .

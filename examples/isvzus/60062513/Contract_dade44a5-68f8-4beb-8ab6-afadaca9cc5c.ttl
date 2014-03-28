@@ -1,0 +1,58 @@
+@prefix c4n:      <http://vocab.deri.ie/c4n#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix gr:       <http://purl.org/goodrelations/v1#> .
+@prefix loted:    <http://www.loted.eu/ontology#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix payment:  <http://reference.data.gov.uk/def/payment#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix vcard:    <http://www.w3.org/2006/vcard-class/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix pc:       <http://purl.org/procurement/public-contracts#> .
+@prefix pccz:     <http://purl.org/procurement/public-contracts-czech#> .
+@prefix pceu:     <http://purl.org/procurement/public-contracts-eu#> .
+@prefix pcdt:     <http://purl.org/procurement/public-contracts-datatypes#> .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/vcard-class/1>
+  a vcard:VCard ;
+  vcard:note "Oddělení právních věcí"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) Kontaktní místo
+  vcard:fn "Mgr. Kateřina Plocová"^^<http://www.w3.org/2001/XMLSchema#string> ; # I.1) K rukám
+  vcard:email <mailto:katerina.plocova@fnbrno.cz> ; # I.1) E-mail
+  vcard:tel [ # I.1) Tel.
+    a vcard:Work ;
+    rdf:value "+420532233743"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] ;
+  vcard:tel [ # I.1) Fax
+    a vcard:Fax ;
+    rdf:value "+420532233807"^^<http://www.w3.org/2001/XMLSchema#string> 
+  ] .
+
+<http://ld.opendata.cz/resource/isvzus.cz/contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c>
+  a pc:Contract ;
+  pc:contact <http://ld.opendata.cz/resource/isvzus.cz/contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/vcard-class/1> ; # Oddíl 1
+  pc:contractingAuthority <http://ld.opendata.cz/resource/business-entity/218a47cb-fde3-466f-8c52-6af38e817492> ; # Oddíl 1
+  dcterms:title "Antivirotika"^^<http://www.w3.org/2001/XMLSchema#string> ; # Oddíl 4 
+  rdfs:label "Antivirotika"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:referenceNumber "Část č. 1"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  pc:onBaseOfFrameworkAgreement <http://ld.opendata.cz/resource/isvzus.cz/framework-agreement/60062513> ; # Oddíl 2 (Zadání zakázky se týká konkrétního lotu rámcové smlouvy, ale nelze to automaticky navázat. Takže tu je jen link na rámcovou smlouvu jako takovou.)
+  pc:numberOfTenders "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> ; # Oddíl 4
+  pc:awardedTender <http://ld.opendata.cz/resource/isvzus.cz/public-contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/tender/1> ; # Oddil 4
+  pc:awardDate "2011-11-03"^^<http://www.w3.org/2001/XMLSchema#date> ; # Oddíl 4
+  pc:notice <http://ld.opendata.cz/resource/isvzus.cz/contract-award-notice/7254010006970>
+  .
+  
+<http://ld.opendata.cz/resource/isvzus.cz/public-contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/tender/1>
+  a pc:Tender ;
+  pc:agreedPrice <http://ld.opendata.cz/resource/isvzus.cz/public-contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/tender/1/price-specification/1> ; # Oddíl 4. V tomto případě jde o rámcovou smlouvu a cena je už finální a odsouhlasená
+  pc:supplier <http://ld.opendata.cz/resource/business-entity/CZ19010290> # Oddíl 4. Funny - najednou se objevilo IČ dodavatele!!!
+  .
+
+<http://ld.opendata.cz/resource/isvzus.cz/public-contract/dade44a5-68f8-4beb-8ab6-afadaca9cc5c/tender/1/price-specification/1>
+  gr:hasCurrency "CZK" ;
+  gr:hasCurrencyValue "65868"^^<http://www.w3.org/2001/XMLSchema#double> ;
+  gr:valueAddedTaxIncluded "false"^^<http://www.w3.org/2001/XMLSchema#boolean>
+  .
