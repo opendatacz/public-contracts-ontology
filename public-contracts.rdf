@@ -495,8 +495,7 @@
       </owl:Restriction>
     </rdfs:range>
   </owl:FunctionalProperty>
-  <owl:InverseFunctionalProperty rdf:about="http://purl.org/procurement/public-contracts#profile">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+  <owl:DatatypeProperty rdf:about="http://purl.org/procurement/public-contracts#profile">
     <rdfs:comment xml:lang="en">Property for the internet address of the profile of contracting authority (URL). Cardinality 0..1</rdfs:comment>
     <rdfs:comment xml:lang="cs">Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL). Kardinalita 0..1</rdfs:comment>
     <rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
@@ -505,7 +504,7 @@
     <rdfs:label xml:lang="cs">Profilová stránka zadavatele</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
     <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/homepage"/>
-  </owl:InverseFunctionalProperty>
+  </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://purl.org/procurement/public-contracts#specification">
     <rdfs:comment xml:lang="en">Property for attachment of documents containing the contract specification. Cardinality 0..*</rdfs:comment>
     <rdfs:comment xml:lang="cs">Vlastnost pro připojení dokumentů obsahujících zadávací dokumentaci veřejné zakázky. Kardinalita 0..*</rdfs:comment>
