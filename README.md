@@ -2,7 +2,7 @@
 
 The Public Contracts Ontology serves to express structured data about public contracts in RDF, in a machine-readable format. It is developed by the Czech [OpenData.cz](http://www.opendata.cz/) initiative.
 
-![Public Contracts Ontology logo](https://raw.githubusercontent.com/opendatacz/public-contracts-ontology/master/logo/public-contracts.png)
+<img align="right" src="https://raw.githubusercontent.com/opendatacz/public-contracts-ontology/master/logo/public-contracts.png" alt="Public Contracts Ontology logo"/>
 
 ## Design
 
