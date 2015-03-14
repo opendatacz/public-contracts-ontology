@@ -18,7 +18,7 @@ The ontology is licenced under the terms of [Creative Commons By 3.0 licence](ht
 
 ## Cookbook
 
-A detailed cookbook containing recommendations on data modelling or linking is available in the project wiki.
+A detailed cookbook containing recommendations on data modelling or linking is available in the [project wiki](https://github.com/opendatacz/public-contracts-ontology/blob/wiki/Cookbook.md).
 
 ## Report
 
