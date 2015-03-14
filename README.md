@@ -2,6 +2,8 @@
 
 The Public Contracts Ontology serves to express structured data about public contracts in RDF, in a machine-readable format. It is developed by the Czech [OpenData.cz](http://www.opendata.cz/) initiative.
 
+![Public Contracts Ontology logo](https://raw.githubusercontent.com/opendatacz/public-contracts-ontology/master/logo/public-contracts.png)
+
 ## Design
 
 In the group, we have examined the existing RDF vocabularies and ontologies, such as [GoodRelations](http://purl.org/goodrelations/v1.html) or [Payments Ontology](http://data.gov.uk/resources/payments), but we have not found a suitable one for expressing structured data about public contracts. Thus, we set forth to create a new ontology that maps to the available vocabularies. The design of the Public Contracts Ontology was informed by the work of others, both ontologies and vocabularies of RDF and non-RDF origin. Its design strives to align it with other related projects, for example, in adopting established terminology for naming or re-using existing components.
