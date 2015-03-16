@@ -503,7 +503,6 @@
     <rdfs:label xml:lang="en">Profile web site of contracting authority</rdfs:label>
     <rdfs:label xml:lang="cs">Profilová stránka zadavatele</rdfs:label>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
-    <rdfs:subPropertyOf rdf:resource="http://xmlns.com/foaf/0.1/homepage"/>
   </owl:DatatypeProperty>
   <owl:ObjectProperty rdf:about="http://purl.org/procurement/public-contracts#specification">
     <rdfs:comment xml:lang="en">Property for attachment of documents containing the contract specification. Cardinality 0..*</rdfs:comment>

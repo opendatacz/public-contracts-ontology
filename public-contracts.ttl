@@ -477,7 +477,6 @@ pc:expectedNumberOfOperators a owl:FunctionalProperty, owl:ObjectProperty ;
 ####### gr:BusinessEntity properties
 
 pc:profile a owl:DatatypeProperty ;
-  rdfs:subPropertyOf foaf:homepage ;
   rdfs:label "Profilová stránka zadavatele"@cs, "Profile web site of contracting authority"@en ;
   rdfs:comment "Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL). Kardinalita 0..1"@cs ;
   rdfs:comment "Property for the internet address of the profile of contracting authority (URL). Cardinality 0..1"@en ;
