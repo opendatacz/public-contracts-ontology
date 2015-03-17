@@ -496,8 +496,8 @@
     </rdfs:range>
   </owl:FunctionalProperty>
   <owl:DatatypeProperty rdf:about="http://purl.org/procurement/public-contracts#profile">
-    <rdfs:comment xml:lang="en">Property for the internet address of the profile of contracting authority (URL). Cardinality 0..1</rdfs:comment>
-    <rdfs:comment xml:lang="cs">Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL). Kardinalita 0..1</rdfs:comment>
+    <rdfs:comment xml:lang="en">Property for the internet address of the profile of contracting authority (URL).</rdfs:comment>
+    <rdfs:comment xml:lang="cs">Vlastnost pro internetovou adresu profilové stránky zadavatele veřejných zakázek (URL).</rdfs:comment>
     <rdfs:domain rdf:resource="http://purl.org/goodrelations/v1#BusinessEntity"/>
     <rdfs:isDefinedBy rdf:resource="http://purl.org/procurement/public-contracts"/>
     <rdfs:label xml:lang="en">Profile web site of contracting authority</rdfs:label>
