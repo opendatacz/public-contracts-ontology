@@ -88,3 +88,11 @@ proctypes:AwardWithoutPriorPublication a skos:Concept ;
   skos:altLabel "Jednací řízení bez uveřejnění"@cs
   skos:topConceptOf proctypes:
   .
+  
+proctypes:Special a skos:Concept ;
+  skos:inScheme proctypes: ;
+  skos:prefLabel ""@cs, "Special procedure"@en ;
+  skos:definition ""@cs ,
+    "Procedure which cannot be classified within other procedure types"@en ;
+  skos:topConceptOf proctypes:
+  .
