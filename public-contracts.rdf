@@ -67,8 +67,8 @@
     <dcterms:title xml:lang="en">Public Contracts Ontology</dcterms:title>
     <vann:preferredNamespacePrefix>pc</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>http://purl.org/procurement/public-contracts#</vann:preferredNamespaceUri>
-    <rdfs:seeAlso rdf:resource="http://code.google.com/p/public-contracts-ontology/"/>
     <rdfs:seeAlso rdf:resource="http://prefix.cc/pc"/>
+    <rdfs:seeAlso rdf:resource="https://github.com/opendatacz/public-contracts-ontology"/>
   </owl:Ontology>
   <owl:Class rdf:about="http://purl.org/procurement/public-contracts#AwardCriteriaCombination">
     <rdfs:comment xml:lang="en">Class for description of criteria combination used for tender evaluation</rdfs:comment>

@@ -41,7 +41,7 @@
     <http://www.facebook.com/nohis>,
     <http://keg.vse.cz/resource/person/josef-petrak>,
     <http://keg.vse.cz/resource/person/vojtech-svatek> ;
-  rdfs:seeAlso <http://code.google.com/p/public-contracts-ontology/>, <http://prefix.cc/pc> ;
+  rdfs:seeAlso <https://github.com/opendatacz/public-contracts-ontology>, <http://prefix.cc/pc> ;
   dcterms:rights <http://creativecommons.org/licenses/by/3.0/cz/> .
 
 # --- Ontology authors  ---------------------------------------
