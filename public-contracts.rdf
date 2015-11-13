@@ -52,9 +52,9 @@
     <foaf:name>Tomáš Knap</foaf:name>
   </foaf:Person>
   <owl:Ontology rdf:about="http://purl.org/procurement/public-contracts">
-    <dcterms:creator rdf:resource="http://keg.vse.cz/resource/person/jindrich-mynarz"/>
     <dcterms:creator rdf:resource="http://keg.vse.cz/resource/person/josef-petrak"/>
     <dcterms:creator rdf:resource="http://keg.vse.cz/resource/person/vojtech-svatek"/>
+    <dcterms:creator rdf:resource="http://mynarz.net/#jindrich"/>
     <dcterms:creator rdf:resource="http://purl.org/klimek#me"/>
     <dcterms:creator rdf:resource="http://purl.org/knap#me"/>
     <dcterms:creator rdf:resource="http://www.facebook.com/nohis"/>

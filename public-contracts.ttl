@@ -36,7 +36,7 @@
   vann:preferredNamespacePrefix "pc" ;
   dcterms:creator <http://purl.org/klimek#me>,
     <http://purl.org/knap#me>,
-    <http://keg.vse.cz/resource/person/jindrich-mynarz>,
+    <http://mynarz.net/#jindrich>,
     <http://www.ksi.mff.cuni.cz/~necasky>,
     <http://www.facebook.com/nohis>,
     <http://keg.vse.cz/resource/person/josef-petrak>,
