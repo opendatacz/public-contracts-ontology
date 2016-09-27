@@ -46,7 +46,7 @@ proctypes:Negotiated a skos:Concept ;
     "Negotiated procedure type of public contract"@en ;
   skos:narrower proctypes:AcceleratedNegotiated ,
     proctypes:NegotiatedWithCompetition ,
-    proctypes:NegotiatedWithoutCompetition
+    proctypes:NegotiatedWithoutCompetition ;
   skos:topConceptOf proctypes:
   .
 
@@ -85,6 +85,6 @@ proctypes:CompetitiveDialogue a skos:Concept ;
 proctypes:AwardWithoutPriorPublication a skos:Concept ;
   skos:inScheme proctypes: ;
   skos:prefLabel "Award without prior publication"@en, "Zjednodušené podlimitní"@cs ;
-  skos:altLabel "Jednací řízení bez uveřejnění"@cs
+  skos:altLabel "Jednací řízení bez uveřejnění"@cs ;
   skos:topConceptOf proctypes:
   .
