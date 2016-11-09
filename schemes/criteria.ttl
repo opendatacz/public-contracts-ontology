@@ -7,25 +7,62 @@
 ####### Concept scheme of weighted award criteria of public contracts
 
 criteria: a skos:ConceptScheme ;
-  skos:hasTopConcept criteria:Price ;
-  rdfs:label "Schéma konceptů pro vážená kritéria veřejných zakázek"@cs ,
-    "Concept scheme of weighted award criteria of public contracts"@en
-  .
+  rdfs:label "Concept scheme of weighted award criteria of public contracts"@en,
+             "Schéma konceptů pro vážená kritéria veřejných zakázek"@cs ;
+  skos:hasTopConcept criteria:DeliveryTime, criteria:MostEconomicallyAdvantageousTender,
+                     criteria:Price, criteria:Quality, criteria:Sanctions, criteria:Servicing,
+                     criteria:Warranty .
 
 criteria:Price a skos:Concept ;
+  skos:prefLabel "Criterion related to a price of a public contract"@en,
+                 "Kritérium týkající se ceny veřejné zakázky"@cs ;
+  skos:narrower criteria:LowestPrice ;
   skos:inScheme criteria: ;
-  skos:prefLabel "Kritérium týkající se ceny veřejné zakázky"@cs, "Criterion related to a price of a public contract"@en ;
-  skos:topConceptOf criteria:
-  .
+  skos:topConceptOf criteria: .
   
-criteria:LowestPrice a skos:Concept ;
+criteria:MostEconomicallyAdvantageousTender a skos:Concept ;
+  skos:prefLabel "Most economically advantageous tender"@en, "Hospodářsky nejvýhodnější nabídka"@cs ;
   skos:inScheme criteria: ;
-  skos:prefLabel "Nejnižší cena"@cs, "Lowest price"@en ;
-  skos:broader criteria:Price
-  .
+  skos:topConceptOf criteria: .
+
+criteria:LowestPrice a skos:Concept ;
+  skos:prefLabel "Lowest price"@en, "Nejnižší cena"@cs ;
+  skos:broader criteria:Price ;
+  skos:inScheme criteria: .
+
+criteria:Quality a skos:Concept ;
+  skos:inScheme "Quality"@en, "Kvalita"@cs ;
+  skos:narrower criteria:TechnicalQuality ;
+  skos:inScheme criteria: ;
+  skos:topConceptOf criteria: .
 
 criteria:TechnicalQuality a skos:Concept ;
-  skos:inScheme criteria: ;
-  skos:prefLabel "Technická kvalita"@cs, "Technical quality"@en ;
-  skos:topConceptOf criteria:
-  .
+  skos:prefLabel "Technical quality"@en, "Technická kvalita"@cs ;
+  skos:broader criteria:Quality ;
+  skos:inScheme criteria: .
+
+criteria:Warranty a skos:Concept ;
+  skos:prefLabel "Warranty"@cs, "Záruka"@cs ;
+  skos:narrower criteria:WarrantyDuration ;
+  skos:topConceptOf criteria: ;
+  skos:inScheme criteria: .
+
+criteria:WarrantyDuration a skos:Concept ;
+  skos:prefLabel "Warranty duration"@en, "Délka záruky"@cs ;
+  skos:broader criteria:Warranty ;
+  skos:inScheme criteria: .
+
+criteria:DeliveryTime a skos:Concept ;
+  skos:prefLabel "Delivery time"@en, "Termín dodání"@cs ;
+  skos:topConceptOf criteria: ;
+  skos:inScheme criteria: .
+
+criteria:Servicing a skos:Concept ;
+  skos:prefLabel "Servicing"@en, "Servis"@cs ;
+  skos:topConceptOf criteria: ;
+  skos:inScheme criteria: .
+
+criteria:Sanctions a skos:Concept ;
+  skos:prefLabel "Sanctions"@en, "Sankce"@cs ;
+  skos:topConceptOf criteria: ;
+  skos:inScheme criteria: .
