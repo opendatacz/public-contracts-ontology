@@ -14,6 +14,7 @@
 
 @prefix pc:        <http://purl.org/procurement/public-contracts#> .
 @prefix pccz:      <http://purl.org/procurement/public-contracts-czech#> .
+@prefix proctypes: <http://purl.org/procurement/public-contracts-procedure-types#> .
 
 # --- Ontology metadata ---------------------------------------
 
@@ -79,6 +80,18 @@ pccz:SimplifiedUnderLimit a skos:Concept ;
   skos:prefLabel "Zjednodušené podlimitní"@cs, "Simplified under limit"@en ;
   rdfs:isDefinedBy pccz: .
 
+pccz:NegotiatedWithoutPublication a skos:Concept ;
+  skos:prefLabel "Jednací řízení bez uveřejnění"@cs ;
+  skos:broader proctypes:Negotiated ;
+  rdfs:seeAlso <http://www.zakonyprolidi.cz/cs/2006-137#p34> ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:isDefinedBy pccz: .
+
+pccz:InnovationPartnership a skos:Concept ;
+  skos:prefLabel "Řízení o inovačním partnerství"@cs ;
+  rdfs:seeAlso <https://www.zakonyprolidi.cz/cs/2016-134#f5805031> ;
+  skos:inScheme pc:ProcedureTypeScheme ;
+  rdfs:isDefinedBy pccz: .
 
 ########
 ######## Properties
