@@ -36,7 +36,7 @@ We use the following prefixes in the cookbook:
 
 ## Ontology diagram ##
 
-![http://public-contracts-ontology.googlecode.com/hg/diagrams/public-contracts-uml.png](http://public-contracts-ontology.googlecode.com/hg/diagrams/public-contracts-uml.png)
+![https://github.com/opendatacz/public-contracts-ontology/raw/master/diagrams/public-contracts-uml.png](https://github.com/opendatacz/public-contracts-ontology/raw/master/diagrams/public-contracts-uml.png)
 
 ## Resources covered ##
 
